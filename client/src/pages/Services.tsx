@@ -280,23 +280,68 @@ export default function Services() {
                   </ul>
                 </div>
 
-                <div className="flex items-center justify-between pt-4 border-t">
-                  <div>
-                    <p className="text-sm text-muted-foreground mb-1">Preis</p>
-                    <p className="text-2xl font-medium text-primary">
-                      {selectedTreatment.price}
-                    </p>
+                {selectedTreatment.id === "laser" ? (
+                  <div className="pt-4 border-t space-y-4">
+                    <div>
+                      <h3 className="font-medium text-lg mb-4">Preisübersicht</h3>
+                      <div className="space-y-3">
+                        <div className="flex justify-between items-center p-3 rounded-lg bg-muted/30">
+                          <span className="text-muted-foreground">Gesicht</span>
+                          <span className="font-medium text-primary text-lg">300€</span>
+                        </div>
+                        <div className="flex justify-between items-center p-3 rounded-lg bg-muted/30">
+                          <span className="text-muted-foreground">Gesicht + Hals</span>
+                          <span className="font-medium text-primary text-lg">350€</span>
+                        </div>
+                        <div className="flex justify-between items-center p-3 rounded-lg bg-muted/30">
+                          <span className="text-muted-foreground">Gesicht + Hals + Dekolleté</span>
+                          <span className="font-medium text-primary text-lg">350€</span>
+                        </div>
+                        <div className="flex justify-between items-center p-3 rounded-lg bg-muted/30">
+                          <span className="text-muted-foreground">Hände (Handrücken)</span>
+                          <span className="font-medium text-primary text-lg">100€</span>
+                        </div>
+                        <div className="flex justify-between items-center p-3 rounded-lg bg-muted/30">
+                          <span className="text-muted-foreground">Hände + Arme bis zum Ellbogen</span>
+                          <span className="font-medium text-primary text-lg">350€</span>
+                        </div>
+                        <div className="flex justify-between items-center p-3 rounded-lg bg-muted/30">
+                          <span className="text-muted-foreground">Oberarme (vom Ellbogen bis zur Schulter)</span>
+                          <span className="font-medium text-primary text-lg">350€</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex justify-end">
+                      <Button
+                        size="lg"
+                        className="bg-[#25D366] hover:bg-[#20BA5A] text-white border-[#20BA5A]"
+                        asChild
+                      >
+                        <a href="https://wa.me/491709287722" target="_blank" rel="noopener noreferrer">
+                          Termin buchen
+                        </a>
+                      </Button>
+                    </div>
                   </div>
-                  <Button
-                    size="lg"
-                    className="bg-[#25D366] hover:bg-[#20BA5A] text-white border-[#20BA5A]"
-                    asChild
-                  >
-                    <a href="https://wa.me/491709287722" target="_blank" rel="noopener noreferrer">
-                      Termin buchen
-                    </a>
-                  </Button>
-                </div>
+                ) : (
+                  <div className="flex items-center justify-between pt-4 border-t">
+                    <div>
+                      <p className="text-sm text-muted-foreground mb-1">Preis</p>
+                      <p className="text-2xl font-medium text-primary">
+                        {selectedTreatment.price}
+                      </p>
+                    </div>
+                    <Button
+                      size="lg"
+                      className="bg-[#25D366] hover:bg-[#20BA5A] text-white border-[#20BA5A]"
+                      asChild
+                    >
+                      <a href="https://wa.me/491709287722" target="_blank" rel="noopener noreferrer">
+                        Termin buchen
+                      </a>
+                    </Button>
+                  </div>
+                )}
               </div>
             </>
           )}
