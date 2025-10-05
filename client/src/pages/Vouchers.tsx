@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -14,8 +14,9 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
-import PayPalButton from "@/components/PayPalButton";
-import { Gift, Mail, Truck } from "lucide-react";
+import VoucherPayPalButton from "@/components/VoucherPayPalButton";
+import { Gift, Mail, Truck, CheckCircle2, AlertCircle } from "lucide-react";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 const voucherFormSchema = z.object({
   amount: z.string().refine((val) => !isNaN(Number(val)) && Number(val) > 0, {
@@ -28,14 +29,51 @@ const voucherFormSchema = z.object({
   buyerName: z.string().min(2, "Name muss mindestens 2 Zeichen lang sein"),
   buyerEmail: z.string().email("Ungültige E-Mail-Adresse"),
   message: z.string().optional(),
-});
+}).refine(
+  (data) => {
+    if (data.deliveryMethod === "digital") {
+      return !!data.recipientEmail && data.recipientEmail.length > 0;
+    }
+    return true;
+  },
+  {
+    message: "E-Mail-Adresse ist erforderlich für digitale Gutscheine",
+    path: ["recipientEmail"],
+  }
+).refine(
+  (data) => {
+    if (data.deliveryMethod === "postal") {
+      return !!data.recipientAddress && data.recipientAddress.length > 0;
+    }
+    return true;
+  },
+  {
+    message: "Adresse ist erforderlich für postalische Gutscheine",
+    path: ["recipientAddress"],
+  }
+);
 
 type VoucherFormData = z.infer<typeof voucherFormSchema>;
 
 export default function Vouchers() {
-  const [step, setStep] = useState<"form" | "payment">("form");
+  const [step, setStep] = useState<"form" | "payment" | "success">("form");
   const [voucherId, setVoucherId] = useState<string | null>(null);
+  const [paypalAvailable, setPaypalAvailable] = useState<boolean | null>(null);
+  const [paymentError, setPaymentError] = useState<string | null>(null);
   const { toast } = useToast();
+
+  useEffect(() => {
+    const checkPayPal = async () => {
+      try {
+        const response = await fetch("/setup");
+        const data = await response.json();
+        setPaypalAvailable(!data.error);
+      } catch {
+        setPaypalAvailable(false);
+      }
+    };
+    checkPayPal();
+  }, []);
 
   const form = useForm<VoucherFormData>({
     resolver: zodResolver(voucherFormSchema),
@@ -292,7 +330,7 @@ export default function Vouchers() {
                 </CardContent>
               </Card>
             </div>
-          ) : (
+          ) : step === "payment" ? (
             <div className="max-w-2xl mx-auto">
               <Card>
                 <CardHeader>
@@ -307,17 +345,56 @@ export default function Vouchers() {
                       </div>
                     </div>
 
-                    <div className="text-center text-sm text-muted-foreground mb-4">
-                      Bezahlen Sie sicher mit PayPal, Klarna oder Kreditkarte
-                    </div>
+                    {paymentError && (
+                      <Alert variant="destructive">
+                        <AlertCircle className="h-4 w-4" />
+                        <AlertTitle>Fehler</AlertTitle>
+                        <AlertDescription>{paymentError}</AlertDescription>
+                      </Alert>
+                    )}
 
-                    <div className="flex justify-center">
-                      <PayPalButton
-                        amount={form.getValues("amount")}
-                        currency="EUR"
-                        intent="CAPTURE"
-                      />
-                    </div>
+                    {paypalAvailable === false && (
+                      <Alert>
+                        <AlertCircle className="h-4 w-4" />
+                        <AlertTitle>Zahlung derzeit nicht verfügbar</AlertTitle>
+                        <AlertDescription>
+                          Die Online-Zahlung ist momentan nicht verfügbar. Bitte kontaktieren Sie uns direkt über WhatsApp, um Ihren Gutschein zu bestellen.
+                        </AlertDescription>
+                      </Alert>
+                    )}
+
+                    {paypalAvailable === true && voucherId && (
+                      <>
+                        <div className="text-center text-sm text-muted-foreground mb-4">
+                          Bezahlen Sie sicher mit PayPal, Klarna oder Kreditkarte
+                        </div>
+
+                        <div className="flex justify-center">
+                          <VoucherPayPalButton
+                            amount={form.getValues("amount")}
+                            currency="EUR"
+                            intent="CAPTURE"
+                            voucherId={voucherId}
+                            onSuccess={() => {
+                              setStep("success");
+                              toast({
+                                title: "Zahlung erfolgreich!",
+                                description: "Ihr Gutschein wurde erfolgreich gekauft.",
+                              });
+                            }}
+                            onError={(error) => {
+                              setPaymentError(error);
+                            }}
+                          />
+                        </div>
+                      </>
+                    )}
+
+                    {paypalAvailable === null && (
+                      <div className="text-center text-muted-foreground">
+                        Zahlungsoptionen werden geladen...
+                      </div>
+                    )}
 
                     <Button
                       variant="outline"
@@ -326,6 +403,38 @@ export default function Vouchers() {
                       data-testid="button-back-to-form"
                     >
                       Zurück zum Formular
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          ) : (
+            <div className="max-w-2xl mx-auto">
+              <Card>
+                <CardContent className="pt-12 pb-12">
+                  <div className="text-center space-y-6">
+                    <div className="flex justify-center">
+                      <CheckCircle2 className="h-16 w-16 text-green-500" />
+                    </div>
+                    <div>
+                      <h2 className="font-serif text-3xl font-light mb-4">
+                        Vielen Dank für Ihren Kauf!
+                      </h2>
+                      <p className="text-muted-foreground">
+                        Ihr Gutschein wurde erfolgreich erstellt und wird in Kürze {form.getValues("deliveryMethod") === "digital" ? "per E-Mail versandt" : "per Post zugestellt"}.
+                      </p>
+                    </div>
+                    <Button
+                      size="lg"
+                      onClick={() => {
+                        setStep("form");
+                        setVoucherId(null);
+                        setPaymentError(null);
+                        form.reset();
+                      }}
+                      data-testid="button-new-voucher"
+                    >
+                      Weiteren Gutschein kaufen
                     </Button>
                   </div>
                 </CardContent>

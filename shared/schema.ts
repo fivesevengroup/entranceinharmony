@@ -33,10 +33,35 @@ export const vouchers = pgTable("vouchers", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
-export const insertVoucherSchema = createInsertSchema(vouchers).omit({
-  id: true,
-  createdAt: true,
-});
+export const insertVoucherSchema = createInsertSchema(vouchers)
+  .omit({
+    id: true,
+    createdAt: true,
+  })
+  .refine(
+    (data) => {
+      if (data.deliveryMethod === "digital") {
+        return !!data.recipientEmail && data.recipientEmail.length > 0;
+      }
+      return true;
+    },
+    {
+      message: "E-Mail-Adresse ist erforderlich für digitale Gutscheine",
+      path: ["recipientEmail"],
+    }
+  )
+  .refine(
+    (data) => {
+      if (data.deliveryMethod === "postal") {
+        return !!data.recipientAddress && data.recipientAddress.length > 0;
+      }
+      return true;
+    },
+    {
+      message: "Adresse ist erforderlich für postalische Gutscheine",
+      path: ["recipientAddress"],
+    }
+  );
 
 export type InsertVoucher = z.infer<typeof insertVoucherSchema>;
 export type Voucher = typeof vouchers.$inferSelect;
