@@ -50,7 +50,7 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
             <Button
               className="hidden md:flex bg-[#25D366] hover:bg-[#20BA5A] text-white border-[#20BA5A]"
               asChild
@@ -59,6 +59,17 @@ export default function Header() {
               <a href="https://wa.me/491709287722" target="_blank" rel="noopener noreferrer">
                 <SiWhatsapp className="mr-2 h-4 w-4" />
                 Termin vereinbaren
+              </a>
+            </Button>
+
+            <Button
+              size="icon"
+              className="md:hidden bg-[#25D366] hover:bg-[#20BA5A] text-white border-[#20BA5A]"
+              asChild
+              data-testid="button-termin-mobile"
+            >
+              <a href="https://wa.me/491709287722" target="_blank" rel="noopener noreferrer">
+                <SiWhatsapp className="h-5 w-5" />
               </a>
             </Button>
 
