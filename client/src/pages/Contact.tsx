@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import { Card, CardContent } from "@/components/ui/card";
-import aboutImage from "@assets/generated_images/Professional_aesthetician_portrait_19dd57d4.png";
+import aboutImage from "@assets/KI-Bewerbungsfoto-31117629-4_1759678066113.jpg";
 
 export default function Contact() {
   return (
