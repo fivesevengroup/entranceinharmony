@@ -1,22 +1,39 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { createPaypalOrder, capturePaypalOrder, loadPaypalDefault } from "./paypal";
 import { insertVoucherSchema } from "@shared/schema";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // PayPal routes - from javascript_paypal blueprint
-  app.get("/setup", async (req, res) => {
-    await loadPaypalDefault(req, res);
-  });
+  // PayPal routes - only if credentials are available
+  const hasPayPalCredentials = process.env.PAYPAL_CLIENT_ID && process.env.PAYPAL_CLIENT_SECRET;
+  
+  if (hasPayPalCredentials) {
+    const { createPaypalOrder, capturePaypalOrder, loadPaypalDefault } = await import("./paypal");
+    
+    app.get("/setup", async (req, res) => {
+      await loadPaypalDefault(req, res);
+    });
 
-  app.post("/order", async (req, res) => {
-    await createPaypalOrder(req, res);
-  });
+    app.post("/order", async (req, res) => {
+      await createPaypalOrder(req, res);
+    });
 
-  app.post("/order/:orderID/capture", async (req, res) => {
-    await capturePaypalOrder(req, res);
-  });
+    app.post("/order/:orderID/capture", async (req, res) => {
+      await capturePaypalOrder(req, res);
+    });
+  } else {
+    app.get("/setup", (req, res) => {
+      res.status(503).json({ error: "PayPal not configured" });
+    });
+
+    app.post("/order", (req, res) => {
+      res.status(503).json({ error: "PayPal not configured" });
+    });
+
+    app.post("/order/:orderID/capture", (req, res) => {
+      res.status(503).json({ error: "PayPal not configured" });
+    });
+  }
 
   // Voucher routes
   app.post("/api/vouchers", async (req, res) => {
