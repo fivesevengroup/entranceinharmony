@@ -5,99 +5,78 @@ import { Button } from "@/components/ui/button";
 
 export default function Footer() {
   return (
-    <footer className="bg-foreground text-background pt-16 pb-8">
+    <footer className="bg-muted pt-12 pb-6">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="font-serif text-xl mb-4 text-primary">Über uns</h3>
-            <p className="text-background/80 leading-relaxed">
-              Entrance in Harmony vereint Schönheit, Ästhetik und Wohlbefinden. 
-              Erleben Sie professionelle Behandlungen in entspannter Atmosphäre.
-            </p>
+            <h3 className="font-medium text-sm mb-3">Kontakt</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li>
+                <a href="tel:+4917092877" className="hover:text-foreground transition-colors">
+                  0170 9287722
+                </a>
+              </li>
+              <li>
+                <a href="mailto:info@entranceinharmony.de" className="hover:text-foreground transition-colors">
+                  info@entranceinharmony.de
+                </a>
+              </li>
+            </ul>
           </div>
 
           <div>
-            <h3 className="font-serif text-xl mb-4 text-primary">Leistungen</h3>
-            <ul className="space-y-2">
+            <h3 className="font-medium text-sm mb-3">Navigation</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <Link href="/leistungen" className="text-background/80 hover:text-primary transition-colors" data-testid="footer-link-gesicht">
+                <Link href="/" className="hover:text-foreground transition-colors" data-testid="footer-link-home">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/leistungen" className="hover:text-foreground transition-colors" data-testid="footer-link-gesicht">
                   Gesichtsbehandlungen
                 </Link>
               </li>
               <li>
-                <Link href="/leistungen" className="text-background/80 hover:text-primary transition-colors" data-testid="footer-link-koerper">
-                  Körperbehandlungen
-                </Link>
-              </li>
-              <li>
-                <Link href="/gutschein" className="text-background/80 hover:text-primary transition-colors" data-testid="footer-link-gutschein">
-                  Gutscheine
+                <Link href="/kontakt" className="hover:text-foreground transition-colors" data-testid="footer-link-ueber">
+                  Über mich
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-serif text-xl mb-4 text-primary">Kontakt</h3>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-2 text-background/80">
-                <Phone className="h-4 w-4 text-primary" />
-                <a href="tel:+4917092877" className="hover:text-primary transition-colors">
-                  0170 9287722
-                </a>
-              </li>
-              <li className="flex items-center gap-2 text-background/80">
-                <Mail className="h-4 w-4 text-primary" />
-                <a href="mailto:info@entranceinharmony.de" className="hover:text-primary transition-colors">
-                  info@entranceinharmony.de
-                </a>
-              </li>
-              <li className="flex items-start gap-2 text-background/80">
-                <MapPin className="h-4 w-4 text-primary mt-1" />
-                <span>Elena Hartstein<br />Beauty & Aesthetics</span>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-serif text-xl mb-4 text-primary">Social Media</h3>
-            <div className="flex gap-3 mb-4">
-              <Button
-                size="icon"
-                variant="outline"
-                className="border-primary/30 hover:border-primary hover:bg-primary/10"
-                asChild
+            <h3 className="font-medium text-sm mb-3">Social Media</h3>
+            <div className="flex gap-3">
+              <a
+                href="https://wa.me/4917092877"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors"
                 data-testid="footer-button-whatsapp"
               >
-                <a href="https://wa.me/4917092877" target="_blank" rel="noopener noreferrer">
-                  <SiWhatsapp className="h-5 w-5 text-primary" />
-                </a>
-              </Button>
-              <Button
-                size="icon"
-                variant="outline"
-                className="border-primary/30 hover:border-primary hover:bg-primary/10"
-                asChild
+                <SiWhatsapp className="h-5 w-5" />
+              </a>
+              <a
+                href="https://instagram.com/entranceinharmony"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors"
                 data-testid="footer-button-instagram"
               >
-                <a href="https://instagram.com/entranceinharmony" target="_blank" rel="noopener noreferrer">
-                  <SiInstagram className="h-5 w-5 text-primary" />
-                </a>
-              </Button>
+                <SiInstagram className="h-5 w-5" />
+              </a>
             </div>
-            <p className="text-sm text-background/70">
-              Folgen Sie uns für Beauty-Tipps und Angebote
-            </p>
           </div>
         </div>
 
-        <div className="border-t border-background/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-background/70">
-          <p>© 2025 Entrance in Harmony - Beauty & Aesthetics. Alle Rechte vorbehalten.</p>
+        <div className="border-t pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+          <p>© 2025 Entrance in Harmony. Alle Rechte vorbehalten.</p>
           <div className="flex gap-6">
-            <Link href="/impressum" className="hover:text-primary transition-colors" data-testid="footer-link-impressum">
+            <Link href="/impressum" className="hover:text-foreground transition-colors" data-testid="footer-link-impressum">
               Impressum
             </Link>
-            <Link href="/datenschutz" className="hover:text-primary transition-colors" data-testid="footer-link-datenschutz">
+            <Link href="/datenschutz" className="hover:text-foreground transition-colors" data-testid="footer-link-datenschutz">
               Datenschutz
             </Link>
           </div>
