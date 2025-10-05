@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { SiWhatsapp } from "react-icons/si";
 
@@ -21,6 +21,9 @@ export default function HautanalysePopup() {
           <DialogTitle className="font-serif text-2xl md:text-3xl font-light text-center">
             Kostenlose Hautanalyse
           </DialogTitle>
+          <DialogDescription className="sr-only">
+            Informationen über unsere kostenlose Hautanalyse beim ersten Besuch
+          </DialogDescription>
         </DialogHeader>
         <div className="space-y-4">
           <p className="text-muted-foreground leading-relaxed text-center">
