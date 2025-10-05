@@ -1,31 +1,11 @@
-import { useEffect, useState } from 'react';
-
 export function RoseBackground() {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    let ticking = false;
-
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setScrollY(window.scrollY);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const roses = [
-    { x: '10%', y: '15%', scale: 0.8, depth: 0.15, rotation: 45, blur: 0.5 },
-    { x: '85%', y: '25%', scale: 1, depth: 0.25, rotation: -30, blur: 0.3 },
-    { x: '15%', y: '60%', scale: 0.9, depth: 0.2, rotation: 15, blur: 0.4 },
-    { x: '80%', y: '75%', scale: 0.7, depth: 0.1, rotation: -45, blur: 0.6 },
-    { x: '50%', y: '90%', scale: 0.85, depth: 0.18, rotation: 60, blur: 0.35 },
+    { x: '2%', y: '10%', scale: 0.7, rotation: 45, blur: 0.4 },
+    { x: '5%', y: '40%', scale: 0.8, rotation: -20, blur: 0.3 },
+    { x: '3%', y: '70%', scale: 0.65, rotation: 30, blur: 0.5 },
+    { x: '93%', y: '15%', scale: 0.75, rotation: -45, blur: 0.35 },
+    { x: '95%', y: '50%', scale: 0.7, rotation: 60, blur: 0.4 },
+    { x: '92%', y: '80%', scale: 0.8, rotation: -15, blur: 0.3 },
   ];
 
   return (
@@ -33,13 +13,12 @@ export function RoseBackground() {
       {roses.map((rose, index) => (
         <div
           key={index}
-          className="absolute transition-transform duration-100 ease-out animate-float-slow"
+          className="absolute"
           style={{
             left: rose.x,
             top: rose.y,
-            transform: `translateY(${scrollY * rose.depth}px) rotate(${rose.rotation}deg) scale(${rose.scale})`,
+            transform: `rotate(${rose.rotation}deg) scale(${rose.scale})`,
             filter: `blur(${rose.blur}px)`,
-            animationDelay: `${index * 0.5}s`,
           }}
         >
           <GoldRose />
