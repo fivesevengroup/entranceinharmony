@@ -1,8 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
-import { SiWhatsapp } from "react-icons/si";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import logoImage from "@assets/Logo-PSD_1759668524506.png";
 
 interface HeaderProps {
@@ -12,6 +11,16 @@ interface HeaderProps {
 export default function Header({ transparent = false }: HeaderProps) {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -21,16 +30,24 @@ export default function Header({ transparent = false }: HeaderProps) {
   ];
 
   return (
-    <header className={`w-full ${transparent ? 'absolute top-0 left-0 right-0 z-50' : 'border-b bg-background'}`}>
+    <header className={`w-full sticky top-0 z-50 transition-all duration-300 ${
+      transparent && !isScrolled 
+        ? 'bg-transparent' 
+        : 'bg-background/95 backdrop-blur-sm border-b shadow-sm'
+    }`}>
       <div className="container mx-auto px-4">
-        <div className="flex h-28 items-center justify-between">
+        <div className={`flex items-center justify-between transition-all duration-300 ${
+          isScrolled ? 'h-16' : 'h-28'
+        }`}>
           <Link href="/" data-testid="link-home">
             <img 
               src={logoImage} 
               alt="Entrance in Harmony" 
-              className="h-24 w-auto" 
+              className={`w-auto transition-all duration-300 ${
+                isScrolled ? 'h-12' : 'h-24'
+              }`}
               style={{ 
-                filter: transparent 
+                filter: transparent && !isScrolled
                   ? 'brightness(0) saturate(100%) invert(100%) drop-shadow(0 2px 8px rgba(0,0,0,0.3))'
                   : 'brightness(0) saturate(100%) invert(65%) sepia(46%) saturate(664%) hue-rotate(359deg) brightness(96%) contrast(89%) drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
               }}
@@ -46,7 +63,7 @@ export default function Header({ transparent = false }: HeaderProps) {
               >
                 <span
                   className={`text-sm font-normal transition-colors ${
-                    transparent 
+                    transparent && !isScrolled
                       ? 'text-white drop-shadow-lg hover:text-white/80' 
                       : 'text-foreground hover:text-muted-foreground'
                   } ${location === link.href ? 'font-medium' : ''}`}
@@ -59,31 +76,9 @@ export default function Header({ transparent = false }: HeaderProps) {
 
           <div className="flex items-center gap-2">
             <Button
-              className="hidden md:flex bg-[#25D366] hover:bg-[#20BA5A] text-white border-[#20BA5A]"
-              asChild
-              data-testid="button-termin-header"
-            >
-              <a href="https://wa.me/491709287722" target="_blank" rel="noopener noreferrer">
-                <SiWhatsapp className="mr-2 h-4 w-4" />
-                Termin vereinbaren
-              </a>
-            </Button>
-
-            <Button
               size="icon"
-              className="md:hidden bg-[#25D366] hover:bg-[#20BA5A] text-white border-[#20BA5A]"
-              asChild
-              data-testid="button-termin-mobile"
-            >
-              <a href="https://wa.me/491709287722" target="_blank" rel="noopener noreferrer">
-                <SiWhatsapp className="h-5 w-5" />
-              </a>
-            </Button>
-
-            <Button
-              size="icon"
-              variant={transparent ? "ghost" : "ghost"}
-              className={`md:hidden hover-elevate ${transparent ? 'text-white' : ''}`}
+              variant={transparent && !isScrolled ? "ghost" : "ghost"}
+              className={`md:hidden hover-elevate ${transparent && !isScrolled ? 'text-white' : ''}`}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               data-testid="button-mobile-menu"
             >
@@ -94,7 +89,7 @@ export default function Header({ transparent = false }: HeaderProps) {
       </div>
 
       {mobileMenuOpen && (
-        <div className={`md:hidden ${transparent ? 'bg-black/90 backdrop-blur-sm' : 'border-t bg-background'}`}>
+        <div className={`md:hidden ${transparent && !isScrolled ? 'bg-black/90 backdrop-blur-sm' : 'border-t bg-background'}`}>
           <nav className="container mx-auto px-4 py-4 flex flex-col gap-2">
             {navLinks.map((link) => (
               <Link
@@ -104,7 +99,7 @@ export default function Header({ transparent = false }: HeaderProps) {
               >
                 <Button
                   variant="ghost"
-                  className={`w-full justify-start ${transparent ? 'text-white hover:text-white/80' : ''}`}
+                  className={`w-full justify-start ${transparent && !isScrolled ? 'text-white hover:text-white/80' : ''}`}
                   data-testid={`mobile-link-${link.label.toLowerCase()}`}
                 >
                   {link.label}
