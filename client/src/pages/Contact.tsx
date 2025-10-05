@@ -111,30 +111,15 @@ export default function Contact() {
 
               <Card className="border-2 hover:border-primary/50 transition-colors">
                 <CardContent className="pt-8">
-                  <div className="flex items-start gap-4 mb-6">
+                  <div className="flex items-start gap-4">
                     <div className="p-3 bg-primary/10 rounded-lg">
                       <Clock className="w-6 h-6 text-primary" />
                     </div>
                     <div className="flex-1">
                       <h3 className="font-semibold mb-4">Öffnungszeiten</h3>
-                      <div className="space-y-3">
-                        <div className="flex justify-between items-center">
-                          <span className="text-muted-foreground">Montag - Freitag</span>
-                          <span className="font-medium">9:00 - 18:00</span>
-                        </div>
-                        <div className="flex justify-between items-center">
-                          <span className="text-muted-foreground">Samstag</span>
-                          <span className="font-medium">10:00 - 16:00</span>
-                        </div>
-                        <div className="flex justify-between items-center">
-                          <span className="text-muted-foreground">Sonntag</span>
-                          <span className="font-medium text-muted-foreground">Geschlossen</span>
-                        </div>
-                      </div>
-                      <div className="mt-6 p-4 bg-primary/5 rounded-lg">
-                        <p className="text-sm text-center">
-                          <strong>Termine nach Vereinbarung</strong><br />
-                          <span className="text-muted-foreground">Auch außerhalb der Öffnungszeiten möglich</span>
+                      <div className="p-6 bg-primary/5 rounded-lg text-center">
+                        <p className="text-lg font-medium">
+                          Termin nach Vereinbarung
                         </p>
                       </div>
                     </div>
