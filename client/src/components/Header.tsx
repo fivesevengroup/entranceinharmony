@@ -49,7 +49,8 @@ export default function Header({ transparent = false }: HeaderProps) {
               style={{ 
                 filter: transparent && !isScrolled
                   ? 'brightness(0) saturate(100%) invert(100%) drop-shadow(0 2px 8px rgba(0,0,0,0.3))'
-                  : 'brightness(0) saturate(100%) invert(65%) sepia(46%) saturate(664%) hue-rotate(359deg) brightness(96%) contrast(89%) drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
+                  : 'brightness(0) saturate(100%) invert(65%) sepia(46%) saturate(664%) hue-rotate(359deg) brightness(96%) contrast(89%) drop-shadow(0 2px 4px rgba(0,0,0,0.1))',
+                opacity: 0.85
               }}
             />
           </Link>
