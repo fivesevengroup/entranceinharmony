@@ -32,8 +32,8 @@ export default function Header({ transparent = false }: HeaderProps) {
   return (
     <header className={`w-full sticky top-0 z-50 transition-all duration-300 ${
       transparent && !isScrolled 
-        ? 'bg-transparent' 
-        : 'bg-background/95 backdrop-blur-sm border-b shadow-sm'
+        ? 'bg-black/30 backdrop-blur-md' 
+        : 'bg-black/40 backdrop-blur-md border-b border-white/10'
     }`}>
       <div className="container mx-auto px-4">
         <div className={`flex items-center justify-between transition-all duration-300 ${
@@ -62,11 +62,7 @@ export default function Header({ transparent = false }: HeaderProps) {
                 data-testid={`link-${link.label.toLowerCase()}`}
               >
                 <span
-                  className={`text-sm font-normal transition-colors ${
-                    transparent && !isScrolled
-                      ? 'text-white drop-shadow-lg hover:text-white/80' 
-                      : 'text-foreground hover:text-muted-foreground'
-                  } ${location === link.href ? 'font-medium' : ''}`}
+                  className={`text-sm font-normal transition-colors text-white drop-shadow-lg hover:text-white/80 ${location === link.href ? 'font-medium' : ''}`}
                 >
                   {link.label}
                 </span>
@@ -77,8 +73,8 @@ export default function Header({ transparent = false }: HeaderProps) {
           <div className="flex items-center gap-2">
             <Button
               size="icon"
-              variant={transparent && !isScrolled ? "ghost" : "ghost"}
-              className={`md:hidden hover-elevate ${transparent && !isScrolled ? 'text-white' : ''}`}
+              variant="ghost"
+              className="md:hidden hover-elevate text-white"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               data-testid="button-mobile-menu"
             >
@@ -89,7 +85,7 @@ export default function Header({ transparent = false }: HeaderProps) {
       </div>
 
       {mobileMenuOpen && (
-        <div className={`md:hidden ${transparent && !isScrolled ? 'bg-black/90 backdrop-blur-sm' : 'border-t bg-background'}`}>
+        <div className="md:hidden bg-black/90 backdrop-blur-sm border-t border-white/10">
           <nav className="container mx-auto px-4 py-4 flex flex-col gap-2">
             {navLinks.map((link) => (
               <Link
@@ -99,7 +95,7 @@ export default function Header({ transparent = false }: HeaderProps) {
               >
                 <Button
                   variant="ghost"
-                  className={`w-full justify-start ${transparent && !isScrolled ? 'text-white hover:text-white/80' : ''}`}
+                  className="w-full justify-start text-white hover:text-white/80"
                   data-testid={`mobile-link-${link.label.toLowerCase()}`}
                 >
                   {link.label}
