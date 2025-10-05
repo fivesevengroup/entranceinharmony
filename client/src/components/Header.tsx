@@ -50,15 +50,28 @@ export default function Header() {
             ))}
           </nav>
 
-          <Button
-            size="icon"
-            variant="ghost"
-            className="md:hidden hover-elevate"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            data-testid="button-mobile-menu"
-          >
-            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </Button>
+          <div className="flex items-center gap-4">
+            <Button
+              className="hidden md:flex"
+              asChild
+              data-testid="button-termin-header"
+            >
+              <a href="https://wa.me/4917092877" target="_blank" rel="noopener noreferrer">
+                <SiWhatsapp className="mr-2 h-4 w-4" />
+                Termin vereinbaren
+              </a>
+            </Button>
+
+            <Button
+              size="icon"
+              variant="ghost"
+              className="md:hidden hover-elevate"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              data-testid="button-mobile-menu"
+            >
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </Button>
+          </div>
         </div>
       </div>
 
