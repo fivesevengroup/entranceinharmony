@@ -11,7 +11,7 @@ export default function Home() {
     <div className="min-h-screen flex flex-col">
       <Header transparent={true} />
       
-      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-background">
+      <section className="pt-36 pb-16 md:pt-48 md:pb-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="font-serif text-3xl md:text-4xl font-light mb-8">
