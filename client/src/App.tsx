@@ -7,6 +7,7 @@ import Home from "@/pages/Home";
 import Services from "@/pages/Services";
 import Contact from "@/pages/Contact";
 import NotFound from "@/pages/not-found";
+import { RoseBackground } from "@/components/RoseBackground";
 
 function Router() {
   return (
@@ -23,6 +24,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
+        <RoseBackground />
         <Toaster />
         <Router />
       </TooltipProvider>

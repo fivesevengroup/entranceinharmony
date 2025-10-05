@@ -359,18 +359,23 @@ body {
   position: relative;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
-  z-index: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='150' height='150' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d4af37' fill-opacity='0.12'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3Ccircle cx='33' cy='27' r='3'/%3E%3Ccircle cx='27' cy='27' r='3'/%3E%3Ccircle cx='34' cy='30' r='3'/%3E%3Ccircle cx='26' cy='30' r='3'/%3E%3Ccircle cx='33' cy='33' r='3'/%3E%3Ccircle cx='27' cy='33' r='3'/%3E%3Ccircle cx='30' cy='26' r='2'/%3E%3Ccircle cx='30' cy='34' r='2'/%3E%3Ccircle cx='120' cy='100' r='4'/%3E%3Ccircle cx='123' cy='97' r='3'/%3E%3Ccircle cx='117' cy='97' r='3'/%3E%3Ccircle cx='124' cy='100' r='3'/%3E%3Ccircle cx='116' cy='100' r='3'/%3E%3Ccircle cx='123' cy='103' r='3'/%3E%3Ccircle cx='117' cy='103' r='3'/%3E%3Ccircle cx='120' cy='96' r='2'/%3E%3Ccircle cx='120' cy='104' r='2'/%3E%3Ccircle cx='70' cy='120' r='3.5'/%3E%3Ccircle cx='73' cy='118' r='2.5'/%3E%3Ccircle cx='67' cy='118' r='2.5'/%3E%3Ccircle cx='73' cy='122' r='2.5'/%3E%3Ccircle cx='67' cy='122' r='2.5'/%3E%3Ccircle cx='90' cy='50' r='3.5'/%3E%3Ccircle cx='93' cy='48' r='2.5'/%3E%3Ccircle cx='87' cy='48' r='2.5'/%3E%3Ccircle cx='93' cy='52' r='2.5'/%3E%3Ccircle cx='87' cy='52' r='2.5'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: 350px 350px;
-  opacity: 1;
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-slow {
+    animation: none;
+  }
 }
 
 #root {
