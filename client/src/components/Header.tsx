@@ -52,7 +52,7 @@ export default function Header() {
 
           <div className="flex items-center gap-4">
             <Button
-              className="hidden md:flex"
+              className="hidden md:flex bg-[#25D366] hover:bg-[#20BA5A] text-white border-[#20BA5A]"
               asChild
               data-testid="button-termin-header"
             >
