@@ -46,6 +46,11 @@ export class MemStorage implements IStorage {
     const voucher: Voucher = {
       ...insertVoucher,
       id,
+      recipientEmail: insertVoucher.recipientEmail ?? null,
+      recipientAddress: insertVoucher.recipientAddress ?? null,
+      message: insertVoucher.message ?? null,
+      paymentStatus: insertVoucher.paymentStatus ?? "pending",
+      paypalOrderId: insertVoucher.paypalOrderId ?? null,
       createdAt: new Date(),
     };
     this.vouchers.set(id, voucher);
