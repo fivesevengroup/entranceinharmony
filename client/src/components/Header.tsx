@@ -33,7 +33,7 @@ export default function Header({ transparent = false }: HeaderProps) {
     <header className="w-full sticky top-0 z-50 transition-all duration-300 bg-black/30 backdrop-blur-md border-b border-white/10">
       <div className="container mx-auto px-4">
         <div className={`flex items-center justify-between transition-all duration-300 ${
-          isScrolled ? 'h-16' : 'h-28'
+          isScrolled ? 'h-20' : 'h-32'
         }`}>
           <Link href="/" data-testid="link-home">
             <img 
