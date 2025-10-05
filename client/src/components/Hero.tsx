@@ -24,7 +24,8 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button
             size="lg"
-            className="text-base px-8 bg-white/90 backdrop-blur-sm hover:bg-white text-primary border-2 border-white"
+            variant="outline"
+            className="text-base px-8 bg-transparent backdrop-blur-sm hover:bg-white/10 text-white border-2 border-white"
             asChild
             data-testid="button-behandlungen-hero"
           >
