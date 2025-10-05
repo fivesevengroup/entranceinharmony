@@ -136,7 +136,7 @@ const treatments: Treatment[] = [
   },
   {
     id: "laser",
-    title: "Red Tuch Pro Laser",
+    title: "Red Touch Pro Laser",
     shortDescription: "Professionelle Laser-Hautverjüngung",
     description: "Hautverjüngung, Beseitigung von Hauterschlaffung, Wiederherstellung der Hautelastizität, Narbenverbesserung, Kollagenstimulation, Verbesserung von Dehnungsstreifen, Glättung von Aknenarben, Porenverfeinerung",
     details: [
