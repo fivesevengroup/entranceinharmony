@@ -10,6 +10,26 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header transparent={true} />
+      
+      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="font-serif text-3xl md:text-4xl font-light mb-8">
+              Willkommen in Ihrer exklusiven Auszeit – wo Schönheit zur Entspannung wird
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Entfliehen Sie dem Alltag und gönnen Sie sich einen Moment nur für sich. Stress, Hektik und Umwelteinflüsse hinterlassen Spuren, doch mit individuell abgestimmten Behandlungen bringe ich Ihre natürliche Schönheit wieder zum Strahlen.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              In einem eleganten Ambiente genießen Sie hochwertige Pflege, sanfte Berührungen und modernste Techniken für eine Haut, die aufatmet, und ein Wohlgefühl, das von innen kommt.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              Lassen Sie sich verwöhnen, Sie haben es verdient.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <Hero />
 
       <section className="py-12 md:py-16 bg-primary/5 border-y border-primary/10">
@@ -32,25 +52,6 @@ export default function Home() {
                 Jetzt Termin vereinbaren
               </a>
             </Button>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 md:py-24 bg-muted">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-serif text-3xl md:text-4xl font-light mb-8">
-              Willkommen in Ihrer exklusiven Auszeit – wo Schönheit zur Entspannung wird
-            </h2>
-            <p className="text-muted-foreground leading-relaxed mb-4">
-              Entfliehen Sie dem Alltag und gönnen Sie sich einen Moment nur für sich. Stress, Hektik und Umwelteinflüsse hinterlassen Spuren, doch mit individuell abgestimmten Behandlungen bringe ich Ihre natürliche Schönheit wieder zum Strahlen.
-            </p>
-            <p className="text-muted-foreground leading-relaxed mb-4">
-              In einem eleganten Ambiente genießen Sie hochwertige Pflege, sanfte Berührungen und modernste Techniken für eine Haut, die aufatmet, und ein Wohlgefühl, das von innen kommt.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Lassen Sie sich verwöhnen, Sie haben es verdient.
-            </p>
           </div>
         </div>
       </section>
