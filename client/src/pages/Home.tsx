@@ -14,14 +14,17 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-muted">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-serif text-3xl md:text-4xl font-light mb-6">
-              Herzlich Willkommen
+            <h2 className="font-serif text-3xl md:text-4xl font-light mb-8">
+              Willkommen in Ihrer exklusiven Auszeit – wo Schönheit zur Entspannung wird
             </h2>
-            <h3 className="text-xl md:text-2xl font-light mb-6 text-muted-foreground">
-              Nehmen Sie sich Ihre Auszeit!
-            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Entfliehen Sie dem Alltag und gönnen Sie sich einen Moment nur für sich. Stress, Hektik und Umwelteinflüsse hinterlassen Spuren, doch mit individuell abgestimmten Behandlungen bringe ich Ihre natürliche Schönheit wieder zum Strahlen.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              In einem eleganten Ambiente genießen Sie hochwertige Pflege, sanfte Berührungen und modernste Techniken für eine Haut, die aufatmet, und ein Wohlgefühl, das von innen kommt.
+            </p>
             <p className="text-muted-foreground leading-relaxed">
-              Es ist wichtig, sich regelmäßig vom stressigen Alltag zu befreien und sich nur auf sich selbst und seine eigene Schönheit zu fokussieren. Sie haben bei mir die Möglichkeit, in einem schönen Ambiente die Seele baumeln und sich verwöhnen zu lassen. Gemeinsam finden wir Ihre individuell auf Sie abgestimmte Behandlung, um Ihnen und Ihrer Haut etwas Gutes zu tun.
+              Lassen Sie sich verwöhnen, Sie haben es verdient.
             </p>
           </div>
         </div>
