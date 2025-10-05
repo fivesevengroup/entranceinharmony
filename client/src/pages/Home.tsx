@@ -30,35 +30,47 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <img
-                src={aboutImage}
-                alt="Elena Hartstein"
-                className="w-full rounded-lg"
-              />
-            </div>
-            <div>
-              <h2 className="font-serif text-3xl md:text-4xl font-light mb-6">
-                Über mich
+      <section className="py-16 md:py-24 bg-muted/30 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none" />
+        <div className="container mx-auto px-4 relative">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="font-serif text-4xl md:text-5xl font-light mb-4">
+                Ihre Expertin für natürliche Schönheit
               </h2>
-              <h3 className="text-lg font-light mb-4 text-muted-foreground">
-                Elena Hartstein
-              </h3>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                Willkommen bei Entrance in Harmony! Mein Name ist Elena Hartstein und ich bin Ihre Kosmetikerin in Burbach und Umgebung.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                Mit Leidenschaft und Expertise biete ich Ihnen professionelle Gesichtsbehandlungen in entspannter Atmosphäre. Jede Behandlung ist individuell auf Ihre Bedürfnisse abgestimmt.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                Nehmen Sie sich Ihre Auszeit und lassen Sie sich verwöhnen!
-              </p>
-              <Button asChild data-testid="button-ueber-mich">
-                <a href="/kontakt">Mehr über mich</a>
-              </Button>
+              <div className="w-24 h-1 bg-primary mx-auto" />
+            </div>
+            
+            <div className="bg-card rounded-2xl shadow-xl overflow-hidden">
+              <div className="grid md:grid-cols-5 gap-0">
+                <div className="md:col-span-2 relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5" />
+                  <img
+                    src={aboutImage}
+                    alt="Elena Hartstein"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="md:col-span-3 p-8 md:p-12 flex flex-col justify-center">
+                  <h3 className="text-2xl md:text-3xl font-serif font-light mb-2">
+                    Elena Hartstein
+                  </h3>
+                  <p className="text-primary font-medium mb-6">
+                    Zertifizierte Kosmetikerin · Burbach & Umgebung
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    Mit über Jahren Erfahrung in der professionellen Kosmetik bringe ich Ihre natürliche Schönheit zum Strahlen. Meine Passion liegt darin, für jeden Hauttyp die perfekte Behandlung zu finden.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed mb-6">
+                    In meinem Studio erwartet Sie eine Atmosphäre zum Wohlfühlen – modern, hygienisch und mit Liebe zum Detail gestaltet. Jede Behandlung ist individuell auf Ihre Bedürfnisse abgestimmt und kombiniert bewährte Techniken mit den neuesten Beauty-Innovationen.
+                  </p>
+                  <div className="flex gap-3">
+                    <Button asChild data-testid="button-ueber-mich" size="lg">
+                      <a href="/kontakt">Jetzt kennenlernen</a>
+                    </Button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
