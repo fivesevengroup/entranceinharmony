@@ -43,21 +43,6 @@ export default function Contact() {
                   <p className="text-muted-foreground leading-relaxed mb-6">
                     Jede Behandlung beginnt mit einer ausführlichen Hautanalyse – denn nur wer Ihre Haut wirklich versteht, kann sie optimal pflegen. In meinem modernen Studio vereinen sich Fachwissen, hochwertige Produkte und eine entspannte Wohlfühlatmosphäre.
                   </p>
-                  
-                  <div className="grid grid-cols-3 gap-4 mb-6">
-                    <div className="text-center p-4 bg-primary/5 rounded-lg">
-                      <Award className="w-8 h-8 mx-auto mb-2 text-primary" />
-                      <p className="text-sm font-medium">Zertifiziert</p>
-                    </div>
-                    <div className="text-center p-4 bg-primary/5 rounded-lg">
-                      <Heart className="w-8 h-8 mx-auto mb-2 text-primary" />
-                      <p className="text-sm font-medium">Mit Herz</p>
-                    </div>
-                    <div className="text-center p-4 bg-primary/5 rounded-lg">
-                      <Sparkles className="w-8 h-8 mx-auto mb-2 text-primary" />
-                      <p className="text-sm font-medium">Premium</p>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
