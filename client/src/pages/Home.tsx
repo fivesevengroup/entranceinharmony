@@ -16,7 +16,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="font-serif text-3xl md:text-4xl font-light mb-6 text-foreground">
-              Kostenlose Hautanalyse und Erstbehandlung
+              Kostenlose Hautanalyse
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-8">
               Beim ersten Besuch nehmen wir uns Zeit, deine Haut genau kennenzulernen. Durch eine detaillierte Hautanalyse finden wir heraus, was sie wirklich braucht. Anschließend erhältst du eine individuell abgestimmte Behandlung mit exklusiven Pflegeprodukten, die deiner Haut neue Frische, Glätte und Ausstrahlung schenken.
