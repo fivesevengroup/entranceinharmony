@@ -1,0 +1,143 @@
+🪞 Erweitertes PRD – „Entrance in Harmony – Beauty & Aesthetics“
+🌿 1. Ziel
+
+Die Website soll nicht nur informieren, sondern auch Vertrauen schaffen, Kundenbindung fördern und Umsätze steigern – durch:
+
+einfache Terminbuchung
+
+authentische Bewertungen
+
+und den Verkauf von Gutscheinen (digital & postalisch)
+
+🧭 2. Seitenstruktur (aktualisiert)
+1️⃣ Startseite
+
+Logo, Menü, CTA-Buttons (WhatsApp, Instagram)
+
+Vorstellung & Philosophie
+
+Kurze Leistungsübersicht
+
+Kundenmeinungen (Auszug aus Bewertungssektion)
+
+CTA: „Jetzt Termin vereinbaren“
+
+Footer mit Kontakt, Social Media & Google Maps
+
+2️⃣ Leistungen
+
+Detaillierte Beschreibungen der Treatments mit Preisen
+
+Optional: kleine Icons oder Bilder für jede Kategorie
+
+CTA: „Termin anfragen per WhatsApp“
+
+3️⃣ Preisliste
+
+Übersicht nach Kategorien
+
+PDF-Download
+
+Dezente Akzente in #f4d48f
+
+4️⃣ Galerie
+
+Vorher-Nachher-Fotos
+
+Instagram-Einbindung (Live-Feed oder manuell kuratiert)
+
+5️⃣ Bewertungssektion (neu)
+
+Ziel: Vertrauen & Authentizität schaffen durch echte Kundenmeinungen.
+Inhalt & Aufbau:
+
+Überschrift: „Was Kundinnen über Entrance in Harmony sagen“
+
+3–5 Highlight-Bewertungen mit Sternen, Namen (oder Initialen) und optional Fotos
+
+Button: „Mehr Bewertungen ansehen“
+
+Verlinkung zu Google- oder Instagram-Reviews
+
+Optional: eigenes Formular, über das Kundinnen nach der Behandlung Feedback geben können (mit Freigabe zur Veröffentlichung)
+
+💡 Design-Tipp: Goldene Sterne auf mauvefarbenem Hintergrund; sanftes Fade-In beim Scrollen.
+
+6️⃣ Gutschein-Seite (neu)
+
+Ziel: Gutscheine als Geschenkidee direkt über die Website verkaufen.
+
+Abschnitt A – Übersicht:
+
+Titel: „Schenke Harmonie – mit einem Beauty-Gutschein“
+
+Kurzer Text:
+„Ob Geburtstag, Muttertag oder einfach als liebe Geste – mit einem Gutschein von Entrance in Harmony schenkst du Entspannung, Schönheit und Wohlbefinden.“
+
+Abschnitt B – Auswahlmöglichkeiten:
+
+💌 Digitaler Gutschein (E-Mail-Versand)
+
+Kunde wählt Betrag (z. B. 25 €, 50 €, 100 €, Wunschbetrag)
+
+Eingabe: Name der Beschenkten Person + persönliche Nachricht
+
+Bezahlung per PayPal oder Überweisung
+
+Automatischer Versand als PDF oder digitaler Code
+
+🎁 Physischer Gutschein (Postversand)
+
+Gleiche Auswahl wie digital
+
+Aufpreis: +2,90 € Versandkosten
+
+Gutschein wird schön verpackt (z. B. in Gold-Kuvert) per Post verschickt
+
+Versandzeit: 2–3 Werktage
+
+Abschnitt C – CTA:
+
+Button „Gutschein jetzt kaufen“
+
+(öffnet modales Fenster mit Auswahl: Digital / Postversand)
+
+7️⃣ Kontaktseite
+
+Kontaktformular
+
+WhatsApp-Link
+
+Instagram-Link
+
+E-Mail & Adresse
+
+Eingebettete Google Maps Karte (kleines Feld)
+
+Öffnungszeiten
+
+Impressum & Datenschutz
+
+🖋️ 3. Design-Erweiterungen
+
+Gutschein-Seite mit eleganten goldenen Akzenten & floralen Linien im Hintergrund
+
+Bewertungssektion mit sanftem Rahmen in #f4d48f
+
+Hover-Effekte bei Buttons in Pastell-Gold
+
+Optionale Animation beim Laden des Gutscheins (z. B. „Glanz“-Effekt über Karte)
+
+⚙️ 4. Technische Umsetzung (Zusätze)
+
+Gutschein-Funktion:
+
+Entweder mit einfachem WooCommerce-Setup (WordPress)
+
+oder via PayPal.me-Integration + automatischer PDF-Versand
+
+Bewertungssektion:
+
+manuelle Einbindung (Text & Sterne) oder per Google API
+
+DSGVO-konform (Datenschutz & Zahlungsabwicklung beachten)
