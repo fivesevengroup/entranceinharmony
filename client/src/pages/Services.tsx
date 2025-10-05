@@ -11,7 +11,7 @@ import bbGlowImage from "@assets/generated_images/BB_Glow_treatment_1852d70a.png
 import microneedlingImage from "@assets/generated_images/Microneedling_facial_treatment_0da7c603.png";
 import btoxImage from "@assets/generated_images/B-Tox_peel_treatment_ba217e96.png";
 import peelingImage from "@assets/generated_images/Revitalizing_peel_treatment_2f08d057.png";
-import laserImage from "@assets/generated_images/Red_laser_therapy_bf6d9b43.png";
+import laserImage from "@assets/generated_images/Red_Touch_laser_treatment_4f8328f9.png";
 
 interface Treatment {
   id: string;
