@@ -10,8 +10,9 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header transparent={true} />
+      <Hero />
       
-      <section className="pt-44 pb-16 md:pt-56 md:pb-20 bg-background">
+      <section className="py-16 md:py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="font-serif text-3xl md:text-4xl font-light mb-8">
@@ -29,8 +30,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <Hero />
 
       <section className="py-12 md:py-16 bg-primary/5 border-y border-primary/10">
         <div className="container mx-auto px-4">
