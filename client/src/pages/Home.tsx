@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
-import HautanalysePopup from "@/components/HautanalysePopup";
 import { Button } from "@/components/ui/button";
 import aboutImage from "@assets/Design ohne Titel_1759678752531.png";
 import massageImage from "@assets/generated_images/Massage_therapy_session_569ccb02.png";
@@ -93,7 +92,6 @@ export default function Home() {
         </div>
       </section>
 
-      <HautanalysePopup />
       <Footer />
     </div>
   );
