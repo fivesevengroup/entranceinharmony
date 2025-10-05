@@ -30,11 +30,7 @@ export default function Header({ transparent = false }: HeaderProps) {
   ];
 
   return (
-    <header className={`w-full sticky top-0 z-50 transition-all duration-300 ${
-      transparent && !isScrolled 
-        ? 'bg-black/20 backdrop-blur-md' 
-        : 'bg-black/30 backdrop-blur-md border-b border-white/10'
-    }`}>
+    <header className="w-full sticky top-0 z-50 transition-all duration-300 bg-black/30 backdrop-blur-md border-b border-white/10">
       <div className="container mx-auto px-4">
         <div className={`flex items-center justify-between transition-all duration-300 ${
           isScrolled ? 'h-16' : 'h-28'
@@ -47,9 +43,7 @@ export default function Header({ transparent = false }: HeaderProps) {
                 isScrolled ? 'h-12' : 'h-24'
               }`}
               style={{ 
-                filter: transparent && !isScrolled
-                  ? 'brightness(0) saturate(100%) invert(100%) drop-shadow(0 2px 8px rgba(0,0,0,0.3))'
-                  : 'brightness(0) saturate(100%) invert(65%) sepia(46%) saturate(664%) hue-rotate(359deg) brightness(96%) contrast(89%) drop-shadow(0 2px 4px rgba(0,0,0,0.1))',
+                filter: 'brightness(0) saturate(100%) invert(100%) drop-shadow(0 2px 8px rgba(0,0,0,0.3))',
                 opacity: 0.85
               }}
             />
