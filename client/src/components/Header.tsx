@@ -18,13 +18,15 @@ export default function Header() {
   return (
     <header className="w-full border-b bg-background">
       <div className="container mx-auto px-4">
-        <div className="flex h-24 items-center justify-between">
+        <div className="flex h-28 items-center justify-between">
           <Link href="/" data-testid="link-home">
             <img 
               src={logoImage} 
               alt="Entrance in Harmony" 
-              className="h-20 w-auto" 
-              style={{ filter: 'brightness(0) saturate(100%) invert(65%) sepia(46%) saturate(664%) hue-rotate(359deg) brightness(96%) contrast(89%)' }}
+              className="h-24 w-auto" 
+              style={{ 
+                filter: 'brightness(0) saturate(100%) invert(65%) sepia(46%) saturate(664%) hue-rotate(359deg) brightness(96%) contrast(89%) drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
+              }}
             />
           </Link>
 
