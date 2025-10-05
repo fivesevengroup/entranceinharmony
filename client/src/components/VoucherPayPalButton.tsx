@@ -61,18 +61,21 @@ export default function VoucherPayPalButton({
       const orderData = await captureOrder(data.orderId);
       console.log("Capture result", orderData);
 
-      await apiRequest("PATCH", `/api/vouchers/${voucherId}/payment`, {
+      const updateResponse = await apiRequest("PATCH", `/api/vouchers/${voucherId}/payment`, {
         status: "completed",
         paypalOrderId: data.orderId,
       });
 
+      await updateResponse.json();
+
       if (onSuccess) {
         onSuccess();
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error("Payment completion failed:", error);
+      const errorMessage = error?.message || "Zahlung konnte nicht abgeschlossen werden";
       if (onError) {
-        onError("Zahlung konnte nicht abgeschlossen werden");
+        onError(errorMessage);
       }
     }
   };

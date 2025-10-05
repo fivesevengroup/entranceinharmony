@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertVoucherSchema } from "@shared/schema";
+import { insertVoucherSchema, updateVoucherPaymentSchema } from "@shared/schema";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // PayPal routes - only if credentials are available
@@ -61,16 +61,20 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   app.patch("/api/vouchers/:id/payment", async (req, res) => {
-    const { status, paypalOrderId } = req.body;
-    const voucher = await storage.updateVoucherPaymentStatus(
-      req.params.id,
-      status,
-      paypalOrderId
-    );
-    if (!voucher) {
-      return res.status(404).json({ error: "Voucher not found" });
+    try {
+      const validatedData = updateVoucherPaymentSchema.parse(req.body);
+      const voucher = await storage.updateVoucherPaymentStatus(
+        req.params.id,
+        validatedData.status,
+        validatedData.paypalOrderId
+      );
+      if (!voucher) {
+        return res.status(404).json({ error: "Voucher not found" });
+      }
+      res.json(voucher);
+    } catch (error) {
+      res.status(400).json({ error: "Invalid payment update data" });
     }
-    res.json(voucher);
   });
 
   const httpServer = createServer(app);
