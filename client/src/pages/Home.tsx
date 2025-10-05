@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { SiWhatsapp } from "react-icons/si";
-import aboutImage from "@assets/generated_images/Professional_aesthetician_portrait_19dd57d4.png";
+import aboutImage from "@assets/Design ohne Titel_1759678752531.png";
 import massageImage from "@assets/generated_images/Massage_therapy_session_569ccb02.png";
 
 export default function Home() {
@@ -61,22 +61,28 @@ export default function Home() {
             <div>
               <img
                 src={aboutImage}
-                alt="Gesichtsbehandlung"
+                alt="Elena Hartstein"
                 className="w-full rounded-lg"
               />
             </div>
             <div>
               <h2 className="font-serif text-3xl md:text-4xl font-light mb-6">
-                Gesichtsbehandlungen
+                Über mich
               </h2>
               <h3 className="text-lg font-light mb-4 text-muted-foreground">
-                Von BB Glow Skin über Microneedling bis hin zu Oxygen Prime
+                Elena Hartstein
               </h3>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                Lassen Sie uns über Ihre Haut sprechen! Sie ist unser größtes Organ und begleitet uns ein Leben lang. Daher ist es wichtig, diese regelmäßig zu achten und zu pflegen. Eine schöne Haut und ein strahlendes Auftreten machen das Leben einfach schöner!
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Willkommen bei Entrance in Harmony! Mein Name ist Elena Hartstein und ich bin Ihre Kosmetikerin in Burbach und Umgebung.
               </p>
-              <Button asChild data-testid="button-gesichtsbehandlungen">
-                <a href="/leistungen">zu den Gesichtsbehandlungen</a>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Mit Leidenschaft und Expertise biete ich Ihnen professionelle Gesichtsbehandlungen in entspannter Atmosphäre. Jede Behandlung ist individuell auf Ihre Bedürfnisse abgestimmt.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Nehmen Sie sich Ihre Auszeit und lassen Sie sich verwöhnen!
+              </p>
+              <Button asChild data-testid="button-ueber-mich">
+                <a href="/kontakt">Mehr über mich</a>
               </Button>
             </div>
           </div>
