@@ -55,12 +55,10 @@ export default function Vouchers() {
 
   const createVoucherMutation = useMutation({
     mutationFn: async (data: VoucherFormData) => {
-      return apiRequest<any>("/api/vouchers", {
-        method: "POST",
-        body: JSON.stringify(data),
-      });
+      const res = await apiRequest("POST", "/api/vouchers", data);
+      return res.json();
     },
-    onSuccess: (data) => {
+    onSuccess: (data: any) => {
       setVoucherId(data.id);
       setStep("payment");
       queryClient.invalidateQueries({ queryKey: ["/api/vouchers"] });

@@ -12,6 +12,7 @@ export default function Header() {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/leistungen", label: "Gesichtsbehandlungen" },
+    { href: "/geschenkgutscheine", label: "Geschenkgutscheine" },
     { href: "/kontakt", label: "Über mich" },
   ];
 
