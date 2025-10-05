@@ -50,7 +50,7 @@ export default function Contact() {
                   <div>
                     <p className="font-medium text-foreground mb-1">Telefon</p>
                     <a
-                      href="tel:+4917092877"
+                      href="tel:+491709287722"
                       className="hover:text-foreground transition-colors"
                     >
                       0170 9287722

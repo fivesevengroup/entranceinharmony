@@ -56,7 +56,7 @@ export default function Header() {
               asChild
               data-testid="button-termin-header"
             >
-              <a href="https://wa.me/4917092877" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/491709287722" target="_blank" rel="noopener noreferrer">
                 <SiWhatsapp className="mr-2 h-4 w-4" />
                 Termin vereinbaren
               </a>

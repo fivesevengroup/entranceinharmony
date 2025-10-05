@@ -56,7 +56,7 @@ export default function Services() {
               Für eine persönliche Beratung kontaktieren Sie mich gerne
             </p>
             <a
-              href="tel:+4917092877"
+              href="tel:+491709287722"
               className="text-lg text-foreground hover:text-primary transition-colors"
             >
               0170 9287722

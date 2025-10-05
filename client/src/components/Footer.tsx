@@ -12,7 +12,7 @@ export default function Footer() {
             <h3 className="font-medium text-sm mb-3">Kontakt</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <a href="tel:+4917092877" className="hover:text-foreground transition-colors">
+                <a href="tel:+491709287722" className="hover:text-foreground transition-colors">
                   0170 9287722
                 </a>
               </li>
@@ -49,7 +49,7 @@ export default function Footer() {
             <h3 className="font-medium text-sm mb-3">Social Media</h3>
             <div className="flex gap-3">
               <a
-                href="https://wa.me/4917092877"
+                href="https://wa.me/491709287722"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
