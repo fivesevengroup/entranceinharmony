@@ -141,7 +141,7 @@ export default function Datenschutz() {
                     <div className="mt-2 space-y-1">
                       <p className="font-medium text-foreground">Entrance in Harmony</p>
                       <p>Elena Hartstein</p>
-                      <p>[STRASSE UND HAUSNUMMER]</p>
+                      <p>Höhfeld 5</p>
                       <p>57299 Burbach</p>
                       <p>Deutschland</p>
                       <p className="mt-2">

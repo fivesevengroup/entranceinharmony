@@ -21,7 +21,7 @@ export default function Impressum() {
                   <div className="space-y-1 text-muted-foreground">
                     <p className="font-medium text-foreground">Entrance in Harmony</p>
                     <p>Elena Hartstein</p>
-                    <p>[STRASSE UND HAUSNUMMER]</p>
+                    <p>Höhfeld 5</p>
                     <p>57299 Burbach</p>
                     <p>Deutschland</p>
                   </div>
@@ -49,11 +49,7 @@ export default function Impressum() {
                   <h2 className="font-medium text-lg mb-3">Umsatzsteuer-ID</h2>
                   <div className="text-muted-foreground">
                     <p>
-                      Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:
-                    </p>
-                    <p className="mt-1">[FALLS VORHANDEN: DE123456789]</p>
-                    <p className="text-sm mt-2 italic">
-                      Falls nicht vorhanden (Kleinunternehmerregelung § 19 UStG): "Als Kleinunternehmer im Sinne von § 19 Abs. 1 UStG wird keine Umsatzsteuer berechnet."
+                      Als Kleinunternehmer im Sinne von § 19 Abs. 1 UStG wird keine Umsatzsteuer berechnet.
                     </p>
                   </div>
                 </div>
@@ -65,9 +61,6 @@ export default function Impressum() {
                       <span className="font-medium text-foreground">Berufsbezeichnung:</span> Kosmetikerin
                     </p>
                     <p>
-                      <span className="font-medium text-foreground">Zuständige Kammer:</span> [FALLS MITGLIED EINER KAMMER]
-                    </p>
-                    <p>
                       <span className="font-medium text-foreground">Verliehen in:</span> Deutschland
                     </p>
                   </div>
@@ -77,7 +70,7 @@ export default function Impressum() {
                   <h2 className="font-medium text-lg mb-3">Redaktionell verantwortlich</h2>
                   <div className="text-muted-foreground">
                     <p>Elena Hartstein</p>
-                    <p>[STRASSE UND HAUSNUMMER]</p>
+                    <p>Höhfeld 5</p>
                     <p>57299 Burbach</p>
                   </div>
                 </div>
