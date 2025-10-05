@@ -30,51 +30,53 @@ export default function Header({ transparent = false }: HeaderProps) {
   ];
 
   return (
-    <header className="w-full sticky top-0 z-50 transition-all duration-300 bg-black/30 backdrop-blur-md border-b border-white/10">
-      <div className="container mx-auto px-4">
-        <div className={`flex items-center justify-between transition-all duration-300 ${
-          isScrolled ? 'h-20' : 'h-32'
-        }`}>
-          <Link href="/" data-testid="link-home">
-            <img 
-              src={logoImage} 
-              alt="Entrance in Harmony" 
-              className={`w-auto transition-all duration-300 ${
-                isScrolled ? 'h-12' : 'h-24'
-              }`}
-              style={{ 
-                filter: 'brightness(0) saturate(100%) invert(100%) drop-shadow(0 2px 8px rgba(0,0,0,0.3))',
-                opacity: 0.85
-              }}
-            />
-          </Link>
+    <header className="w-full absolute top-0 left-0 right-0 z-50 transition-all duration-300">
+      <div className="w-full bg-black/40 backdrop-blur-sm">
+        <div className="container mx-auto px-4">
+          <div className={`flex items-center justify-between transition-all duration-300 ${
+            isScrolled ? 'h-20' : 'h-24'
+          }`}>
+            <Link href="/" data-testid="link-home">
+              <img 
+                src={logoImage} 
+                alt="Entrance in Harmony" 
+                className={`w-auto transition-all duration-300 ${
+                  isScrolled ? 'h-12' : 'h-20'
+                }`}
+                style={{ 
+                  filter: 'brightness(0) saturate(100%) invert(100%) drop-shadow(0 2px 8px rgba(0,0,0,0.3))',
+                  opacity: 0.9
+                }}
+              />
+            </Link>
 
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                data-testid={`link-${link.label.toLowerCase()}`}
-              >
-                <span
-                  className={`text-sm font-normal transition-colors text-white drop-shadow-lg hover:text-white/80 ${location === link.href ? 'font-medium' : ''}`}
+            <nav className="hidden md:flex items-center gap-8">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  data-testid={`link-${link.label.toLowerCase()}`}
                 >
-                  {link.label}
-                </span>
-              </Link>
-            ))}
-          </nav>
+                  <span
+                    className={`text-sm font-normal transition-colors text-white drop-shadow-lg hover:text-white/80 ${location === link.href ? 'font-medium' : ''}`}
+                  >
+                    {link.label}
+                  </span>
+                </Link>
+              ))}
+            </nav>
 
-          <div className="flex items-center gap-2">
-            <Button
-              size="icon"
-              variant="ghost"
-              className="md:hidden hover-elevate text-white"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              data-testid="button-mobile-menu"
-            >
-              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
+            <div className="flex items-center gap-2">
+              <Button
+                size="icon"
+                variant="ghost"
+                className="md:hidden hover-elevate text-white"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                data-testid="button-mobile-menu"
+              >
+                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </Button>
+            </div>
           </div>
         </div>
       </div>
