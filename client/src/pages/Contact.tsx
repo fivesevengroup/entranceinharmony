@@ -11,39 +11,15 @@ export default function Contact() {
     <div className="min-h-screen flex flex-col">
       <Header />
 
-      <section className="relative py-20 md:py-32 bg-gradient-to-br from-primary/10 via-background to-primary/5 overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5" />
-        <div className="container mx-auto px-4 relative">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-block mb-6">
-              <div className="flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
-                <Sparkles className="w-4 h-4" />
-                Ihre Schönheitsexpertin in Burbach
-              </div>
-            </div>
-            <h1 className="font-serif text-4xl md:text-6xl font-light mb-6">
-              Elena Hartstein
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-              Wo Schönheit auf Expertise trifft
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button asChild size="lg" data-testid="button-termin">
-                <a href="https://wa.me/491709287722" target="_blank" rel="noopener noreferrer">
-                  Jetzt Termin buchen
-                </a>
-              </Button>
-              <Button asChild size="lg" variant="outline" data-testid="button-kontakt">
-                <a href="#kontakt">Kontakt aufnehmen</a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h1 className="font-serif text-4xl md:text-5xl font-light mb-4">
+                Elena Hartstein
+              </h1>
+              <div className="w-24 h-1 bg-primary mx-auto" />
+            </div>
             <div className="bg-card rounded-3xl shadow-2xl overflow-hidden">
               <div className="grid md:grid-cols-2 gap-0">
                 <div className="relative h-[400px] md:h-auto">
