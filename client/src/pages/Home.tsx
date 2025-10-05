@@ -1,8 +1,8 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
+import HautanalysePopup from "@/components/HautanalysePopup";
 import { Button } from "@/components/ui/button";
-import { SiWhatsapp } from "react-icons/si";
 import aboutImage from "@assets/Design ohne Titel_1759678752531.png";
 import massageImage from "@assets/generated_images/Massage_therapy_session_569ccb02.png";
 
@@ -27,30 +27,6 @@ export default function Home() {
             <p className="text-muted-foreground leading-relaxed">
               Lassen Sie sich verwöhnen, Sie haben es verdient.
             </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-12 md:py-16 bg-primary/5 border-y border-primary/10">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-serif text-3xl md:text-4xl font-light mb-6 text-foreground">
-              Kostenlose Hautanalyse
-            </h2>
-            <p className="text-muted-foreground leading-relaxed mb-8">
-              Beim ersten Besuch nehmen wir uns Zeit, deine Haut genau kennenzulernen. Durch eine detaillierte Hautanalyse finden wir heraus, was sie wirklich braucht. Anschließend erhältst du eine individuell abgestimmte Behandlung mit exklusiven Pflegeprodukten, die deiner Haut neue Frische, Glätte und Ausstrahlung schenken.
-            </p>
-            <Button 
-              size="lg"
-              className="bg-[#25D366] hover:bg-[#20BA5A] text-white border-[#20BA5A]"
-              asChild
-              data-testid="button-termin-hautanalyse"
-            >
-              <a href="https://wa.me/491709287722" target="_blank" rel="noopener noreferrer">
-                <SiWhatsapp className="mr-2 h-5 w-5" />
-                Jetzt Termin vereinbaren
-              </a>
-            </Button>
           </div>
         </div>
       </section>
@@ -117,6 +93,7 @@ export default function Home() {
         </div>
       </section>
 
+      <HautanalysePopup />
       <Footer />
     </div>
   );
