@@ -32,8 +32,8 @@ export default function Header({ transparent = false }: HeaderProps) {
   return (
     <header className={`w-full sticky top-0 z-50 transition-all duration-300 ${
       transparent && !isScrolled 
-        ? 'bg-black/30 backdrop-blur-md' 
-        : 'bg-black/40 backdrop-blur-md border-b border-white/10'
+        ? 'bg-black/20 backdrop-blur-md' 
+        : 'bg-black/30 backdrop-blur-md border-b border-white/10'
     }`}>
       <div className="container mx-auto px-4">
         <div className={`flex items-center justify-between transition-all duration-300 ${
