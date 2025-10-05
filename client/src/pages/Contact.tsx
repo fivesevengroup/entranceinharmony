@@ -31,7 +31,7 @@ export default function Contact() {
                 Elena Hartstein
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Willkommen bei Entrance in Harmony! Mein Name ist Elena Hartstein und ich bin Ihre Kosmetikerin in Siegen und Umgebung.
+                Willkommen bei Entrance in Harmony! Mein Name ist Elena Hartstein und ich bin Ihre Kosmetikerin in Burbach und Umgebung.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-4">
                 Mit Leidenschaft und Expertise biete ich Ihnen professionelle Gesichtsbehandlungen in entspannter Atmosphäre. Jede Behandlung ist individuell auf Ihre Bedürfnisse abgestimmt.

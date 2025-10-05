@@ -11,7 +11,7 @@ export default function Hero() {
               ENTRANCE IN HARMONY
             </h1>
             <p className="text-lg md:text-xl mb-8 text-muted-foreground">
-              Ihre Kosmetikerin in Siegen und Umgebung!
+              Ihre Kosmetikerin in Burbach und Umgebung!
             </p>
             <Button
               size="lg"
