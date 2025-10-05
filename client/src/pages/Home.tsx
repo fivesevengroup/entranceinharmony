@@ -9,7 +9,7 @@ import massageImage from "@assets/generated_images/Massage_therapy_session_569cc
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
+      <Header transparent={true} />
       <Hero />
 
       <section className="py-12 md:py-16 bg-primary/5 border-y border-primary/10">

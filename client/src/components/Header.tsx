@@ -1,11 +1,15 @@
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
-import { SiWhatsapp, SiInstagram } from "react-icons/si";
+import { SiWhatsapp } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import logoImage from "@assets/Logo-PSD_1759668524506.png";
 
-export default function Header() {
+interface HeaderProps {
+  transparent?: boolean;
+}
+
+export default function Header({ transparent = false }: HeaderProps) {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -17,7 +21,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="w-full border-b bg-background">
+    <header className={`w-full ${transparent ? 'absolute top-0 left-0 right-0 z-50' : 'border-b bg-background'}`}>
       <div className="container mx-auto px-4">
         <div className="flex h-28 items-center justify-between">
           <Link href="/" data-testid="link-home">
@@ -26,7 +30,9 @@ export default function Header() {
               alt="Entrance in Harmony" 
               className="h-24 w-auto" 
               style={{ 
-                filter: 'brightness(0) saturate(100%) invert(65%) sepia(46%) saturate(664%) hue-rotate(359deg) brightness(96%) contrast(89%) drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
+                filter: transparent 
+                  ? 'brightness(0) saturate(100%) invert(100%) drop-shadow(0 2px 8px rgba(0,0,0,0.3))'
+                  : 'brightness(0) saturate(100%) invert(65%) sepia(46%) saturate(664%) hue-rotate(359deg) brightness(96%) contrast(89%) drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
               }}
             />
           </Link>
@@ -39,11 +45,11 @@ export default function Header() {
                 data-testid={`link-${link.label.toLowerCase()}`}
               >
                 <span
-                  className={`text-sm font-normal transition-colors hover:text-muted-foreground ${
-                    location === link.href
-                      ? "text-foreground"
-                      : "text-foreground"
-                  }`}
+                  className={`text-sm font-normal transition-colors ${
+                    transparent 
+                      ? 'text-white drop-shadow-lg hover:text-white/80' 
+                      : 'text-foreground hover:text-muted-foreground'
+                  } ${location === link.href ? 'font-medium' : ''}`}
                 >
                   {link.label}
                 </span>
@@ -76,8 +82,8 @@ export default function Header() {
 
             <Button
               size="icon"
-              variant="ghost"
-              className="md:hidden hover-elevate"
+              variant={transparent ? "ghost" : "ghost"}
+              className={`md:hidden hover-elevate ${transparent ? 'text-white' : ''}`}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               data-testid="button-mobile-menu"
             >
@@ -88,7 +94,7 @@ export default function Header() {
       </div>
 
       {mobileMenuOpen && (
-        <div className="md:hidden border-t bg-background">
+        <div className={`md:hidden ${transparent ? 'bg-black/90 backdrop-blur-sm' : 'border-t bg-background'}`}>
           <nav className="container mx-auto px-4 py-4 flex flex-col gap-2">
             {navLinks.map((link) => (
               <Link
@@ -98,7 +104,7 @@ export default function Header() {
               >
                 <Button
                   variant="ghost"
-                  className="w-full justify-start"
+                  className={`w-full justify-start ${transparent ? 'text-white hover:text-white/80' : ''}`}
                   data-testid={`mobile-link-${link.label.toLowerCase()}`}
                 >
                   {link.label}
