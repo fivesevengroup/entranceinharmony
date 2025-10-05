@@ -4,14 +4,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import deepCleansingImage from "@assets/stock_images/facial_deep_cleansin_080d5d49.jpg";
-import basicTreatmentImage from "@assets/stock_images/basic_facial_treatme_d91dea97.jpg";
-import carboxyImage from "@assets/stock_images/carboxy_therapy_faci_44717a2d.jpg";
-import bbGlowImage from "@assets/stock_images/bb_glow_skin_treatme_0f4e2251.jpg";
-import microneedlingImage from "@assets/stock_images/microneedling_facial_f95e89f8.jpg";
-import peelingImage from "@assets/stock_images/facial_peeling_treat_f293ee72.jpg";
-import btoxImage from "@assets/stock_images/luxury_facial_treatm_9607539b.jpg";
-import laserImage from "@assets/stock_images/red_light_therapy_la_ecd90334.jpg";
+import deepCleansingImage from "@assets/generated_images/Deep_cleansing_facial_treatment_8a24d580.png";
+import basicTreatmentImage from "@assets/generated_images/Basic_facial_treatment_630e122c.png";
+import carboxyImage from "@assets/generated_images/Carboxy_therapy_facial_979c25d2.png";
+import bbGlowImage from "@assets/generated_images/BB_Glow_treatment_1852d70a.png";
+import microneedlingImage from "@assets/generated_images/Microneedling_facial_treatment_0da7c603.png";
+import btoxImage from "@assets/generated_images/B-Tox_peel_treatment_ba217e96.png";
+import peelingImage from "@assets/generated_images/Revitalizing_peel_treatment_2f08d057.png";
+import laserImage from "@assets/generated_images/Red_laser_therapy_bf6d9b43.png";
 
 interface Treatment {
   id: string;
