@@ -56,8 +56,11 @@ export default function Contact() {
                 </div>
                 <div className="p-8 md:p-12 flex flex-col justify-center">
                   <h2 className="font-serif text-3xl md:text-4xl font-light mb-6">
-                    Ihre Beauty-Spezialistin mit Herz
+                    Ihre Schönheitsexpertin in Burbach
                   </h2>
+                  <p className="text-lg text-primary font-medium mb-6">
+                    Wo Schönheit auf Expertise trifft
+                  </p>
                   <p className="text-muted-foreground leading-relaxed mb-4">
                     Bei mir steht nicht nur Ihre Schönheit im Mittelpunkt, sondern Ihr gesamtes Wohlbefinden. Mit fundierter Ausbildung, kontinuierlicher Weiterbildung und einer Passion für ästhetische Perfektion begleite ich Sie auf Ihrem Weg zu strahlender Haut.
                   </p>
