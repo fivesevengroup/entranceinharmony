@@ -5,41 +5,41 @@ import WaveDivider from "@/components/WaveDivider";
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden" style={{
-      background: 'linear-gradient(135deg, hsl(280 35% 85%) 0%, hsl(280 30% 75%) 50%, hsl(280 35% 85%) 100%)'
-    }}>
+    <footer className="relative overflow-hidden bg-section-accent">
       <WaveDivider position="top" color="hsl(var(--section-accent))" />
-      <div className="absolute inset-0 opacity-10" style={{
-        backgroundImage: `radial-gradient(circle at 20% 80%, hsl(280 40% 70% / 0.4) 0%, transparent 50%),
-                         radial-gradient(circle at 80% 20%, hsl(280 40% 70% / 0.4) 0%, transparent 50%)`
-      }}></div>
+      
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-primary/30 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-primary/30 to-transparent rounded-full blur-3xl"></div>
+      </div>
       
       <div className="container mx-auto px-4 relative">
         <div className="pt-16 pb-12">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 mb-4">
-              <Sparkles className="w-6 h-6" style={{ color: 'hsl(280 30% 25%)' }} />
-              <h3 className="font-serif text-3xl font-light" style={{ color: 'hsl(280 30% 25%)' }}>
+            <div className="inline-flex items-center gap-3 mb-6 group">
+              <Sparkles className="w-6 h-6 text-primary transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110" />
+              <h3 className="font-serif text-4xl md:text-5xl font-light text-gradient">
                 Entrance in Harmony
               </h3>
-              <Sparkles className="w-6 h-6" style={{ color: 'hsl(280 30% 25%)' }} />
+              <Sparkles className="w-6 h-6 text-primary transition-transform duration-300 group-hover:-rotate-12 group-hover:scale-110" />
             </div>
-            <p className="text-sm font-medium" style={{ color: 'hsl(280 30% 35%)' }}>
+            <div className="h-1 w-24 mx-auto mb-6 gold-shimmer rounded-full"></div>
+            <p className="text-base font-medium text-muted-foreground">
               Ihre Beauty-Expertin in Burbach
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 max-w-5xl mx-auto">
             <div className="text-center md:text-left">
-              <h4 className="font-semibold text-sm mb-4" style={{ color: 'hsl(280 30% 25%)' }}>Kontakt</h4>
-              <ul className="space-y-2 text-sm" style={{ color: 'hsl(280 30% 35%)' }}>
+              <h4 className="font-semibold text-sm uppercase tracking-wider mb-6 text-primary">Kontakt</h4>
+              <ul className="space-y-3 text-base">
                 <li>
-                  <a href="tel:+491709287722" className="hover:opacity-80 transition-opacity">
+                  <a href="tel:+491709287722" className="text-muted-foreground hover:text-primary transition-colors duration-300 inline-flex items-center gap-2 hover-elevate">
                     0170 9287722
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:info@entranceinharmony.de" className="hover:opacity-80 transition-opacity">
+                  <a href="mailto:info@entranceinharmony.de" className="text-muted-foreground hover:text-primary transition-colors duration-300 inline-flex items-center gap-2 hover-elevate">
                     info@entranceinharmony.de
                   </a>
                 </li>
@@ -47,20 +47,20 @@ export default function Footer() {
             </div>
 
             <div className="text-center">
-              <h4 className="font-semibold text-sm mb-4" style={{ color: 'hsl(280 30% 25%)' }}>Navigation</h4>
-              <ul className="space-y-2 text-sm" style={{ color: 'hsl(280 30% 35%)' }}>
+              <h4 className="font-semibold text-sm uppercase tracking-wider mb-6 text-primary">Navigation</h4>
+              <ul className="space-y-3 text-base">
                 <li>
-                  <Link href="/" className="hover:opacity-80 transition-opacity" data-testid="footer-link-home">
+                  <Link href="/" className="text-muted-foreground hover:text-primary transition-colors duration-300 inline-block hover-elevate" data-testid="footer-link-home">
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link href="/leistungen" className="hover:opacity-80 transition-opacity" data-testid="footer-link-gesicht">
+                  <Link href="/leistungen" className="text-muted-foreground hover:text-primary transition-colors duration-300 inline-block hover-elevate" data-testid="footer-link-gesicht">
                     Gesichtsbehandlungen
                   </Link>
                 </li>
                 <li>
-                  <Link href="/kontakt" className="hover:opacity-80 transition-opacity" data-testid="footer-link-ueber">
+                  <Link href="/kontakt" className="text-muted-foreground hover:text-primary transition-colors duration-300 inline-block hover-elevate" data-testid="footer-link-ueber">
                     Über mich
                   </Link>
                 </li>
@@ -68,43 +68,45 @@ export default function Footer() {
             </div>
 
             <div className="text-center md:text-right">
-              <h4 className="font-semibold text-sm mb-4" style={{ color: 'hsl(280 30% 25%)' }}>Social Media</h4>
+              <h4 className="font-semibold text-sm uppercase tracking-wider mb-6 text-primary">Social Media</h4>
               <div className="flex gap-4 justify-center md:justify-end">
                 <a
                   href="https://wa.me/491709287722"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:opacity-80 transition-opacity"
-                  style={{ color: 'hsl(280 30% 35%)' }}
+                  className="p-3 rounded-lg bg-card/50 backdrop-blur-sm border border-border text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300 hover-elevate active-elevate-2"
                   data-testid="footer-button-whatsapp"
                 >
-                  <SiWhatsapp className="h-6 w-6" />
+                  <SiWhatsapp className="h-5 w-5" />
                 </a>
                 <a
                   href="https://instagram.com/entranceinharmony"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:opacity-80 transition-opacity"
-                  style={{ color: 'hsl(280 30% 35%)' }}
+                  className="p-3 rounded-lg bg-card/50 backdrop-blur-sm border border-border text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300 hover-elevate active-elevate-2"
                   data-testid="footer-button-instagram"
                 >
-                  <SiInstagram className="h-6 w-6" />
+                  <SiInstagram className="h-5 w-5" />
                 </a>
               </div>
             </div>
           </div>
 
-          <div className="h-px w-full mb-8" style={{
-            background: 'linear-gradient(90deg, transparent, hsl(280 30% 25% / 0.3), transparent)'
-          }}></div>
+          <div className="relative mb-8">
+            <div className="h-px w-full bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+          </div>
 
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm" style={{ color: 'hsl(280 30% 40%)' }}>
-            <p>© 2025 Entrance in Harmony. Alle Rechte vorbehalten.</p>
-            <div className="flex gap-6">
-              <Link href="/impressum" className="hover:opacity-80 transition-opacity" data-testid="footer-link-impressum">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-muted-foreground">
+            <p className="flex items-center gap-2">
+              <span>© 2025</span>
+              <span className="text-primary">Entrance in Harmony</span>
+              <span>· Alle Rechte vorbehalten</span>
+            </p>
+            <div className="flex gap-8">
+              <Link href="/impressum" className="hover:text-primary transition-colors duration-300 hover-elevate" data-testid="footer-link-impressum">
                 Impressum
               </Link>
-              <Link href="/datenschutz" className="hover:opacity-80 transition-opacity" data-testid="footer-link-datenschutz">
+              <Link href="/datenschutz" className="hover:text-primary transition-colors duration-300 hover-elevate" data-testid="footer-link-datenschutz">
                 Datenschutz
               </Link>
             </div>
