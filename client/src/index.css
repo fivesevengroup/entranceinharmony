@@ -93,10 +93,12 @@
   --mauve-accent: 280 40% 70%;
   --mauve-glow: 0 0 20px hsl(280 40% 70% / 0.3), 0 0 40px hsl(280 40% 70% / 0.2);
   
-  /* Graduated transition colors */
-  --section-soft-gold: 36 32% 94%;
-  --section-blush: 32 28% 89%;
-  --section-mauve-hint: 290 32% 88%;
+  /* Graduated transition colors - Refined color cadence */
+  --section-warm-ivory: 40 30% 96%;
+  --section-liquid-gold: 45 35% 92%;
+  --section-blush: 35 28% 90%;
+  --section-mauve-bloom: 285 30% 88%;
+  --section-mauve-twilight: 280 35% 85%;
   --shadow-2xs: 0px 1px 2px 0px hsl(280 20% 10% / 0.05);
   --shadow-xs: 0px 1px 3px 0px hsl(280 20% 10% / 0.08);
   --shadow-sm: 0px 2px 4px 0px hsl(280 20% 10% / 0.06), 0px 1px 2px -1px hsl(280 20% 10% / 0.04);
@@ -204,9 +206,11 @@
   --destructive-foreground: 0 10% 98%;
   
   /* Graduated transition colors - Dark mode */
-  --section-soft-gold: 30 20% 14%;
+  --section-warm-ivory: 30 18% 12%;
+  --section-liquid-gold: 40 20% 14%;
   --section-blush: 32 18% 16%;
-  --section-mauve-hint: 290 20% 18%;
+  --section-mauve-bloom: 285 20% 18%;
+  --section-mauve-twilight: 280 22% 20%;
 
   --input: 280 20% 45%;
   --ring: 45 85% 65%;
@@ -421,17 +425,60 @@
     -webkit-text-fill-color: transparent;
   }
   
-  /* Section transition gradients */
-  .bg-luxe-to-blush {
-    background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--section-soft-gold)) 40%, hsl(var(--section-blush)) 100%);
+  /* Section backgrounds - Refined color cadence */
+  .bg-warm-ivory {
+    background: hsl(var(--section-warm-ivory));
   }
   
-  .bg-blush-to-mauve {
-    background: linear-gradient(180deg, hsl(var(--section-blush)) 0%, hsl(var(--section-mauve-hint)) 60%, hsl(var(--mauve-primary)) 100%);
+  .bg-liquid-gold {
+    background: hsl(var(--section-liquid-gold));
   }
   
-  .bg-neutral-start {
-    background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--section-soft-gold)) 100%);
+  .bg-blush {
+    background: hsl(var(--section-blush));
+  }
+  
+  .bg-mauve-bloom {
+    background: hsl(var(--section-mauve-bloom));
+  }
+  
+  /* Glow and shimmer effects */
+  .section-glow {
+    position: relative;
+  }
+  
+  .section-glow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, hsl(46 74% 52% / 0.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  
+  .divider-aurora {
+    position: relative;
+    overflow: visible;
+  }
+  
+  .divider-aurora::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -2px;
+    height: 4px;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      hsl(46 74% 52% / 0.4) 25%, 
+      hsl(280 40% 70% / 0.4) 75%, 
+      transparent 100%);
+    filter: blur(8px);
+    animation: aurora-flow 4s ease-in-out infinite;
+  }
+  
+  @keyframes aurora-flow {
+    0%, 100% { opacity: 0.6; transform: translateX(-10%); }
+    50% { opacity: 1; transform: translateX(10%); }
   }
   
   .fade-up {
