@@ -67,7 +67,7 @@ export default function Header({ transparent = false }: HeaderProps) {
             <div className="relative flex items-start justify-center">
               {/* Logo zentral */}
               <Link href="/" data-testid="link-home" className={`relative z-20 transition-all duration-500 ${
-                isScrolled ? '' : 'mt-4'
+                isScrolled ? '' : '-mt-6'
               }`}>
                 <img 
                   src={logoImage} 
@@ -78,7 +78,7 @@ export default function Header({ transparent = false }: HeaderProps) {
                   style={{
                     filter: isScrolled 
                       ? 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
-                      : 'drop-shadow(0 4px 12px rgba(244,212,143,0.3))'
+                      : 'brightness(0) invert(1) drop-shadow(0 4px 12px rgba(255,255,255,0.3))'
                   }}
                 />
               </Link>
