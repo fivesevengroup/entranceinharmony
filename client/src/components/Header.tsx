@@ -94,9 +94,12 @@ export default function Header({ transparent = false }: HeaderProps) {
                         href={link.href}
                         data-testid={`link-${link.label.toLowerCase()}`}
                       >
-                        <div className={`relative px-3 py-1.5 transition-all duration-300 ${
-                          isScrolled ? '' : `mt-${index * 3}`
-                        }`}>
+                        <div 
+                          className="relative px-3 py-1.5 transition-all duration-300"
+                          style={{
+                            marginTop: isScrolled ? '0' : `${index * 12}px`
+                          }}
+                        >
                           <span className={`text-xs font-medium tracking-wide uppercase transition-colors duration-200 ${
                             location === link.href 
                               ? 'text-primary font-semibold' 
@@ -121,32 +124,39 @@ export default function Header({ transparent = false }: HeaderProps) {
 
                   {/* Rechte Items */}
                   <div className="flex items-start gap-2">
-                    {navLinks.slice(2).map((link, index) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        data-testid={`link-${link.label.toLowerCase()}`}
-                      >
-                        <div className={`relative px-3 py-1.5 transition-all duration-300 ${
-                          isScrolled ? '' : `mt-${(navLinks.slice(2).length - index - 1) * 3}`
-                        }`}>
-                          <span className={`text-xs font-medium tracking-wide uppercase transition-colors duration-200 ${
-                            location === link.href 
-                              ? 'text-primary font-semibold' 
-                              : isScrolled 
-                                ? 'text-foreground/70 hover:text-primary' 
-                                : 'text-white/90 hover:text-white'
-                          }`}>
-                            {link.label}
-                          </span>
-                          
-                          {/* Gold Dot bei aktivem Link */}
-                          {location === link.href && (
-                            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary"></div>
-                          )}
-                        </div>
-                      </Link>
-                    ))}
+                    {navLinks.slice(2).map((link, index) => {
+                      const rightSideItems = navLinks.slice(2);
+                      const reverseIndex = rightSideItems.length - index - 1;
+                      return (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          data-testid={`link-${link.label.toLowerCase()}`}
+                        >
+                          <div 
+                            className="relative px-3 py-1.5 transition-all duration-300"
+                            style={{
+                              marginTop: isScrolled ? '0' : `${reverseIndex * 12}px`
+                            }}
+                          >
+                            <span className={`text-xs font-medium tracking-wide uppercase transition-colors duration-200 ${
+                              location === link.href 
+                                ? 'text-primary font-semibold' 
+                                : isScrolled 
+                                  ? 'text-foreground/70 hover:text-primary' 
+                                  : 'text-white/90 hover:text-white'
+                            }`}>
+                              {link.label}
+                            </span>
+                            
+                            {/* Gold Dot bei aktivem Link */}
+                            {location === link.href && (
+                              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary"></div>
+                            )}
+                          </div>
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               </nav>
