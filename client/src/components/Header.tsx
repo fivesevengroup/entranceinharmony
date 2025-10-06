@@ -32,7 +32,9 @@ export default function Header({ transparent = false }: HeaderProps) {
   return (
     <header className="w-full absolute top-0 left-0 right-0 z-50 transition-all duration-300">
       <div className={`w-full transition-all duration-300 ${
-        isScrolled ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-lg' : 'bg-black/50 backdrop-blur-md'
+        isScrolled 
+          ? 'bg-background/95 backdrop-blur-md border-b border-primary/30 shadow-lg' 
+          : 'navbar-glass-hero'
       }`}>
         <div className="container mx-auto px-4">
           <div className={`flex items-center justify-between transition-all duration-300 ${
@@ -49,8 +51,8 @@ export default function Header({ transparent = false }: HeaderProps) {
                   filter: 'none',
                   opacity: 1
                 } : { 
-                  filter: 'brightness(0) saturate(100%) invert(100%) drop-shadow(0 2px 8px rgba(0,0,0,0.3))',
-                  opacity: 0.95
+                  filter: 'drop-shadow(0 2px 12px rgba(0,0,0,0.4)) brightness(1.05)',
+                  opacity: 1
                 }}
               />
             </Link>
@@ -63,10 +65,12 @@ export default function Header({ transparent = false }: HeaderProps) {
                   data-testid={`link-${link.label.toLowerCase()}`}
                 >
                   <span
-                    className={`text-sm font-medium transition-all tracking-wide uppercase ${
-                      isScrolled 
-                        ? `text-foreground hover:text-primary ${location === link.href ? 'text-primary' : ''}` 
-                        : `text-white drop-shadow-lg hover:text-primary ${location === link.href ? 'text-primary' : ''}`
+                    className={`text-sm font-medium transition-all duration-200 tracking-wider uppercase ${
+                      location === link.href 
+                        ? 'text-gold-gradient' 
+                        : isScrolled 
+                          ? 'text-foreground hover:text-primary' 
+                          : 'text-white drop-shadow-lg hover:text-primary'
                     }`}
                   >
                     {link.label}
@@ -79,7 +83,7 @@ export default function Header({ transparent = false }: HeaderProps) {
               <Button
                 size="icon"
                 variant="ghost"
-                className={`md:hidden hover-elevate ${isScrolled ? 'text-foreground' : 'text-white'}`}
+                className={`md:hidden ${isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-primary'}`}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 data-testid="button-mobile-menu"
               >
@@ -89,13 +93,13 @@ export default function Header({ transparent = false }: HeaderProps) {
           </div>
         </div>
         {!isScrolled && (
-          <div className="h-1 w-full bg-gradient-to-r from-transparent via-primary/60 to-transparent opacity-80"></div>
+          <div className="h-px w-full gold-shimmer opacity-60"></div>
         )}
       </div>
 
       {mobileMenuOpen && (
-        <div className="md:hidden bg-black/90 backdrop-blur-sm border-t border-white/10">
-          <nav className="container mx-auto px-4 py-4 flex flex-col gap-2">
+        <div className="md:hidden bg-background/98 backdrop-blur-md border-t border-primary/20">
+          <nav className="container mx-auto px-4 py-4 flex flex-col gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -104,7 +108,9 @@ export default function Header({ transparent = false }: HeaderProps) {
               >
                 <Button
                   variant="ghost"
-                  className="w-full justify-start text-white hover:text-white/80"
+                  className={`w-full justify-start hover:text-primary transition-colors ${
+                    location === link.href ? 'text-gold-gradient font-medium' : 'text-foreground'
+                  }`}
                   data-testid={`mobile-link-${link.label.toLowerCase()}`}
                 >
                   {link.label}

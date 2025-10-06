@@ -564,6 +564,18 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
   
+  /* Glamorous navbar glass effect */
+  .navbar-glass-hero {
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(250, 240, 230, 0.20) 50%,
+      rgba(245, 235, 245, 0.15) 100%
+    );
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  
   .luxury-gradient-bg {
     background: linear-gradient(135deg, hsl(30 20% 8%) 0%, hsl(30 25% 12%) 50%, hsl(30 20% 8%) 100%);
   }
