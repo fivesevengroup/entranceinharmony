@@ -5,37 +5,55 @@ import logoImage from "@assets/Logo-PSD_1759668524506.png";
 export default function Footer() {
   return (
     <footer className="relative bg-section-accent mt-32 md:mt-40">
-      {/* Halbrund-Portal - Halbkreis-Bogen mit Logo als Schlussstein */}
-      <div className="absolute top-0 left-0 right-0 w-full pointer-events-none" style={{ height: '140px', transform: 'translateY(-100%)' }}>
+      {/* Golden Arc Halo - Goldener Leuchtbogen über dem Logo */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none" style={{ width: '400px', height: '200px', transform: 'translate(-50%, -100%)' }}>
+        {/* Goldener Halo-Bogen mit Glow */}
         <svg 
-          viewBox="0 0 1200 140" 
-          preserveAspectRatio="none" 
-          className="absolute bottom-0 w-full h-full"
-          style={{ fill: 'hsl(var(--section-accent))' }}
+          viewBox="0 0 400 200" 
+          className="absolute inset-0 w-full h-full"
+          style={{ filter: 'drop-shadow(0 0 20px rgba(244, 212, 143, 0.6))' }}
         >
-          {/* Halbrunder Portal-Bogen */}
-          <path d="M0,64 Q600,0 1200,64 L1200,140 L0,140 Z"></path>
+          <defs>
+            <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style={{ stopColor: '#d4af37', stopOpacity: 0.4 }} />
+              <stop offset="50%" style={{ stopColor: '#f4d48f', stopOpacity: 1 }} />
+              <stop offset="100%" style={{ stopColor: '#d4af37', stopOpacity: 0.4 }} />
+            </linearGradient>
+          </defs>
+          {/* Halo Arc - dicker goldener Bogen */}
+          <path 
+            d="M50,180 Q200,20 350,180" 
+            fill="none" 
+            stroke="url(#goldGradient)" 
+            strokeWidth="8"
+            strokeLinecap="round"
+          />
         </svg>
         
-        {/* Portal-Rahmen für 3D-Effekt */}
+        {/* Zusätzlicher innerer Glow */}
         <svg 
-          viewBox="0 0 1200 140" 
-          preserveAspectRatio="none" 
-          className="absolute bottom-0 w-full h-full"
-          style={{ fill: 'none', stroke: 'hsl(var(--border))', strokeWidth: '2' }}
+          viewBox="0 0 400 200" 
+          className="absolute inset-0 w-full h-full opacity-60"
         >
-          <path d="M0,64 Q600,0 1200,64"></path>
+          <path 
+            d="M50,180 Q200,20 350,180" 
+            fill="none" 
+            stroke="#f4d48f" 
+            strokeWidth="4"
+            strokeLinecap="round"
+            style={{ filter: 'blur(8px)' }}
+          />
         </svg>
-        
-        {/* Logo als Schlussstein im Portal */}
-        <div className="absolute left-1/2 top-0 -translate-x-1/2 z-10 pointer-events-auto">
-          <div className="bg-section-accent rounded-lg p-4 md:p-5 shadow-xl border-2 border-border/40">
-            <img 
-              src={logoImage} 
-              alt="Entrance in Harmony" 
-              className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain drop-shadow-lg"
-            />
-          </div>
+      </div>
+
+      {/* Logo unter dem Halo */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-auto" style={{ transform: 'translate(-50%, -70%)' }}>
+        <div className="bg-section-accent rounded-full p-4 md:p-5 shadow-xl border-2 border-gold/30">
+          <img 
+            src={logoImage} 
+            alt="Entrance in Harmony" 
+            className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain drop-shadow-lg"
+          />
         </div>
       </div>
       
