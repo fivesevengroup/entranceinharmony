@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import PriceTable from "@/components/PriceTable";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
+import facialImage from "@assets/generated_images/Facial_treatment_close-up_d5c55f42.png";
 
 export default function PriceList() {
   const facialPrices = [
@@ -36,17 +37,33 @@ export default function PriceList() {
     <div className="min-h-screen flex flex-col">
       <Header />
 
-      {/* Hero Section */}
-      <section className="relative pt-44 pb-20 bg-gradient-to-br from-background via-primary/5 to-background overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none"></div>
-        <div className="container mx-auto px-4 text-center relative">
+      {/* Hero Section with Background */}
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center scale-105"
+          style={{ backgroundImage: `url(${facialImage})` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"></div>
+        </div>
+
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/40 to-transparent pointer-events-none"></div>
+
+        <div className="relative z-10 container mx-auto px-4 text-center pt-44 pb-20">
           <div className="max-w-4xl mx-auto fade-up">
-            <h1 className="font-serif text-5xl md:text-6xl font-light mb-6">Preisliste</h1>
+            <h1 className="font-serif text-5xl md:text-7xl font-light mb-6 text-white drop-shadow-2xl">
+              Preisliste
+            </h1>
             <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full"></div>
-            <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+            <p className="text-xl md:text-2xl text-white/95 drop-shadow-lg leading-relaxed mb-8">
               Transparente Preise für alle unsere Behandlungen
             </p>
-            <Button onClick={handleDownloadPDF} data-testid="button-download-pdf" size="lg">
+            <Button 
+              onClick={handleDownloadPDF} 
+              data-testid="button-download-pdf" 
+              size="lg"
+              className="text-base px-10 py-6 glassmorphism hover:bg-white/20 text-white border-2 border-white/80 font-medium"
+            >
               <Download className="mr-2 h-5 w-5" />
               Preisliste als PDF
             </Button>

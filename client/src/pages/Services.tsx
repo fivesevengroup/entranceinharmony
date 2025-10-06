@@ -166,19 +166,38 @@ export default function Services() {
     <div className="min-h-screen flex flex-col">
       <Header />
 
-      {/* Hero Section */}
-      <section className="relative pt-44 pb-20 bg-gradient-to-br from-background via-primary/5 to-background overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none"></div>
-        <div className="container mx-auto px-4 text-center relative">
+      {/* Hero Section with Background */}
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center scale-105"
+          style={{ backgroundImage: `url(${microneedlingImage})` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"></div>
+        </div>
+
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/40 to-transparent pointer-events-none"></div>
+
+        <div className="relative z-10 container mx-auto px-4 text-center pt-44 pb-20">
           <div className="max-w-4xl mx-auto fade-up">
-            <h1 className="font-serif text-5xl md:text-6xl font-light mb-6" data-testid="heading-services">
+            <h1 className="font-serif text-5xl md:text-7xl font-light mb-6 text-white drop-shadow-2xl" data-testid="heading-services">
               Unsere Behandlungen
             </h1>
             <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full"></div>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p className="text-xl md:text-2xl text-white/95 drop-shadow-lg leading-relaxed mb-8">
               Ob individuelle Gesichtsbehandlungen, Microneedling, BB Glow oder Laserbehandlung – 
               wir bieten Ihnen die optimale Leistung rund um eine gesunde und schöne Haut.
             </p>
+            <Button
+              size="lg"
+              className="text-base px-10 py-6 bg-primary hover:bg-primary/90 text-primary-foreground border-2 border-primary shadow-xl font-medium"
+              asChild
+              data-testid="button-termin-services"
+            >
+              <a href="https://wa.me/491709287722" target="_blank" rel="noopener noreferrer">
+                Jetzt Termin buchen
+              </a>
+            </Button>
           </div>
         </div>
       </section>

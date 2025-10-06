@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import TestimonialCard from "@/components/TestimonialCard";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
+import massageImage from "@assets/generated_images/Massage_therapy_session_569ccb02.png";
 
 export default function Reviews() {
   const allTestimonials = [
@@ -57,16 +58,25 @@ export default function Reviews() {
     <div className="min-h-screen flex flex-col">
       <Header />
 
-      {/* Hero Section */}
-      <section className="relative pt-44 pb-20 bg-gradient-to-br from-background via-primary/5 to-background overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none"></div>
-        <div className="container mx-auto px-4 text-center relative">
+      {/* Hero Section with Background */}
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center scale-105"
+          style={{ backgroundImage: `url(${massageImage})` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"></div>
+        </div>
+
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/40 to-transparent pointer-events-none"></div>
+
+        <div className="relative z-10 container mx-auto px-4 text-center pt-44 pb-20">
           <div className="max-w-4xl mx-auto fade-up">
-            <h1 className="font-serif text-5xl md:text-6xl font-light mb-6">
+            <h1 className="font-serif text-5xl md:text-7xl font-light mb-6 text-white drop-shadow-2xl">
               Was Kundinnen über uns sagen
             </h1>
             <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full"></div>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p className="text-xl md:text-2xl text-white/95 drop-shadow-lg leading-relaxed">
               Authentische Bewertungen unserer zufriedenen Kundinnen
             </p>
           </div>
