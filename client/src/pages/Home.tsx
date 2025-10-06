@@ -132,46 +132,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <WaveDivider position="bottom" color="hsl(var(--section-accent))" />
-      </section>
-
-      <section className="py-24 md:py-32 bg-section-accent relative">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="fade-up">
-              <h2 className="font-serif text-4xl md:text-5xl font-light mb-6">
-                Bereit für Ihre Verwandlung?
-              </h2>
-              <div className="h-1 w-32 mx-auto mb-8 rounded-full gold-shimmer"></div>
-            </div>
-            <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
-              <p className="text-lg mb-10 leading-relaxed text-muted-foreground">
-                Buchen Sie jetzt Ihren Termin und erleben Sie professionelle Beauty-Treatments in luxuriöser Atmosphäre. Ich freue mich darauf, Sie verwöhnen zu dürfen!
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  size="lg"
-                  className="text-base px-10 py-6 font-medium"
-                  asChild
-                  data-testid="button-cta-termin"
-                >
-                  <a href="https://wa.me/491709287722" target="_blank" rel="noopener noreferrer">
-                    Jetzt Termin buchen
-                  </a>
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="text-base px-10 py-6 font-medium"
-                  asChild
-                  data-testid="button-cta-leistungen"
-                >
-                  <a href="/leistungen">Alle Behandlungen</a>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
 
       <Footer />
