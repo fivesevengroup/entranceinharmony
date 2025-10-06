@@ -404,6 +404,17 @@
   100% { transform: translateX(100%); }
 }
 
+@keyframes twinkle {
+  0%, 100% { 
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
 @layer utilities {
   /* Gold luxury effects */
   .gold-shimmer {
