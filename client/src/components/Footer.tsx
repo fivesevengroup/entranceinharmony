@@ -1,14 +1,36 @@
 import { Link } from "wouter";
 import { SiWhatsapp, SiInstagram } from "react-icons/si";
-import WaveDivider from "@/components/WaveDivider";
+import logoImage from "@assets/Logo-PSD_1759668524506.png";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-section-accent">
-      <WaveDivider position="top" color="hsl(var(--section-accent))" />
+    <footer className="relative bg-section-accent mt-20">
+      {/* Logo-Bogen Abschluss - Geschwungene obere Kante */}
+      <div className="absolute top-0 left-0 right-0 w-full" style={{ height: '120px', transform: 'translateY(-100%)' }}>
+        <svg 
+          viewBox="0 0 1200 120" 
+          preserveAspectRatio="none" 
+          className="absolute bottom-0 w-full h-full"
+          style={{ fill: 'hsl(var(--section-accent))' }}
+        >
+          {/* Konkave Kurve (Bogen nach unten) */}
+          <path d="M0,0 L0,40 Q600,120 1200,40 L1200,0 L0,0 Z"></path>
+        </svg>
+        
+        {/* Logo zentral im Bogen */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/4 z-10">
+          <div className="bg-section-accent rounded-full p-4 shadow-2xl border-4 border-background/20">
+            <img 
+              src={logoImage} 
+              alt="Entrance in Harmony" 
+              className="w-20 h-20 md:w-24 md:h-24 object-contain"
+            />
+          </div>
+        </div>
+      </div>
       
       <div className="container mx-auto px-4 relative">
-        <div className="pt-16 pb-12">
+        <div className="pt-24 pb-12">
           <div className="text-center mb-14">
             <h3 className="font-serif text-3xl md:text-4xl font-light text-gold-gradient mb-4">
               Entrance in Harmony
