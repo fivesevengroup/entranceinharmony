@@ -36,7 +36,9 @@ export default function Home() {
       </section>
 
       <section className="py-20 md:py-32 bg-gradient-to-br from-muted/30 via-background to-muted/30 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background: 'radial-gradient(ellipse at 20% 50%, hsl(280 35% 85% / 0.08) 0%, transparent 50%)'
+        }} />
         <div className="container mx-auto px-4 relative">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16 fade-up">
@@ -82,7 +84,9 @@ export default function Home() {
       </section>
 
       <section className="py-20 md:py-32 bg-gradient-to-br from-background to-muted/30 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-tl from-primary/5 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background: 'radial-gradient(ellipse at 80% 50%, hsl(280 35% 85% / 0.08) 0%, transparent 50%)'
+        }} />
         <div className="container mx-auto px-4 relative">
           <div className="grid md:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
             <div className="order-2 md:order-1 fade-up">
