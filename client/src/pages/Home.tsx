@@ -102,8 +102,8 @@ export default function Home() {
               </Button>
             </div>
             <div className="order-1 md:order-2 fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
-              <div className="studio-showcase rounded-3xl overflow-hidden shadow-2xl">
-                <div className="relative">
+              <div className="studio-showcase">
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-primary/10 z-10 pointer-events-none" />
                   <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/20 to-transparent z-10 pointer-events-none" />
                   <img
