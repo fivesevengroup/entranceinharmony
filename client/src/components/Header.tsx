@@ -31,64 +31,106 @@ export default function Header({ transparent = false }: HeaderProps) {
 
   return (
     <header className="w-full absolute top-0 left-0 right-0 z-50">
-      {/* Tailored Matte - Matter Mauve-Balken mit gedämpften Gold-Akzenten */}
+      {/* Portal Column - Architektonisches Logo-Portal mit vertikaler Navigation */}
       <div className={`transition-all duration-300 ${
         isScrolled 
-          ? 'bg-background shadow-md' 
-          : 'bg-[hsl(280,35%,85%)] shadow-sm'
+          ? 'bg-background/95 backdrop-blur-sm' 
+          : 'bg-gradient-to-b from-white/20 to-transparent'
       }`}>
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo links */}
-            <Link href="/" data-testid="link-home">
-              <img 
-                src={logoImage} 
-                alt="Entrance in Harmony" 
-                className={`w-auto transition-all duration-300 ${
-                  isScrolled ? 'h-10' : 'h-12'
-                }`}
-                style={{
-                  filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.1))'
-                }}
-              />
-            </Link>
-
-            {/* Navigation zentriert - Uppercase mit Letter-Spacing */}
-            <nav className="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
-              {navLinks.map((link) => (
+          <div className={`flex items-center gap-8 transition-all duration-300 ${
+            isScrolled ? 'py-3' : 'py-6'
+          }`}>
+            {/* Vertikale Navigation links */}
+            <nav className="hidden lg:flex flex-col gap-4 pr-6 border-r border-primary/30">
+              {navLinks.slice(0, 3).map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   data-testid={`link-${link.label.toLowerCase()}`}
                 >
-                  <div className="relative py-2 group">
-                    <span className={`text-xs font-medium tracking-[0.15em] uppercase transition-colors duration-200 ${
+                  <div className="relative group">
+                    <span className={`text-xs font-medium tracking-[0.1em] uppercase transition-colors duration-200 ${
                       location === link.href 
-                        ? 'text-[#d4af37] font-semibold' 
-                        : 'text-foreground/90 group-hover:text-[#d4af37]'
+                        ? 'text-primary font-semibold' 
+                        : isScrolled 
+                          ? 'text-foreground/80 group-hover:text-primary' 
+                          : 'text-white/90 group-hover:text-white'
                     }`}>
                       {link.label}
                     </span>
                     
-                    {/* Gedämpfte Gold-Linie bei Hover */}
-                    <div 
-                      className={`absolute bottom-0 left-0 right-0 h-px bg-[#d4af37] transition-all duration-300 ${
-                        location === link.href 
-                          ? 'opacity-100 scale-x-100' 
-                          : 'opacity-0 scale-x-0 group-hover:opacity-60 group-hover:scale-x-100'
-                      }`}
-                    ></div>
+                    {/* Gold-Marker links */}
+                    {location === link.href && (
+                      <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8 w-4 h-px bg-primary"></div>
+                    )}
+                  </div>
+                </Link>
+              ))}
+            </nav>
+
+            {/* Logo als zentrales Portal-Element */}
+            <Link href="/" data-testid="link-home" className="flex-shrink-0">
+              <div className={`relative transition-all duration-300 ${
+                isScrolled ? '' : 'px-6'
+              }`}>
+                <img 
+                  src={logoImage} 
+                  alt="Entrance in Harmony" 
+                  className={`w-auto transition-all duration-300 ${
+                    isScrolled ? 'h-12' : 'h-20'
+                  }`}
+                  style={{
+                    filter: isScrolled 
+                      ? 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
+                      : 'drop-shadow(0 4px 12px rgba(244,212,143,0.3))'
+                  }}
+                />
+                
+                {/* Portal-Rahmen (nur wenn nicht gescrollt) */}
+                {!isScrolled && (
+                  <>
+                    <div className="absolute -left-2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/40 to-transparent"></div>
+                    <div className="absolute -right-2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/40 to-transparent"></div>
+                  </>
+                )}
+              </div>
+            </Link>
+
+            {/* Rechte Navigation (vertikal) */}
+            <nav className="hidden lg:flex flex-col gap-4 pl-6 border-l border-primary/30">
+              {navLinks.slice(3).map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  data-testid={`link-${link.label.toLowerCase()}`}
+                >
+                  <div className="relative group">
+                    <span className={`text-xs font-medium tracking-[0.1em] uppercase transition-colors duration-200 ${
+                      location === link.href 
+                        ? 'text-primary font-semibold' 
+                        : isScrolled 
+                          ? 'text-foreground/80 group-hover:text-primary' 
+                          : 'text-white/90 group-hover:text-white'
+                    }`}>
+                      {link.label}
+                    </span>
+                    
+                    {/* Gold-Marker rechts */}
+                    {location === link.href && (
+                      <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-8 w-4 h-px bg-primary"></div>
+                    )}
                   </div>
                 </Link>
               ))}
             </nav>
 
             {/* Mobile Menu Button */}
-            <div className="md:hidden">
+            <div className="lg:hidden ml-auto">
               <Button
                 size="icon"
                 variant="ghost"
-                className="text-foreground"
+                className={isScrolled ? 'text-foreground' : 'text-white'}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 data-testid="button-mobile-menu"
               >
@@ -97,9 +139,6 @@ export default function Header({ transparent = false }: HeaderProps) {
             </div>
           </div>
         </div>
-
-        {/* Subtile untere Linie */}
-        <div className="h-px w-full bg-gradient-to-r from-transparent via-[#d4af37]/20 to-transparent"></div>
       </div>
 
       {mobileMenuOpen && (
