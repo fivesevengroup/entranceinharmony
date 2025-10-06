@@ -16,7 +16,7 @@ export default function Contact() {
         <div className="container mx-auto px-4 relative">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16 fade-up">
-              <h1 className="font-serif text-5xl md:text-6xl font-light mb-6 text-gold-gradient">
+              <h1 className="font-serif text-5xl md:text-6xl font-light mb-6">
                 Elena Hartstein
               </h1>
               <div className="h-0.5 w-32 mx-auto mb-4 bg-border rounded-full"></div>
