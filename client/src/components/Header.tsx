@@ -44,7 +44,7 @@ export default function Header({ transparent = false }: HeaderProps) {
         
         <div className="container mx-auto px-4">
           <div className={`relative transition-all duration-500 ${
-            isScrolled ? 'py-3' : 'pt-6 pb-12'
+            isScrolled ? 'py-3' : 'pt-6 pb-8'
           }`}>
             {/* Bogen-Linie (nur wenn nicht gescrollt) */}
             {!isScrolled && (
