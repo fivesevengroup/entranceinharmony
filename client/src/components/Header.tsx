@@ -104,7 +104,7 @@ export default function Header({ transparent = false }: HeaderProps) {
               </Link>
 
               {/* Navigation Items im Bogen */}
-              <nav className="hidden lg:flex absolute inset-x-0 top-1/2 -translate-y-1/2 justify-center items-center">
+              <nav className="hidden lg:flex absolute inset-x-0 top-[35%] -translate-y-1/2 justify-center items-center">
                 <div className="flex items-center gap-2 max-w-5xl w-full justify-between px-8">
                   {/* Linke Items */}
                   <div className="flex items-center gap-2">
