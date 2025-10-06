@@ -11,7 +11,7 @@ export default function Home() {
       <Header transparent={true} />
       <Hero />
       
-      <section className="py-20 md:py-28 bg-gradient-to-b from-background to-muted/20">
+      <section className="py-20 md:py-28 bg-neutral-start relative">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="fade-up">
@@ -35,10 +35,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 md:py-32 bg-gradient-to-br from-muted/30 via-background to-muted/30 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none" style={{
-          background: 'radial-gradient(ellipse at 20% 50%, hsl(280 35% 85% / 0.08) 0%, transparent 50%)'
-        }} />
+      <section className="py-20 md:py-32 -mt-16 pt-24 bg-luxe-to-blush relative overflow-hidden z-10">
         <div className="container mx-auto px-4 relative">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16 fade-up">
@@ -48,7 +45,7 @@ export default function Home() {
               <div className="h-1 w-32 mx-auto gold-shimmer rounded-full" />
             </div>
             
-            <div className="bg-card/90 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border-2 border-primary/20 gold-glow fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
+            <div className="bg-card/80 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden border-2 border-primary/20 gold-glow fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
               <div className="grid md:grid-cols-5 gap-0">
                 <div className="md:col-span-2 relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-primary/10 z-10" />
@@ -83,10 +80,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 md:py-32 bg-gradient-to-br from-background to-muted/30 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none" style={{
-          background: 'radial-gradient(ellipse at 80% 50%, hsl(280 35% 85% / 0.08) 0%, transparent 50%)'
-        }} />
+      <section className="py-20 md:py-32 -mt-16 pt-24 bg-blush-to-mauve relative overflow-hidden z-10">
         <div className="container mx-auto px-4 relative">
           <div className="grid md:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
             <div className="order-2 md:order-1 fade-up">
@@ -105,13 +99,61 @@ export default function Home() {
               </Button>
             </div>
             <div className="order-1 md:order-2 fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-primary/20 gold-glow">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-primary/15 backdrop-blur-sm">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent z-10" />
                 <img
                   src={massageImage}
                   alt="Das Studio"
                   className="w-full transform hover:scale-105 transition-transform duration-700"
                 />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 md:py-32 -mt-16 pt-28 relative z-10" style={{
+        background: 'linear-gradient(180deg, hsl(var(--section-blush)) 0%, hsl(var(--section-mauve-hint)) 40%, hsl(var(--mauve-primary)) 100%)'
+      }}>
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="fade-up">
+              <h2 className="font-serif text-4xl md:text-5xl font-light mb-6" style={{ color: 'hsl(280 30% 25%)' }}>
+                Bereit für Ihre Verwandlung?
+              </h2>
+              <div className="h-1 w-32 mx-auto mb-8 rounded-full" style={{
+                background: 'linear-gradient(90deg, hsl(46 74% 52%) 0%, hsl(280 40% 70%) 100%)'
+              }}></div>
+            </div>
+            <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
+              <p className="text-lg mb-10 leading-relaxed" style={{ color: 'hsl(280 30% 35%)' }}>
+                Buchen Sie jetzt Ihren Termin und erleben Sie professionelle Beauty-Treatments in luxuriöser Atmosphäre. Ich freue mich darauf, Sie verwöhnen zu dürfen!
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button
+                  size="lg"
+                  className="text-base px-10 py-6 bg-primary hover:bg-primary/90 text-primary-foreground border-2 border-primary shadow-xl gold-glow font-medium"
+                  asChild
+                  data-testid="button-cta-termin"
+                >
+                  <a href="https://wa.me/491709287722" target="_blank" rel="noopener noreferrer">
+                    Jetzt Termin buchen
+                  </a>
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="text-base px-10 py-6 font-medium backdrop-blur-sm"
+                  style={{
+                    backgroundColor: 'hsl(280 30% 25% / 0.1)',
+                    borderColor: 'hsl(280 30% 25%)',
+                    color: 'hsl(280 30% 25%)'
+                  }}
+                  asChild
+                  data-testid="button-cta-leistungen"
+                >
+                  <a href="/leistungen">Alle Behandlungen</a>
+                </Button>
               </div>
             </div>
           </div>
