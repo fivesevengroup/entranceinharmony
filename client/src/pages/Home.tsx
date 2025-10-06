@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
+import WaveDivider from "@/components/WaveDivider";
 import { Button } from "@/components/ui/button";
 import aboutImage from "@assets/Design ohne Titel_1759678752531.png";
 import massageImage from "@assets/generated_images/Massage_therapy_session_569ccb02.png";
@@ -11,7 +12,8 @@ export default function Home() {
       <Header transparent={true} />
       <Hero />
       
-      <section className="py-20 md:py-28 bg-neutral-start relative">
+      <section className="py-20 md:py-28 bg-warm-ivory relative section-glow">
+        <WaveDivider position="bottom" color="hsl(var(--section-liquid-gold))" className="divider-aurora" />
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="fade-up">
@@ -35,7 +37,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 md:py-32 -mt-16 pt-24 bg-luxe-to-blush relative overflow-hidden z-10">
+      <section className="py-20 md:py-32 bg-liquid-gold relative section-glow">
+        <WaveDivider position="bottom" color="hsl(var(--section-blush))" className="divider-aurora" />
         <div className="container mx-auto px-4 relative">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16 fade-up">
@@ -80,7 +83,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 md:py-32 -mt-16 pt-24 bg-blush-to-mauve relative overflow-hidden z-10">
+      <section className="py-20 md:py-32 bg-blush relative section-glow">
+        <WaveDivider position="bottom" color="hsl(var(--section-mauve-bloom))" className="divider-aurora" />
         <div className="container mx-auto px-4 relative">
           <div className="grid md:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
             <div className="order-2 md:order-1 fade-up">
@@ -112,18 +116,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-24 md:py-32 -mt-16 pt-28 relative z-10" style={{
-        background: 'linear-gradient(180deg, hsl(var(--section-blush)) 0%, hsl(var(--section-mauve-hint)) 40%, hsl(var(--mauve-primary)) 100%)'
-      }}>
+      <section className="py-24 md:py-32 bg-mauve-bloom relative section-glow">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="fade-up">
               <h2 className="font-serif text-4xl md:text-5xl font-light mb-6 text-foreground">
                 Bereit für Ihre Verwandlung?
               </h2>
-              <div className="h-1 w-32 mx-auto mb-8 rounded-full" style={{
-                background: 'linear-gradient(90deg, hsl(46 74% 52%) 0%, hsl(280 40% 70%) 100%)'
-              }}></div>
+              <div className="h-1 w-32 mx-auto mb-8 rounded-full gold-shimmer"></div>
             </div>
             <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
               <p className="text-lg mb-10 leading-relaxed text-muted-foreground">
@@ -132,7 +132,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   size="lg"
-                  className="text-base px-10 py-6 bg-primary hover:bg-primary/90 text-primary-foreground border-2 border-primary shadow-xl gold-glow font-medium"
+                  className="text-base px-10 py-6 gold-glow font-medium"
                   asChild
                   data-testid="button-cta-termin"
                 >
@@ -143,7 +143,7 @@ export default function Home() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="text-base px-10 py-6 font-medium backdrop-blur-sm border-foreground/30 text-foreground hover:bg-foreground/10"
+                  className="text-base px-10 py-6 font-medium backdrop-blur-sm"
                   asChild
                   data-testid="button-cta-leistungen"
                 >
