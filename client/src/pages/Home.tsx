@@ -102,14 +102,21 @@ export default function Home() {
               </Button>
             </div>
             <div className="order-1 md:order-2 fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
-              <div className="photo-frame">
-                <div className="photo-showcase">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/15 to-transparent z-10 pointer-events-none" />
+              <div className="studio-showcase rounded-3xl overflow-hidden shadow-2xl">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-primary/10 z-10 pointer-events-none" />
+                  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/20 to-transparent z-10 pointer-events-none" />
                   <img
                     src={massageImage}
                     alt="Das Studio"
-                    className="w-full transform hover:scale-110 transition-all duration-700 hover:brightness-110 rounded-2xl"
+                    className="w-full aspect-[4/3] object-cover"
                   />
+                  <div className="absolute bottom-0 left-0 right-0 p-6 z-20 bg-gradient-to-t from-black/60 to-transparent">
+                    <div className="flex items-center gap-3">
+                      <div className="h-1 w-12 gold-shimmer rounded-full" />
+                      <span className="text-white font-light text-lg tracking-wide">Entrance in Harmony Studio</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
