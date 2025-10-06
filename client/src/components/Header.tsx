@@ -31,7 +31,9 @@ export default function Header({ transparent = false }: HeaderProps) {
 
   return (
     <header className="w-full absolute top-0 left-0 right-0 z-50 transition-all duration-300">
-      <div className="w-full bg-black/40 backdrop-blur-sm">
+      <div className={`w-full transition-all duration-300 ${
+        isScrolled ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-lg' : 'bg-black/50 backdrop-blur-md'
+      }`}>
         <div className="container mx-auto px-4">
           <div className={`flex items-center justify-between transition-all duration-300 ${
             isScrolled ? 'h-20' : 'h-24'
@@ -43,9 +45,12 @@ export default function Header({ transparent = false }: HeaderProps) {
                 className={`w-auto transition-all duration-300 ${
                   isScrolled ? 'h-12' : 'h-20'
                 }`}
-                style={{ 
+                style={isScrolled ? { 
+                  filter: 'none',
+                  opacity: 1
+                } : { 
                   filter: 'brightness(0) saturate(100%) invert(100%) drop-shadow(0 2px 8px rgba(0,0,0,0.3))',
-                  opacity: 0.9
+                  opacity: 0.95
                 }}
               />
             </Link>
@@ -58,7 +63,11 @@ export default function Header({ transparent = false }: HeaderProps) {
                   data-testid={`link-${link.label.toLowerCase()}`}
                 >
                   <span
-                    className={`text-sm font-normal transition-colors text-white drop-shadow-lg hover:text-white/80 ${location === link.href ? 'font-medium' : ''}`}
+                    className={`text-sm font-medium transition-all tracking-wide uppercase ${
+                      isScrolled 
+                        ? `text-foreground hover:text-primary ${location === link.href ? 'text-primary' : ''}` 
+                        : `text-white drop-shadow-lg hover:text-primary ${location === link.href ? 'text-primary' : ''}`
+                    }`}
                   >
                     {link.label}
                   </span>
@@ -70,7 +79,7 @@ export default function Header({ transparent = false }: HeaderProps) {
               <Button
                 size="icon"
                 variant="ghost"
-                className="md:hidden hover-elevate text-white"
+                className={`md:hidden hover-elevate ${isScrolled ? 'text-foreground' : 'text-white'}`}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 data-testid="button-mobile-menu"
               >
@@ -79,6 +88,9 @@ export default function Header({ transparent = false }: HeaderProps) {
             </div>
           </div>
         </div>
+        {!isScrolled && (
+          <div className="h-1 w-full bg-gradient-to-r from-transparent via-primary to-transparent opacity-60"></div>
+        )}
       </div>
 
       {mobileMenuOpen && (
