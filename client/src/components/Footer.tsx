@@ -28,7 +28,7 @@ export default function Footer() {
         </svg>
         
         {/* Logo rund - Weißer Kreis mit subtilem Gold-Akzent */}
-        <div className="absolute left-1/2 top-0 -translate-x-1/2 z-10 pointer-events-auto">
+        <div className="absolute left-1/2 -top-6 -translate-x-1/2 z-10 pointer-events-auto">
           <div className="relative">
             {/* Weißer Kreis mit feinem Gold-Border */}
             <div className="relative bg-white rounded-full p-4 shadow-xl border-2 border-primary/40">
