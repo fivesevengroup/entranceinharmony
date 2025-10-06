@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="relative bg-section-accent mt-20">
       {/* Logo-Bogen Abschluss - Geschwungene obere Kante */}
-      <div className="absolute top-0 left-0 right-0 w-full" style={{ height: '120px', transform: 'translateY(-100%)' }}>
+      <div className="absolute top-0 left-0 right-0 w-full pointer-events-none" style={{ height: '120px', transform: 'translateY(-100%)' }}>
         <svg 
           viewBox="0 0 1200 120" 
           preserveAspectRatio="none" 
@@ -18,7 +18,7 @@ export default function Footer() {
         </svg>
         
         {/* Logo zentral im Bogen - schwebt elegant in der Kurve */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/3 z-10">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-auto">
           <div className="bg-section-accent rounded-full p-3 md:p-4 shadow-2xl border-4 border-background/20 gold-glow">
             <img 
               src={logoImage} 
@@ -30,7 +30,7 @@ export default function Footer() {
       </div>
       
       <div className="container mx-auto px-4 relative">
-        <div className="pt-24 pb-12">
+        <div className="pt-28 md:pt-24 pb-12">
           <div className="text-center mb-14">
             <h3 className="font-serif text-3xl md:text-4xl font-light text-gold-gradient mb-4">
               Entrance in Harmony
