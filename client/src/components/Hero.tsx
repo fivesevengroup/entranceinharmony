@@ -77,8 +77,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none"></div>
-      <WaveDivider position="bottom" color="hsl(var(--section-warm-ivory))" className="divider-aurora" />
+      <WaveDivider position="bottom" color="hsl(var(--background))" />
     </section>
   );
 }
