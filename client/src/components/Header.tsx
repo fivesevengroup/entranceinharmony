@@ -107,19 +107,14 @@ export default function Header({ transparent = false }: HeaderProps) {
               <nav className="hidden lg:flex absolute inset-x-0 top-0 justify-center items-start">
                 <div className="flex items-start gap-2 max-w-5xl w-full justify-between px-8">
                   {/* Linke Items */}
-                  <div className="flex items-start gap-2">
+                  <div className="flex items-center gap-2">
                     {navLinks.slice(0, 2).map((link, index) => (
                       <Link
                         key={link.href}
                         href={link.href}
                         data-testid={`link-${link.label.toLowerCase()}`}
                       >
-                        <div 
-                          className="relative px-3 py-1.5 transition-all duration-300"
-                          style={{
-                            marginTop: isScrolled ? '0' : `${index * 12}px`
-                          }}
-                        >
+                        <div className="relative px-3 py-1.5 transition-all duration-300">
                           <span className={`text-xs font-medium tracking-wide uppercase transition-colors duration-200 ${
                             location === link.href 
                               ? 'text-primary font-semibold' 
@@ -146,22 +141,15 @@ export default function Header({ transparent = false }: HeaderProps) {
                   <div className="w-32"></div>
 
                   {/* Rechte Items */}
-                  <div className="flex items-start gap-2">
+                  <div className="flex items-center gap-2">
                     {navLinks.slice(2).map((link, index) => {
-                      const rightSideItems = navLinks.slice(2);
-                      const reverseIndex = rightSideItems.length - index - 1;
                       return (
                         <Link
                           key={link.href}
                           href={link.href}
                           data-testid={`link-${link.label.toLowerCase()}`}
                         >
-                          <div 
-                            className="relative px-3 py-1.5 transition-all duration-300"
-                            style={{
-                              marginTop: isScrolled ? '0' : `${reverseIndex * 12}px`
-                            }}
-                          >
+                          <div className="relative px-3 py-1.5 transition-all duration-300">
                             <span className={`text-xs font-medium tracking-wide uppercase transition-colors duration-200 ${
                               location === link.href 
                                 ? 'text-primary font-semibold' 
