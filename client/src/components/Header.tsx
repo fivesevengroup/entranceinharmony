@@ -31,11 +31,11 @@ export default function Header({ transparent = false }: HeaderProps) {
 
   return (
     <header className="w-full absolute top-0 left-0 right-0 z-50">
-      {/* Atelier Glass - Professioneller Frost-Glas-Balken */}
-      <div className={`backdrop-blur-md transition-all duration-300 ${
+      {/* Tailored Matte - Matter Mauve-Balken mit gedämpften Gold-Akzenten */}
+      <div className={`transition-all duration-300 ${
         isScrolled 
-          ? 'bg-background/95 shadow-md' 
-          : 'bg-white/10 shadow-sm'
+          ? 'bg-background shadow-md' 
+          : 'bg-[hsl(280,35%,85%)] shadow-sm'
       }`}>
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
@@ -48,41 +48,36 @@ export default function Header({ transparent = false }: HeaderProps) {
                   isScrolled ? 'h-10' : 'h-12'
                 }`}
                 style={{
-                  filter: isScrolled 
-                    ? 'drop-shadow(0 1px 2px rgba(0,0,0,0.1))'
-                    : 'drop-shadow(0 2px 4px rgba(0,0,0,0.15))'
+                  filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.1))'
                 }}
               />
             </Link>
 
-            {/* Navigation zentriert */}
-            <nav className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+            {/* Navigation zentriert - Uppercase mit Letter-Spacing */}
+            <nav className="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   data-testid={`link-${link.label.toLowerCase()}`}
                 >
-                  <div className="relative py-2">
-                    <span className={`text-sm font-medium tracking-wide uppercase transition-colors duration-200 ${
+                  <div className="relative py-2 group">
+                    <span className={`text-xs font-medium tracking-[0.15em] uppercase transition-colors duration-200 ${
                       location === link.href 
-                        ? 'text-primary font-semibold' 
-                        : isScrolled 
-                          ? 'text-foreground hover:text-primary' 
-                          : 'text-white hover:text-white/80'
+                        ? 'text-[#d4af37] font-semibold' 
+                        : 'text-foreground/90 group-hover:text-[#d4af37]'
                     }`}>
                       {link.label}
                     </span>
                     
-                    {/* Gold-Akzent: Schmaler Indikator nur bei aktivem Link */}
-                    {location === link.href && (
-                      <div 
-                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary transition-all duration-300"
-                        style={{
-                          boxShadow: '0 0 8px rgba(244,212,143,0.4)'
-                        }}
-                      ></div>
-                    )}
+                    {/* Gedämpfte Gold-Linie bei Hover */}
+                    <div 
+                      className={`absolute bottom-0 left-0 right-0 h-px bg-[#d4af37] transition-all duration-300 ${
+                        location === link.href 
+                          ? 'opacity-100 scale-x-100' 
+                          : 'opacity-0 scale-x-0 group-hover:opacity-60 group-hover:scale-x-100'
+                      }`}
+                    ></div>
                   </div>
                 </Link>
               ))}
@@ -93,7 +88,7 @@ export default function Header({ transparent = false }: HeaderProps) {
               <Button
                 size="icon"
                 variant="ghost"
-                className={isScrolled ? 'text-foreground' : 'text-white'}
+                className="text-foreground"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 data-testid="button-mobile-menu"
               >
@@ -104,11 +99,7 @@ export default function Header({ transparent = false }: HeaderProps) {
         </div>
 
         {/* Subtile untere Linie */}
-        <div className={`h-px w-full transition-opacity duration-300 ${
-          isScrolled ? 'opacity-100' : 'opacity-50'
-        }`} style={{
-          background: 'linear-gradient(90deg, transparent, rgba(244,212,143,0.3), transparent)'
-        }}></div>
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-[#d4af37]/20 to-transparent"></div>
       </div>
 
       {mobileMenuOpen && (
