@@ -422,41 +422,30 @@
     background: hsl(var(--section-accent));
   }
   
-  /* Unique photo effects */
-  .photo-showcase {
+  /* Luxury photo frames - permanent glamour effects */
+  .luxury-frame {
     position: relative;
-    border-radius: 1rem;
-    overflow: hidden;
   }
   
-  .photo-showcase::before {
+  .luxury-frame::before {
     content: '';
     position: absolute;
-    inset: -2px;
-    background: linear-gradient(135deg, hsl(46 74% 52% / 0.6) 0%, hsl(280 40% 70% / 0.6) 100%);
-    border-radius: 1rem;
-    opacity: 0;
-    transition: opacity 0.5s ease;
+    inset: -3px;
+    background: linear-gradient(135deg, hsl(46 74% 52%) 0%, hsl(280 40% 70%) 50%, hsl(46 74% 52%) 100%);
+    border-radius: inherit;
+    opacity: 0.5;
+    filter: blur(12px);
     z-index: -1;
+    animation: pulse-glow 3s ease-in-out infinite;
   }
   
-  .photo-showcase:hover::before {
-    opacity: 1;
-  }
-  
-  .photo-showcase::after {
+  .luxury-frame::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, transparent 0%, hsl(46 74% 52% / 0.15) 50%, transparent 100%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
+    background: linear-gradient(135deg, transparent 0%, hsl(46 74% 52% / 0.1) 50%, transparent 100%);
     pointer-events: none;
-  }
-  
-  .photo-showcase:hover::after {
-    opacity: 1;
-    animation: shimmer-sweep 2s ease-in-out infinite;
+    animation: luxury-sweep 8s linear infinite;
   }
   
   @keyframes shimmer-sweep {
@@ -464,24 +453,31 @@
     100% { transform: translateX(100%) rotate(45deg); }
   }
   
-  .photo-frame {
+  /* Permanent luxury showcase with gradient border and inner glow */
+  .permanent-showcase {
     position: relative;
-    padding: 8px;
-    background: linear-gradient(135deg, hsl(46 74% 52% / 0.2) 0%, hsl(280 40% 70% / 0.2) 100%);
-    border-radius: 1.25rem;
+    padding: 3px;
+    background: linear-gradient(135deg, hsl(46 74% 52%) 0%, hsl(280 40% 70%) 50%, hsl(46 74% 52%) 100%);
+    border-radius: 1.5rem;
+    background-size: 200% 200%;
+    animation: gradient-shift 6s ease infinite;
   }
   
-  .photo-frame::before {
+  .permanent-showcase::before {
     content: '';
     position: absolute;
-    inset: 0;
-    border-radius: 1.25rem;
-    padding: 2px;
-    background: linear-gradient(135deg, hsl(46 74% 52%) 0%, hsl(280 40% 70%) 100%);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0.4;
+    inset: -8px;
+    background: linear-gradient(135deg, hsl(46 74% 52% / 0.4) 0%, hsl(280 40% 70% / 0.4) 100%);
+    border-radius: 1.5rem;
+    filter: blur(20px);
+    z-index: -1;
+    opacity: 0.7;
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+  
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
   }
   
   /* Studio photo luxury showcase */
