@@ -35,8 +35,13 @@ export default function Header({ transparent = false }: HeaderProps) {
       <div className={`transition-all duration-500 ${
         isScrolled 
           ? 'bg-background/95 backdrop-blur-sm shadow-md' 
-          : 'bg-gradient-to-b from-white/15 to-transparent'
+          : ''
       }`}>
+        {/* Hintergrund für bessere Lesbarkeit (nur wenn nicht gescrollt) */}
+        {!isScrolled && (
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-transparent pointer-events-none"></div>
+        )}
+        
         <div className="container mx-auto px-4">
           <div className={`relative transition-all duration-500 ${
             isScrolled ? 'py-3' : 'pt-6 pb-8'
@@ -106,7 +111,10 @@ export default function Header({ transparent = false }: HeaderProps) {
                               : isScrolled 
                                 ? 'text-foreground/70 hover:text-primary' 
                                 : 'text-white/90 hover:text-white'
-                          }`}>
+                          }`}
+                          style={{
+                            textShadow: !isScrolled ? '0 2px 8px rgba(0,0,0,0.3)' : 'none'
+                          }}>
                             {link.label}
                           </span>
                           
@@ -145,7 +153,10 @@ export default function Header({ transparent = false }: HeaderProps) {
                                 : isScrolled 
                                   ? 'text-foreground/70 hover:text-primary' 
                                   : 'text-white/90 hover:text-white'
-                            }`}>
+                            }`}
+                            style={{
+                              textShadow: !isScrolled ? '0 2px 8px rgba(0,0,0,0.3)' : 'none'
+                            }}>
                               {link.label}
                             </span>
                             
