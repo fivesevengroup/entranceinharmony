@@ -31,112 +31,138 @@ export default function Header({ transparent = false }: HeaderProps) {
 
   return (
     <header className="w-full absolute top-0 left-0 right-0 z-50">
-      {/* Floating Axis - Schwebende Navigation mit zentralem Logo-Ankerpunkt */}
-      <div className={`transition-all duration-300 ${
+      {/* Harmony Arc - Organischer Bogen passend zum Footer */}
+      <div className={`transition-all duration-500 ${
         isScrolled 
           ? 'bg-background/95 backdrop-blur-sm shadow-md' 
-          : 'bg-transparent'
+          : 'bg-gradient-to-b from-white/15 to-transparent'
       }`}>
         <div className="container mx-auto px-4">
-          <div className={`relative flex items-center justify-center transition-all duration-300 ${
-            isScrolled ? 'h-16' : 'h-24'
+          <div className={`relative transition-all duration-500 ${
+            isScrolled ? 'py-3' : 'pt-6 pb-8'
           }`}>
-            {/* Linke Navigation - Schwebend */}
-            <nav className="hidden lg:flex items-center gap-1 absolute left-0">
-              {navLinks.slice(0, 2).map((link, index) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  data-testid={`link-${link.label.toLowerCase()}`}
-                >
-                  <div className={`relative px-4 py-2 rounded-full transition-all duration-300 ${
-                    location === link.href ? 'bg-primary/10' : ''
-                  }`}>
-                    <span className={`text-xs font-medium tracking-wider uppercase transition-colors duration-200 ${
-                      location === link.href 
-                        ? 'text-primary font-semibold' 
-                        : isScrolled 
-                          ? 'text-foreground/70 hover:text-primary' 
-                          : 'text-white/80 hover:text-white'
-                    }`}>
-                      {link.label}
-                    </span>
-                  </div>
-                </Link>
-              ))}
-              
-              {/* Subtile Gold-Verbindungslinie zum Logo */}
-              {!isScrolled && (
-                <div className="w-12 h-px bg-gradient-to-r from-primary/40 to-transparent ml-2"></div>
-              )}
-            </nav>
+            {/* Bogen-Linie (nur wenn nicht gescrollt) */}
+            {!isScrolled && (
+              <div className="absolute inset-x-0 bottom-0 h-20 pointer-events-none">
+                <svg className="w-full h-full" viewBox="0 0 1200 80" preserveAspectRatio="none">
+                  <path
+                    d="M 0 80 Q 600 0, 1200 80"
+                    fill="none"
+                    stroke="url(#arcGradient)"
+                    strokeWidth="1.5"
+                    opacity="0.6"
+                  />
+                  <defs>
+                    <linearGradient id="arcGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="transparent" />
+                      <stop offset="50%" stopColor="#f4d48f" />
+                      <stop offset="100%" stopColor="transparent" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+            )}
 
-            {/* Logo als zentraler Ankerpunkt */}
-            <Link href="/" data-testid="link-home" className="relative z-10">
-              <div className={`relative transition-all duration-300 ${
-                isScrolled ? '' : 'px-8'
+            {/* Navigation auf dem Bogen angeordnet */}
+            <div className="relative flex items-start justify-center">
+              {/* Logo zentral */}
+              <Link href="/" data-testid="link-home" className={`relative z-20 transition-all duration-500 ${
+                isScrolled ? '' : 'mt-4'
               }`}>
                 <img 
                   src={logoImage} 
                   alt="Entrance in Harmony" 
-                  className={`w-auto transition-all duration-300 ${
+                  className={`w-auto transition-all duration-500 ${
                     isScrolled ? 'h-10' : 'h-16'
                   }`}
                   style={{
                     filter: isScrolled 
                       ? 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
-                      : 'drop-shadow(0 4px 16px rgba(244,212,143,0.4))'
+                      : 'drop-shadow(0 4px 12px rgba(244,212,143,0.3))'
                   }}
                 />
-                
-                {/* Subtiler Gold-Glow um Logo */}
-                {!isScrolled && (
-                  <div className="absolute -inset-4 bg-gradient-radial from-primary/10 to-transparent rounded-full blur-sm -z-10"></div>
-                )}
-              </div>
-            </Link>
+              </Link>
 
-            {/* Rechte Navigation - Schwebend */}
-            <nav className="hidden lg:flex items-center gap-1 absolute right-0">
-              {/* Subtile Gold-Verbindungslinie zum Logo */}
-              {!isScrolled && (
-                <div className="w-12 h-px bg-gradient-to-l from-primary/40 to-transparent mr-2"></div>
-              )}
-              
-              {navLinks.slice(2).map((link, index) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  data-testid={`link-${link.label.toLowerCase()}`}
-                >
-                  <div className={`relative px-4 py-2 rounded-full transition-all duration-300 ${
-                    location === link.href ? 'bg-primary/10' : ''
-                  }`}>
-                    <span className={`text-xs font-medium tracking-wider uppercase transition-colors duration-200 ${
-                      location === link.href 
-                        ? 'text-primary font-semibold' 
-                        : isScrolled 
-                          ? 'text-foreground/70 hover:text-primary' 
-                          : 'text-white/80 hover:text-white'
-                    }`}>
-                      {link.label}
-                    </span>
+              {/* Navigation Items im Bogen */}
+              <nav className="hidden lg:flex absolute inset-x-0 top-0 justify-center items-start">
+                <div className="flex items-start gap-2 max-w-5xl w-full justify-between px-8">
+                  {/* Linke Items */}
+                  <div className="flex items-start gap-2">
+                    {navLinks.slice(0, 2).map((link, index) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        data-testid={`link-${link.label.toLowerCase()}`}
+                      >
+                        <div className={`relative px-3 py-1.5 transition-all duration-300 ${
+                          isScrolled ? '' : `mt-${index * 3}`
+                        }`}>
+                          <span className={`text-xs font-medium tracking-wide uppercase transition-colors duration-200 ${
+                            location === link.href 
+                              ? 'text-primary font-semibold' 
+                              : isScrolled 
+                                ? 'text-foreground/70 hover:text-primary' 
+                                : 'text-white/90 hover:text-white'
+                          }`}>
+                            {link.label}
+                          </span>
+                          
+                          {/* Gold Dot bei aktivem Link */}
+                          {location === link.href && (
+                            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary"></div>
+                          )}
+                        </div>
+                      </Link>
+                    ))}
                   </div>
-                </Link>
-              ))}
-            </nav>
 
-            {/* Mobile Menu Button */}
-            <div className="lg:hidden absolute right-4">
-              <Button
-                size="icon"
-                variant="ghost"
-                className={isScrolled ? 'text-foreground' : 'text-white'}
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                data-testid="button-mobile-menu"
-              >
-                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </Button>
+                  {/* Platzhalter für Logo in der Mitte */}
+                  <div className="w-32"></div>
+
+                  {/* Rechte Items */}
+                  <div className="flex items-start gap-2">
+                    {navLinks.slice(2).map((link, index) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        data-testid={`link-${link.label.toLowerCase()}`}
+                      >
+                        <div className={`relative px-3 py-1.5 transition-all duration-300 ${
+                          isScrolled ? '' : `mt-${(navLinks.slice(2).length - index - 1) * 3}`
+                        }`}>
+                          <span className={`text-xs font-medium tracking-wide uppercase transition-colors duration-200 ${
+                            location === link.href 
+                              ? 'text-primary font-semibold' 
+                              : isScrolled 
+                                ? 'text-foreground/70 hover:text-primary' 
+                                : 'text-white/90 hover:text-white'
+                          }`}>
+                            {link.label}
+                          </span>
+                          
+                          {/* Gold Dot bei aktivem Link */}
+                          {location === link.href && (
+                            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary"></div>
+                          )}
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </nav>
+
+              {/* Mobile Menu Button */}
+              <div className="lg:hidden absolute right-4 top-0">
+                <Button
+                  size="icon"
+                  variant="ghost"
+                  className={isScrolled ? 'text-foreground' : 'text-white'}
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  data-testid="button-mobile-menu"
+                >
+                  {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                </Button>
+              </div>
             </div>
           </div>
         </div>
