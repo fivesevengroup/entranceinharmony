@@ -17,7 +17,7 @@ export default function Hero() {
 
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/40 to-transparent pointer-events-none"></div>
 
-      <div className="relative z-10 container mx-auto px-4 text-center pt-40 pb-20">
+      <div className="relative z-10 container mx-auto px-4 text-center pt-32 pb-20">
         <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
           <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full glassmorphism mb-8 border-2 border-white/30 gold-glow">
             <Sparkles className="w-5 h-5 text-primary" />
