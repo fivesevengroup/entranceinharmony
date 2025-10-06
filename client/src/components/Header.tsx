@@ -52,15 +52,15 @@ export default function Header({ transparent = false }: HeaderProps) {
           isScrolled ? 'top-2' : 'top-0'
         }`}>
           {/* Radialer Gold-Glow um Logo */}
-          <div className={`absolute inset-0 rounded-full transition-all duration-300 ${
+          <div className={`absolute rounded-full transition-all duration-300 ${
             isScrolled ? 'opacity-60' : 'opacity-100'
           }`} style={{
             background: 'radial-gradient(circle, rgba(244,212,143,0.4) 0%, rgba(244,212,143,0.2) 40%, transparent 70%)',
             width: isScrolled ? '100px' : '140px',
             height: isScrolled ? '100px' : '140px',
-            transform: 'translate(-50%, -50%)',
             top: '50%',
             left: '50%',
+            transform: 'translate(-50%, -50%)',
             filter: 'blur(12px)',
             pointerEvents: 'none'
           }}></div>
