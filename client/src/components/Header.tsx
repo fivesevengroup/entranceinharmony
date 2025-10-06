@@ -35,32 +35,59 @@ export default function Header({ transparent = false }: HeaderProps) {
       <div className={`transition-all duration-500 ${
         isScrolled 
           ? 'bg-background/95 backdrop-blur-sm shadow-md' 
-          : 'bg-gradient-to-b from-white/15 to-transparent backdrop-blur-md'
+          : 'bg-gradient-to-b from-white/15 to-transparent'
       }`}>
         <div className="container mx-auto px-4">
           <div className={`relative transition-all duration-500 ${
             isScrolled ? 'py-3' : 'pt-6 pb-8'
           }`}>
-            {/* Bogen-Linie (nur wenn nicht gescrollt) */}
+            {/* Gebogener Blur-Effekt (nur wenn nicht gescrollt) */}
             {!isScrolled && (
-              <div className="absolute inset-x-0 bottom-0 h-20 pointer-events-none">
-                <svg className="w-full h-full" viewBox="0 0 1200 80" preserveAspectRatio="none">
-                  <path
-                    d="M 0 80 Q 600 0, 1200 80"
-                    fill="none"
-                    stroke="url(#arcGradient)"
-                    strokeWidth="1.5"
-                    opacity="0.6"
-                  />
-                  <defs>
-                    <linearGradient id="arcGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="transparent" />
-                      <stop offset="50%" stopColor="#f4d48f" />
-                      <stop offset="100%" stopColor="transparent" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </div>
+              <>
+                {/* Blur-Zone entlang des Bogens */}
+                <div className="absolute inset-x-0 bottom-0 h-24 pointer-events-none overflow-hidden">
+                  <div className="absolute inset-0 backdrop-blur-lg" style={{
+                    WebkitMaskImage: 'url(#arcMask)',
+                    maskImage: 'url(#arcMask)',
+                    WebkitMaskSize: '100% 100%',
+                    maskSize: '100% 100%'
+                  }}></div>
+                  
+                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 96" preserveAspectRatio="none">
+                    <defs>
+                      <mask id="arcMask">
+                        <path
+                          d="M 0 96 Q 600 16, 1200 96 L 1200 96 L 0 96 Z"
+                          fill="white"
+                          stroke="white"
+                          strokeWidth="40"
+                          opacity="0.8"
+                        />
+                      </mask>
+                    </defs>
+                  </svg>
+                </div>
+                
+                {/* Gold-Linie */}
+                <div className="absolute inset-x-0 bottom-0 h-20 pointer-events-none">
+                  <svg className="w-full h-full" viewBox="0 0 1200 80" preserveAspectRatio="none">
+                    <path
+                      d="M 0 80 Q 600 0, 1200 80"
+                      fill="none"
+                      stroke="url(#arcGradient)"
+                      strokeWidth="1.5"
+                      opacity="0.6"
+                    />
+                    <defs>
+                      <linearGradient id="arcGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="transparent" />
+                        <stop offset="50%" stopColor="#f4d48f" />
+                        <stop offset="100%" stopColor="transparent" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+              </>
             )}
 
             {/* Navigation auf dem Bogen angeordnet */}
