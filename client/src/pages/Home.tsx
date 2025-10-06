@@ -118,7 +118,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="fade-up">
-              <h2 className="font-serif text-4xl md:text-5xl font-light mb-6" style={{ color: 'hsl(280 30% 25%)' }}>
+              <h2 className="font-serif text-4xl md:text-5xl font-light mb-6 text-foreground">
                 Bereit für Ihre Verwandlung?
               </h2>
               <div className="h-1 w-32 mx-auto mb-8 rounded-full" style={{
@@ -126,7 +126,7 @@ export default function Home() {
               }}></div>
             </div>
             <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
-              <p className="text-lg mb-10 leading-relaxed" style={{ color: 'hsl(280 30% 35%)' }}>
+              <p className="text-lg mb-10 leading-relaxed text-muted-foreground">
                 Buchen Sie jetzt Ihren Termin und erleben Sie professionelle Beauty-Treatments in luxuriöser Atmosphäre. Ich freue mich darauf, Sie verwöhnen zu dürfen!
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -143,12 +143,7 @@ export default function Home() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="text-base px-10 py-6 font-medium backdrop-blur-sm"
-                  style={{
-                    backgroundColor: 'hsl(280 30% 25% / 0.1)',
-                    borderColor: 'hsl(280 30% 25%)',
-                    color: 'hsl(280 30% 25%)'
-                  }}
+                  className="text-base px-10 py-6 font-medium backdrop-blur-sm border-foreground/30 text-foreground hover:bg-foreground/10"
                   asChild
                   data-testid="button-cta-leistungen"
                 >
