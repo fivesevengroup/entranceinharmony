@@ -11,36 +11,41 @@ export default function Contact() {
     <div className="min-h-screen flex flex-col">
       <Header />
 
-      <section className="py-16 md:py-24 bg-background">
-        <div className="container mx-auto px-4">
+      <section className="py-20 md:py-32 bg-gradient-to-br from-background via-primary/5 to-background relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none"></div>
+        <div className="container mx-auto px-4 relative">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h1 className="font-serif text-4xl md:text-5xl font-light mb-4">
+            <div className="text-center mb-16 fade-up">
+              <h1 className="font-serif text-5xl md:text-6xl font-light mb-6 text-gold-gradient">
                 Elena Hartstein
               </h1>
-              <div className="w-24 h-1 bg-primary mx-auto" />
+              <div className="h-1 w-32 mx-auto mb-4 gold-shimmer rounded-full"></div>
+              <p className="text-xl text-muted-foreground font-light">Ihre Beauty-Expertin in Burbach</p>
             </div>
-            <div className="bg-card rounded-3xl shadow-2xl overflow-hidden">
+            
+            <div className="bg-card/80 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border-2 border-primary/20 gold-glow fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
               <div className="grid md:grid-cols-2 gap-0">
-                <div className="relative h-[400px] md:h-auto">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-transparent z-10" />
+                <div className="relative h-[450px] md:h-auto overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-primary/20 to-transparent z-10" />
+                  <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-card to-transparent z-10" />
                   <img
                     src={aboutImage}
                     alt="Elena Hartstein"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                   />
                 </div>
-                <div className="p-8 md:p-12 flex flex-col justify-center">
-                  <h2 className="font-serif text-3xl md:text-4xl font-light mb-6">
+                <div className="p-10 md:p-14 flex flex-col justify-center bg-gradient-to-br from-card to-card/50">
+                  <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
                     Ihre Schönheitsexpertin in Burbach
                   </h2>
-                  <p className="text-lg text-primary font-medium mb-6">
+                  <p className="text-xl text-primary font-medium mb-8 flex items-center gap-2">
+                    <Sparkles className="w-5 h-5" />
                     Wo Schönheit auf Expertise trifft
                   </p>
-                  <p className="text-muted-foreground leading-relaxed mb-4">
+                  <p className="text-muted-foreground leading-relaxed mb-5">
                     Bei mir steht nicht nur Ihre Schönheit im Mittelpunkt, sondern Ihr gesamtes Wohlbefinden. Mit fundierter Ausbildung, kontinuierlicher Weiterbildung und einer Passion für ästhetische Perfektion begleite ich Sie auf Ihrem Weg zu strahlender Haut.
                   </p>
-                  <p className="text-muted-foreground leading-relaxed mb-6">
+                  <p className="text-muted-foreground leading-relaxed mb-8">
                     Jede Behandlung beginnt mit einer ausführlichen Hautanalyse – denn nur wer Ihre Haut wirklich versteht, kann sie optimal pflegen. In meinem modernen Studio vereinen sich Fachwissen, hochwertige Produkte und eine entspannte Wohlfühlatmosphäre.
                   </p>
                 </div>
@@ -50,18 +55,18 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-muted/30">
+      <section className="py-20 md:py-28 bg-gradient-to-br from-muted/20 via-background to-muted/20 relative">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
+            <div className="text-center mb-16 fade-up">
+              <h2 className="font-serif text-4xl md:text-5xl font-light mb-6">
                 So erreichen Sie mich
               </h2>
-              <div className="w-24 h-1 bg-primary mx-auto" />
+              <div className="h-1 w-32 mx-auto gold-shimmer rounded-full" />
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
-              <Card className="border-2 hover:border-primary/50 transition-colors">
+            <div className="grid md:grid-cols-2 gap-8 mb-16">
+              <Card className="border-2 border-primary/20 hover:border-primary/40 transition-all hover:shadow-2xl backdrop-blur-sm bg-card/90 gold-glow">
                 <CardContent className="pt-8">
                   <div className="flex items-start gap-4 mb-6">
                     <div className="p-3 bg-primary/10 rounded-lg">
@@ -109,7 +114,7 @@ export default function Contact() {
                 </CardContent>
               </Card>
 
-              <Card className="border-2 hover:border-primary/50 transition-colors">
+              <Card className="border-2 border-primary/20 hover:border-primary/40 transition-all hover:shadow-2xl backdrop-blur-sm bg-card/90 gold-glow">
                 <CardContent className="pt-8">
                   <div className="flex items-start gap-4">
                     <div className="p-3 bg-primary/10 rounded-lg">
@@ -117,8 +122,8 @@ export default function Contact() {
                     </div>
                     <div className="flex-1">
                       <h3 className="font-semibold mb-4">Öffnungszeiten</h3>
-                      <div className="p-6 bg-primary/5 rounded-lg text-center">
-                        <p className="text-lg font-medium">
+                      <div className="p-6 glassmorphism rounded-lg text-center border border-primary/20">
+                        <p className="text-lg font-medium text-primary">
                           Termin nach Vereinbarung
                         </p>
                       </div>
@@ -128,8 +133,8 @@ export default function Contact() {
               </Card>
             </div>
 
-            <div id="kontakt" className="max-w-3xl mx-auto">
-              <Card className="border-2">
+            <div id="kontakt" className="max-w-3xl mx-auto fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
+              <Card className="border-2 border-primary/20 backdrop-blur-sm bg-card/90 shadow-2xl gold-glow">
                 <CardContent className="pt-8">
                   <div className="text-center mb-8">
                     <h2 className="font-serif text-2xl md:text-3xl font-light mb-3">

@@ -11,61 +11,66 @@ export default function Home() {
       <Header transparent={true} />
       <Hero />
       
-      <section className="py-16 md:py-20 bg-background">
+      <section className="py-20 md:py-28 bg-gradient-to-b from-background to-muted/20">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-serif text-3xl md:text-4xl font-light mb-8">
-              Willkommen in Ihrer exklusiven Auszeit – wo Schönheit zur Entspannung wird
-            </h2>
-            <p className="text-muted-foreground leading-relaxed mb-4">
-              Entfliehen Sie dem Alltag und gönnen Sie sich einen Moment nur für sich. Stress, Hektik und Umwelteinflüsse hinterlassen Spuren, doch mit individuell abgestimmten Behandlungen bringe ich Ihre natürliche Schönheit wieder zum Strahlen.
-            </p>
-            <p className="text-muted-foreground leading-relaxed mb-4">
-              In einem eleganten Ambiente genießen Sie hochwertige Pflege, sanfte Berührungen und modernste Techniken für eine Haut, die aufatmet, und ein Wohlgefühl, das von innen kommt.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Lassen Sie sich verwöhnen, Sie haben es verdient.
-            </p>
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="fade-up">
+              <h2 className="font-serif text-4xl md:text-5xl font-light mb-10 leading-relaxed">
+                Willkommen in Ihrer exklusiven Auszeit
+              </h2>
+              <div className="h-1 w-32 mx-auto mb-12 gold-shimmer rounded-full"></div>
+            </div>
+            <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                Entfliehen Sie dem Alltag und gönnen Sie sich einen Moment nur für sich. Stress, Hektik und Umwelteinflüsse hinterlassen Spuren, doch mit individuell abgestimmten Behandlungen bringe ich Ihre natürliche Schönheit wieder zum Strahlen.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                In einem eleganten Ambiente genießen Sie hochwertige Pflege, sanfte Berührungen und modernste Techniken für eine Haut, die aufatmet, und ein Wohlgefühl, das von innen kommt.
+              </p>
+              <p className="text-xl text-primary font-medium leading-relaxed">
+                Lassen Sie sich verwöhnen, Sie haben es verdient.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-muted/30 relative overflow-hidden">
+      <section className="py-20 md:py-32 bg-gradient-to-br from-muted/30 via-background to-muted/30 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none" />
         <div className="container mx-auto px-4 relative">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="font-serif text-4xl md:text-5xl font-light mb-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16 fade-up">
+              <h2 className="font-serif text-4xl md:text-5xl font-light mb-6">
                 Ihre Expertin für natürliche Schönheit
               </h2>
-              <div className="w-24 h-1 bg-primary mx-auto" />
+              <div className="h-1 w-32 mx-auto gold-shimmer rounded-full" />
             </div>
             
-            <div className="bg-card rounded-2xl shadow-xl overflow-hidden">
+            <div className="bg-card/90 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border-2 border-primary/20 gold-glow fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
               <div className="grid md:grid-cols-5 gap-0">
-                <div className="md:col-span-2 relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5" />
+                <div className="md:col-span-2 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-primary/10 z-10" />
                   <img
                     src={aboutImage}
                     alt="Elena Hartstein"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                   />
                 </div>
-                <div className="md:col-span-3 p-8 md:p-12 flex flex-col justify-center">
-                  <h3 className="text-2xl md:text-3xl font-serif font-light mb-2">
+                <div className="md:col-span-3 p-10 md:p-14 flex flex-col justify-center bg-gradient-to-br from-card to-card/50">
+                  <h3 className="text-3xl md:text-4xl font-serif font-light mb-3">
                     Elena Hartstein
                   </h3>
-                  <p className="text-primary font-medium mb-6">
+                  <p className="text-primary font-semibold mb-8 text-lg">
                     Zertifizierte Kosmetikerin · Burbach & Umgebung
                   </p>
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    Mit über Jahren Erfahrung in der professionellen Kosmetik bringe ich Ihre natürliche Schönheit zum Strahlen. Meine Passion liegt darin, für jeden Hauttyp die perfekte Behandlung zu finden.
+                  <p className="text-muted-foreground leading-relaxed mb-5">
+                    Mit langjähriger Erfahrung in der professionellen Kosmetik bringe ich Ihre natürliche Schönheit zum Strahlen. Meine Passion liegt darin, für jeden Hauttyp die perfekte Behandlung zu finden.
                   </p>
-                  <p className="text-muted-foreground leading-relaxed mb-6">
+                  <p className="text-muted-foreground leading-relaxed mb-8">
                     In meinem Studio erwartet Sie eine Atmosphäre zum Wohlfühlen – modern, hygienisch und mit Liebe zum Detail gestaltet. Jede Behandlung ist individuell auf Ihre Bedürfnisse abgestimmt und kombiniert bewährte Techniken mit den neuesten Beauty-Innovationen.
                   </p>
-                  <div className="flex gap-3">
-                    <Button asChild data-testid="button-ueber-mich" size="lg">
+                  <div className="flex gap-4">
+                    <Button asChild data-testid="button-ueber-mich" size="lg" className="gold-glow">
                       <a href="/kontakt">Jetzt kennenlernen</a>
                     </Button>
                   </div>
@@ -76,29 +81,34 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-muted">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="order-2 md:order-1">
-              <h2 className="font-serif text-3xl md:text-4xl font-light mb-6">
+      <section className="py-20 md:py-32 bg-gradient-to-br from-background to-muted/30 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-tl from-primary/5 to-transparent pointer-events-none" />
+        <div className="container mx-auto px-4 relative">
+          <div className="grid md:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+            <div className="order-2 md:order-1 fade-up">
+              <h2 className="font-serif text-4xl md:text-5xl font-light mb-6">
                 Das Studio
               </h2>
-              <h3 className="text-lg font-light mb-4 text-muted-foreground">
+              <div className="h-1 w-24 mb-8 gold-shimmer rounded-full"></div>
+              <h3 className="text-xl font-light mb-6 text-primary">
                 Lernen Sie mein Studio und mich näher kennen!
               </h3>
-              <p className="text-muted-foreground leading-relaxed mb-6">
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
                 In entspannter Atmosphäre biete ich Ihnen professionelle Behandlungen für Gesicht und Körper. Lassen Sie sich verwöhnen und genießen Sie einen Moment nur für sich.
               </p>
-              <Button asChild data-testid="button-studio">
+              <Button asChild data-testid="button-studio" size="lg" className="gold-glow">
                 <a href="/kontakt">zum Studio</a>
               </Button>
             </div>
-            <div className="order-1 md:order-2">
-              <img
-                src={massageImage}
-                alt="Das Studio"
-                className="w-full rounded-lg"
-              />
+            <div className="order-1 md:order-2 fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-primary/20 gold-glow">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent z-10" />
+                <img
+                  src={massageImage}
+                  alt="Das Studio"
+                  className="w-full transform hover:scale-105 transition-transform duration-700"
+                />
+              </div>
             </div>
           </div>
         </div>
