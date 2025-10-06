@@ -16,10 +16,10 @@ export default function Contact() {
         <div className="container mx-auto px-4 relative">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16 fade-up">
-              <h1 className="font-serif text-5xl md:text-6xl font-light mb-6">
+              <h1 className="font-serif text-5xl md:text-6xl font-light text-gold-gradient mb-6">
                 Elena Hartstein
               </h1>
-              <div className="h-0.5 w-32 mx-auto mb-4 bg-border rounded-full"></div>
+              <div className="h-0.5 w-32 mx-auto mb-4 gold-shimmer rounded-full"></div>
               <p className="text-xl text-muted-foreground font-light">Ihre Beauty-Expertin in Burbach</p>
             </div>
             
@@ -60,11 +60,11 @@ export default function Contact() {
               <h2 className="font-serif text-4xl md:text-5xl font-light mb-6">
                 So erreichen Sie mich
               </h2>
-              <div className="h-0.5 w-32 mx-auto bg-border rounded-full" />
+              <div className="h-0.5 w-32 mx-auto gold-shimmer rounded-full" />
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 mb-16">
-              <Card className="border border-border hover:border-primary/40 transition-all hover:shadow-2xl backdrop-blur-sm bg-card/90">
+              <Card className="border border-border hover:border-primary/40 transition-all hover:shadow-2xl backdrop-blur-sm bg-card/90 gold-glow">
                 <CardContent className="pt-8">
                   <div className="flex items-start gap-4 mb-6">
                     <div className="p-3 bg-primary/10 rounded-lg">
@@ -112,7 +112,7 @@ export default function Contact() {
                 </CardContent>
               </Card>
 
-              <Card className="border border-border hover:border-primary/40 transition-all hover:shadow-2xl backdrop-blur-sm bg-card/90">
+              <Card className="border border-border hover:border-primary/40 transition-all hover:shadow-2xl backdrop-blur-sm bg-card/90 gold-glow">
                 <CardContent className="pt-8">
                   <div className="flex items-start gap-4">
                     <div className="p-3 bg-primary/10 rounded-lg">
@@ -132,7 +132,7 @@ export default function Contact() {
             </div>
 
             <div id="kontakt" className="max-w-3xl mx-auto fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
-              <Card className="border border-border backdrop-blur-sm bg-card/90 shadow-2xl">
+              <Card className="border border-border backdrop-blur-sm bg-card/90 shadow-2xl gold-glow">
                 <CardContent className="pt-8">
                   <div className="text-center mb-8">
                     <h2 className="font-serif text-2xl md:text-3xl font-light mb-3">
