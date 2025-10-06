@@ -33,7 +33,7 @@ export default function Footer() {
             <img 
               src={logoImage} 
               alt="Entrance in Harmony" 
-              className="w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 object-contain drop-shadow-lg"
+              className="w-16 h-16 sm:w-20 sm:h-20 md:w-20 md:h-20 object-contain drop-shadow-lg"
             />
           </div>
         </div>
