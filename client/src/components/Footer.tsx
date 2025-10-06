@@ -5,32 +5,42 @@ import logoImage from "@assets/Logo-PSD_1759668524506.png";
 export default function Footer() {
   return (
     <footer className="relative bg-section-accent mt-20">
-      {/* Logo-Bogen Abschluss - Geschwungene obere Kante */}
-      <div className="absolute top-0 left-0 right-0 w-full pointer-events-none" style={{ height: '120px', transform: 'translateY(-100%)' }}>
+      {/* Halbrund-Portal - Halbkreis-Bogen mit Logo als Schlussstein */}
+      <div className="absolute top-0 left-0 right-0 w-full pointer-events-none" style={{ height: '140px', transform: 'translateY(-100%)' }}>
         <svg 
-          viewBox="0 0 1200 120" 
+          viewBox="0 0 1200 140" 
           preserveAspectRatio="none" 
           className="absolute bottom-0 w-full h-full"
           style={{ fill: 'hsl(var(--section-accent))' }}
         >
-          {/* Konkave Kurve (Bogen nach unten) - Elegante Wölbung */}
-          <path d="M0,0 L0,30 Q600,110 1200,30 L1200,0 L0,0 Z"></path>
+          {/* Halbrunder Portal-Bogen */}
+          <path d="M0,64 Q600,0 1200,64 L1200,140 L0,140 Z"></path>
         </svg>
         
-        {/* Logo zentral im Bogen - schwebt elegant in der Kurve */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-auto">
-          <div className="bg-section-accent rounded-full p-3 md:p-4 shadow-2xl border-4 border-background/20 gold-glow">
+        {/* Portal-Rahmen für 3D-Effekt */}
+        <svg 
+          viewBox="0 0 1200 140" 
+          preserveAspectRatio="none" 
+          className="absolute bottom-0 w-full h-full"
+          style={{ fill: 'none', stroke: 'hsl(var(--border))', strokeWidth: '2' }}
+        >
+          <path d="M0,64 Q600,0 1200,64"></path>
+        </svg>
+        
+        {/* Logo als Schlussstein im Portal */}
+        <div className="absolute left-1/2 top-0 -translate-x-1/2 z-10 pointer-events-auto">
+          <div className="bg-section-accent rounded-lg p-4 md:p-5 shadow-2xl border-4 border-background/30 gold-glow">
             <img 
               src={logoImage} 
               alt="Entrance in Harmony" 
-              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain drop-shadow-xl"
+              className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain drop-shadow-2xl"
             />
           </div>
         </div>
       </div>
       
       <div className="container mx-auto px-4 relative">
-        <div className="pt-28 md:pt-24 pb-12">
+        <div className="pt-20 md:pt-16 pb-12">
           <div className="text-center mb-14">
             <h3 className="font-serif text-3xl md:text-4xl font-light text-gold-gradient mb-4">
               Entrance in Harmony
