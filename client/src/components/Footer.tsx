@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 relative">
         <div className="pt-16 pb-12">
           <div className="text-center mb-14">
-            <h3 className="font-serif text-3xl md:text-4xl font-light mb-4">
+            <h3 className="font-serif text-3xl md:text-4xl font-light text-gold-gradient mb-4">
               Entrance in Harmony
             </h3>
             <div className="h-px w-32 mx-auto mb-4 bg-gradient-to-r from-transparent via-primary/40 to-transparent"></div>

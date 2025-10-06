@@ -67,7 +67,7 @@ export default function Header({ transparent = false }: HeaderProps) {
                   <span
                     className={`text-sm font-medium transition-all duration-200 tracking-wider uppercase ${
                       location === link.href 
-                        ? 'text-primary font-semibold' 
+                        ? 'text-gold-gradient font-semibold' 
                         : isScrolled 
                           ? 'text-foreground hover:text-primary' 
                           : 'text-white drop-shadow-lg hover:text-primary'
@@ -93,7 +93,7 @@ export default function Header({ transparent = false }: HeaderProps) {
           </div>
         </div>
         {!isScrolled && (
-          <div className="h-px w-full bg-white/20"></div>
+          <div className="h-px w-full gold-shimmer"></div>
         )}
       </div>
 

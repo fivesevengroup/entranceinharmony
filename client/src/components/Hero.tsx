@@ -19,7 +19,7 @@ export default function Hero() {
 
       <div className="relative z-10 container mx-auto px-4 text-center pt-32 pb-20">
         <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full glassmorphism mb-8 border-2 border-white/30">
+          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full glassmorphism mb-8 border-2 border-white/30 gold-glow">
             <Sparkles className="w-5 h-5 text-primary" />
             <span className="text-white font-medium text-sm tracking-wide uppercase">Luxuriöse Beauty-Treatments</span>
           </div>
@@ -27,10 +27,10 @@ export default function Hero() {
 
         <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-light mb-6 text-white drop-shadow-2xl fade-up tracking-wide" style={{ animationDelay: "0.4s", opacity: 0 }}>
           <span className="block mb-2">ENTRANCE IN</span>
-          <span className="block text-white text-6xl md:text-8xl lg:text-9xl">HARMONY</span>
+          <span className="block text-gold-gradient text-6xl md:text-8xl lg:text-9xl">HARMONY</span>
         </h1>
         
-        <div className="h-0.5 w-32 mx-auto mb-8 bg-white/30 rounded-full fade-up" style={{ animationDelay: "0.6s", opacity: 0 }}></div>
+        <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full fade-up" style={{ animationDelay: "0.6s", opacity: 0 }}></div>
 
         <p className="text-xl md:text-3xl mb-6 text-white/95 drop-shadow-lg font-light max-w-2xl mx-auto fade-up" style={{ animationDelay: "0.8s", opacity: 0 }}>
           Ihre Schönheitsexpertin in Burbach
