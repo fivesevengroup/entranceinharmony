@@ -4,7 +4,7 @@ import logoImage from "@assets/Logo-PSD_1759668524506.png";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-section-accent mt-20">
+    <footer className="relative bg-section-accent mt-32 md:mt-40">
       {/* Halbrund-Portal - Halbkreis-Bogen mit Logo als Schlussstein */}
       <div className="absolute top-0 left-0 right-0 w-full pointer-events-none" style={{ height: '140px', transform: 'translateY(-100%)' }}>
         <svg 
@@ -29,11 +29,11 @@ export default function Footer() {
         
         {/* Logo als Schlussstein im Portal */}
         <div className="absolute left-1/2 top-0 -translate-x-1/2 z-10 pointer-events-auto">
-          <div className="bg-section-accent rounded-lg p-4 md:p-5 shadow-2xl border-4 border-background/30 gold-glow">
+          <div className="bg-section-accent rounded-lg p-4 md:p-5 shadow-xl border-2 border-border/40">
             <img 
               src={logoImage} 
               alt="Entrance in Harmony" 
-              className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain drop-shadow-2xl"
+              className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain drop-shadow-lg"
             />
           </div>
         </div>
