@@ -30,96 +30,105 @@ export default function Header({ transparent = false }: HeaderProps) {
   ];
 
   return (
-    <header className="w-full absolute top-0 left-0 right-0 z-50 transition-all duration-300">
-      {/* Aurora Crown Canopy - Geschwungener Bogen */}
-      <div className={`absolute left-0 right-0 pointer-events-none transition-all duration-300 ${
-        isScrolled ? 'top-0' : '-top-4'
-      }`} style={{ height: isScrolled ? '60px' : '80px' }}>
-        <svg 
-          viewBox="0 0 1200 80" 
-          preserveAspectRatio="none" 
-          className="absolute inset-0 w-full h-full"
-          style={{ 
-            fill: isScrolled ? 'hsl(var(--background) / 0.95)' : 'rgba(255,255,255,0.1)',
-            filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.1))'
-          }}
-        >
-          <path d="M0,80 Q600,0 1200,80 L1200,80 L0,80 Z"></path>
-        </svg>
-        
-        {/* Logo Medaillon zentral im Bogen */}
-        <div className={`absolute left-1/2 -translate-x-1/2 transition-all duration-300 pointer-events-auto ${
-          isScrolled ? 'top-2' : 'top-0'
+    <header className="w-full absolute top-0 left-0 right-0 z-50">
+      {/* Golden Veil Ribbon - Geschichtete Satin-Bänder */}
+      <div className="relative overflow-hidden">
+        {/* Hintergrund-Bänder */}
+        <div className={`absolute inset-0 transition-all duration-500 ${
+          isScrolled ? 'opacity-95' : 'opacity-30'
         }`}>
-          {/* Radialer Gold-Glow um Logo */}
-          <div className={`absolute rounded-full transition-all duration-300 ${
-            isScrolled ? 'opacity-60' : 'opacity-100'
-          }`} style={{
-            background: 'radial-gradient(circle, rgba(244,212,143,0.4) 0%, rgba(244,212,143,0.2) 40%, transparent 70%)',
-            width: isScrolled ? '100px' : '140px',
-            height: isScrolled ? '100px' : '140px',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            filter: 'blur(12px)',
-            pointerEvents: 'none'
+          <div className="absolute inset-0" style={{
+            background: isScrolled 
+              ? 'linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--background)) 100%)'
+              : 'linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(244,212,143,0.1) 50%, rgba(255,255,255,0.15) 100%)'
           }}></div>
-          
-          <Link href="/" data-testid="link-home" className="relative block">
-            <div className={`bg-background/80 backdrop-blur-md rounded-full transition-all duration-300 ${
-              isScrolled ? 'p-2 shadow-md' : 'p-3 shadow-xl'
-            } border-2 border-gold/40`}>
-              <img 
-                src={logoImage} 
-                alt="Entrance in Harmony" 
-                className={`w-auto transition-all duration-300 ${
-                  isScrolled ? 'h-10' : 'h-16'
-                }`}
-                style={{ filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.2))' }}
-              />
-            </div>
-          </Link>
         </div>
-      </div>
 
-      {/* Glasige Navigation */}
-      <div className={`w-full transition-all duration-300 ${
-        isScrolled ? 'mt-14' : 'mt-20'
-      }`}>
-        <div className={`backdrop-blur-md transition-all duration-300 ${
-          isScrolled 
-            ? 'bg-background/60 border-b border-primary/20' 
-            : 'bg-white/10'
-        }`}>
+        {/* Animierte Gold-Shimmer-Linie */}
+        <div className={`absolute inset-0 pointer-events-none ${!isScrolled ? 'block' : 'hidden'}`}>
+          <div className="absolute inset-0 overflow-hidden">
+            <div 
+              className="absolute h-full w-1/3 opacity-40"
+              style={{
+                background: 'linear-gradient(90deg, transparent 0%, rgba(244,212,143,0.6) 50%, transparent 100%)',
+                animation: 'shimmer 3s ease-in-out infinite',
+                filter: 'blur(20px)'
+              }}
+            ></div>
+          </div>
+        </div>
+
+        {/* Hauptinhalt */}
+        <div className="relative backdrop-blur-md">
           <div className="container mx-auto px-4">
-            <div className="flex items-center justify-center h-14">
-              <nav className="hidden md:flex items-center gap-8">
+            <div className={`flex items-center justify-between transition-all duration-300 ${
+              isScrolled ? 'h-16' : 'h-20'
+            }`}>
+              {/* Logo zentral in goldenem Rahmen */}
+              <Link href="/" data-testid="link-home" className="relative">
+                <div className={`relative transition-all duration-300 ${
+                  isScrolled ? 'p-1.5' : 'p-2'
+                }`} style={{
+                  background: 'linear-gradient(135deg, #f4d48f 0%, #d4af37 100%)',
+                  borderRadius: '12px'
+                }}>
+                  <div className="bg-background/90 backdrop-blur-sm rounded-lg p-2">
+                    <img 
+                      src={logoImage} 
+                      alt="Entrance in Harmony" 
+                      className={`w-auto transition-all duration-300 ${
+                        isScrolled ? 'h-8' : 'h-12'
+                      }`}
+                    />
+                  </div>
+                </div>
+              </Link>
+
+              {/* Navigation als leuchtende Pillen */}
+              <nav className="hidden md:flex items-center gap-3">
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
                     data-testid={`link-${link.label.toLowerCase()}`}
                   >
-                    <span
-                      className={`text-sm font-medium transition-all duration-200 tracking-wider uppercase ${
+                    <div className={`relative px-4 py-2 rounded-full transition-all duration-300 ${
+                      location === link.href 
+                        ? 'bg-gold/20 shadow-lg' 
+                        : isScrolled 
+                          ? 'bg-background/40 hover:bg-gold/10' 
+                          : 'bg-white/10 hover:bg-white/20'
+                    }`} style={{
+                      backdropFilter: 'blur(8px)',
+                      border: location === link.href ? '1px solid rgba(244,212,143,0.5)' : '1px solid rgba(255,255,255,0.1)'
+                    }}>
+                      {/* Licht-Spur Effekt */}
+                      {location === link.href && (
+                        <div className="absolute inset-0 rounded-full" style={{
+                          background: 'linear-gradient(90deg, transparent, rgba(244,212,143,0.3), transparent)',
+                          animation: 'trail 2s ease-in-out infinite'
+                        }}></div>
+                      )}
+                      <span className={`relative text-xs font-medium tracking-wider uppercase ${
                         location === link.href 
                           ? 'text-gold-gradient font-semibold' 
                           : isScrolled 
-                            ? 'text-foreground hover:text-primary' 
-                            : 'text-white drop-shadow-lg hover:text-primary'
-                      }`}
-                    >
-                      {link.label}
-                    </span>
+                            ? 'text-foreground' 
+                            : 'text-white'
+                      }`}>
+                        {link.label}
+                      </span>
+                    </div>
                   </Link>
                 ))}
               </nav>
 
-              <div className="flex items-center gap-2 md:hidden ml-auto">
+              {/* Mobile Menu Button */}
+              <div className="md:hidden">
                 <Button
                   size="icon"
                   variant="ghost"
-                  className={isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-primary'}
+                  className={isScrolled ? 'text-foreground' : 'text-white'}
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                   data-testid="button-mobile-menu"
                 >
@@ -129,6 +138,11 @@ export default function Header({ transparent = false }: HeaderProps) {
             </div>
           </div>
         </div>
+
+        {/* Untere Shimmer-Linie */}
+        {!isScrolled && (
+          <div className="h-px w-full gold-shimmer"></div>
+        )}
       </div>
 
       {mobileMenuOpen && (

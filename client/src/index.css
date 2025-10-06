@@ -394,6 +394,16 @@
   50% { opacity: 0.85; }
 }
 
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
+}
+
+@keyframes trail {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
 @layer utilities {
   /* Gold luxury effects */
   .gold-shimmer {
