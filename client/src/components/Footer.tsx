@@ -1,12 +1,14 @@
 import { Link } from "wouter";
 import { SiWhatsapp, SiInstagram } from "react-icons/si";
 import { Sparkles } from "lucide-react";
+import WaveDivider from "@/components/WaveDivider";
 
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden" style={{
       background: 'linear-gradient(135deg, hsl(280 35% 85%) 0%, hsl(280 30% 75%) 50%, hsl(280 35% 85%) 100%)'
     }}>
+      <WaveDivider position="top" color="hsl(var(--section-mauve-bloom))" className="divider-aurora" />
       <div className="absolute inset-0 opacity-10" style={{
         backgroundImage: `radial-gradient(circle at 20% 80%, hsl(280 40% 70% / 0.4) 0%, transparent 50%),
                          radial-gradient(circle at 80% 20%, hsl(280 40% 70% / 0.4) 0%, transparent 50%)`

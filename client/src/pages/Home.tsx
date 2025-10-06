@@ -126,7 +126,7 @@ export default function Home() {
               <div className="h-1 w-32 mx-auto mb-8 rounded-full gold-shimmer"></div>
             </div>
             <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
-              <p className="text-lg mb-10 leading-relaxed text-muted-foreground">
+              <p className="text-lg mb-10 leading-relaxed text-foreground">
                 Buchen Sie jetzt Ihren Termin und erleben Sie professionelle Beauty-Treatments in luxuriöser Atmosphäre. Ich freue mich darauf, Sie verwöhnen zu dürfen!
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import WaveDivider from "@/components/WaveDivider";
 import { Sparkles, Award, Heart } from "lucide-react";
 import heroImage from "@assets/Screenshot 2025-10-05 225321_1759697624011.png";
 
@@ -77,6 +78,7 @@ export default function Hero() {
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none"></div>
+      <WaveDivider position="bottom" color="hsl(var(--section-warm-ivory))" className="divider-aurora" />
     </section>
   );
 }
