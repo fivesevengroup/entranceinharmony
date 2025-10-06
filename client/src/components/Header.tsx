@@ -78,7 +78,7 @@ export default function Header({ transparent = false }: HeaderProps) {
                   src={logoImage} 
                   alt="Entrance in Harmony" 
                   className={`w-auto transition-all duration-500 ${
-                    isScrolled ? 'h-10' : 'h-16'
+                    isScrolled ? 'h-14' : 'h-24'
                   }`}
                   style={{
                     filter: isScrolled 
