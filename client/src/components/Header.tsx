@@ -40,47 +40,7 @@ export default function Header({ transparent = false }: HeaderProps) {
           <div className={`flex items-center justify-between transition-all duration-300 ${
             isScrolled ? 'h-20' : 'h-24'
           }`}>
-            <Link href="/" data-testid="link-home" className="relative">
-              {/* Golden Arc Halo - Goldener Leuchtbogen über dem Logo */}
-              <div className={`absolute left-1/2 -translate-x-1/2 pointer-events-none transition-all duration-300 ${
-                isScrolled ? '-top-3 opacity-80' : '-top-5 opacity-100'
-              }`} style={{ width: isScrolled ? '80px' : '120px', height: isScrolled ? '40px' : '60px' }}>
-                <svg 
-                  viewBox="0 0 120 60" 
-                  className="absolute inset-0 w-full h-full"
-                  style={{ filter: 'drop-shadow(0 0 12px rgba(244, 212, 143, 0.5))' }}
-                >
-                  <defs>
-                    <linearGradient id="haloGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" style={{ stopColor: '#d4af37', stopOpacity: 0.3 }} />
-                      <stop offset="50%" style={{ stopColor: '#f4d48f', stopOpacity: 1 }} />
-                      <stop offset="100%" style={{ stopColor: '#d4af37', stopOpacity: 0.3 }} />
-                    </linearGradient>
-                  </defs>
-                  <path 
-                    d="M15,50 Q60,5 105,50" 
-                    fill="none" 
-                    stroke="url(#haloGradient)" 
-                    strokeWidth="4"
-                    strokeLinecap="round"
-                  />
-                </svg>
-                {/* Innerer Glow */}
-                <svg 
-                  viewBox="0 0 120 60" 
-                  className="absolute inset-0 w-full h-full opacity-50"
-                >
-                  <path 
-                    d="M15,50 Q60,5 105,50" 
-                    fill="none" 
-                    stroke="#f4d48f" 
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    style={{ filter: 'blur(4px)' }}
-                  />
-                </svg>
-              </div>
-              
+            <Link href="/" data-testid="link-home">
               <img 
                 src={logoImage} 
                 alt="Entrance in Harmony" 
