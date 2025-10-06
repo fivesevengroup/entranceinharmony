@@ -50,18 +50,13 @@ export default function Home() {
             <div className="bg-card/80 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden border border-border fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
               <div className="grid md:grid-cols-5 gap-0">
                 <div className="md:col-span-2 relative">
-                  <div className="permanent-showcase h-full">
+                  <div className="elegant-glow h-full">
                     <div className="relative h-full overflow-hidden rounded-2xl">
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-primary/10 z-10 pointer-events-none" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent z-10 pointer-events-none" />
                       <img
                         src={aboutImage}
                         alt="Elena Hartstein"
-                        className="w-full h-full object-cover brightness-105 contrast-105"
+                        className="w-full h-full object-cover"
                       />
-                      <div className="absolute bottom-0 left-0 right-0 p-4 z-20 bg-gradient-to-t from-black/50 to-transparent">
-                        <div className="h-0.5 w-16 gold-shimmer rounded-full" />
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -110,23 +105,13 @@ export default function Home() {
               </Button>
             </div>
             <div className="order-1 md:order-2 fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
-              <div className="luxury-frame">
-                <div className="permanent-showcase">
-                  <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-primary/10 z-10 pointer-events-none" />
-                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/25 to-transparent z-10 pointer-events-none" />
-                    <img
-                      src={massageImage}
-                      alt="Das Studio"
-                      className="w-full aspect-[4/3] object-cover brightness-105 contrast-105"
-                    />
-                    <div className="absolute bottom-0 left-0 right-0 p-6 z-20 bg-gradient-to-t from-black/70 via-black/30 to-transparent">
-                      <div className="flex items-center gap-3">
-                        <div className="h-1 w-16 gold-shimmer rounded-full" />
-                        <span className="text-white font-light text-xl tracking-wide drop-shadow-lg">Entrance in Harmony Studio</span>
-                      </div>
-                    </div>
-                  </div>
+              <div className="elegant-glow">
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                  <img
+                    src={massageImage}
+                    alt="Das Studio"
+                    className="w-full aspect-[4/3] object-cover"
+                  />
                 </div>
               </div>
             </div>
