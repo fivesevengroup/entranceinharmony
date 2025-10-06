@@ -12,8 +12,7 @@ export default function Home() {
       <Header transparent={true} />
       <Hero />
       
-      <section className="py-20 md:py-28 bg-warm-ivory relative section-glow">
-        <WaveDivider position="bottom" color="hsl(var(--section-liquid-gold))" className="divider-aurora" />
+      <section className="py-20 md:py-28 bg-background relative">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="fade-up">
@@ -35,10 +34,10 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <WaveDivider position="bottom" color="hsl(var(--section-accent))" />
       </section>
 
-      <section className="py-20 md:py-32 bg-liquid-gold relative section-glow">
-        <WaveDivider position="bottom" color="hsl(var(--section-blush))" className="divider-aurora" />
+      <section className="py-20 md:py-32 bg-section-accent relative">
         <div className="container mx-auto px-4 relative">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16 fade-up">
@@ -48,17 +47,17 @@ export default function Home() {
               <div className="h-1 w-32 mx-auto gold-shimmer rounded-full" />
             </div>
             
-            <div className="bg-card/80 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden border-2 border-primary/20 gold-glow fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
+            <div className="bg-card/80 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden border border-border fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
               <div className="grid md:grid-cols-5 gap-0">
                 <div className="md:col-span-2 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-primary/10 z-10" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent z-10" />
                   <img
                     src={aboutImage}
                     alt="Elena Hartstein"
                     className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                   />
                 </div>
-                <div className="md:col-span-3 p-10 md:p-14 flex flex-col justify-center bg-gradient-to-br from-card to-card/50">
+                <div className="md:col-span-3 p-10 md:p-14 flex flex-col justify-center">
                   <h3 className="text-3xl md:text-4xl font-serif font-light mb-3">
                     Elena Hartstein
                   </h3>
@@ -72,7 +71,7 @@ export default function Home() {
                     In meinem Studio erwartet Sie eine Atmosphäre zum Wohlfühlen – modern, hygienisch und mit Liebe zum Detail gestaltet. Jede Behandlung ist individuell auf Ihre Bedürfnisse abgestimmt und kombiniert bewährte Techniken mit den neuesten Beauty-Innovationen.
                   </p>
                   <div className="flex gap-4">
-                    <Button asChild data-testid="button-ueber-mich" size="lg" className="gold-glow">
+                    <Button asChild data-testid="button-ueber-mich" size="lg">
                       <a href="/kontakt">Jetzt kennenlernen</a>
                     </Button>
                   </div>
@@ -81,10 +80,10 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <WaveDivider position="bottom" color="hsl(var(--background))" />
       </section>
 
-      <section className="py-20 md:py-32 bg-blush relative section-glow">
-        <WaveDivider position="bottom" color="hsl(var(--section-mauve-bloom))" className="divider-aurora" />
+      <section className="py-20 md:py-32 bg-background relative">
         <div className="container mx-auto px-4 relative">
           <div className="grid md:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
             <div className="order-2 md:order-1 fade-up">
@@ -98,13 +97,13 @@ export default function Home() {
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
                 In entspannter Atmosphäre biete ich Ihnen professionelle Behandlungen für Gesicht und Körper. Lassen Sie sich verwöhnen und genießen Sie einen Moment nur für sich.
               </p>
-              <Button asChild data-testid="button-studio" size="lg" className="gold-glow">
+              <Button asChild data-testid="button-studio" size="lg">
                 <a href="/kontakt">zum Studio</a>
               </Button>
             </div>
             <div className="order-1 md:order-2 fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-primary/15 backdrop-blur-sm">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent z-10" />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/15 to-transparent z-10" />
                 <img
                   src={massageImage}
                   alt="Das Studio"
@@ -114,25 +113,26 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <WaveDivider position="bottom" color="hsl(var(--section-accent))" />
       </section>
 
-      <section className="py-24 md:py-32 bg-mauve-bloom relative section-glow">
+      <section className="py-24 md:py-32 bg-section-accent relative">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="fade-up">
-              <h2 className="font-serif text-4xl md:text-5xl font-light mb-6 text-foreground">
+              <h2 className="font-serif text-4xl md:text-5xl font-light mb-6">
                 Bereit für Ihre Verwandlung?
               </h2>
               <div className="h-1 w-32 mx-auto mb-8 rounded-full gold-shimmer"></div>
             </div>
             <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
-              <p className="text-lg mb-10 leading-relaxed text-foreground">
+              <p className="text-lg mb-10 leading-relaxed text-muted-foreground">
                 Buchen Sie jetzt Ihren Termin und erleben Sie professionelle Beauty-Treatments in luxuriöser Atmosphäre. Ich freue mich darauf, Sie verwöhnen zu dürfen!
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   size="lg"
-                  className="text-base px-10 py-6 gold-glow font-medium"
+                  className="text-base px-10 py-6 font-medium"
                   asChild
                   data-testid="button-cta-termin"
                 >
@@ -143,7 +143,7 @@ export default function Home() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="text-base px-10 py-6 font-medium backdrop-blur-sm"
+                  className="text-base px-10 py-6 font-medium"
                   asChild
                   data-testid="button-cta-leistungen"
                 >
