@@ -67,7 +67,7 @@ export default function Header({ transparent = false }: HeaderProps) {
                   <span
                     className={`text-sm font-medium transition-all duration-200 tracking-wider uppercase ${
                       location === link.href 
-                        ? 'text-gold-gradient' 
+                        ? 'text-primary font-semibold' 
                         : isScrolled 
                           ? 'text-foreground hover:text-primary' 
                           : 'text-white drop-shadow-lg hover:text-primary'
@@ -93,7 +93,7 @@ export default function Header({ transparent = false }: HeaderProps) {
           </div>
         </div>
         {!isScrolled && (
-          <div className="h-px w-full gold-shimmer opacity-60"></div>
+          <div className="h-px w-full bg-white/20"></div>
         )}
       </div>
 
@@ -109,7 +109,7 @@ export default function Header({ transparent = false }: HeaderProps) {
                 <Button
                   variant="ghost"
                   className={`w-full justify-start hover:text-primary transition-colors ${
-                    location === link.href ? 'text-gold-gradient font-medium' : 'text-foreground'
+                    location === link.href ? 'text-primary font-semibold' : 'text-foreground'
                   }`}
                   data-testid={`mobile-link-${link.label.toLowerCase()}`}
                 >
