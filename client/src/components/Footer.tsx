@@ -18,7 +18,7 @@ export default function Footer() {
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-3 mb-6 group">
               <Sparkles className="w-6 h-6 text-primary transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110" />
-              <h3 className="font-serif text-4xl md:text-5xl font-light text-gradient">
+              <h3 className="font-serif text-4xl md:text-5xl font-light text-gold-gradient">
                 Entrance in Harmony
               </h3>
               <Sparkles className="w-6 h-6 text-primary transition-transform duration-300 group-hover:-rotate-12 group-hover:scale-110" />
