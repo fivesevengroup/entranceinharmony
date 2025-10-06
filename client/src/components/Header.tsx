@@ -72,7 +72,7 @@ export default function Header({ transparent = false }: HeaderProps) {
             <div className="relative flex items-start justify-center">
               {/* Logo zentral */}
               <Link href="/" data-testid="link-home" className={`relative z-20 transition-all duration-500 ${
-                isScrolled ? '' : 'mt-0'
+                isScrolled ? '' : 'mt-2'
               }`}>
                 <img 
                   src={logoImage} 
