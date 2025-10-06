@@ -19,7 +19,7 @@ export default function Home() {
               <h2 className="font-serif text-4xl md:text-5xl font-light mb-10 leading-relaxed">
                 Willkommen in Ihrer exklusiven Auszeit
               </h2>
-              <div className="h-1 w-32 mx-auto mb-12 gold-shimmer rounded-full"></div>
+              <div className="h-0.5 w-32 mx-auto mb-12 bg-border rounded-full"></div>
             </div>
             <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
@@ -44,7 +44,7 @@ export default function Home() {
               <h2 className="font-serif text-4xl md:text-5xl font-light mb-6">
                 Ihre Expertin für natürliche Schönheit
               </h2>
-              <div className="h-1 w-32 mx-auto gold-shimmer rounded-full" />
+              <div className="h-0.5 w-32 mx-auto bg-border rounded-full" />
             </div>
             
             <div className="bg-card/80 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden border border-border fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
@@ -93,7 +93,7 @@ export default function Home() {
               <h2 className="font-serif text-4xl md:text-5xl font-light mb-6">
                 Das Studio
               </h2>
-              <div className="h-1 w-24 mb-8 gold-shimmer rounded-full"></div>
+              <div className="h-0.5 w-24 mb-8 bg-border rounded-full"></div>
               <h3 className="text-xl font-light mb-6 text-primary">
                 Lernen Sie mein Studio und mich näher kennen!
               </h3>
