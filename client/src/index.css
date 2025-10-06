@@ -86,6 +86,12 @@
   --gold-shimmer-start: hsl(46 74% 52% / 0);
   --gold-shimmer-mid: hsl(46 74% 62% / 0.8);
   --gold-shimmer-end: hsl(46 74% 52% / 0);
+  
+  /* Mauve palette for footer */
+  --mauve-primary: 280 35% 85%;
+  --mauve-dark: 280 30% 25%;
+  --mauve-accent: 280 40% 70%;
+  --mauve-glow: 0 0 20px hsl(280 40% 70% / 0.3), 0 0 40px hsl(280 40% 70% / 0.2);
   --shadow-2xs: 0px 1px 2px 0px hsl(280 20% 10% / 0.05);
   --shadow-xs: 0px 1px 3px 0px hsl(280 20% 10% / 0.08);
   --shadow-sm: 0px 2px 4px 0px hsl(280 20% 10% / 0.06), 0px 1px 2px -1px hsl(280 20% 10% / 0.04);
