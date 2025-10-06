@@ -11,7 +11,7 @@ export default function Contact() {
     <div className="min-h-screen flex flex-col">
       <Header />
 
-      <section className="py-20 md:py-32 bg-gradient-to-br from-background via-primary/5 to-background relative overflow-hidden">
+      <section className="pt-44 pb-20 md:pb-32 bg-gradient-to-br from-background via-primary/5 to-background relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none"></div>
         <div className="container mx-auto px-4 relative">
           <div className="max-w-6xl mx-auto">

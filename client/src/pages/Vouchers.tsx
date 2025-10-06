@@ -120,16 +120,24 @@ export default function Vouchers() {
     <div className="min-h-screen flex flex-col">
       <Header />
 
-      <section className="py-16 md:py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h1 className="font-serif text-4xl md:text-5xl font-light mb-4">
+      {/* Hero Section */}
+      <section className="relative pt-44 pb-20 bg-gradient-to-br from-background via-primary/5 to-background overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none"></div>
+        <div className="container mx-auto px-4 text-center relative">
+          <div className="max-w-4xl mx-auto fade-up">
+            <h1 className="font-serif text-5xl md:text-6xl font-light mb-6">
               Geschenkgutscheine
             </h1>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full"></div>
+            <p className="text-xl text-muted-foreground leading-relaxed">
               Schenken Sie Entspannung und Schönheit
             </p>
           </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20 bg-background">
+        <div className="container mx-auto px-4">
 
           {step === "form" ? (
             <div className="max-w-3xl mx-auto">
