@@ -57,17 +57,17 @@ export default function Header({ transparent = false }: HeaderProps) {
                       <stop offset="100%" stopColor="transparent" />
                     </linearGradient>
                     <filter id="arcGlow">
-                      <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+                      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" />
                     </filter>
                   </defs>
                   
-                  {/* Glow-Schicht */}
+                  {/* Subtiler Glow */}
                   <path
                     d="M 0 80 Q 600 0, 1200 80"
                     fill="none"
                     stroke="url(#arcGradient)"
-                    strokeWidth="4"
-                    opacity="0.8"
+                    strokeWidth="3"
+                    opacity="0.5"
                     filter="url(#arcGlow)"
                   />
                   
@@ -76,8 +76,8 @@ export default function Header({ transparent = false }: HeaderProps) {
                     d="M 0 80 Q 600 0, 1200 80"
                     fill="none"
                     stroke="url(#arcGradient)"
-                    strokeWidth="2"
-                    opacity="0.9"
+                    strokeWidth="1.5"
+                    opacity="0.7"
                   />
                 </svg>
               </div>
