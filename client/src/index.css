@@ -92,6 +92,11 @@
   --mauve-dark: 280 30% 25%;
   --mauve-accent: 280 40% 70%;
   --mauve-glow: 0 0 20px hsl(280 40% 70% / 0.3), 0 0 40px hsl(280 40% 70% / 0.2);
+  
+  /* Graduated transition colors */
+  --section-soft-gold: 36 32% 94%;
+  --section-blush: 32 28% 89%;
+  --section-mauve-hint: 290 32% 88%;
   --shadow-2xs: 0px 1px 2px 0px hsl(280 20% 10% / 0.05);
   --shadow-xs: 0px 1px 3px 0px hsl(280 20% 10% / 0.08);
   --shadow-sm: 0px 2px 4px 0px hsl(280 20% 10% / 0.06), 0px 1px 2px -1px hsl(280 20% 10% / 0.04);
@@ -197,6 +202,11 @@
   --destructive: 0 65% 45%;
 
   --destructive-foreground: 0 10% 98%;
+  
+  /* Graduated transition colors - Dark mode */
+  --section-soft-gold: 30 20% 14%;
+  --section-blush: 32 18% 16%;
+  --section-mauve-hint: 290 20% 18%;
 
   --input: 280 20% 45%;
   --ring: 45 85% 65%;
@@ -409,6 +419,19 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+  
+  /* Section transition gradients */
+  .bg-luxe-to-blush {
+    background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--section-soft-gold)) 40%, hsl(var(--section-blush)) 100%);
+  }
+  
+  .bg-blush-to-mauve {
+    background: linear-gradient(180deg, hsl(var(--section-blush)) 0%, hsl(var(--section-mauve-hint)) 60%, hsl(var(--mauve-primary)) 100%);
+  }
+  
+  .bg-neutral-start {
+    background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--section-soft-gold)) 100%);
   }
   
   .fade-up {
