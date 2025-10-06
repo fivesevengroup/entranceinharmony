@@ -46,24 +46,39 @@ export default function Header({ transparent = false }: HeaderProps) {
           <div className={`relative transition-all duration-500 ${
             isScrolled ? 'py-3' : 'pt-6 pb-8'
           }`}>
-            {/* Bogen-Linie (nur wenn nicht gescrollt) */}
+            {/* Bogen-Linie mit Glow (nur wenn nicht gescrollt) */}
             {!isScrolled && (
               <div className="absolute inset-x-0 bottom-0 h-20 pointer-events-none">
                 <svg className="w-full h-full" viewBox="0 0 1200 80" preserveAspectRatio="none">
-                  <path
-                    d="M 0 80 Q 600 0, 1200 80"
-                    fill="none"
-                    stroke="url(#arcGradient)"
-                    strokeWidth="1.5"
-                    opacity="0.6"
-                  />
                   <defs>
                     <linearGradient id="arcGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                       <stop offset="0%" stopColor="transparent" />
                       <stop offset="50%" stopColor="#f4d48f" />
                       <stop offset="100%" stopColor="transparent" />
                     </linearGradient>
+                    <filter id="arcGlow">
+                      <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+                    </filter>
                   </defs>
+                  
+                  {/* Glow-Schicht */}
+                  <path
+                    d="M 0 80 Q 600 0, 1200 80"
+                    fill="none"
+                    stroke="url(#arcGradient)"
+                    strokeWidth="4"
+                    opacity="0.8"
+                    filter="url(#arcGlow)"
+                  />
+                  
+                  {/* Haupt-Linie */}
+                  <path
+                    d="M 0 80 Q 600 0, 1200 80"
+                    fill="none"
+                    stroke="url(#arcGradient)"
+                    strokeWidth="2"
+                    opacity="0.9"
+                  />
                 </svg>
               </div>
             )}
