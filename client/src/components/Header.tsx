@@ -89,7 +89,7 @@ export default function Header({ transparent = false }: HeaderProps) {
           </div>
         </div>
         {!isScrolled && (
-          <div className="h-1 w-full bg-gradient-to-r from-transparent via-primary to-transparent opacity-60"></div>
+          <div className="h-1 w-full bg-gradient-to-r from-transparent via-primary/60 to-transparent opacity-80"></div>
         )}
       </div>
 
