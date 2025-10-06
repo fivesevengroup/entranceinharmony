@@ -27,14 +27,20 @@ export default function Footer() {
           <path d="M0,50 Q600,0 1200,50"></path>
         </svg>
         
-        {/* Logo rund und mittig - Weißer Kreis zur Hälfte über Bogen */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-auto">
-          <div className="bg-white rounded-full p-4 shadow-2xl">
-            <img 
-              src={logoImage} 
-              alt="Entrance in Harmony" 
-              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"
-            />
+        {/* Logo rund und mittig im Bogen-Scheitel - Weißer Kreis mit Gold-Akzent */}
+        <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-auto">
+          <div className="relative">
+            {/* Gold Glow Ring */}
+            <div className="absolute inset-0 rounded-full bg-primary/20 blur-md"></div>
+            
+            {/* Weißer Kreis mit Gold-Border */}
+            <div className="relative bg-white rounded-full p-5 shadow-2xl border-4 border-primary/60">
+              <img 
+                src={logoImage} 
+                alt="Entrance in Harmony" 
+                className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"
+              />
+            </div>
           </div>
         </div>
       </div>
