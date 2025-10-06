@@ -49,12 +49,12 @@ export default function Home() {
             
             <div className="bg-card/80 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden border border-border fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
               <div className="grid md:grid-cols-5 gap-0">
-                <div className="md:col-span-2 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent z-10" />
+                <div className="md:col-span-2 relative overflow-hidden photo-showcase">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent z-10 pointer-events-none" />
                   <img
                     src={aboutImage}
                     alt="Elena Hartstein"
-                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover transform hover:scale-110 transition-all duration-700 hover:brightness-110"
                   />
                 </div>
                 <div className="md:col-span-3 p-10 md:p-14 flex flex-col justify-center">
@@ -102,13 +102,15 @@ export default function Home() {
               </Button>
             </div>
             <div className="order-1 md:order-2 fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/15 to-transparent z-10" />
-                <img
-                  src={massageImage}
-                  alt="Das Studio"
-                  className="w-full transform hover:scale-105 transition-transform duration-700"
-                />
+              <div className="photo-frame">
+                <div className="photo-showcase">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/15 to-transparent z-10 pointer-events-none" />
+                  <img
+                    src={massageImage}
+                    alt="Das Studio"
+                    className="w-full transform hover:scale-110 transition-all duration-700 hover:brightness-110 rounded-2xl"
+                  />
+                </div>
               </div>
             </div>
           </div>
