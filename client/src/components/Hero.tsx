@@ -18,15 +18,15 @@ export default function Hero() {
 
       <div className="relative z-10 container mx-auto px-4 text-center pt-32 pb-20">
         <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full glassmorphism mb-8 border-2 border-accent/40 gold-glow">
-            <Sparkles className="w-5 h-5 text-accent" />
+          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full glassmorphism mb-8 border-2 border-primary/30 gold-glow">
+            <Sparkles className="w-5 h-5 text-primary" />
             <span className="text-white font-medium text-sm tracking-wide uppercase">Luxuriöse Beauty-Treatments</span>
           </div>
         </div>
 
         <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-light mb-6 text-white drop-shadow-2xl fade-up tracking-wide" style={{ animationDelay: "0.4s", opacity: 0 }}>
-          <span className="block mb-2 text-primary-foreground">ENTRANCE IN</span>
-          <span className="block text-gold-gradient text-6xl md:text-8xl lg:text-9xl font-normal">HARMONY</span>
+          <span className="block mb-2">ENTRANCE IN</span>
+          <span className="block text-gold-gradient text-6xl md:text-8xl lg:text-9xl">HARMONY</span>
         </h1>
         
         <div className="h-1 w-32 mx-auto mb-8 gold-shimmer rounded-full fade-up" style={{ animationDelay: "0.6s", opacity: 0 }}></div>
@@ -41,7 +41,7 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-16 fade-up" style={{ animationDelay: "1.2s", opacity: 0 }}>
           <Button
             size="lg"
-            className="text-base px-10 py-6 bg-accent hover:bg-accent/90 text-accent-foreground border-2 border-accent shadow-xl gold-glow font-medium"
+            className="text-base px-10 py-6 bg-primary hover:bg-primary/90 text-primary-foreground border-2 border-primary shadow-xl gold-glow font-medium"
             asChild
             data-testid="button-termin-hero"
           >
