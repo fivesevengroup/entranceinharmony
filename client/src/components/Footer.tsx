@@ -27,13 +27,13 @@ export default function Footer() {
           <path d="M0,50 Q600,0 1200,50"></path>
         </svg>
         
-        {/* Logo rund und mittig in der Bogenlinie */}
-        <div className="absolute left-1/2 top-1/4 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-auto">
-          <div className="bg-section-accent rounded-full p-3 shadow-xl border-2 border-border/40">
+        {/* Logo rund und mittig - Weißer Kreis zur Hälfte über Bogen */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-auto">
+          <div className="bg-white rounded-full p-4 shadow-2xl">
             <img 
               src={logoImage} 
               alt="Entrance in Harmony" 
-              className="w-16 h-16 sm:w-20 sm:h-20 md:w-20 md:h-20 object-contain drop-shadow-lg"
+              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"
             />
           </div>
         </div>
