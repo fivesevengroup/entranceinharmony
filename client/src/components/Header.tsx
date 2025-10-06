@@ -35,7 +35,7 @@ export default function Header({ transparent = false }: HeaderProps) {
       <div className={`transition-all duration-500 ${
         isScrolled 
           ? 'bg-background/95 backdrop-blur-sm shadow-md' 
-          : 'bg-gradient-to-b from-white/15 to-transparent'
+          : 'bg-gradient-to-b from-white/15 to-transparent backdrop-blur-md'
       }`}>
         <div className="container mx-auto px-4">
           <div className={`relative transition-all duration-500 ${
@@ -67,7 +67,7 @@ export default function Header({ transparent = false }: HeaderProps) {
             <div className="relative flex items-start justify-center">
               {/* Logo zentral */}
               <Link href="/" data-testid="link-home" className={`relative z-20 transition-all duration-500 ${
-                isScrolled ? '' : '-mt-2'
+                isScrolled ? '' : 'mt-0'
               }`}>
                 <img 
                   src={logoImage} 
