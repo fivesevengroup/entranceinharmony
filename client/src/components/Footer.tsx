@@ -13,17 +13,17 @@ export default function Footer() {
           className="absolute bottom-0 w-full h-full"
           style={{ fill: 'hsl(var(--section-accent))' }}
         >
-          {/* Konkave Kurve (Bogen nach unten) */}
-          <path d="M0,0 L0,40 Q600,120 1200,40 L1200,0 L0,0 Z"></path>
+          {/* Konkave Kurve (Bogen nach unten) - Elegante Wölbung */}
+          <path d="M0,0 L0,30 Q600,110 1200,30 L1200,0 L0,0 Z"></path>
         </svg>
         
-        {/* Logo zentral im Bogen */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/4 z-10">
-          <div className="bg-section-accent rounded-full p-4 shadow-2xl border-4 border-background/20">
+        {/* Logo zentral im Bogen - schwebt elegant in der Kurve */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/3 z-10">
+          <div className="bg-section-accent rounded-full p-3 md:p-4 shadow-2xl border-4 border-background/20 gold-glow">
             <img 
               src={logoImage} 
               alt="Entrance in Harmony" 
-              className="w-20 h-20 md:w-24 md:h-24 object-contain"
+              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain drop-shadow-xl"
             />
           </div>
         </div>
