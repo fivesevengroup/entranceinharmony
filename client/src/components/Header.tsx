@@ -40,7 +40,7 @@ export default function Header({ transparent = false }: HeaderProps) {
   return (
     <header className="w-full absolute top-0 left-0 right-0 z-50">
       {/* Harmony Arc - Organischer Bogen passend zum Footer */}
-      <div className="relative">
+      <div className="relative" style={{ position: 'relative' }}>
         {/* Hintergrund-Layer - Immer da, nur Opacity ändert sich */}
         <div 
           className="absolute inset-0 bg-background backdrop-blur-sm shadow-md transition-opacity duration-300 ease-out"
@@ -203,27 +203,51 @@ export default function Header({ transparent = false }: HeaderProps) {
         </div>
       </div>
 
+      {/* Mobile Menu - Positioned below header */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-background/98 backdrop-blur-md border-t border-primary/20">
-          <nav className="container mx-auto px-4 py-4 flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <Button
-                  variant="ghost"
-                  className={`w-full justify-start hover:text-primary transition-colors ${
-                    location === link.href ? 'text-primary font-semibold' : 'text-foreground'
-                  }`}
-                  data-testid={`mobile-link-${link.label.toLowerCase()}`}
+        <div className="lg:hidden absolute top-full left-0 right-0 z-40 animate-in slide-in-from-top-4 duration-300">
+          <div className="bg-gradient-to-br from-background via-background/95 to-muted/30 backdrop-blur-xl border-t border-b border-primary/20 shadow-2xl">
+            <nav className="container mx-auto px-6 py-8 flex flex-col gap-3">
+              {navLinks.map((link, index) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
                 >
-                  {link.label}
-                </Button>
-              </Link>
-            ))}
-          </nav>
+                  <div 
+                    className={`relative group px-6 py-4 rounded-lg transition-all duration-300 ${
+                      location === link.href 
+                        ? 'bg-primary/10 border border-primary/30' 
+                        : 'hover-elevate border border-transparent'
+                    }`}
+                    data-testid={`mobile-link-${link.label.toLowerCase()}`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className={`font-serif text-xl transition-colors duration-200 ${
+                        location === link.href 
+                          ? 'text-primary font-medium' 
+                          : 'text-foreground group-hover:text-primary'
+                      }`}>
+                        {link.label}
+                      </span>
+                      
+                      {location === link.href && (
+                        <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+                      )}
+                    </div>
+                    
+                    {/* Dekorative Linie */}
+                    {index < navLinks.length - 1 && (
+                      <div className="absolute -bottom-1.5 left-6 right-6 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+                    )}
+                  </div>
+                </Link>
+              ))}
+            </nav>
+            
+            {/* Gold Shimmer Bottom Border */}
+            <div className="h-1 w-full bg-gradient-to-r from-transparent via-primary/40 to-transparent"></div>
+          </div>
         </div>
       )}
     </header>
