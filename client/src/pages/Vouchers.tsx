@@ -157,6 +157,42 @@ export default function Vouchers() {
           <p className="text-lg md:text-xl mb-12 text-white/90 drop-shadow-lg font-light max-w-3xl mx-auto fade-up leading-relaxed" style={{ animationDelay: "1s", opacity: 0 }}>
             Wählen Sie Ihren Wunschbetrag und Versandart – digital per E-Mail oder elegant verpackt per Post
           </p>
+
+          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-16 fade-up" style={{ animationDelay: "1.2s", opacity: 0 }}>
+            <Button
+              size="lg"
+              variant="ghost"
+              className="text-sm px-12 py-6 bg-white/5 backdrop-blur text-white/90 border border-white/20 hover:bg-white/10 hover:border-white/30 font-serif uppercase tracking-widest transition-all duration-300"
+              asChild
+            >
+              <a href="https://wa.me/491709287722" target="_blank" rel="noopener noreferrer">
+                Beratung anfragen
+              </a>
+            </Button>
+            <Button
+              size="lg"
+              variant="ghost"
+              className="text-sm px-12 py-6 text-white/80 border border-white/15 hover:bg-white/5 hover:border-white/25 font-serif uppercase tracking-widest transition-all duration-300"
+              onClick={() => document.getElementById('voucher-form')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Gutschein erstellen
+            </Button>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-6 fade-up" style={{ animationDelay: "1.4s", opacity: 0 }}>
+            <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
+              <CheckCircle2 className="w-4 h-4 mr-2 text-primary" />
+              Sichere PayPal-Zahlung
+            </Badge>
+            <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
+              <Star className="w-4 h-4 mr-2 text-primary" />
+              Freier Wunschbetrag
+            </Badge>
+            <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
+              <Heart className="w-4 h-4 mr-2 text-primary" />
+              Perfektes Geschenk
+            </Badge>
+          </div>
         </div>
 
         <WaveDivider position="bottom" color="hsl(var(--background))" />
@@ -519,7 +555,7 @@ export default function Vouchers() {
       </section>
 
       {/* Gutschein kaufen Formular */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-muted/20 via-background to-muted/20">
+      <section id="voucher-form" className="py-16 md:py-20 bg-gradient-to-br from-muted/20 via-background to-muted/20">
         <div className="container mx-auto px-4">
 
           {step === "form" ? (

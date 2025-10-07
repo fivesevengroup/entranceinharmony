@@ -47,6 +47,42 @@ export default function Contact() {
           <p className="text-lg md:text-xl mb-12 text-white/90 drop-shadow-lg font-light max-w-3xl mx-auto fade-up leading-relaxed" style={{ animationDelay: "1s", opacity: 0 }}>
             Lernen Sie mich kennen und erfahren Sie mehr über meine Passion für ästhetische Perfektion
           </p>
+
+          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-16 fade-up" style={{ animationDelay: "1.2s", opacity: 0 }}>
+            <Button
+              size="lg"
+              variant="ghost"
+              className="text-sm px-12 py-6 bg-white/5 backdrop-blur text-white/90 border border-white/20 hover:bg-white/10 hover:border-white/30 font-serif uppercase tracking-widest transition-all duration-300"
+              asChild
+            >
+              <a href="https://wa.me/491709287722" target="_blank" rel="noopener noreferrer">
+                Jetzt Kontakt aufnehmen
+              </a>
+            </Button>
+            <Button
+              size="lg"
+              variant="ghost"
+              className="text-sm px-12 py-6 text-white/80 border border-white/15 hover:bg-white/5 hover:border-white/25 font-serif uppercase tracking-widest transition-all duration-300"
+              asChild
+            >
+              <a href="/leistungen">Behandlungen ansehen</a>
+            </Button>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-6 fade-up" style={{ animationDelay: "1.4s", opacity: 0 }}>
+            <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
+              <Award className="w-4 h-4 mr-2 text-primary" />
+              Zertifizierte Expertin
+            </Badge>
+            <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
+              <Heart className="w-4 h-4 mr-2 text-primary" />
+              Persönliche Beratung
+            </Badge>
+            <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
+              <Sparkles className="w-4 h-4 mr-2 text-primary" />
+              Individuelle Hautanalyse
+            </Badge>
+          </div>
         </div>
 
         <WaveDivider position="bottom" color="hsl(var(--background))" />
