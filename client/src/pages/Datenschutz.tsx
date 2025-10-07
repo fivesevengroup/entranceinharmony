@@ -1,19 +1,67 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { ShieldCheck, Lock } from "lucide-react";
+import WaveDivider from "@/components/WaveDivider";
+import heroImage from "@assets/stock_images/professional_legal_d_a8468a57.jpg";
 
 export default function Datenschutz() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
 
-      <section className="py-16 md:py-24 bg-background flex-1">
+      {/* Hero Section with Background */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center scale-105"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"></div>
+        </div>
+
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/40 to-transparent pointer-events-none"></div>
+
+        <div className="relative z-10 container mx-auto px-4 text-center pt-44 pb-20">
+          <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full glassmorphism mb-8 border-2 border-white/30 gold-glow">
+              <ShieldCheck className="w-5 h-5 text-primary" />
+              <span className="text-white font-medium text-sm tracking-wide uppercase">Datenschutz & Sicherheit</span>
+            </div>
+          </div>
+
+          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-light mb-6 text-white drop-shadow-2xl fade-up tracking-wide" style={{ animationDelay: "0.4s", opacity: 0 }} data-testid="heading-datenschutz">
+            Datenschutzerklärung
+          </h1>
+          
+          <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full fade-up" style={{ animationDelay: "0.6s", opacity: 0 }}></div>
+
+          <p className="text-xl md:text-3xl mb-6 text-white/95 drop-shadow-lg font-light max-w-2xl mx-auto fade-up" style={{ animationDelay: "0.8s", opacity: 0 }}>
+            Ihr Datenschutz ist uns wichtig
+          </p>
+          <p className="text-lg md:text-xl mb-16 text-white/90 drop-shadow-lg font-light max-w-3xl mx-auto fade-up leading-relaxed" style={{ animationDelay: "1s", opacity: 0 }}>
+            Erfahren Sie, wie wir Ihre persönlichen Daten schützen und verarbeiten – transparent und DSGVO-konform
+          </p>
+
+          <div className="flex flex-wrap justify-center gap-6 fade-up" style={{ animationDelay: "1.2s", opacity: 0 }}>
+            <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
+              <Lock className="w-4 h-4 mr-2 text-primary" />
+              SSL-Verschlüsselt
+            </Badge>
+            <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
+              <ShieldCheck className="w-4 h-4 mr-2 text-primary" />
+              DSGVO-Konform
+            </Badge>
+          </div>
+        </div>
+
+        <WaveDivider position="bottom" color="hsl(var(--background))" />
+      </section>
+
+      <section className="py-16 md:py-20 bg-background flex-1">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <h1 className="font-serif text-4xl md:text-5xl font-light mb-8" data-testid="heading-datenschutz">
-              Datenschutzerklärung
-            </h1>
-
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-6">
                 <div>
