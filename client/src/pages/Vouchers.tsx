@@ -18,7 +18,7 @@ import VoucherPayPalButton from "@/components/VoucherPayPalButton";
 import { Gift, Mail, Truck, CheckCircle2, AlertCircle } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import voucherImage from "@assets/generated_images/Elegant_gift_voucher_card_151c453a.png";
-import heroImage from "@assets/stock_images/elegant_spa_gift_car_8c0e82e1.jpg";
+import heroImage from "@assets/stock_images/spa_voucher_gift_cer_15fda10a.jpg";
 
 const voucherFormSchema = z.object({
   amount: z.string().refine((val) => !isNaN(Number(val)) && Number(val) > 0, {

@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import beforeAfterImage from "@assets/generated_images/Before_after_skin_treatment_60b501b9.png";
 import facialImage from "@assets/generated_images/Facial_treatment_close-up_d5c55f42.png";
 import massageImage from "@assets/generated_images/Massage_therapy_session_569ccb02.png";
-import heroImage from "@assets/stock_images/beautiful_woman_radi_21787ffe.jpg";
+import heroImage from "@assets/stock_images/beauty_salon_interio_7ac79c3d.jpg";
 
 export default function Gallery() {
   const galleryImages = [
@@ -24,32 +24,25 @@ export default function Gallery() {
     <div className="min-h-screen flex flex-col">
       <Header />
 
-      {/* Sculpted Wave Hero */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-section-accent">
-        {/* Layered Wave SVGs with parallax effect */}
-        <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 1200 800">
-          <defs>
-            <linearGradient id="waveGradient1" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.1" />
-              <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.05" />
-            </linearGradient>
-            <linearGradient id="waveGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.15" />
-              <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.08" />
-            </linearGradient>
-          </defs>
-          <path d="M0,400 Q300,300 600,400 T1200,400 L1200,800 L0,800 Z" fill="url(#waveGradient1)" />
-          <path d="M0,450 Q300,350 600,450 T1200,450 L1200,800 L0,800 Z" fill="url(#waveGradient2)" />
-          <path d="M0,400 Q300,300 600,400 T1200,400" stroke="hsl(var(--primary))" strokeWidth="2" fill="none" opacity="0.3" />
-        </svg>
+      {/* Hero Section with Background */}
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center scale-105"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"></div>
+        </div>
+
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/40 to-transparent pointer-events-none"></div>
 
         <div className="relative z-10 container mx-auto px-4 text-center pt-44 pb-20">
           <div className="max-w-4xl mx-auto fade-up">
-            <h1 className="font-serif text-5xl md:text-7xl font-light mb-6 text-gold-gradient">
+            <h1 className="font-serif text-5xl md:text-7xl font-light mb-6 text-white drop-shadow-2xl">
               Galerie
             </h1>
             <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full"></div>
-            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+            <p className="text-xl md:text-2xl text-white/95 drop-shadow-lg leading-relaxed">
               Entdecken Sie unsere Behandlungsergebnisse und lassen Sie sich inspirieren
             </p>
           </div>

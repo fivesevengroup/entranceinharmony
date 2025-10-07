@@ -5,7 +5,7 @@ import VoucherCard from "@/components/VoucherCard";
 import VoucherModal from "@/components/VoucherModal";
 import { Mail, Gift } from "lucide-react";
 import voucherImage from "@assets/generated_images/Elegant_gift_voucher_card_151c453a.png";
-import heroImage from "@assets/stock_images/luxury_gold_gift_wra_ab0dfcf3.jpg";
+import heroImage from "@assets/stock_images/elegant_gold_gift_bo_9cd64d90.jpg";
 
 export default function Voucher() {
   const [modalOpen, setModalOpen] = useState(false);

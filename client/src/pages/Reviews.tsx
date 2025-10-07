@@ -4,7 +4,7 @@ import TestimonialCard from "@/components/TestimonialCard";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import massageImage from "@assets/generated_images/Massage_therapy_session_569ccb02.png";
-import heroImage from "@assets/stock_images/happy_satisfied_woma_deeaa9c3.jpg";
+import heroImage from "@assets/stock_images/happy_woman_smiling__d4fdfc14.jpg";
 
 export default function Reviews() {
   const allTestimonials = [

@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Phone, Mail, MapPin, Clock, Award, Heart, Sparkles } from "lucide-react";
 import aboutImage from "@assets/KI-Bewerbungsfoto-31117629-4_1759678066113.jpg";
-import heroImage from "@assets/stock_images/professional_beauty__5d975124.jpg";
+import heroImage from "@assets/stock_images/beauty_expert_aesthe_5e000874.jpg";
 
 export default function Contact() {
   return (
