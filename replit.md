@@ -122,3 +122,45 @@ Preferred communication style: Simple, everyday language.
 - WhatsApp Business integration for appointment booking (links to wa.me)
 - Instagram integration (referenced but not fully implemented)
 - Google Maps for location display (referenced in footer)
+
+### Hero Section Animations (October 2025)
+
+**Dramatic Two-Phase "Gold Dust Entrance" Animation:**
+
+The homepage hero section features a spectacular sequential animation for the slogan "ENTRANCE IN HARMONY" with gold dust particle effects:
+
+**Phase 1: ENTRANCE IN (0-1.3s)**
+- 20 gold dust particles animate from random positions toward the text
+- Particle specs: 1px size, mix-blend-mode screen for luminosity
+- Animation: Duration 1.0s, stagger 0.01s, cubic-bezier easing [0.43, 0.13, 0.23, 0.96]
+- Text reveal: Opacity 0→1 over 1.0s with gold gradient (hsl 46 74% 62%)
+- CSS class: `.gold-dust-reveal`
+- Particles removed from DOM at 1.3s after animation completes (no visual popping)
+
+**Phase 2: HARMONY (1.3s-2.78s) - Dramatic Climax**
+- 60 gold dust particles explode outward from center in radial burst pattern
+- Radial pattern: 360° circle, radius 150-200px from center
+- Particle specs: 1.5px size, mix-blend-mode screen
+- Animation: Duration 1.0s, stagger 0.008s, elastic easing [0.34, 1.56, 0.64, 1] for dramatic pop
+- HARMONY text scale pop: 0.85→1 with elastic easing for dramatic entrance
+- HARMONY styling: Double drop-shadow (30px + 60px), brighter gradient (hsl 46 74% 72%)
+- CSS classes: `.gold-dust-reveal-harmony`, `.harmony-dramatic`
+- Particles removed from DOM at 3.0s (220ms buffer after animation completes)
+
+**Continuous Effects:**
+- 6 sparkle particles loop indefinitely (start after 2.5s)
+- Halo glow spotlight rotates around text (8s animation cycle)
+- All effects use Framer Motion for precise timing and StrictMode safety
+
+**Implementation Details:**
+- Built with Framer Motion (useAnimation hooks)
+- State-controlled particle visibility prevents visual "popping"
+- Timer cleanup in useEffect ensures StrictMode compatibility
+- CSS utilities in `client/src/index.css`: `.gold-dust-reveal`, `.gold-dust-reveal-harmony`, `.harmony-dramatic`
+- Component: `client/src/components/Hero.tsx`
+
+**Performance Considerations:**
+- Maximum 60 particles at once during harmony burst
+- Particles removed after animation completes to prevent DOM bloat
+- Mix-blend-mode screen provides luminous effect without heavy compositing
+- Mobile-responsive with proper breakpoints
