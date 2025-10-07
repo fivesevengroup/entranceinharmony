@@ -269,7 +269,7 @@ export default function Header({ transparent = false }: HeaderProps) {
                           data-testid="mobile-whatsapp-button"
                         >
                           <Button 
-                            className="w-full bg-white text-[hsl(280,35%,25%)] border border-[hsl(280,25%,80%)] hover:border-primary/40 font-serif uppercase tracking-wider text-xs py-5" 
+                            className="w-full bg-white text-primary border border-[hsl(280,25%,80%)] hover:border-primary/40 font-serif uppercase tracking-wider text-xs py-5" 
                             size="lg"
                           >
                             <Phone className="w-3.5 h-3.5 mr-2" />
@@ -284,7 +284,7 @@ export default function Header({ transparent = false }: HeaderProps) {
                         >
                           <Button 
                             variant="ghost" 
-                            className="w-full text-[hsl(280,32%,32%)] border border-[hsl(280,25%,80%)] hover:bg-white/50 font-serif uppercase tracking-wider text-xs py-5"
+                            className="w-full text-primary border border-[hsl(280,25%,80%)] hover:bg-white/50 font-serif uppercase tracking-wider text-xs py-5"
                             size="lg"
                             data-testid="mobile-voucher-button"
                           >
