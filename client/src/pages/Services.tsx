@@ -206,7 +206,7 @@ export default function Services() {
           <div className="flex flex-col sm:flex-row gap-5 justify-center items-center fade-up" style={{ animationDelay: "1.2s", opacity: 0 }}>
             <Button
               size="lg"
-              className="text-base px-10 py-6 bg-primary hover:bg-primary/90 text-primary-foreground border-2 border-primary shadow-xl font-medium"
+              className="text-sm px-12 py-6 bg-white/95 backdrop-blur text-[hsl(280,35%,25%)] border border-white/40 hover:bg-white hover:border-primary/30 font-serif uppercase tracking-widest transition-all duration-300"
               asChild
               data-testid="button-termin-services"
             >
@@ -216,8 +216,8 @@ export default function Services() {
             </Button>
             <Button
               size="lg"
-              variant="outline"
-              className="text-base px-10 py-6 glassmorphism hover:bg-white/20 text-white border-2 border-white/80 font-medium"
+              variant="ghost"
+              className="text-sm px-12 py-6 text-white border border-white/60 hover:bg-white/10 hover:border-white font-serif uppercase tracking-widest transition-all duration-300"
               asChild
             >
               <a href="/preisliste">Preise ansehen</a>
@@ -257,8 +257,9 @@ export default function Services() {
                       {treatment.price}
                     </span>
                     <Button
-                      variant="outline"
+                      variant="ghost"
                       size="sm"
+                      className="text-xs uppercase tracking-wider font-serif border border-border hover:border-primary/40"
                       onClick={() => handleLearnMore(treatment)}
                       data-testid={`button-learn-more-${treatment.id}`}
                     >
