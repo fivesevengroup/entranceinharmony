@@ -107,11 +107,7 @@ export default function Header({ transparent = false }: HeaderProps) {
                   className={`w-auto transition-all duration-500 ${
                     isScrolled ? 'h-14' : 'h-24'
                   }`}
-                  style={{
-                    filter: isScrolled 
-                      ? 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
-                      : 'brightness(0) invert(1) drop-shadow(0 4px 12px rgba(255,255,255,0.3))'
-                  }}
+                  style={{ filter: 'brightness(0)' }}
                 />
               </Link>
 
@@ -219,6 +215,7 @@ export default function Header({ transparent = false }: HeaderProps) {
                             src={logoImage} 
                             alt="Entrance in Harmony" 
                             className="h-16 w-auto mx-auto mb-3"
+                            style={{ filter: 'brightness(0)' }}
                           />
                         </Link>
                         <p className="text-center font-serif text-sm text-muted-foreground">
