@@ -6,7 +6,7 @@ import heroImage from "@assets/Screenshot 2025-10-05 225321_1759697624011.png";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div 
         className="absolute inset-0 bg-cover bg-center scale-105"
         style={{ backgroundImage: `url(${heroImage})` }}
@@ -17,7 +17,7 @@ export default function Hero() {
 
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/40 to-transparent pointer-events-none"></div>
 
-      <div className="relative z-10 container mx-auto px-4 text-center pt-32 pb-16">
+      <div className="relative z-10 container mx-auto px-4 text-center pt-44 pb-20">
         <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
           <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full glassmorphism mb-8 border-2 border-white/30 gold-glow">
             <Gem className="w-5 h-5 text-primary" />

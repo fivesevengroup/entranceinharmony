@@ -76,7 +76,8 @@ export default function PriceList() {
           <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-16 fade-up" style={{ animationDelay: "1.2s", opacity: 0 }}>
             <Button
               size="lg"
-              className="text-base px-10 py-6 bg-primary hover:bg-primary/90 text-primary-foreground border-2 border-primary shadow-xl font-medium"
+              variant="ghost"
+              className="text-sm px-12 py-6 bg-white/5 backdrop-blur text-white/90 border border-white/20 hover:bg-white/10 hover:border-white/30 font-serif uppercase tracking-widest transition-all duration-300"
               asChild
             >
               <a href="https://wa.me/491709287722" target="_blank" rel="noopener noreferrer">
@@ -87,10 +88,10 @@ export default function PriceList() {
               onClick={handleDownloadPDF} 
               data-testid="button-download-pdf" 
               size="lg"
-              variant="outline"
-              className="text-base px-10 py-6 glassmorphism hover:bg-white/20 text-white border-2 border-white/80 font-medium"
+              variant="ghost"
+              className="text-sm px-12 py-6 text-white/80 border border-white/15 hover:bg-white/5 hover:border-white/25 font-serif uppercase tracking-widest transition-all duration-300"
             >
-              <Download className="mr-2 h-5 w-5" />
+              <Download className="mr-2 h-4 w-4" />
               Preisliste als PDF
             </Button>
           </div>
