@@ -27,15 +27,18 @@ export default function Footer() {
           <path d="M0,50 Q600,0 1200,50"></path>
         </svg>
         
-        {/* Logo - Schwarz mit transparentem Hintergrund */}
+        {/* Logo rund - Weißer Kreis mit subtilem Gold-Akzent */}
         <div className="absolute left-1/2 -top-6 -translate-x-1/2 z-10 pointer-events-auto">
           <div className="relative">
-            <img 
-              src={logoImage} 
-              alt="Entrance in Harmony" 
-              className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
-              style={{ filter: 'brightness(0)' }}
-            />
+            {/* Weißer Kreis mit feinem Gold-Border */}
+            <div className="relative bg-white rounded-full p-4 shadow-xl border-2 border-primary/40">
+              <img 
+                src={logoImage} 
+                alt="Entrance in Harmony" 
+                className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
+                style={{ filter: 'brightness(0)' }}
+              />
+            </div>
           </div>
         </div>
       </div>
