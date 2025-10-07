@@ -227,32 +227,32 @@ export default function Header({ transparent = false }: HeaderProps) {
                       </div>
 
                       {/* Navigation */}
-                      <nav className="flex-1 py-6 px-6">
-                        <div className="space-y-2">
-                          {navLinks.map((link) => (
+                      <nav className="flex-1 py-8 px-6">
+                        <div className="space-y-0">
+                          {navLinks.map((link, index) => (
                             <Link
                               key={link.href}
                               href={link.href}
                               onClick={() => setMobileMenuOpen(false)}
                             >
                               <div
-                                className={`group px-5 py-4 rounded-xl transition-all duration-300 ${
+                                className={`group relative py-5 border-b border-[hsl(280,25%,85%)] transition-all duration-200 ${
                                   location === link.href
-                                    ? 'bg-white/90 backdrop-blur shadow-[0_4px_12px_rgba(0,0,0,0.08)]'
-                                    : 'bg-white/40 backdrop-blur-sm hover:bg-white/70 hover:shadow-[0_2px_8px_rgba(0,0,0,0.06)]'
+                                    ? 'pl-6'
+                                    : 'pl-3 hover:pl-4'
                                 }`}
                                 data-testid={`mobile-link-${link.label.toLowerCase()}`}
                               >
-                                <span className={`font-serif text-lg tracking-wide ${
+                                {location === link.href && (
+                                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-8 bg-primary"></div>
+                                )}
+                                <span className={`font-serif text-lg tracking-wider uppercase ${
                                   location === link.href
-                                    ? 'text-[hsl(280,32%,32%)] font-semibold'
-                                    : 'text-[hsl(280,25%,40%)] group-hover:text-[hsl(280,32%,32%)]'
+                                    ? 'text-[hsl(280,40%,20%)] font-semibold'
+                                    : 'text-[hsl(280,28%,35%)] group-hover:text-[hsl(280,35%,25%)]'
                                 }`}>
                                   {link.label}
                                 </span>
-                                {location === link.href && (
-                                  <div className="mt-1.5 h-0.5 w-8 bg-gradient-to-r from-primary to-primary/60 rounded-full"></div>
-                                )}
                               </div>
                             </Link>
                           ))}
