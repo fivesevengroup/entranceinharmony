@@ -33,12 +33,10 @@ export default function Header({ transparent = false }: HeaderProps) {
     <header className="w-full absolute top-0 left-0 right-0 z-50">
       {/* Harmony Arc - Organischer Bogen passend zum Footer */}
       <div className="relative">
-        {/* Hintergrund-Layer mit separater Opacity-Transition */}
-        <div 
-          className={`absolute inset-0 bg-background backdrop-blur-sm shadow-md transition-opacity duration-300 ${
-            isScrolled ? 'opacity-95' : 'opacity-0'
-          }`}
-        />
+        {/* Hintergrund-Layer - Instant ohne Transition */}
+        {isScrolled && (
+          <div className="absolute inset-0 bg-background/95 backdrop-blur-sm shadow-md" />
+        )}
         
         {/* Hintergrund für bessere Lesbarkeit (nur wenn nicht gescrollt) */}
         {!isScrolled && (
