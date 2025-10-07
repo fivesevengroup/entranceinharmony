@@ -3,7 +3,7 @@ import { Menu, Phone, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { useState, useEffect } from "react";
-import logoImage from "@assets/Logo-PSD_1759668524506.png";
+import logoImage from "@assets/Design ohne Titel_1759860744691.png";
 
 interface HeaderProps {
   transparent?: boolean;

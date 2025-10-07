@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { SiWhatsapp, SiInstagram } from "react-icons/si";
-import logoImage from "@assets/Logo-PSD_1759668524506.png";
+import logoImage from "@assets/Design ohne Titel_1759860744691.png";
 
 export default function Footer() {
   return (
