@@ -167,38 +167,43 @@ export default function Services() {
     <div className="min-h-screen flex flex-col">
       <Header />
 
-      {/* Hero Section with Background */}
+      {/* Gradient Luxe Hero */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center scale-105"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"></div>
+        {/* Radial Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-radial from-primary/20 via-background to-background"></div>
+        
+        {/* Gold Shimmer Lines */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-1/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent"></div>
+          <div className="absolute top-2/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent"></div>
+          <div className="absolute top-3/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent"></div>
         </div>
-
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/40 to-transparent pointer-events-none"></div>
 
         <div className="relative z-10 container mx-auto px-4 text-center pt-44 pb-20">
           <div className="max-w-4xl mx-auto fade-up">
-            <h1 className="font-serif text-5xl md:text-7xl font-light mb-6 text-white drop-shadow-2xl" data-testid="heading-services">
+            <h1 className="font-serif text-5xl md:text-7xl font-light mb-6 text-gold-gradient" data-testid="heading-services">
               Unsere Behandlungen
             </h1>
             <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full"></div>
-            <p className="text-xl md:text-2xl text-white/95 drop-shadow-lg leading-relaxed mb-8">
+            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8 max-w-3xl mx-auto">
               Ob individuelle Gesichtsbehandlungen, Microneedling, BB Glow oder Laserbehandlung – 
               wir bieten Ihnen die optimale Leistung rund um eine gesunde und schöne Haut.
             </p>
-            <Button
-              size="lg"
-              className="text-base px-10 py-6 bg-primary hover:bg-primary/90 text-primary-foreground border-2 border-primary shadow-xl font-medium"
-              asChild
-              data-testid="button-termin-services"
-            >
-              <a href="https://wa.me/491709287722" target="_blank" rel="noopener noreferrer">
-                Jetzt Termin buchen
-              </a>
-            </Button>
+            
+            {/* Glassmorphism CTA Card */}
+            <div className="inline-block glassmorphism border-2 border-primary/30 rounded-2xl p-8 max-w-md mx-auto gold-glow">
+              <p className="text-sm uppercase tracking-widest text-primary mb-4 font-medium">Bereit für Ihre Transformation?</p>
+              <Button
+                size="lg"
+                className="text-base px-10 py-6 bg-primary hover:bg-primary/90 text-primary-foreground border-2 border-primary shadow-xl font-medium w-full"
+                asChild
+                data-testid="button-termin-services"
+              >
+                <a href="https://wa.me/491709287722" target="_blank" rel="noopener noreferrer">
+                  Jetzt Termin buchen
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

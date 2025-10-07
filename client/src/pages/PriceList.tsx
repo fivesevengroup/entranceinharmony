@@ -38,36 +38,39 @@ export default function PriceList() {
     <div className="min-h-screen flex flex-col">
       <Header />
 
-      {/* Hero Section with Background */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center scale-105"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"></div>
-        </div>
+      {/* Typographic Spotlight Hero */}
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-background">
+        {/* Subtle background pattern */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
 
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/40 to-transparent pointer-events-none"></div>
+        <div className="relative z-10 container mx-auto px-4 pt-44 pb-20">
+          <div className="max-w-5xl mx-auto">
+            {/* Large Split Typography */}
+            <div className="text-center mb-12 fade-up">
+              <div className="mb-6">
+                <span className="font-serif text-4xl md:text-6xl font-light text-foreground/60 block mb-2">Unsere</span>
+                <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl font-light text-gold-gradient relative inline-block">
+                  Preisliste
+                  <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent gold-shimmer"></div>
+                </h1>
+              </div>
+            </div>
 
-        <div className="relative z-10 container mx-auto px-4 text-center pt-44 pb-20">
-          <div className="max-w-4xl mx-auto fade-up">
-            <h1 className="font-serif text-5xl md:text-7xl font-light mb-6 text-white drop-shadow-2xl">
-              Preisliste
-            </h1>
-            <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full"></div>
-            <p className="text-xl md:text-2xl text-white/95 drop-shadow-lg leading-relaxed mb-8">
+            <p className="text-xl md:text-2xl text-muted-foreground text-center leading-relaxed mb-12 fade-up max-w-3xl mx-auto" style={{ animationDelay: "0.2s", opacity: 0 }}>
               Transparente Preise für alle unsere Behandlungen
             </p>
-            <Button 
-              onClick={handleDownloadPDF} 
-              data-testid="button-download-pdf" 
-              size="lg"
-              className="text-base px-10 py-6 glassmorphism hover:bg-white/20 text-white border-2 border-white/80 font-medium"
-            >
-              <Download className="mr-2 h-5 w-5" />
-              Preisliste als PDF
-            </Button>
+
+            <div className="text-center fade-up" style={{ animationDelay: "0.4s", opacity: 0 }}>
+              <Button 
+                onClick={handleDownloadPDF} 
+                data-testid="button-download-pdf" 
+                size="lg"
+                className="text-base px-10 py-6 bg-primary hover:bg-primary/90 text-primary-foreground border-2 border-primary shadow-xl font-medium"
+              >
+                <Download className="mr-2 h-5 w-5" />
+                Preisliste als PDF
+              </Button>
+            </div>
           </div>
         </div>
       </section>
