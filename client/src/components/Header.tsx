@@ -14,11 +14,19 @@ export default function Header({ transparent = false }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+    
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -35,18 +43,18 @@ export default function Header({ transparent = false }: HeaderProps) {
       <div className="relative">
         {/* Hintergrund-Layer - Immer da, nur Opacity ändert sich */}
         <div 
-          className="absolute inset-0 bg-background backdrop-blur-sm shadow-md transition-opacity duration-200"
+          className="absolute inset-0 bg-background backdrop-blur-sm shadow-md transition-opacity duration-300 ease-out"
           style={{ opacity: isScrolled ? 0.95 : 0 }}
         />
         
         {/* Hintergrund für bessere Lesbarkeit (nur wenn nicht gescrollt) */}
         <div 
-          className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-transparent pointer-events-none transition-opacity duration-200"
+          className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-transparent pointer-events-none transition-opacity duration-300 ease-out"
           style={{ opacity: isScrolled ? 0 : 1 }}
         />
         
         <div className="container mx-auto px-4 relative">
-          <div className={`relative transition-all duration-500 ${
+          <div className={`relative transition-all duration-400 ease-out ${
             isScrolled ? 'py-3' : 'pt-6 pb-8'
           }`}>
             {/* Bogen-Linie mit Glow (nur wenn nicht gescrollt) */}
