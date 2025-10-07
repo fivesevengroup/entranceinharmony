@@ -7,16 +7,30 @@ import { motion, useAnimation } from "framer-motion";
 import { useEffect, useState } from "react";
 
 export default function Hero() {
-  const [showGoldDust, setShowGoldDust] = useState(true);
-  const controls = useAnimation();
+  const [showEntranceParticles, setShowEntranceParticles] = useState(true);
+  const [showHarmonyParticles, setShowHarmonyParticles] = useState(false);
+  const entranceControls = useAnimation();
+  const harmonyControls = useAnimation();
 
   useEffect(() => {
     const sequence = async () => {
-      await controls.start("visible");
-      setTimeout(() => setShowGoldDust(false), 3000);
+      // Phase 1: ENTRANCE IN
+      await entranceControls.start("visible");
+      
+      // Phase 2: HARMONY (dramatic climax)
+      setTimeout(() => {
+        setShowEntranceParticles(false);
+        setShowHarmonyParticles(true);
+        harmonyControls.start("visible");
+      }, 1200);
+      
+      // Cleanup
+      setTimeout(() => {
+        setShowHarmonyParticles(false);
+      }, 3500);
     };
     sequence();
-  }, [controls]);
+  }, [entranceControls, harmonyControls]);
 
   return (
     <section className="relative min-h-screen overflow-hidden">
@@ -41,20 +55,12 @@ export default function Hero() {
         <motion.div 
           className="relative inline-block"
           initial={{ opacity: 0 }}
-          animate={controls}
-          variants={{
-            visible: {
-              opacity: 1,
-              transition: {
-                duration: 2,
-                ease: "easeOut"
-              }
-            }
-          }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
         >
           <div className="absolute inset-0 -inset-x-20 -inset-y-10 halo-glow pointer-events-none"></div>
           
-          {showGoldDust && [...Array(40)].map((_, i) => {
+          {showEntranceParticles && [...Array(20)].map((_, i) => {
             const startX = Math.random() * 200 - 100;
             const startY = Math.random() * 200 - 100;
             const endX = (Math.random() - 0.5) * 20;
@@ -91,6 +97,45 @@ export default function Hero() {
             );
           })}
           
+          {showHarmonyParticles && [...Array(60)].map((_, i) => {
+            const angle = (i / 60) * Math.PI * 2;
+            const radius = 150 + Math.random() * 50;
+            const startX = Math.cos(angle) * radius;
+            const startY = Math.sin(angle) * radius;
+            const endX = (Math.random() - 0.5) * 30;
+            const endY = (Math.random() - 0.5) * 30;
+            
+            return (
+              <motion.div
+                key={`harmony-dust-${i}`}
+                className="absolute harmony-burst-particle pointer-events-none"
+                initial={{ 
+                  x: startX,
+                  y: startY,
+                  opacity: 0,
+                  scale: 0
+                }}
+                animate={{
+                  x: [startX, endX, endX],
+                  y: [startY, endY, endY],
+                  opacity: [0, 1, 0],
+                  scale: [0, 2, 0],
+                }}
+                transition={{
+                  duration: 1.5,
+                  delay: i * 0.01,
+                  ease: [0.34, 1.56, 0.64, 1]
+                }}
+                style={{
+                  left: '50%',
+                  top: '50%',
+                }}
+              >
+                <div className="w-1.5 h-1.5 bg-primary rounded-full gold-glow"></div>
+              </motion.div>
+            );
+          })}
+          
           {[...Array(6)].map((_, i) => (
             <motion.div
               key={`sparkle-${i}`}
@@ -117,31 +162,18 @@ export default function Hero() {
             </motion.div>
           ))}
 
-          <motion.h1 
-            className="relative font-serif text-4xl md:text-7xl lg:text-8xl font-light mb-6 text-white drop-shadow-2xl tracking-wide"
-            initial={{ opacity: 0 }}
-            animate={controls}
-            variants={{
-              visible: {
-                opacity: 1,
-                transition: {
-                  duration: 1.8,
-                  delay: 0.3,
-                  ease: "easeOut"
-                }
-              }
-            }}
-          >
+          <h1 className="relative font-serif text-4xl md:text-7xl lg:text-8xl font-light mb-6 text-white drop-shadow-2xl tracking-wide">
             <motion.span 
               className="block mb-2 relative overflow-hidden"
               initial={{ opacity: 0 }}
-              animate={controls}
+              animate={entranceControls}
               variants={{
                 visible: {
                   opacity: 1,
                   transition: {
-                    duration: 1.5,
-                    delay: 0.5
+                    duration: 1.2,
+                    delay: 0.2,
+                    ease: "easeOut"
                   }
                 }
               }}
@@ -149,22 +181,24 @@ export default function Hero() {
               <span className="gold-dust-reveal">ENTRANCE IN</span>
             </motion.span>
             <motion.span 
-              className="block text-gold-gradient text-shimmer text-5xl md:text-8xl lg:text-9xl relative overflow-hidden"
-              initial={{ opacity: 0 }}
-              animate={controls}
+              className="block text-gold-gradient harmony-dramatic text-5xl md:text-8xl lg:text-9xl relative overflow-hidden"
+              initial={{ opacity: 0, scale: 0.85 }}
+              animate={harmonyControls}
               variants={{
                 visible: {
                   opacity: 1,
+                  scale: 1,
                   transition: {
-                    duration: 1.5,
-                    delay: 0.8
+                    duration: 1,
+                    delay: 0.1,
+                    ease: [0.34, 1.56, 0.64, 1]
                   }
                 }
               }}
             >
-              <span className="gold-dust-reveal">HARMONY</span>
+              <span className="gold-dust-reveal-harmony">HARMONY</span>
             </motion.span>
-          </motion.h1>
+          </h1>
         </motion.div>
         
         <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full fade-up" style={{ animationDelay: "0.6s", opacity: 0 }}></div>
