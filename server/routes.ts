@@ -2,8 +2,14 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertVoucherSchema, updateVoucherPaymentSchema } from "@shared/schema";
+import path from "path";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Download route for about page image
+  app.get("/download/elena-portrait.jpg", (req, res) => {
+    const filePath = path.join(process.cwd(), "attached_assets", "KI-Bewerbungsfoto-31117629-4_1759678066113.jpg");
+    res.download(filePath, "elena-portrait.jpg");
+  });
   // PayPal routes - only if credentials are available
   const hasPayPalCredentials = process.env.PAYPAL_CLIENT_ID && process.env.PAYPAL_CLIENT_SECRET;
   
