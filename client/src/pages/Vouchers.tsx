@@ -558,11 +558,12 @@ export default function Vouchers() {
       </section>
 
       {/* Gutschein kaufen Formular */}
-      <section id="voucher-form" className="py-16 md:py-20 bg-background">
+      <section id="voucher-form" className="py-16 md:py-20 bg-background relative">
         <div className="container mx-auto px-4">
-
           {step === "form" ? (
-            <div className="max-w-3xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
+              {/* Formular Spalte */}
+              <div>
               <Card>
                 <CardHeader>
                   <CardTitle className="font-serif font-light">Gutschein konfigurieren</CardTitle>
@@ -759,6 +760,101 @@ export default function Vouchers() {
                   </Form>
                 </CardContent>
               </Card>
+              </div>
+
+              {/* FAQ Spalte */}
+              <div>
+                <div className="sticky top-24">
+                  <div className="mb-8">
+                    <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
+                      Häufige Fragen
+                    </h2>
+                    <div className="h-0.5 w-24 gold-shimmer rounded-full mb-4"></div>
+                    <p className="text-muted-foreground">
+                      Alles, was Sie über unsere Geschenkgutscheine wissen müssen
+                    </p>
+                  </div>
+
+                  <Accordion type="single" collapsible className="space-y-4">
+                    <AccordionItem value="item-1" className="border border-border rounded-lg px-6 bg-card/50">
+                      <AccordionTrigger className="hover:no-underline">
+                        Wie lange ist der Gutschein gültig?
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        Unsere Geschenkgutscheine sind ab Kaufdatum 3 Jahre gültig. So hat der Beschenkte genügend Zeit, den perfekten Termin zu finden.
+                      </AccordionContent>
+                    </AccordionItem>
+
+                    <AccordionItem value="item-2" className="border border-border rounded-lg px-6 bg-card/50">
+                      <AccordionTrigger className="hover:no-underline">
+                        Kann ich den Gutschein für jede Behandlung verwenden?
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        Ja, der Gutschein kann für alle Behandlungen bei Entrance in Harmony eingelöst werden. Der Beschenkte kann selbst wählen, welche Behandlung am besten passt.
+                      </AccordionContent>
+                    </AccordionItem>
+
+                    <AccordionItem value="item-3" className="border border-border rounded-lg px-6 bg-card/50">
+                      <AccordionTrigger className="hover:no-underline">
+                        Wie schnell erhalte ich den Gutschein?
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        Digitale Gutscheine werden sofort nach Zahlungseingang per E-Mail versendet. Gutscheine per Post werden innerhalb von 2-3 Werktagen in einer eleganten Verpackung zugestellt.
+                      </AccordionContent>
+                    </AccordionItem>
+
+                    <AccordionItem value="item-4" className="border border-border rounded-lg px-6 bg-card/50">
+                      <AccordionTrigger className="hover:no-underline">
+                        Kann ich eine persönliche Nachricht hinzufügen?
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        Ja, beim Kauf können Sie eine persönliche Nachricht hinzufügen, die auf dem Gutschein erscheint. So wird das Geschenk noch individueller.
+                      </AccordionContent>
+                    </AccordionItem>
+
+                    <AccordionItem value="item-5" className="border border-border rounded-lg px-6 bg-card/50">
+                      <AccordionTrigger className="hover:no-underline">
+                        Was passiert, wenn der Gutscheinwert nicht ausreicht?
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        Sollte die gewünschte Behandlung teurer sein als der Gutscheinwert, kann die Differenz einfach vor Ort beglichen werden. Ist die Behandlung günstiger, bleibt das Guthaben erhalten.
+                      </AccordionContent>
+                    </AccordionItem>
+
+                    <AccordionItem value="item-6" className="border border-border rounded-lg px-6 bg-card/50">
+                      <AccordionTrigger className="hover:no-underline">
+                        Wie vereinbare ich einen Termin mit dem Gutschein?
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        Mit dem Gutschein können Sie ganz einfach per WhatsApp, Telefon oder E-Mail einen Wunschtermin vereinbaren. Die Kontaktdaten finden Sie auf dem Gutschein.
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+
+                  <div className="mt-8 p-6 bg-muted/30 rounded-lg border border-border">
+                    <p className="text-muted-foreground mb-4 text-center">
+                      Sie haben weitere Fragen? Wir helfen Ihnen gerne weiter!
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                      <Button variant="outline" size="sm" asChild>
+                        <a href="https://wa.me/491709287722" target="_blank" rel="noopener noreferrer" data-testid="button-faq-whatsapp">
+                          WhatsApp
+                        </a>
+                      </Button>
+                      <Button variant="outline" size="sm" asChild>
+                        <a href="tel:+491709287722" data-testid="button-faq-phone">
+                          Telefon
+                        </a>
+                      </Button>
+                      <Button variant="outline" size="sm" asChild>
+                        <a href="mailto:info@entranceinharmony.de" data-testid="button-faq-email">
+                          E-Mail
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           ) : step === "payment" ? (
             <div className="max-w-2xl mx-auto">
@@ -872,103 +968,7 @@ export default function Vouchers() {
             </div>
           )}
         </div>
-        <WaveDivider position="bottom" color="hsl(var(--section-accent))" />
-      </section>
-
-      {/* Häufige Fragen */}
-      <section className="py-16 md:py-20 bg-section-accent relative">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
-                Häufige Fragen
-              </h2>
-              <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-4"></div>
-              <p className="text-muted-foreground">
-                Alles, was Sie über unsere Geschenkgutscheine wissen müssen
-              </p>
-            </div>
-
-            <Accordion type="single" collapsible className="space-y-4">
-              <AccordionItem value="item-1" className="border border-border rounded-lg px-6 bg-card/50">
-                <AccordionTrigger className="hover:no-underline">
-                  Wie lange ist der Gutschein gültig?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Unsere Geschenkgutscheine sind ab Kaufdatum 3 Jahre gültig. So hat der Beschenkte genügend Zeit, den perfekten Termin zu finden.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-2" className="border border-border rounded-lg px-6 bg-card/50">
-                <AccordionTrigger className="hover:no-underline">
-                  Kann ich den Gutschein für jede Behandlung verwenden?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Ja, der Gutschein kann für alle Behandlungen bei Entrance in Harmony eingelöst werden. Der Beschenkte kann selbst wählen, welche Behandlung am besten passt.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-3" className="border border-border rounded-lg px-6 bg-card/50">
-                <AccordionTrigger className="hover:no-underline">
-                  Wie schnell erhalte ich den Gutschein?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Digitale Gutscheine werden sofort nach Zahlungseingang per E-Mail versendet. Gutscheine per Post werden innerhalb von 2-3 Werktagen in einer eleganten Verpackung zugestellt.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-4" className="border border-border rounded-lg px-6 bg-card/50">
-                <AccordionTrigger className="hover:no-underline">
-                  Kann ich eine persönliche Nachricht hinzufügen?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Ja, beim Kauf können Sie eine persönliche Nachricht hinzufügen, die auf dem Gutschein erscheint. So wird das Geschenk noch individueller.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-5" className="border border-border rounded-lg px-6 bg-card/50">
-                <AccordionTrigger className="hover:no-underline">
-                  Was passiert, wenn der Gutscheinwert nicht ausreicht?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Sollte die gewünschte Behandlung teurer sein als der Gutscheinwert, kann die Differenz einfach vor Ort beglichen werden. Ist die Behandlung günstiger, bleibt das Guthaben erhalten.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-6" className="border border-border rounded-lg px-6 bg-card/50">
-                <AccordionTrigger className="hover:no-underline">
-                  Wie vereinbare ich einen Termin mit dem Gutschein?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Mit dem Gutschein können Sie ganz einfach per WhatsApp, Telefon oder E-Mail einen Wunschtermin vereinbaren. Die Kontaktdaten finden Sie auf dem Gutschein.
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-
-            <div className="mt-12 text-center p-6 bg-muted/30 rounded-lg border border-border">
-              <p className="text-muted-foreground mb-4">
-                Sie haben weitere Fragen? Wir helfen Ihnen gerne weiter!
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="outline" asChild>
-                  <a href="https://wa.me/491709287722" target="_blank" rel="noopener noreferrer" data-testid="button-faq-whatsapp">
-                    WhatsApp
-                  </a>
-                </Button>
-                <Button variant="outline" asChild>
-                  <a href="tel:+491709287722" data-testid="button-faq-phone">
-                    0170 9287722
-                  </a>
-                </Button>
-                <Button variant="outline" asChild>
-                  <a href="mailto:info@entranceinharmony.de" data-testid="button-faq-email">
-                    E-Mail
-                  </a>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <WaveDivider position="bottom" color="hsl(var(--background))" />
       </section>
 
       <Footer />
