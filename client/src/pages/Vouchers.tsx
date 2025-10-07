@@ -173,139 +173,286 @@ export default function Vouchers() {
         <WaveDivider position="bottom" color="hsl(var(--background))" />
       </section>
 
-      {/* Warum Entrance in Harmony Gutscheine */}
-      <section className="py-16 md:py-20 bg-background">
+      {/* Warum Entrance in Harmony Gutscheine - Split Layout */}
+      <section className="py-16 md:py-24 bg-background overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
-                Warum unsere Geschenkgutscheine?
-              </h2>
-              <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-4"></div>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Schenken Sie nicht nur eine Behandlung, sondern ein unvergessliches Wohlfühl-Erlebnis
-              </p>
-            </div>
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              {/* Text Content - Links */}
+              <div className="space-y-8">
+                <div>
+                  <h2 className="font-serif text-3xl md:text-5xl font-light mb-6">
+                    Warum unsere Geschenkgutscheine?
+                  </h2>
+                  <div className="h-0.5 w-24 gold-shimmer rounded-full mb-6"></div>
+                  <p className="text-muted-foreground text-lg leading-relaxed">
+                    Schenken Sie nicht nur eine Behandlung, sondern ein unvergessliches Wohlfühl-Erlebnis mit individueller Betreuung
+                  </p>
+                </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              <Card className="border border-border backdrop-blur-sm bg-card/90 hover-elevate">
-                <CardContent className="pt-8 pb-8 text-center">
-                  <div className="mb-6 flex justify-center">
-                    <div className="p-4 bg-primary/10 rounded-full">
-                      <Star className="w-8 h-8 text-primary" />
+                <div className="space-y-6">
+                  <div className="flex gap-4">
+                    <div className="shrink-0">
+                      <div className="p-3 bg-primary/10 rounded-full">
+                        <Star className="w-6 h-6 text-primary" />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="font-medium text-lg mb-2">Premium Qualität</h3>
+                      <p className="text-muted-foreground">
+                        Professionelle Behandlungen mit hochwertigen Produkten und individueller Beratung
+                      </p>
                     </div>
                   </div>
-                  <h3 className="font-medium text-lg mb-3">Premium Qualität</h3>
-                  <p className="text-muted-foreground">
-                    Professionelle Behandlungen mit hochwertigen Produkten und individueller Beratung
-                  </p>
-                </CardContent>
-              </Card>
 
-              <Card className="border border-border backdrop-blur-sm bg-card/90 hover-elevate">
-                <CardContent className="pt-8 pb-8 text-center">
-                  <div className="mb-6 flex justify-center">
-                    <div className="p-4 bg-primary/10 rounded-full">
-                      <Heart className="w-8 h-8 text-primary" />
+                  <div className="flex gap-4">
+                    <div className="shrink-0">
+                      <div className="p-3 bg-primary/10 rounded-full">
+                        <Heart className="w-6 h-6 text-primary" />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="font-medium text-lg mb-2">Persönlich & Flexibel</h3>
+                      <p className="text-muted-foreground">
+                        Freie Wahl der Behandlung und Terminvereinbarung nach Wunsch
+                      </p>
                     </div>
                   </div>
-                  <h3 className="font-medium text-lg mb-3">Persönlich & Flexibel</h3>
-                  <p className="text-muted-foreground">
-                    Freie Wahl der Behandlung und Terminvereinbarung nach Wunsch
-                  </p>
-                </CardContent>
-              </Card>
 
-              <Card className="border border-border backdrop-blur-sm bg-card/90 hover-elevate">
-                <CardContent className="pt-8 pb-8 text-center">
-                  <div className="mb-6 flex justify-center">
-                    <div className="p-4 bg-primary/10 rounded-full">
-                      <Gift className="w-8 h-8 text-primary" />
+                  <div className="flex gap-4">
+                    <div className="shrink-0">
+                      <div className="p-3 bg-primary/10 rounded-full">
+                        <Gift className="w-6 h-6 text-primary" />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="font-medium text-lg mb-2">Schön Verpackt</h3>
+                      <p className="text-muted-foreground">
+                        Digital sofort per E-Mail oder elegant verpackt per Post
+                      </p>
                     </div>
                   </div>
-                  <h3 className="font-medium text-lg mb-3">Schön Verpackt</h3>
-                  <p className="text-muted-foreground">
-                    Digital sofort per E-Mail oder elegant verpackt per Post
-                  </p>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
+
+              {/* Visual Content - Rechts */}
+              <div className="relative">
+                <div className="grid grid-cols-2 gap-4">
+                  <Card className="border border-border hover-elevate transform hover:scale-105 transition-transform">
+                    <CardContent className="p-6 text-center">
+                      <div className="aspect-square flex items-center justify-center mb-3">
+                        <img src={voucherImage} alt="Geschenkgutschein" className="w-full h-full object-cover rounded-md" />
+                      </div>
+                      <Badge variant="secondary" className="text-xs">Digital & Post</Badge>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card className="border border-primary/30 hover-elevate transform hover:scale-105 transition-transform mt-8">
+                    <CardContent className="p-6 text-center bg-gradient-to-br from-primary/5 to-transparent">
+                      <div className="mb-4">
+                        <div className="p-4 bg-primary/10 rounded-full inline-flex">
+                          <CheckCircle2 className="w-8 h-8 text-primary" />
+                        </div>
+                      </div>
+                      <h4 className="font-medium mb-2">3 Jahre gültig</h4>
+                      <p className="text-sm text-muted-foreground">Genug Zeit für den perfekten Termin</p>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="border border-primary/30 hover-elevate transform hover:scale-105 transition-transform -mt-4">
+                    <CardContent className="p-6 text-center bg-gradient-to-br from-primary/5 to-transparent">
+                      <div className="mb-4">
+                        <div className="p-4 bg-primary/10 rounded-full inline-flex">
+                          <Sparkles className="w-8 h-8 text-primary" />
+                        </div>
+                      </div>
+                      <h4 className="font-medium mb-2">Freier Betrag</h4>
+                      <p className="text-sm text-muted-foreground">Von 30€ bis zu jedem Wunschbetrag</p>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="border border-border hover-elevate transform hover:scale-105 transition-transform">
+                    <CardContent className="p-6 text-center">
+                      <div className="mb-4">
+                        <div className="p-4 bg-primary/10 rounded-full inline-flex">
+                          <Package className="w-8 h-8 text-primary" />
+                        </div>
+                      </div>
+                      <h4 className="font-medium mb-2">Sofortversand</h4>
+                      <p className="text-sm text-muted-foreground">Digital in Minuten erhalten</p>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                {/* Dekorative Gold-Linie */}
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 border-2 border-primary/20 rounded-full -z-10"></div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Perfekt für diese Anlässe */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-muted/20 via-background to-muted/20">
+      {/* Perfekt für diese Anlässe - Asymmetrisches Layout */}
+      <section className="py-16 md:py-24 bg-gradient-to-br from-muted/20 via-background to-muted/20 relative overflow-hidden">
+        {/* Dekorative Elemente */}
+        <div className="absolute top-10 right-10 w-32 h-32 bg-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-40 h-40 bg-primary/5 rounded-full blur-3xl"></div>
+        
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
+            <div className="text-center mb-16">
+              <h2 className="font-serif text-3xl md:text-5xl font-light mb-4">
                 Perfekt für jeden Anlass
               </h2>
               <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full"></div>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="text-center p-6">
-                <div className="mb-4 flex justify-center">
-                  <div className="p-3 bg-primary/10 rounded-full">
-                    <Calendar className="w-6 h-6 text-primary" />
+            <div className="grid md:grid-cols-2 gap-6">
+              <Card className="hover-elevate border-primary/20 transform hover:rotate-1 transition-all">
+                <CardContent className="p-8 flex items-start gap-4">
+                  <div className="shrink-0">
+                    <div className="p-4 bg-primary/10 rounded-full">
+                      <Calendar className="w-8 h-8 text-primary" />
+                    </div>
                   </div>
-                </div>
-                <h3 className="font-medium mb-2">Geburtstag</h3>
-                <p className="text-sm text-muted-foreground">Ein besonderes Geschenk zum Ehrentag</p>
-              </div>
+                  <div>
+                    <h3 className="font-medium text-xl mb-2">Geburtstag</h3>
+                    <p className="text-muted-foreground">Ein besonderes Geschenk zum Ehrentag – für unvergessliche Momente</p>
+                  </div>
+                </CardContent>
+              </Card>
 
-              <div className="text-center p-6">
-                <div className="mb-4 flex justify-center">
-                  <div className="p-3 bg-primary/10 rounded-full">
-                    <Heart className="w-6 h-6 text-primary" />
+              <Card className="hover-elevate border-primary/20 transform hover:-rotate-1 transition-all md:mt-12">
+                <CardContent className="p-8 flex items-start gap-4">
+                  <div className="shrink-0">
+                    <div className="p-4 bg-primary/10 rounded-full">
+                      <Heart className="w-8 h-8 text-primary" />
+                    </div>
                   </div>
-                </div>
-                <h3 className="font-medium mb-2">Muttertag</h3>
-                <p className="text-sm text-muted-foreground">Sagen Sie Danke mit Entspannung</p>
-              </div>
+                  <div>
+                    <h3 className="font-medium text-xl mb-2">Muttertag</h3>
+                    <p className="text-muted-foreground">Sagen Sie Danke mit Entspannung – das perfekte Geschenk für Mama</p>
+                  </div>
+                </CardContent>
+              </Card>
 
-              <div className="text-center p-6">
-                <div className="mb-4 flex justify-center">
-                  <div className="p-3 bg-primary/10 rounded-full">
-                    <Sparkles className="w-6 h-6 text-primary" />
+              <Card className="hover-elevate border-primary/20 transform hover:-rotate-1 transition-all md:-mt-6">
+                <CardContent className="p-8 flex items-start gap-4">
+                  <div className="shrink-0">
+                    <div className="p-4 bg-primary/10 rounded-full">
+                      <Sparkles className="w-8 h-8 text-primary" />
+                    </div>
                   </div>
-                </div>
-                <h3 className="font-medium mb-2">Hochzeit</h3>
-                <p className="text-sm text-muted-foreground">Perfekt als Geschenk für Braut & Bräutigam</p>
-              </div>
+                  <div>
+                    <h3 className="font-medium text-xl mb-2">Hochzeit</h3>
+                    <p className="text-muted-foreground">Perfekt als Geschenk für Braut & Bräutigam oder Gäste</p>
+                  </div>
+                </CardContent>
+              </Card>
 
-              <div className="text-center p-6">
-                <div className="mb-4 flex justify-center">
-                  <div className="p-3 bg-primary/10 rounded-full">
-                    <Gift className="w-6 h-6 text-primary" />
+              <Card className="hover-elevate border-primary/20 transform hover:rotate-1 transition-all md:mt-6">
+                <CardContent className="p-8 flex items-start gap-4">
+                  <div className="shrink-0">
+                    <div className="p-4 bg-primary/10 rounded-full">
+                      <Gift className="w-8 h-8 text-primary" />
+                    </div>
                   </div>
-                </div>
-                <h3 className="font-medium mb-2">Einfach so</h3>
-                <p className="text-sm text-muted-foreground">Eine Freude zwischendurch</p>
-              </div>
+                  <div>
+                    <h3 className="font-medium text-xl mb-2">Einfach so</h3>
+                    <p className="text-muted-foreground">Eine Freude zwischendurch – ohne besonderen Anlass Freude schenken</p>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
       </section>
 
-      {/* So einfach geht's */}
-      <section className="py-16 md:py-20 bg-background">
+      {/* So einfach geht's - Horizontale Timeline */}
+      <section className="py-16 md:py-24 bg-background relative">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="font-serif text-3xl md:text-5xl font-light mb-4">
                 So einfach geht's
               </h2>
               <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full"></div>
             </div>
 
-            <div className="space-y-8">
-              <div className="flex gap-6 items-start">
+            {/* Desktop: Horizontal Timeline */}
+            <div className="hidden md:block relative">
+              {/* Verbindungslinie */}
+              <div className="absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/20 via-primary/50 to-primary/20 z-0"></div>
+              
+              <div className="grid grid-cols-4 gap-8 relative z-10">
+                <div className="text-center">
+                  <div className="mb-6 flex justify-center">
+                    <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                      1
+                    </div>
+                  </div>
+                  <div className="mb-4">
+                    <CreditCard className="w-8 h-8 text-primary mx-auto mb-3" />
+                    <h3 className="font-medium text-lg mb-2">Betrag wählen</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    Wunschbetrag und Versandart auswählen
+                  </p>
+                </div>
+
+                <div className="text-center">
+                  <div className="mb-6 flex justify-center">
+                    <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                      2
+                    </div>
+                  </div>
+                  <div className="mb-4">
+                    <Send className="w-8 h-8 text-primary mx-auto mb-3" />
+                    <h3 className="font-medium text-lg mb-2">Daten eingeben</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    Empfänger-Infos und persönliche Nachricht
+                  </p>
+                </div>
+
+                <div className="text-center">
+                  <div className="mb-6 flex justify-center">
+                    <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                      3
+                    </div>
+                  </div>
+                  <div className="mb-4">
+                    <CheckCircle2 className="w-8 h-8 text-primary mx-auto mb-3" />
+                    <h3 className="font-medium text-lg mb-2">Bezahlen</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    Sicher mit PayPal bezahlen
+                  </p>
+                </div>
+
+                <div className="text-center">
+                  <div className="mb-6 flex justify-center">
+                    <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                      4
+                    </div>
+                  </div>
+                  <div className="mb-4">
+                    <Package className="w-8 h-8 text-primary mx-auto mb-3" />
+                    <h3 className="font-medium text-lg mb-2">Erhalten</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    Digital sofort oder per Post in 2-3 Tagen
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile: Vertical Timeline */}
+            <div className="md:hidden space-y-6">
+              <div className="flex gap-4 items-start">
                 <div className="shrink-0">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <span className="text-primary font-semibold">1</span>
+                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-semibold">
+                    1
                   </div>
                 </div>
                 <div className="flex-1">
@@ -313,16 +460,16 @@ export default function Vouchers() {
                     <CreditCard className="w-5 h-5 text-primary" />
                     Betrag & Versandart wählen
                   </h3>
-                  <p className="text-muted-foreground">
-                    Wählen Sie Ihren Wunschbetrag und entscheiden Sie, ob der Gutschein digital oder per Post versendet werden soll
+                  <p className="text-muted-foreground text-sm">
+                    Wählen Sie Ihren Wunschbetrag und die Versandart
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-6 items-start">
+              <div className="flex gap-4 items-start">
                 <div className="shrink-0">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <span className="text-primary font-semibold">2</span>
+                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-semibold">
+                    2
                   </div>
                 </div>
                 <div className="flex-1">
@@ -330,16 +477,16 @@ export default function Vouchers() {
                     <Send className="w-5 h-5 text-primary" />
                     Daten eingeben
                   </h3>
-                  <p className="text-muted-foreground">
-                    Geben Sie die Empfänger-Informationen ein und fügen Sie optional eine persönliche Nachricht hinzu
+                  <p className="text-muted-foreground text-sm">
+                    Empfänger-Informationen und persönliche Nachricht
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-6 items-start">
+              <div className="flex gap-4 items-start">
                 <div className="shrink-0">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <span className="text-primary font-semibold">3</span>
+                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-semibold">
+                    3
                   </div>
                 </div>
                 <div className="flex-1">
@@ -347,16 +494,16 @@ export default function Vouchers() {
                     <CheckCircle2 className="w-5 h-5 text-primary" />
                     Sicher bezahlen
                   </h3>
-                  <p className="text-muted-foreground">
-                    Bezahlen Sie einfach und sicher mit PayPal - Ihre Daten sind geschützt
+                  <p className="text-muted-foreground text-sm">
+                    Bezahlen Sie einfach und sicher mit PayPal
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-6 items-start">
+              <div className="flex gap-4 items-start">
                 <div className="shrink-0">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <span className="text-primary font-semibold">4</span>
+                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-semibold">
+                    4
                   </div>
                 </div>
                 <div className="flex-1">
@@ -364,8 +511,8 @@ export default function Vouchers() {
                     <Package className="w-5 h-5 text-primary" />
                     Gutschein erhalten
                   </h3>
-                  <p className="text-muted-foreground">
-                    Der Gutschein wird sofort per E-Mail versendet oder innerhalb von 2-3 Werktagen per Post zugestellt
+                  <p className="text-muted-foreground text-sm">
+                    Digital sofort oder per Post in 2-3 Werktagen
                   </p>
                 </div>
               </div>
