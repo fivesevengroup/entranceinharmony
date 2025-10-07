@@ -226,123 +226,39 @@ export default function Header({ transparent = false }: HeaderProps) {
         </div>
       </div>
 
-      {/* Full-Screen Mobile Navigation Overlay */}
+      {/* Minimalist Mobile Menu */}
       {mobileMenuOpen && (
-        <div 
-          className="lg:hidden fixed inset-0 z-[100] animate-in fade-in duration-300"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Mobile Navigation"
-        >
-          {/* Dark Gradient Background with Organic Feel */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#2a1a3a] via-[#3d2752] to-[#1a0f28]">
-            {/* Subtle shimmer particles */}
-            <div className="absolute top-20 right-20 w-32 h-32 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
-            <div className="absolute bottom-32 left-16 w-40 h-40 bg-primary/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-          </div>
-
-          {/* Close Button - Top Right */}
-          <div className="absolute top-8 right-6 z-10">
-            <Button
-              size="icon"
-              variant="ghost"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-white/90 hover:text-white hover:bg-white/10"
-              data-testid="button-close-mobile-menu"
-            >
-              <X className="h-7 w-7" />
-            </Button>
-          </div>
-
-          {/* Centered Navigation Content */}
-          <div className="relative h-full flex flex-col items-center justify-center px-8">
-            {/* Logo */}
-            <Link href="/" onClick={() => setMobileMenuOpen(false)} className="mb-12">
-              <img 
-                src={logoImage} 
-                alt="Entrance in Harmony" 
-                className="h-20 w-auto"
-                style={{ filter: 'brightness(0) invert(1) drop-shadow(0 4px 12px rgba(244,212,143,0.3))' }}
-              />
-            </Link>
-
-            {/* Navigation Links */}
-            <nav className="flex flex-col items-center gap-6 mb-12">
+        <div className="lg:hidden absolute top-full left-0 right-0 z-40 animate-in slide-in-from-top-2 duration-200">
+          <div className="bg-white/98 backdrop-blur-md shadow-lg">
+            <nav className="divide-y divide-border/50">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <div className="group text-center" data-testid={`mobile-link-${link.label.toLowerCase()}`}>
-                    <span className={`font-serif text-3xl font-light transition-all duration-300 ${
+                  <div 
+                    className={`px-6 py-4 transition-colors duration-200 ${
                       location === link.href 
-                        ? 'text-primary' 
-                        : 'text-white/90 group-hover:text-primary group-hover:scale-105 inline-block'
+                        ? 'bg-primary/5' 
+                        : 'hover:bg-muted/50'
+                    }`}
+                    data-testid={`mobile-link-${link.label.toLowerCase()}`}
+                  >
+                    <span className={`text-base font-light tracking-wide ${
+                      location === link.href 
+                        ? 'text-primary font-normal' 
+                        : 'text-foreground'
                     }`}>
                       {link.label}
                     </span>
-                    
-                    {/* Gold underline on active */}
-                    {location === link.href && (
-                      <div className="h-0.5 w-12 mx-auto mt-2 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
-                    )}
                   </div>
                 </Link>
               ))}
             </nav>
-
-            {/* Quick Actions */}
-            <div className="flex flex-col gap-4 w-full max-w-xs">
-              <a 
-                href="https://wa.me/4927369639191" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-full"
-                data-testid="mobile-whatsapp-button"
-              >
-                <Button 
-                  className="w-full bg-primary/20 hover:bg-primary/30 text-white border border-primary/40 backdrop-blur-sm"
-                  size="lg"
-                >
-                  <Phone className="w-5 h-5 mr-2" />
-                  Termin vereinbaren
-                </Button>
-              </a>
-
-              <Link 
-                href="/geschenkgutscheine" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full"
-              >
-                <Button 
-                  variant="outline" 
-                  className="w-full border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
-                  size="lg"
-                  data-testid="mobile-voucher-button"
-                >
-                  <Gift className="w-5 h-5 mr-2" />
-                  Geschenkgutschein
-                </Button>
-              </Link>
-            </div>
-
-            {/* Organic Wave Divider at Bottom */}
-            <div className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none">
-              <svg className="w-full h-full" viewBox="0 0 1200 100" preserveAspectRatio="none">
-                <defs>
-                  <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="transparent" />
-                    <stop offset="50%" stopColor="#f4d48f" stopOpacity="0.3" />
-                    <stop offset="100%" stopColor="transparent" />
-                  </linearGradient>
-                </defs>
-                <path
-                  d="M 0 50 Q 300 20, 600 50 T 1200 50 L 1200 100 L 0 100 Z"
-                  fill="url(#waveGradient)"
-                />
-              </svg>
-            </div>
+            
+            {/* Subtle gold accent line */}
+            <div className="h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
           </div>
         </div>
       )}
