@@ -18,6 +18,7 @@ import VoucherPayPalButton from "@/components/VoucherPayPalButton";
 import { Gift, Mail, Truck, CheckCircle2, AlertCircle, Star } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
+import WaveDivider from "@/components/WaveDivider";
 import voucherImage from "@assets/generated_images/Elegant_gift_voucher_card_151c453a.png";
 import heroImage from "@assets/stock_images/spa_voucher_gift_cer_15fda10a.jpg";
 
@@ -124,7 +125,7 @@ export default function Vouchers() {
       <Header />
 
       {/* Hero Section with Background */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center scale-105"
           style={{ backgroundImage: `url(${heroImage})` }}
@@ -167,6 +168,8 @@ export default function Vouchers() {
             </Badge>
           </div>
         </div>
+
+        <WaveDivider position="bottom" color="hsl(var(--background))" />
       </section>
 
       <section className="py-16 md:py-20 bg-background">

@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Sparkles, Star, Heart } from "lucide-react";
+import WaveDivider from "@/components/WaveDivider";
 import deepCleansingImage from "@assets/generated_images/Deep_cleansing_facial_treatment_8a24d580.png";
 import basicTreatmentImage from "@assets/generated_images/Basic_facial_treatment_630e122c.png";
 import carboxyImage from "@assets/generated_images/Carboxy_therapy_facial_979c25d2.png";
@@ -170,7 +171,7 @@ export default function Services() {
       <Header />
 
       {/* Hero Section with Background */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center scale-105"
           style={{ backgroundImage: `url(${heroImage})` }}
@@ -223,6 +224,8 @@ export default function Services() {
             </Button>
           </div>
         </div>
+
+        <WaveDivider position="bottom" color="hsl(var(--background))" />
       </section>
 
       <section className="py-16 md:py-20 bg-background">

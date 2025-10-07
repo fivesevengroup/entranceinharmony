@@ -4,6 +4,7 @@ import TestimonialCard from "@/components/TestimonialCard";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Users, Star, ThumbsUp } from "lucide-react";
+import WaveDivider from "@/components/WaveDivider";
 import massageImage from "@assets/generated_images/Massage_therapy_session_569ccb02.png";
 import heroImage from "@assets/stock_images/happy_woman_smiling__d4fdfc14.jpg";
 
@@ -61,7 +62,7 @@ export default function Reviews() {
       <Header />
 
       {/* Hero Section with Background */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center scale-105"
           style={{ backgroundImage: `url(${heroImage})` }}
@@ -104,6 +105,8 @@ export default function Reviews() {
             </Badge>
           </div>
         </div>
+
+        <WaveDivider position="bottom" color="hsl(var(--background))" />
       </section>
 
       <section className="py-16 md:py-20 bg-background">

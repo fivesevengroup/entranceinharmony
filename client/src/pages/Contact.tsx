@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Phone, Mail, MapPin, Clock, Award, Heart, Sparkles, User } from "lucide-react";
+import WaveDivider from "@/components/WaveDivider";
 import aboutImage from "@assets/KI-Bewerbungsfoto-31117629-4_1759678066113.jpg";
 import heroImage from "@assets/stock_images/beauty_expert_aesthe_5e000874.jpg";
 
@@ -14,7 +15,7 @@ export default function Contact() {
       <Header />
 
       {/* Hero Section with Background */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center scale-105"
           style={{ backgroundImage: `url(${heroImage})` }}
@@ -57,6 +58,8 @@ export default function Contact() {
             </Badge>
           </div>
         </div>
+
+        <WaveDivider position="bottom" color="hsl(var(--background))" />
       </section>
 
       {/* About Content Section */}

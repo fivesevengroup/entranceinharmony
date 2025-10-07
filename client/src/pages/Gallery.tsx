@@ -5,6 +5,7 @@ import { SiInstagram } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Camera, Eye, Award } from "lucide-react";
+import WaveDivider from "@/components/WaveDivider";
 import beforeAfterImage from "@assets/generated_images/Before_after_skin_treatment_60b501b9.png";
 import facialImage from "@assets/generated_images/Facial_treatment_close-up_d5c55f42.png";
 import massageImage from "@assets/generated_images/Massage_therapy_session_569ccb02.png";
@@ -27,7 +28,7 @@ export default function Gallery() {
       <Header />
 
       {/* Hero Section with Background */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center scale-105"
           style={{ backgroundImage: `url(${heroImage})` }}
@@ -70,6 +71,8 @@ export default function Gallery() {
             </Badge>
           </div>
         </div>
+
+        <WaveDivider position="bottom" color="hsl(var(--background))" />
       </section>
 
       <section className="py-16 md:py-20 bg-background">

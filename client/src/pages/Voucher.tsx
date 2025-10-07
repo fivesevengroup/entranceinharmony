@@ -5,6 +5,7 @@ import VoucherCard from "@/components/VoucherCard";
 import VoucherModal from "@/components/VoucherModal";
 import { Mail, Gift, Heart, Sparkles } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import WaveDivider from "@/components/WaveDivider";
 import voucherImage from "@assets/generated_images/Elegant_gift_voucher_card_151c453a.png";
 import heroImage from "@assets/stock_images/elegant_gold_gift_bo_9cd64d90.jpg";
 
@@ -22,7 +23,7 @@ export default function Voucher() {
       <Header />
 
       {/* Hero Section with Background */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center scale-105"
           style={{ backgroundImage: `url(${heroImage})` }}
@@ -65,6 +66,8 @@ export default function Voucher() {
             </Badge>
           </div>
         </div>
+
+        <WaveDivider position="bottom" color="hsl(var(--background))" />
       </section>
 
       <section className="py-16 md:py-20 bg-background">

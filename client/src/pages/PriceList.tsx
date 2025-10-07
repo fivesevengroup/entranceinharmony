@@ -4,6 +4,7 @@ import PriceTable from "@/components/PriceTable";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Download, CheckCircle, Shield } from "lucide-react";
+import WaveDivider from "@/components/WaveDivider";
 import facialImage from "@assets/generated_images/Facial_treatment_close-up_d5c55f42.png";
 import heroImage from "@assets/stock_images/luxury_spa_products__6c63556f.jpg";
 
@@ -40,7 +41,7 @@ export default function PriceList() {
       <Header />
 
       {/* Hero Section with Background */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center scale-105"
           style={{ backgroundImage: `url(${heroImage})` }}
@@ -105,6 +106,8 @@ export default function PriceList() {
             </Badge>
           </div>
         </div>
+
+        <WaveDivider position="bottom" color="hsl(var(--background))" />
       </section>
 
       <section className="py-16 md:py-20 bg-background">
