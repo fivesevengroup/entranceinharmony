@@ -43,11 +43,15 @@ export default function Footer() {
       </div>
       
       <div className="container mx-auto px-4 relative">
-        <div className="pt-16 md:pt-14 pb-10">
+        <div className="pt-10 md:pt-8 pb-10">
           <div className="text-center mb-14">
-            <h3 className="font-serif text-3xl md:text-4xl font-light text-gold-gradient mb-4">
-              Entrance in Harmony
+            <h3 className="font-serif text-3xl md:text-4xl lg:text-5xl font-light mb-1 tracking-wide">
+              <span className="block text-foreground/90">ENTRANCE IN</span>
+              <span className="block text-gold-gradient text-4xl md:text-5xl lg:text-6xl">HARMONY</span>
             </h3>
+            <p className="text-base md:text-lg font-light text-muted-foreground/70 tracking-wider mt-2 mb-4" style={{ fontFamily: "'Dancing Script', cursive" }}>
+              by Elena Hartstein
+            </p>
             <div className="h-px w-32 mx-auto mb-4 bg-gradient-to-r from-transparent via-primary/40 to-transparent"></div>
             <p className="text-sm font-light text-muted-foreground tracking-wide">
               Ihre Beauty-Expertin in Burbach
