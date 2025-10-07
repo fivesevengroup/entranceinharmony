@@ -213,15 +213,15 @@ export default function Header({ transparent = false }: HeaderProps) {
                     
                     <div className="flex flex-col h-full">
                       {/* Logo & Branding */}
-                      <div className="px-6 pt-8 pb-6 border-b border-white/20">
+                      <div className="px-6 pt-8 pb-6 border-b border-primary/10">
                         <Link href="/" onClick={() => setMobileMenuOpen(false)}>
                           <img 
                             src={logoImage} 
                             alt="Entrance in Harmony" 
-                            className="h-16 w-auto mx-auto mb-3 brightness-0 invert"
+                            className="h-16 w-auto mx-auto mb-3"
                           />
                         </Link>
-                        <p className="text-center font-serif text-sm text-white/70">
+                        <p className="text-center font-serif text-sm text-muted-foreground">
                           Beauty & Aesthetics
                         </p>
                       </div>
@@ -236,7 +236,7 @@ export default function Header({ transparent = false }: HeaderProps) {
                               onClick={() => setMobileMenuOpen(false)}
                             >
                               <div
-                                className={`group relative py-3.5 border-b border-white/15 transition-all duration-200 ${
+                                className={`group relative py-3.5 border-b border-[hsl(280,25%,85%)] transition-all duration-200 ${
                                   location === link.href
                                     ? 'pl-5'
                                     : 'pl-3 hover:pl-4'
@@ -248,8 +248,8 @@ export default function Header({ transparent = false }: HeaderProps) {
                                 )}
                                 <span className={`font-serif text-base tracking-wide uppercase ${
                                   location === link.href
-                                    ? 'text-white font-semibold'
-                                    : 'text-white/70 group-hover:text-white/90'
+                                    ? 'text-[hsl(280,40%,20%)] font-semibold'
+                                    : 'text-[hsl(280,28%,35%)] group-hover:text-[hsl(280,35%,25%)]'
                                 }`}>
                                   {link.label}
                                 </span>
@@ -260,7 +260,7 @@ export default function Header({ transparent = false }: HeaderProps) {
                       </nav>
 
                       {/* Quick Actions */}
-                      <div className="p-6 border-t border-white/20 space-y-4">
+                      <div className="p-6 border-t border-primary/10 space-y-4">
                         <a 
                           href="https://wa.me/4927369639191" 
                           target="_blank" 
