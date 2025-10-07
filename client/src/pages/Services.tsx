@@ -244,7 +244,22 @@ export default function Services() {
         <WaveDivider position="bottom" color="hsl(var(--background))" />
       </section>
 
-      <section className="py-16 md:py-20 bg-background relative">
+      {/* White Transition Section */}
+      <section className="py-12 md:py-16 bg-background relative">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
+              Professionelle Beauty-Behandlungen
+            </h2>
+            <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-4"></div>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Entdecken Sie unsere vielfältigen Behandlungen für strahlende Haut und pures Wohlbefinden
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20 bg-section-accent relative">
         <div className="container mx-auto px-4">
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">

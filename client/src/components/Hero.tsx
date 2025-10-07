@@ -1,11 +1,40 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import WaveDivider from "@/components/WaveDivider";
-import { Gem, Award, Heart, Crown, Sparkles } from "lucide-react";
+import { Gem } from "lucide-react";
 import heroImage from "@assets/Screenshot 2025-10-05 225321_1759697624011.png";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
+  const [showEntranceParticles, setShowEntranceParticles] = useState(true);
+  const [showHarmonyParticles, setShowHarmonyParticles] = useState(false);
+  const entranceControls = useAnimation();
+  const harmonyControls = useAnimation();
+
+  useEffect(() => {
+    // Phase 1: ENTRANCE IN (starts immediately)
+    entranceControls.start("visible");
+    
+    // Phase 2: HARMONY (dramatic climax at 1.3s - after entrance particles fully fade)
+    const harmonyTimer = setTimeout(() => {
+      setShowEntranceParticles(false);
+      setShowHarmonyParticles(true);
+      harmonyControls.start("visible");
+    }, 1300);
+    
+    // Cleanup harmony particles at 3.0s (after burst completes)
+    const cleanupTimer = setTimeout(() => {
+      setShowHarmonyParticles(false);
+    }, 3000);
+    
+    // Cleanup timers on unmount
+    return () => {
+      clearTimeout(harmonyTimer);
+      clearTimeout(cleanupTimer);
+    };
+  }, [entranceControls, harmonyControls]);
+
   return (
     <section className="relative min-h-screen overflow-hidden">
       <div 
@@ -26,12 +55,91 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative inline-block">
+        <motion.div 
+          className="relative inline-block"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        >
           <div className="absolute inset-0 -inset-x-20 -inset-y-10 halo-glow pointer-events-none"></div>
+          
+          {showEntranceParticles && [...Array(20)].map((_, i) => {
+            const startX = Math.random() * 200 - 100;
+            const startY = Math.random() * 200 - 100;
+            const endX = (Math.random() - 0.5) * 20;
+            const endY = (Math.random() - 0.5) * 20;
+            
+            return (
+              <motion.div
+                key={`dust-${i}`}
+                className="absolute gold-dust-particle pointer-events-none"
+                initial={{ 
+                  x: startX,
+                  y: startY,
+                  opacity: 0,
+                  scale: 0
+                }}
+                animate={{
+                  x: [startX, endX, endX],
+                  y: [startY, endY, endY],
+                  opacity: [0, 1, 0],
+                  scale: [0, 1.5, 0],
+                }}
+                transition={{
+                  duration: 1.0,
+                  delay: i * 0.01,
+                  ease: [0.43, 0.13, 0.23, 0.96]
+                }}
+                style={{
+                  left: '50%',
+                  top: '50%',
+                }}
+              >
+                <div className="w-1 h-1 bg-primary rounded-full gold-glow"></div>
+              </motion.div>
+            );
+          })}
+          
+          {showHarmonyParticles && [...Array(60)].map((_, i) => {
+            const angle = (i / 60) * Math.PI * 2;
+            const radius = 150 + Math.random() * 50;
+            const endX = Math.cos(angle) * radius;
+            const endY = Math.sin(angle) * radius;
+            
+            return (
+              <motion.div
+                key={`harmony-dust-${i}`}
+                className="absolute harmony-burst-particle pointer-events-none"
+                initial={{ 
+                  x: 0,
+                  y: 0,
+                  opacity: 0,
+                  scale: 0
+                }}
+                animate={{
+                  x: [0, endX, endX],
+                  y: [0, endY, endY],
+                  opacity: [0, 1, 0],
+                  scale: [0, 2, 0],
+                }}
+                transition={{
+                  duration: 1.0,
+                  delay: i * 0.008,
+                  ease: [0.34, 1.56, 0.64, 1]
+                }}
+                style={{
+                  left: '50%',
+                  top: '50%',
+                }}
+              >
+                <div className="w-1.5 h-1.5 bg-primary rounded-full gold-glow"></div>
+              </motion.div>
+            );
+          })}
           
           {[...Array(6)].map((_, i) => (
             <motion.div
-              key={i}
+              key={`sparkle-${i}`}
               className="absolute sparkle-particle pointer-events-none"
               initial={{ opacity: 0 }}
               animate={{
@@ -43,7 +151,7 @@ export default function Hero() {
               transition={{
                 duration: 3 + Math.random() * 2,
                 repeat: Infinity,
-                delay: i * 0.5 + Math.random(),
+                delay: 2.5 + i * 0.5 + Math.random(),
                 ease: "easeOut"
               }}
               style={{
@@ -55,22 +163,55 @@ export default function Hero() {
             </motion.div>
           ))}
 
-          <h1 className="relative font-serif text-4xl md:text-7xl lg:text-8xl font-light mb-6 text-white drop-shadow-2xl fade-up tracking-wide" style={{ animationDelay: "0.4s", opacity: 0 }}>
-            <span className="block mb-2 text-reveal">ENTRANCE IN</span>
-            <span className="block text-gold-gradient text-shimmer text-5xl md:text-8xl lg:text-9xl">HARMONY</span>
+          <h1 className="relative font-serif text-4xl md:text-7xl lg:text-8xl font-light mb-6 text-white drop-shadow-2xl tracking-wide">
+            <motion.span 
+              className="block mb-2 relative overflow-hidden"
+              initial={{ opacity: 0 }}
+              animate={entranceControls}
+              variants={{
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    duration: 1.0,
+                    delay: 0,
+                    ease: "easeOut"
+                  }
+                }
+              }}
+            >
+              <span className="gold-dust-reveal">ENTRANCE IN</span>
+            </motion.span>
+            <motion.span 
+              className="block text-gold-gradient harmony-dramatic text-5xl md:text-8xl lg:text-9xl relative overflow-hidden"
+              initial={{ opacity: 0, scale: 0.85 }}
+              animate={harmonyControls}
+              variants={{
+                visible: {
+                  opacity: 1,
+                  scale: 1,
+                  transition: {
+                    duration: 1,
+                    delay: 0.1,
+                    ease: [0.34, 1.56, 0.64, 1]
+                  }
+                }
+              }}
+            >
+              <span className="gold-dust-reveal-harmony">HARMONY</span>
+            </motion.span>
           </h1>
-        </div>
+        </motion.div>
         
-        <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full fade-up" style={{ animationDelay: "0.6s", opacity: 0 }}></div>
+        <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full fade-up" style={{ animationDelay: "2.5s", opacity: 0 }}></div>
 
-        <p className="text-xl md:text-3xl mb-6 text-white/95 drop-shadow-lg font-light max-w-2xl mx-auto fade-up" style={{ animationDelay: "0.8s", opacity: 0 }}>
+        <p className="text-xl md:text-3xl mb-6 text-white/95 drop-shadow-lg font-light max-w-2xl mx-auto fade-up" style={{ animationDelay: "2.7s", opacity: 0 }}>
           Ihre Schönheitsexpertin in Burbach
         </p>
-        <p className="text-lg md:text-xl mb-12 text-white/90 drop-shadow-lg font-light max-w-3xl mx-auto fade-up leading-relaxed" style={{ animationDelay: "1s", opacity: 0 }}>
+        <p className="text-lg md:text-xl mb-12 text-white/90 drop-shadow-lg font-light max-w-3xl mx-auto fade-up leading-relaxed" style={{ animationDelay: "2.9s", opacity: 0 }}>
           Wo Schönheit auf Expertise trifft – Gönnen Sie sich professionelle Beauty-Behandlungen in luxuriöser Atmosphäre
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-5 justify-center items-center fade-up" style={{ animationDelay: "1.2s", opacity: 0 }}>
+        <div className="flex flex-col sm:flex-row gap-5 justify-center items-center fade-up" style={{ animationDelay: "3.1s", opacity: 0 }}>
           <Button
             size="lg"
             variant="ghost"

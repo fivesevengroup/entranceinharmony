@@ -198,8 +198,23 @@ export default function Vouchers() {
         <WaveDivider position="bottom" color="hsl(var(--background))" />
       </section>
 
+      {/* White Transition Section */}
+      <section className="py-12 md:py-16 bg-background relative">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
+              Schenken Sie Schönheit
+            </h2>
+            <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-4"></div>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Unsere Geschenkgutscheine sind das perfekte Geschenk für besondere Menschen
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Warum Entrance in Harmony Gutscheine - Bento Grid */}
-      <section className="py-16 md:py-24 bg-background relative">
+      <section className="py-16 md:py-24 bg-section-accent relative">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">

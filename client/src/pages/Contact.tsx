@@ -88,8 +88,23 @@ export default function Contact() {
         <WaveDivider position="bottom" color="hsl(var(--background))" />
       </section>
 
+      {/* White Transition Section */}
+      <section className="py-12 md:py-16 bg-background relative">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
+              Persönlich & Professionell
+            </h2>
+            <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-4"></div>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Lernen Sie Ihre Beauty-Expertin kennen und vereinbaren Sie einen Termin
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* About Content Section */}
-      <section className="py-20 md:py-32 bg-background relative">
+      <section className="py-20 md:py-32 bg-section-accent relative">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12 fade-up">
