@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Sparkles, Star, Heart } from "lucide-react";
+import { Sparkles, Star, Heart, LifeBuoy, MessageCircle } from "lucide-react";
 import WaveDivider from "@/components/WaveDivider";
 import deepCleansingImage from "@assets/generated_images/Deep_cleansing_facial_treatment_8a24d580.png";
 import basicTreatmentImage from "@assets/generated_images/Basic_facial_treatment_630e122c.png";
@@ -268,6 +268,69 @@ export default function Services() {
                 </CardContent>
               </Card>
             ))}
+
+            {/* Spezielle Beratungs-Kachel */}
+            <Card 
+              className="overflow-hidden relative border-2 border-primary/30 hover-elevate transition-all"
+              data-testid="card-consultation"
+            >
+              <div className="absolute top-6 right-6 z-10">
+                <div className="p-2 bg-primary/20 rounded-full">
+                  <LifeBuoy className="w-6 h-6 text-primary" />
+                </div>
+              </div>
+              
+              <CardContent className="p-6 flex flex-col justify-between h-full min-h-[320px] bg-gradient-to-br from-primary/5 via-background to-primary/10">
+                <div className="flex-1 pr-12">
+                  <div className="mb-3">
+                    <Badge variant="secondary" className="bg-primary/20 text-primary border-primary/30 mb-4">
+                      Individuelle Beratung
+                    </Badge>
+                  </div>
+                  
+                  <h3 className="font-serif text-2xl font-light mb-3" data-testid="text-consultation-title">
+                    Unsicher, welche Behandlung passt?
+                  </h3>
+                  
+                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                    Wir beraten Sie gerne persönlich und finden gemeinsam die perfekte Behandlung für Ihre individuellen Bedürfnisse.
+                  </p>
+
+                  <div className="space-y-2 mb-6">
+                    <div className="flex items-center gap-2 text-sm">
+                      <Star className="w-4 h-4 text-primary" />
+                      <span className="text-muted-foreground">Persönliche Hautanalyse</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <Heart className="w-4 h-4 text-primary" />
+                      <span className="text-muted-foreground">Maßgeschneiderte Empfehlung</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <Button
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                    asChild
+                  >
+                    <a 
+                      href="https://wa.me/491709287722?text=Hallo,%20ich%20bin%20unsicher%20welche%20Behandlung%20zu%20mir%20passt%20und%20hätte%20gerne%20eine%20individuelle%20Beratung." 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2"
+                      data-testid="button-consultation-whatsapp"
+                    >
+                      <MessageCircle className="w-4 h-4" />
+                      <span>Jetzt beraten lassen</span>
+                    </a>
+                  </Button>
+                  
+                  <p className="text-xs text-center text-muted-foreground">
+                    Kostenlose Beratung per WhatsApp oder Telefon
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
           </div>
 
           <div className="text-center bg-muted/50 py-12 px-6 rounded-lg max-w-3xl mx-auto">
