@@ -119,11 +119,11 @@ export default function Contact() {
             
             <div className="bg-card/80 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border border-border fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
               <div className="grid md:grid-cols-2 gap-0">
-                <div className="relative h-[450px] md:h-auto overflow-visible p-8 flex items-end justify-center">
+                <div className="relative h-[450px] md:h-auto overflow-visible p-4 pb-0 flex items-end justify-center">
                   <img
                     src={aboutImage}
                     alt="Elena Hartstein"
-                    className="w-auto h-full object-contain"
+                    className="w-auto h-[110%] object-contain object-bottom"
                     style={{
                       filter: 'drop-shadow(0 20px 60px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 40px rgba(212, 175, 55, 0.15))'
                     }}
