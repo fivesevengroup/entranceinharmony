@@ -215,14 +215,6 @@ export default function Services() {
                 Jetzt Termin buchen
               </a>
             </Button>
-            <Button
-              size="lg"
-              variant="ghost"
-              className="text-sm px-12 py-6 text-white/80 border border-white/15 hover:bg-white/5 hover:border-white/25 font-serif uppercase tracking-widest transition-all duration-300"
-              asChild
-            >
-              <a href="/preisliste">Preise ansehen</a>
-            </Button>
           </div>
 
           <div className="flex flex-wrap justify-center gap-6 fade-up" style={{ animationDelay: "1.4s", opacity: 0 }}>
