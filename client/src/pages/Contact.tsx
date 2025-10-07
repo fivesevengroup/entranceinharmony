@@ -18,7 +18,7 @@ export default function Contact() {
       {/* Hero Section with Background */}
       <section className="relative min-h-screen overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center scale-105"
+          className="absolute inset-0 bg-cover bg-top scale-105"
           style={{ backgroundImage: `url(${heroImage})` }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
