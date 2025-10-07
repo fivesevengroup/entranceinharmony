@@ -203,7 +203,7 @@ export default function Header({ transparent = false }: HeaderProps) {
                   
                   <SheetContent 
                     side="right" 
-                    className="w-[320px] sm:w-[360px] bg-gradient-to-br from-background via-muted/30 to-background border-l-2 border-primary/20 p-0"
+                    className="w-[320px] sm:w-[360px] bg-gradient-to-br from-[hsl(280,35%,92%)] via-[hsl(280,30%,88%)] to-[hsl(280,35%,90%)] border-l-2 border-primary/30 p-0"
                   >
                     <div className="flex flex-col h-full">
                       {/* Logo & Branding */}
