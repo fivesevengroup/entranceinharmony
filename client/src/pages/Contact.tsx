@@ -128,8 +128,10 @@ export default function Contact() {
                       filter: 'drop-shadow(0 20px 60px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 40px rgba(212, 175, 55, 0.15))'
                     }}
                   />
+                  <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-r from-transparent to-card/80 pointer-events-none"></div>
                 </div>
-                <div className="p-10 md:p-14 flex flex-col justify-center bg-gradient-to-br from-card to-card/50">
+                <div className="p-10 md:p-14 flex flex-col justify-center bg-gradient-to-br from-card to-card/50 relative">
+                  <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-card/0 to-transparent pointer-events-none -ml-16"></div>
                   <h3 className="font-serif text-3xl md:text-4xl font-light mb-4">
                     Ihre Schönheitsexpertin in Burbach
                   </h3>
