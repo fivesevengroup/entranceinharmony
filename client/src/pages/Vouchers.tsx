@@ -126,7 +126,7 @@ export default function Vouchers() {
       <Header />
 
       {/* Hero Section with Background */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center scale-105"
           style={{ backgroundImage: `url(${heroImage})` }}
@@ -154,20 +154,9 @@ export default function Vouchers() {
           <p className="text-xl md:text-3xl mb-6 text-white/95 drop-shadow-lg font-light max-w-2xl mx-auto fade-up" style={{ animationDelay: "0.8s", opacity: 0 }}>
             Schenken Sie Entspannung und Schönheit
           </p>
-          <p className="text-lg md:text-xl mb-16 text-white/90 drop-shadow-lg font-light max-w-3xl mx-auto fade-up leading-relaxed" style={{ animationDelay: "1s", opacity: 0 }}>
+          <p className="text-lg md:text-xl mb-12 text-white/90 drop-shadow-lg font-light max-w-3xl mx-auto fade-up leading-relaxed" style={{ animationDelay: "1s", opacity: 0 }}>
             Wählen Sie Ihren Wunschbetrag und Versandart – digital per E-Mail oder elegant verpackt per Post
           </p>
-
-          <div className="flex flex-wrap justify-center gap-6 fade-up" style={{ animationDelay: "1.2s", opacity: 0 }}>
-            <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
-              <CheckCircle2 className="w-4 h-4 mr-2 text-primary" />
-              Sichere Zahlung mit PayPal
-            </Badge>
-            <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
-              <Star className="w-4 h-4 mr-2 text-primary" />
-              Freier Wunschbetrag
-            </Badge>
-          </div>
         </div>
 
         <WaveDivider position="bottom" color="hsl(var(--background))" />
