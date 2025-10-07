@@ -40,9 +40,16 @@ export default function Impressum() {
           <p className="text-xl md:text-3xl mb-6 text-white/95 drop-shadow-lg font-light max-w-2xl mx-auto fade-up" style={{ animationDelay: "0.8s", opacity: 0 }}>
             Angaben gemäß § 5 TMG
           </p>
-          <p className="text-lg md:text-xl text-white/90 drop-shadow-lg font-light max-w-3xl mx-auto fade-up leading-relaxed" style={{ animationDelay: "1s", opacity: 0 }}>
+          <p className="text-lg md:text-xl mb-16 text-white/90 drop-shadow-lg font-light max-w-3xl mx-auto fade-up leading-relaxed" style={{ animationDelay: "1s", opacity: 0 }}>
             Transparenz und rechtliche Klarheit – alle wichtigen Informationen zu Entrance in Harmony
           </p>
+
+          <div className="flex flex-wrap justify-center gap-6 fade-up" style={{ animationDelay: "1.2s", opacity: 0 }}>
+            <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
+              <Shield className="w-4 h-4 mr-2 text-primary" />
+              Rechtlich Geprüft
+            </Badge>
+          </div>
         </div>
 
         <WaveDivider position="bottom" color="hsl(var(--background))" />

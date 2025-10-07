@@ -40,9 +40,20 @@ export default function Datenschutz() {
           <p className="text-xl md:text-3xl mb-6 text-white/95 drop-shadow-lg font-light max-w-2xl mx-auto fade-up" style={{ animationDelay: "0.8s", opacity: 0 }}>
             Ihr Datenschutz ist uns wichtig
           </p>
-          <p className="text-lg md:text-xl text-white/90 drop-shadow-lg font-light max-w-3xl mx-auto fade-up leading-relaxed" style={{ animationDelay: "1s", opacity: 0 }}>
+          <p className="text-lg md:text-xl mb-16 text-white/90 drop-shadow-lg font-light max-w-3xl mx-auto fade-up leading-relaxed" style={{ animationDelay: "1s", opacity: 0 }}>
             Erfahren Sie, wie wir Ihre persönlichen Daten schützen und verarbeiten – transparent und DSGVO-konform
           </p>
+
+          <div className="flex flex-wrap justify-center gap-6 fade-up" style={{ animationDelay: "1.2s", opacity: 0 }}>
+            <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
+              <Lock className="w-4 h-4 mr-2 text-primary" />
+              SSL-Verschlüsselt
+            </Badge>
+            <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
+              <ShieldCheck className="w-4 h-4 mr-2 text-primary" />
+              DSGVO-Konform
+            </Badge>
+          </div>
         </div>
 
         <WaveDivider position="bottom" color="hsl(var(--background))" />
