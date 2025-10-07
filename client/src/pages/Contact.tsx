@@ -19,7 +19,10 @@ export default function Contact() {
       <section className="relative min-h-screen overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover scale-105"
-          style={{ backgroundImage: `url(${heroImage})`, backgroundPosition: 'center 0%' }}
+          style={{ 
+            backgroundImage: `url(${heroImage})`, 
+            backgroundPosition: 'right 0%'
+          }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"></div>
