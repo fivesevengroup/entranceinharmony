@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -15,7 +16,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import VoucherPayPalButton from "@/components/VoucherPayPalButton";
-import { Gift, Mail, Truck, CheckCircle2, AlertCircle, Star } from "lucide-react";
+import { Gift, Mail, Truck, CheckCircle2, AlertCircle, Star, Heart, Calendar, Sparkles, CreditCard, Send, Package } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import WaveDivider from "@/components/WaveDivider";
@@ -172,7 +173,209 @@ export default function Vouchers() {
         <WaveDivider position="bottom" color="hsl(var(--background))" />
       </section>
 
+      {/* Warum Entrance in Harmony Gutscheine */}
       <section className="py-16 md:py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
+                Warum unsere Geschenkgutscheine?
+              </h2>
+              <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-4"></div>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Schenken Sie nicht nur eine Behandlung, sondern ein unvergessliches Wohlfühl-Erlebnis
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              <Card className="border border-border backdrop-blur-sm bg-card/90 hover-elevate">
+                <CardContent className="pt-8 pb-8 text-center">
+                  <div className="mb-6 flex justify-center">
+                    <div className="p-4 bg-primary/10 rounded-full">
+                      <Star className="w-8 h-8 text-primary" />
+                    </div>
+                  </div>
+                  <h3 className="font-medium text-lg mb-3">Premium Qualität</h3>
+                  <p className="text-muted-foreground">
+                    Professionelle Behandlungen mit hochwertigen Produkten und individueller Beratung
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border border-border backdrop-blur-sm bg-card/90 hover-elevate">
+                <CardContent className="pt-8 pb-8 text-center">
+                  <div className="mb-6 flex justify-center">
+                    <div className="p-4 bg-primary/10 rounded-full">
+                      <Heart className="w-8 h-8 text-primary" />
+                    </div>
+                  </div>
+                  <h3 className="font-medium text-lg mb-3">Persönlich & Flexibel</h3>
+                  <p className="text-muted-foreground">
+                    Freie Wahl der Behandlung und Terminvereinbarung nach Wunsch
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border border-border backdrop-blur-sm bg-card/90 hover-elevate">
+                <CardContent className="pt-8 pb-8 text-center">
+                  <div className="mb-6 flex justify-center">
+                    <div className="p-4 bg-primary/10 rounded-full">
+                      <Gift className="w-8 h-8 text-primary" />
+                    </div>
+                  </div>
+                  <h3 className="font-medium text-lg mb-3">Schön Verpackt</h3>
+                  <p className="text-muted-foreground">
+                    Digital sofort per E-Mail oder elegant verpackt per Post
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Perfekt für diese Anlässe */}
+      <section className="py-16 md:py-20 bg-gradient-to-br from-muted/20 via-background to-muted/20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
+                Perfekt für jeden Anlass
+              </h2>
+              <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full"></div>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="text-center p-6">
+                <div className="mb-4 flex justify-center">
+                  <div className="p-3 bg-primary/10 rounded-full">
+                    <Calendar className="w-6 h-6 text-primary" />
+                  </div>
+                </div>
+                <h3 className="font-medium mb-2">Geburtstag</h3>
+                <p className="text-sm text-muted-foreground">Ein besonderes Geschenk zum Ehrentag</p>
+              </div>
+
+              <div className="text-center p-6">
+                <div className="mb-4 flex justify-center">
+                  <div className="p-3 bg-primary/10 rounded-full">
+                    <Heart className="w-6 h-6 text-primary" />
+                  </div>
+                </div>
+                <h3 className="font-medium mb-2">Muttertag</h3>
+                <p className="text-sm text-muted-foreground">Sagen Sie Danke mit Entspannung</p>
+              </div>
+
+              <div className="text-center p-6">
+                <div className="mb-4 flex justify-center">
+                  <div className="p-3 bg-primary/10 rounded-full">
+                    <Sparkles className="w-6 h-6 text-primary" />
+                  </div>
+                </div>
+                <h3 className="font-medium mb-2">Hochzeit</h3>
+                <p className="text-sm text-muted-foreground">Perfekt als Geschenk für Braut & Bräutigam</p>
+              </div>
+
+              <div className="text-center p-6">
+                <div className="mb-4 flex justify-center">
+                  <div className="p-3 bg-primary/10 rounded-full">
+                    <Gift className="w-6 h-6 text-primary" />
+                  </div>
+                </div>
+                <h3 className="font-medium mb-2">Einfach so</h3>
+                <p className="text-sm text-muted-foreground">Eine Freude zwischendurch</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* So einfach geht's */}
+      <section className="py-16 md:py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
+                So einfach geht's
+              </h2>
+              <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full"></div>
+            </div>
+
+            <div className="space-y-8">
+              <div className="flex gap-6 items-start">
+                <div className="shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <span className="text-primary font-semibold">1</span>
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-medium text-lg mb-2 flex items-center gap-2">
+                    <CreditCard className="w-5 h-5 text-primary" />
+                    Betrag & Versandart wählen
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Wählen Sie Ihren Wunschbetrag und entscheiden Sie, ob der Gutschein digital oder per Post versendet werden soll
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-6 items-start">
+                <div className="shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <span className="text-primary font-semibold">2</span>
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-medium text-lg mb-2 flex items-center gap-2">
+                    <Send className="w-5 h-5 text-primary" />
+                    Daten eingeben
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Geben Sie die Empfänger-Informationen ein und fügen Sie optional eine persönliche Nachricht hinzu
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-6 items-start">
+                <div className="shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <span className="text-primary font-semibold">3</span>
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-medium text-lg mb-2 flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-primary" />
+                    Sicher bezahlen
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Bezahlen Sie einfach und sicher mit PayPal - Ihre Daten sind geschützt
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-6 items-start">
+                <div className="shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <span className="text-primary font-semibold">4</span>
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-medium text-lg mb-2 flex items-center gap-2">
+                    <Package className="w-5 h-5 text-primary" />
+                    Gutschein erhalten
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Der Gutschein wird sofort per E-Mail versendet oder innerhalb von 2-3 Werktagen per Post zugestellt
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gutschein kaufen Formular */}
+      <section className="py-16 md:py-20 bg-gradient-to-br from-muted/20 via-background to-muted/20">
         <div className="container mx-auto px-4">
 
           {step === "form" ? (
@@ -485,6 +688,102 @@ export default function Vouchers() {
               </Card>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Häufige Fragen */}
+      <section className="py-16 md:py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
+                Häufige Fragen
+              </h2>
+              <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-4"></div>
+              <p className="text-muted-foreground">
+                Alles, was Sie über unsere Geschenkgutscheine wissen müssen
+              </p>
+            </div>
+
+            <Accordion type="single" collapsible className="space-y-4">
+              <AccordionItem value="item-1" className="border border-border rounded-lg px-6 bg-card/50">
+                <AccordionTrigger className="hover:no-underline">
+                  Wie lange ist der Gutschein gültig?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Unsere Geschenkgutscheine sind ab Kaufdatum 3 Jahre gültig. So hat der Beschenkte genügend Zeit, den perfekten Termin zu finden.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-2" className="border border-border rounded-lg px-6 bg-card/50">
+                <AccordionTrigger className="hover:no-underline">
+                  Kann ich den Gutschein für jede Behandlung verwenden?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Ja, der Gutschein kann für alle Behandlungen bei Entrance in Harmony eingelöst werden. Der Beschenkte kann selbst wählen, welche Behandlung am besten passt.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-3" className="border border-border rounded-lg px-6 bg-card/50">
+                <AccordionTrigger className="hover:no-underline">
+                  Wie schnell erhalte ich den Gutschein?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Digitale Gutscheine werden sofort nach Zahlungseingang per E-Mail versendet. Gutscheine per Post werden innerhalb von 2-3 Werktagen in einer eleganten Verpackung zugestellt.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-4" className="border border-border rounded-lg px-6 bg-card/50">
+                <AccordionTrigger className="hover:no-underline">
+                  Kann ich eine persönliche Nachricht hinzufügen?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Ja, beim Kauf können Sie eine persönliche Nachricht hinzufügen, die auf dem Gutschein erscheint. So wird das Geschenk noch individueller.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-5" className="border border-border rounded-lg px-6 bg-card/50">
+                <AccordionTrigger className="hover:no-underline">
+                  Was passiert, wenn der Gutscheinwert nicht ausreicht?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Sollte die gewünschte Behandlung teurer sein als der Gutscheinwert, kann die Differenz einfach vor Ort beglichen werden. Ist die Behandlung günstiger, bleibt das Guthaben erhalten.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-6" className="border border-border rounded-lg px-6 bg-card/50">
+                <AccordionTrigger className="hover:no-underline">
+                  Wie vereinbare ich einen Termin mit dem Gutschein?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Mit dem Gutschein können Sie ganz einfach per WhatsApp, Telefon oder E-Mail einen Wunschtermin vereinbaren. Die Kontaktdaten finden Sie auf dem Gutschein.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+
+            <div className="mt-12 text-center p-6 bg-muted/30 rounded-lg border border-border">
+              <p className="text-muted-foreground mb-4">
+                Sie haben weitere Fragen? Wir helfen Ihnen gerne weiter!
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button variant="outline" asChild>
+                  <a href="https://wa.me/491709287722" target="_blank" rel="noopener noreferrer" data-testid="button-faq-whatsapp">
+                    WhatsApp
+                  </a>
+                </Button>
+                <Button variant="outline" asChild>
+                  <a href="tel:+491709287722" data-testid="button-faq-phone">
+                    0170 9287722
+                  </a>
+                </Button>
+                <Button variant="outline" asChild>
+                  <a href="mailto:info@entranceinharmony.de" data-testid="button-faq-email">
+                    E-Mail
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
