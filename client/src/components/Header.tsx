@@ -1,6 +1,7 @@
 import { Link, useLocation } from "wouter";
-import { Menu, X, Phone, Gift } from "lucide-react";
+import { Menu, Phone, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useState, useEffect } from "react";
 import logoImage from "@assets/Logo-PSD_1759668524506.png";
 
@@ -29,29 +30,6 @@ export default function Header({ transparent = false }: HeaderProps) {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Body scroll lock when mobile menu is open
-  useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [mobileMenuOpen]);
-
-  // Close on ESC key
-  useEffect(() => {
-    const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && mobileMenuOpen) {
-        setMobileMenuOpen(false);
-      }
-    };
-    window.addEventListener('keydown', handleEsc);
-    return () => window.removeEventListener('keydown', handleEsc);
-  }, [mobileMenuOpen]);
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -211,57 +189,110 @@ export default function Header({ transparent = false }: HeaderProps) {
 
               {/* Mobile Menu Button */}
               <div className="lg:hidden absolute right-4 top-0">
-                <Button
-                  size="icon"
-                  variant="ghost"
-                  className={isScrolled ? 'text-foreground' : 'text-white'}
-                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  data-testid="button-mobile-menu"
-                >
-                  {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-                </Button>
+                <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+                  <SheetTrigger asChild>
+                    <Button
+                      size="icon"
+                      variant="ghost"
+                      className={isScrolled ? 'text-foreground' : 'text-white'}
+                      data-testid="button-mobile-menu"
+                    >
+                      <Menu className="h-6 w-6" />
+                    </Button>
+                  </SheetTrigger>
+                  
+                  <SheetContent 
+                    side="right" 
+                    className="w-[320px] sm:w-[360px] bg-gradient-to-br from-background via-muted/30 to-background border-l-2 border-primary/20 p-0"
+                  >
+                    <div className="flex flex-col h-full">
+                      {/* Logo & Branding */}
+                      <div className="px-6 pt-8 pb-6 border-b border-primary/10">
+                        <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+                          <img 
+                            src={logoImage} 
+                            alt="Entrance in Harmony" 
+                            className="h-16 w-auto mx-auto mb-3"
+                          />
+                        </Link>
+                        <p className="text-center font-serif text-sm text-muted-foreground">
+                          Beauty & Aesthetics
+                        </p>
+                      </div>
+
+                      {/* Navigation */}
+                      <nav className="flex-1 py-6 px-6">
+                        <div className="space-y-1">
+                          {navLinks.map((link) => (
+                            <Link
+                              key={link.href}
+                              href={link.href}
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              <div
+                                className={`group px-4 py-3 rounded-lg transition-all duration-200 ${
+                                  location === link.href
+                                    ? 'bg-primary/10 border border-primary/20'
+                                    : 'hover-elevate'
+                                }`}
+                                data-testid={`mobile-link-${link.label.toLowerCase()}`}
+                              >
+                                <span className={`font-serif text-lg ${
+                                  location === link.href
+                                    ? 'text-primary font-medium'
+                                    : 'text-foreground group-hover:text-primary'
+                                }`}>
+                                  {link.label}
+                                </span>
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      </nav>
+
+                      {/* Quick Actions */}
+                      <div className="p-6 border-t border-primary/10 space-y-3">
+                        <a 
+                          href="https://wa.me/4927369639191" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="block"
+                          data-testid="mobile-whatsapp-button"
+                        >
+                          <Button className="w-full" size="lg">
+                            <Phone className="w-4 h-4 mr-2" />
+                            Termin vereinbaren
+                          </Button>
+                        </a>
+
+                        <Link 
+                          href="/geschenkgutscheine" 
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="block"
+                        >
+                          <Button 
+                            variant="outline" 
+                            className="w-full border-primary/30"
+                            size="lg"
+                            data-testid="mobile-voucher-button"
+                          >
+                            <Gift className="w-4 h-4 mr-2" />
+                            Geschenkgutschein
+                          </Button>
+                        </Link>
+                      </div>
+
+                      {/* Gold accent bottom */}
+                      <div className="h-1 bg-gradient-to-r from-transparent via-primary/40 to-transparent"></div>
+                    </div>
+                  </SheetContent>
+                </Sheet>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Minimalist Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 z-40 animate-in slide-in-from-top-2 duration-200">
-          <div className="bg-white/98 backdrop-blur-md shadow-lg">
-            <nav className="divide-y divide-border/50">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <div 
-                    className={`px-6 py-4 transition-colors duration-200 ${
-                      location === link.href 
-                        ? 'bg-primary/5' 
-                        : 'hover:bg-muted/50'
-                    }`}
-                    data-testid={`mobile-link-${link.label.toLowerCase()}`}
-                  >
-                    <span className={`text-base font-light tracking-wide ${
-                      location === link.href 
-                        ? 'text-primary font-normal' 
-                        : 'text-foreground'
-                    }`}>
-                      {link.label}
-                    </span>
-                  </div>
-                </Link>
-              ))}
-            </nav>
-            
-            {/* Subtle gold accent line */}
-            <div className="h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
-          </div>
-        </div>
-      )}
     </header>
   );
 }
