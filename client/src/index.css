@@ -589,14 +589,14 @@
   
   /* Gold dust entrance effects */
   .gold-dust-reveal {
-    background: linear-gradient(135deg, hsl(46 74% 62%) 0%, hsl(30 32% 72%) 100%);
+    background: linear-gradient(135deg, hsl(0 0% 95%) 0%, hsl(0 0% 98%) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
   
   .gold-dust-reveal-harmony {
-    background: linear-gradient(135deg, hsl(46 74% 72%) 0%, hsl(30 32% 80%) 100%);
+    background: linear-gradient(135deg, hsl(46 74% 62%) 0%, hsl(40 65% 58%) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
