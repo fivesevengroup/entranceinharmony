@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { ShieldCheck, Star, Heart, LifeBuoy, MessageCircle } from "lucide-react";
+import { ShieldCheck, Star, Heart, LifeBuoy, MessageCircle, Award, Crown } from "lucide-react";
 import WaveDivider from "@/components/WaveDivider";
 import deepCleansingImage from "@assets/generated_images/Deep_cleansing_facial_treatment_8a24d580.png";
 import basicTreatmentImage from "@assets/generated_images/Basic_facial_treatment_630e122c.png";
@@ -203,7 +203,7 @@ export default function Services() {
             Ob individuelle Gesichtsbehandlungen, Microneedling, BB Glow oder Laserbehandlung – wir bieten Ihnen die optimale Leistung rund um eine gesunde und schöne Haut.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center fade-up" style={{ animationDelay: "1.2s", opacity: 0 }}>
+          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-16 fade-up" style={{ animationDelay: "1.2s", opacity: 0 }}>
             <Button
               size="lg"
               variant="ghost"
@@ -223,6 +223,21 @@ export default function Services() {
             >
               <a href="/preisliste">Preise ansehen</a>
             </Button>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-6 fade-up" style={{ animationDelay: "1.4s", opacity: 0 }}>
+            <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
+              <Award className="w-4 h-4 mr-2 text-primary" />
+              Zertifiziert & Professionell
+            </Badge>
+            <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
+              <Heart className="w-4 h-4 mr-2 text-primary" />
+              Mit Herz & Leidenschaft
+            </Badge>
+            <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
+              <Crown className="w-4 h-4 mr-2 text-primary" />
+              Premium Behandlungen
+            </Badge>
           </div>
         </div>
 
