@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Phone, Mail, MapPin, Clock, Award, Heart, Sparkles, User } from "lucide-react";
+import { SiWhatsapp } from "react-icons/si";
 import WaveDivider from "@/components/WaveDivider";
 import aboutImage from "@assets/KI-Bewerbungsfoto-31117629-4_1759678066113.jpg";
 import heroImage from "@assets/stock_images/beauty_expert_aesthe_5e000874.jpg";
@@ -113,73 +114,135 @@ export default function Contact() {
               <div className="h-0.5 w-32 mx-auto gold-shimmer rounded-full" />
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 mb-16">
-              <Card className="border border-border hover:border-primary/40 transition-all hover:shadow-2xl backdrop-blur-sm bg-card/90 gold-glow">
-                <CardContent className="pt-8">
-                  <div className="flex items-start gap-4 mb-6">
-                    <div className="p-3 bg-primary/10 rounded-lg">
-                      <Phone className="w-6 h-6 text-primary" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-semibold mb-2">Telefon & WhatsApp</h3>
-                      <a
-                        href="tel:+491709287722"
-                        className="text-lg text-primary hover:underline"
-                      >
-                        0170 9287722
-                      </a>
+            <div className="grid md:grid-cols-3 gap-6 mb-16">
+              {/* Telefon Card */}
+              <Card className="border border-border hover:border-primary/40 transition-all backdrop-blur-sm bg-card/90 hover-elevate">
+                <CardContent className="pt-8 pb-8 text-center">
+                  <div className="mb-6 flex justify-center">
+                    <div className="p-4 bg-primary/10 rounded-full">
+                      <Phone className="w-8 h-8 text-primary" />
                     </div>
                   </div>
+                  <h3 className="font-serif text-xl font-light mb-3">Telefon</h3>
+                  <a
+                    href="tel:+491709287722"
+                    className="text-lg text-foreground hover:text-primary transition-colors block mb-4"
+                    data-testid="link-phone"
+                  >
+                    0170 9287722
+                  </a>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="w-full"
+                    asChild
+                  >
+                    <a href="tel:+491709287722" data-testid="button-call">
+                      <Phone className="w-4 h-4 mr-2" />
+                      Anrufen
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
 
-                  <div className="flex items-start gap-4 mb-6">
-                    <div className="p-3 bg-primary/10 rounded-lg">
-                      <Mail className="w-6 h-6 text-primary" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-semibold mb-2">E-Mail</h3>
-                      <a
-                        href="mailto:info@entranceinharmony.de"
-                        className="text-primary hover:underline break-all"
-                      >
-                        info@entranceinharmony.de
-                      </a>
+              {/* WhatsApp Card */}
+              <Card className="border border-border hover:border-primary/40 transition-all backdrop-blur-sm bg-card/90 hover-elevate">
+                <CardContent className="pt-8 pb-8 text-center">
+                  <div className="mb-6 flex justify-center">
+                    <div className="p-4 bg-primary/10 rounded-full">
+                      <SiWhatsapp className="w-8 h-8 text-primary" />
                     </div>
                   </div>
+                  <h3 className="font-serif text-xl font-light mb-3">WhatsApp</h3>
+                  <a
+                    href="https://wa.me/491709287722"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-lg text-foreground hover:text-primary transition-colors block mb-4"
+                    data-testid="link-whatsapp"
+                  >
+                    0170 9287722
+                  </a>
+                  <Button
+                    size="sm"
+                    variant="default"
+                    className="w-full"
+                    asChild
+                  >
+                    <a href="https://wa.me/491709287722" target="_blank" rel="noopener noreferrer" data-testid="button-whatsapp-contact">
+                      <SiWhatsapp className="w-4 h-4 mr-2" />
+                      Nachricht senden
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
 
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-primary/10 rounded-lg">
-                      <MapPin className="w-6 h-6 text-primary" />
+              {/* E-Mail Card */}
+              <Card className="border border-border hover:border-primary/40 transition-all backdrop-blur-sm bg-card/90 hover-elevate">
+                <CardContent className="pt-8 pb-8 text-center">
+                  <div className="mb-6 flex justify-center">
+                    <div className="p-4 bg-primary/10 rounded-full">
+                      <Mail className="w-8 h-8 text-primary" />
+                    </div>
+                  </div>
+                  <h3 className="font-serif text-xl font-light mb-3">E-Mail</h3>
+                  <a
+                    href="mailto:info@entranceinharmony.de"
+                    className="text-sm text-foreground hover:text-primary transition-colors block mb-4 break-all px-2"
+                    data-testid="link-email"
+                  >
+                    info@entranceinharmony.de
+                  </a>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="w-full"
+                    asChild
+                  >
+                    <a href="mailto:info@entranceinharmony.de" data-testid="button-email">
+                      <Mail className="w-4 h-4 mr-2" />
+                      E-Mail schreiben
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Standort & Öffnungszeiten Card */}
+            <Card className="border border-border backdrop-blur-sm bg-card/90 shadow-lg mb-16 fade-up" style={{ animationDelay: "0.1s", opacity: 0 }}>
+              <CardContent className="pt-10 pb-10">
+                <div className="grid md:grid-cols-2 gap-10">
+                  <div className="flex items-start gap-5">
+                    <div className="p-3 bg-primary/10 rounded-full shrink-0">
+                      <MapPin className="w-7 h-7 text-primary" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-semibold mb-2">Standort</h3>
-                      <p className="text-muted-foreground">
+                      <h3 className="font-serif text-2xl font-light mb-3">Standort</h3>
+                      <p className="text-muted-foreground leading-relaxed">
                         Elena Hartstein<br />
                         Beauty & Aesthetics<br />
                         Burbach und Umgebung
                       </p>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
 
-              <Card className="border border-border hover:border-primary/40 transition-all hover:shadow-2xl backdrop-blur-sm bg-card/90 gold-glow">
-                <CardContent className="pt-8">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-primary/10 rounded-lg">
-                      <Clock className="w-6 h-6 text-primary" />
+                  <div className="flex items-start gap-5">
+                    <div className="p-3 bg-primary/10 rounded-full shrink-0">
+                      <Clock className="w-7 h-7 text-primary" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-semibold mb-4">Öffnungszeiten</h3>
-                      <div className="p-6 glassmorphism rounded-lg text-center border border-primary/20">
-                        <p className="text-lg font-medium text-primary">
-                          Termin nach Vereinbarung
-                        </p>
-                      </div>
+                      <h3 className="font-serif text-2xl font-light mb-3">Öffnungszeiten</h3>
+                      <p className="text-lg font-medium text-primary">
+                        Termin nach Vereinbarung
+                      </p>
+                      <p className="text-sm text-muted-foreground mt-2">
+                        Flexibel nach Ihren Wünschen
+                      </p>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-            </div>
+                </div>
+              </CardContent>
+            </Card>
 
             <div id="kontakt" className="max-w-3xl mx-auto fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
               <Card className="border border-border backdrop-blur-sm bg-card/90 shadow-2xl gold-glow">
