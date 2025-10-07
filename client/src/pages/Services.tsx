@@ -171,7 +171,7 @@ export default function Services() {
       <Header />
 
       {/* Hero Section with Background */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center scale-105"
           style={{ backgroundImage: `url(${heroImage})` }}

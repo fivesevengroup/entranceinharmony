@@ -6,7 +6,7 @@ import heroImage from "@assets/Screenshot 2025-10-05 225321_1759697624011.png";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen overflow-hidden">
       <div 
         className="absolute inset-0 bg-cover bg-center scale-105"
         style={{ backgroundImage: `url(${heroImage})` }}
