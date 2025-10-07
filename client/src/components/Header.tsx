@@ -1,7 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { Menu, Phone, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { useState, useEffect } from "react";
 import logoImage from "@assets/Logo-PSD_1759668524506.png";
 
@@ -205,6 +205,9 @@ export default function Header({ transparent = false }: HeaderProps) {
                     side="right" 
                     className="w-[320px] sm:w-[360px] bg-gradient-to-br from-[hsl(280,35%,92%)] via-[hsl(280,30%,88%)] to-[hsl(280,35%,90%)] border-l-2 border-primary/30 p-0"
                   >
+                    <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+                    <SheetDescription className="sr-only">Main navigation menu for mobile devices</SheetDescription>
+                    
                     <div className="flex flex-col h-full">
                       {/* Logo & Branding */}
                       <div className="px-6 pt-8 pb-6 border-b border-primary/10">
