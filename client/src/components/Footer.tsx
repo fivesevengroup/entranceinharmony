@@ -86,13 +86,23 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/leistungen" className="text-muted-foreground hover:text-foreground transition-colors duration-200" data-testid="footer-link-gesicht">
-                    Gesichtsbehandlungen
+                  <Link href="/leistungen" className="text-muted-foreground hover:text-foreground transition-colors duration-200" data-testid="footer-link-leistungen">
+                    Behandlungen
                   </Link>
                 </li>
                 <li>
-                  <Link href="/kontakt" className="text-muted-foreground hover:text-foreground transition-colors duration-200" data-testid="footer-link-ueber">
-                    Über mich
+                  <Link href="/galerie" className="text-muted-foreground hover:text-foreground transition-colors duration-200" data-testid="footer-link-galerie">
+                    Galerie
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/gutscheine" className="text-muted-foreground hover:text-foreground transition-colors duration-200" data-testid="footer-link-gutscheine">
+                    Gutscheine
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/kontakt" className="text-muted-foreground hover:text-foreground transition-colors duration-200" data-testid="footer-link-kontakt">
+                    Kontakt
                   </Link>
                 </li>
               </ul>
