@@ -43,7 +43,7 @@ export default function Footer() {
       </div>
       
       <div className="container mx-auto px-4 relative">
-        <div className="pt-10 md:pt-8 pb-10">
+        <div className="pt-6 md:pt-5 pb-10">
           <div className="text-center mb-14">
             <div className="relative inline-block">
               <h3 className="font-serif text-3xl md:text-4xl lg:text-5xl font-light mb-1 tracking-wide">
