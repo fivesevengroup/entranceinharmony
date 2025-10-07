@@ -85,11 +85,11 @@ export default function Contact() {
           </div>
         </div>
 
-        <WaveDivider position="bottom" color="hsl(var(--section-accent))" />
+        <WaveDivider position="bottom" color="hsl(var(--background))" />
       </section>
 
       {/* About Content Section */}
-      <section className="py-20 md:py-32 bg-section-accent relative">
+      <section className="py-20 md:py-32 bg-background relative">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12 fade-up">

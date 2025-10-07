@@ -195,11 +195,11 @@ export default function Vouchers() {
           </div>
         </div>
 
-        <WaveDivider position="bottom" color="hsl(var(--section-accent))" />
+        <WaveDivider position="bottom" color="hsl(var(--background))" />
       </section>
 
       {/* Warum Entrance in Harmony Gutscheine - Bento Grid */}
-      <section className="py-16 md:py-24 bg-section-accent relative">
+      <section className="py-16 md:py-24 bg-background relative">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
