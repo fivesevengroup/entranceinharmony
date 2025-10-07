@@ -195,11 +195,11 @@ export default function Vouchers() {
           </div>
         </div>
 
-        <WaveDivider position="bottom" color="hsl(var(--background))" />
+        <WaveDivider position="bottom" color="hsl(var(--section-accent))" />
       </section>
 
       {/* Warum Entrance in Harmony Gutscheine - Bento Grid */}
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-16 md:py-24 bg-section-accent relative">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
@@ -295,10 +295,11 @@ export default function Vouchers() {
             </div>
           </div>
         </div>
+        <WaveDivider position="bottom" color="hsl(var(--background))" />
       </section>
 
       {/* Perfekt für diese Anlässe - Horizontal Scroll Carousel */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-muted/20 via-background to-muted/20 overflow-hidden">
+      <section className="py-16 md:py-24 bg-background overflow-hidden relative">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
@@ -399,10 +400,11 @@ export default function Vouchers() {
             </div>
           </div>
         </div>
+        <WaveDivider position="bottom" color="hsl(var(--section-accent))" />
       </section>
 
       {/* So einfach geht's - Horizontale Timeline */}
-      <section className="py-16 md:py-24 bg-background relative">
+      <section className="py-16 md:py-24 bg-section-accent relative">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -552,10 +554,11 @@ export default function Vouchers() {
             </div>
           </div>
         </div>
+        <WaveDivider position="bottom" color="hsl(var(--background))" />
       </section>
 
       {/* Gutschein kaufen Formular */}
-      <section id="voucher-form" className="py-16 md:py-20 bg-gradient-to-br from-muted/20 via-background to-muted/20">
+      <section id="voucher-form" className="py-16 md:py-20 bg-background">
         <div className="container mx-auto px-4">
 
           {step === "form" ? (

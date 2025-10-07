@@ -72,10 +72,10 @@ export default function Gallery() {
           </div>
         </div>
 
-        <WaveDivider position="bottom" color="hsl(var(--background))" />
+        <WaveDivider position="bottom" color="hsl(var(--section-accent))" />
       </section>
 
-      <section className="py-16 md:py-20 bg-background">
+      <section className="py-16 md:py-20 bg-section-accent relative">
         <div className="container mx-auto px-4">
 
           <div className="mb-16">
@@ -85,9 +85,10 @@ export default function Gallery() {
             <GalleryGrid images={galleryImages} />
           </div>
         </div>
+        <WaveDivider position="bottom" color="hsl(var(--background))" />
       </section>
 
-      <section className="py-16 md:py-24 bg-accent/30">
+      <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 text-center">
           <SiInstagram className="h-12 w-12 mx-auto mb-6 text-primary" />
           <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">

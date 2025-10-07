@@ -108,10 +108,10 @@ export default function PriceList() {
           </div>
         </div>
 
-        <WaveDivider position="bottom" color="hsl(var(--background))" />
+        <WaveDivider position="bottom" color="hsl(var(--section-accent))" />
       </section>
 
-      <section className="py-16 md:py-20 bg-background">
+      <section className="py-16 md:py-20 bg-section-accent relative">
         <div className="container mx-auto px-4">
 
           <div className="max-w-4xl mx-auto space-y-8">

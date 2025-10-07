@@ -106,10 +106,10 @@ export default function Reviews() {
           </div>
         </div>
 
-        <WaveDivider position="bottom" color="hsl(var(--background))" />
+        <WaveDivider position="bottom" color="hsl(var(--section-accent))" />
       </section>
 
-      <section className="py-16 md:py-20 bg-background">
+      <section className="py-16 md:py-20 bg-section-accent relative">
         <div className="container mx-auto px-4">
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
@@ -131,9 +131,10 @@ export default function Reviews() {
             </Button>
           </div>
         </div>
+        <WaveDivider position="bottom" color="hsl(var(--background))" />
       </section>
 
-      <section className="py-16 md:py-24 bg-accent/30">
+      <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 max-w-2xl text-center">
           <h2 className="font-serif text-3xl font-light mb-4">
             Ihre Meinung ist uns wichtig
