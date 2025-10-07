@@ -33,15 +33,17 @@ export default function Header({ transparent = false }: HeaderProps) {
     <header className="w-full absolute top-0 left-0 right-0 z-50">
       {/* Harmony Arc - Organischer Bogen passend zum Footer */}
       <div className="relative">
-        {/* Hintergrund-Layer - Instant ohne Transition */}
-        {isScrolled && (
-          <div className="absolute inset-0 bg-background/95 backdrop-blur-sm shadow-md" />
-        )}
+        {/* Hintergrund-Layer - Immer da, nur Opacity ändert sich */}
+        <div 
+          className="absolute inset-0 bg-background backdrop-blur-sm shadow-md transition-opacity duration-200"
+          style={{ opacity: isScrolled ? 0.95 : 0 }}
+        />
         
         {/* Hintergrund für bessere Lesbarkeit (nur wenn nicht gescrollt) */}
-        {!isScrolled && (
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-transparent pointer-events-none"></div>
-        )}
+        <div 
+          className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-transparent pointer-events-none transition-opacity duration-200"
+          style={{ opacity: isScrolled ? 0 : 1 }}
+        />
         
         <div className="container mx-auto px-4 relative">
           <div className={`relative transition-all duration-500 ${
