@@ -186,21 +186,21 @@ export default function Services() {
           <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
             <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full glassmorphism mb-8 border-2 border-white/30 gold-glow">
               <ShieldCheck className="w-5 h-5 text-primary" />
-              <span className="text-white font-medium text-sm tracking-wide uppercase">Professionelle Behandlungen</span>
+              <span className="text-white font-medium text-sm tracking-wide uppercase">Unser Leistungsspektrum</span>
             </div>
           </div>
 
           <h1 className="font-serif text-4xl md:text-7xl lg:text-8xl font-light mb-6 text-white drop-shadow-2xl fade-up tracking-wide" style={{ animationDelay: "0.4s", opacity: 0 }} data-testid="heading-services">
-            Unsere Behandlungen
+            Schönheit & Pflege
           </h1>
           
           <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full fade-up" style={{ animationDelay: "0.6s", opacity: 0 }}></div>
 
           <p className="text-xl md:text-3xl mb-6 text-white/95 drop-shadow-lg font-light max-w-2xl mx-auto fade-up" style={{ animationDelay: "0.8s", opacity: 0 }}>
-            Professionelle Beauty-Behandlungen
+            Für strahlende Haut und pures Wohlbefinden
           </p>
           <p className="text-lg md:text-xl mb-12 text-white/90 drop-shadow-lg font-light max-w-3xl mx-auto fade-up leading-relaxed" style={{ animationDelay: "1s", opacity: 0 }}>
-            Ob individuelle Gesichtsbehandlungen, Microneedling, BB Glow oder Laserbehandlung – wir bieten Ihnen die optimale Leistung rund um eine gesunde und schöne Haut.
+            Von individueller Gesichtspflege über Microneedling bis hin zu BB Glow und Lasertherapie – wir bieten Ihnen die optimale Leistung für eine gesunde, schöne Haut.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-16 fade-up" style={{ animationDelay: "1.2s", opacity: 0 }}>
@@ -236,7 +236,7 @@ export default function Services() {
             </Badge>
             <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
               <Crown className="w-4 h-4 mr-2 text-primary" />
-              Premium Behandlungen
+              Premium Qualität
             </Badge>
           </div>
         </div>
