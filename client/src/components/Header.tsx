@@ -257,7 +257,7 @@ export default function Header({ transparent = false }: HeaderProps) {
                       </nav>
 
                       {/* Quick Actions */}
-                      <div className="p-6 border-t border-primary/10 space-y-3">
+                      <div className="p-6 border-t border-primary/10 space-y-4">
                         <a 
                           href="https://wa.me/4927369639191" 
                           target="_blank" 
@@ -265,7 +265,10 @@ export default function Header({ transparent = false }: HeaderProps) {
                           className="block"
                           data-testid="mobile-whatsapp-button"
                         >
-                          <Button className="w-full" size="lg">
+                          <Button 
+                            className="w-full bg-[hsl(280,28%,35%)] text-primary border border-primary/40 shadow-[0_8px_20px_hsla(280,30%,35%,0.25)]" 
+                            size="lg"
+                          >
                             <Phone className="w-4 h-4 mr-2" />
                             Termin vereinbaren
                           </Button>
@@ -278,7 +281,7 @@ export default function Header({ transparent = false }: HeaderProps) {
                         >
                           <Button 
                             variant="outline" 
-                            className="w-full border-primary/30"
+                            className="w-full bg-white/80 backdrop-blur text-[hsl(280,32%,32%)] border-[hsl(280,35%,80%)]"
                             size="lg"
                             data-testid="mobile-voucher-button"
                           >
