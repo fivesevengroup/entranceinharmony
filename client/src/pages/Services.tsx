@@ -12,6 +12,7 @@ import microneedlingImage from "@assets/generated_images/Microneedling_facial_tr
 import btoxImage from "@assets/generated_images/B-Tox_peel_treatment_ba217e96.png";
 import peelingImage from "@assets/generated_images/Revitalizing_peel_treatment_2f08d057.png";
 import laserImage from "@assets/generated_images/Red_Touch_laser_with_goggles_86dab14d.png";
+import heroImage from "@assets/stock_images/luxury_beauty_spa_fa_1c54b160.jpg";
 
 interface Treatment {
   id: string;
@@ -170,7 +171,7 @@ export default function Services() {
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center scale-105"
-          style={{ backgroundImage: `url(${microneedlingImage})` }}
+          style={{ backgroundImage: `url(${heroImage})` }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"></div>

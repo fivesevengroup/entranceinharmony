@@ -18,6 +18,7 @@ import VoucherPayPalButton from "@/components/VoucherPayPalButton";
 import { Gift, Mail, Truck, CheckCircle2, AlertCircle } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import voucherImage from "@assets/generated_images/Elegant_gift_voucher_card_151c453a.png";
+import heroImage from "@assets/stock_images/elegant_spa_gift_car_8c0e82e1.jpg";
 
 const voucherFormSchema = z.object({
   amount: z.string().refine((val) => !isNaN(Number(val)) && Number(val) > 0, {
@@ -125,7 +126,7 @@ export default function Vouchers() {
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center scale-105"
-          style={{ backgroundImage: `url(${voucherImage})` }}
+          style={{ backgroundImage: `url(${heroImage})` }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"></div>

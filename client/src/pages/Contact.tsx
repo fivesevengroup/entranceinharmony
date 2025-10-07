@@ -5,22 +5,47 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Phone, Mail, MapPin, Clock, Award, Heart, Sparkles } from "lucide-react";
 import aboutImage from "@assets/KI-Bewerbungsfoto-31117629-4_1759678066113.jpg";
+import heroImage from "@assets/stock_images/professional_beauty__5d975124.jpg";
 
 export default function Contact() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
 
-      <section className="pt-44 pb-20 md:pb-32 bg-gradient-to-br from-background via-primary/5 to-background relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none"></div>
-        <div className="container mx-auto px-4 relative">
+      {/* Hero Section with Background */}
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center scale-105"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"></div>
+        </div>
+
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/40 to-transparent pointer-events-none"></div>
+
+        <div className="relative z-10 container mx-auto px-4 text-center pt-44 pb-20">
+          <div className="max-w-4xl mx-auto fade-up">
+            <h1 className="font-serif text-5xl md:text-7xl font-light mb-6 text-white drop-shadow-2xl">
+              Elena Hartstein
+            </h1>
+            <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full"></div>
+            <p className="text-xl md:text-2xl text-white/95 drop-shadow-lg leading-relaxed">
+              Ihre Beauty-Expertin in Burbach
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* About Content Section */}
+      <section className="py-20 md:py-32 bg-background relative">
+        <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16 fade-up">
-              <h1 className="font-serif text-5xl md:text-6xl font-light text-gold-gradient mb-6">
-                Elena Hartstein
-              </h1>
-              <div className="h-0.5 w-32 mx-auto mb-4 gold-shimmer rounded-full"></div>
-              <p className="text-xl text-muted-foreground font-light">Ihre Beauty-Expertin in Burbach</p>
+            <div className="text-center mb-12 fade-up">
+              <h2 className="font-serif text-4xl md:text-5xl font-light mb-6">
+                Über mich
+              </h2>
+              <div className="h-0.5 w-32 mx-auto gold-shimmer rounded-full"></div>
             </div>
             
             <div className="bg-card/80 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border border-border fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
@@ -33,9 +58,9 @@ export default function Contact() {
                   />
                 </div>
                 <div className="p-10 md:p-14 flex flex-col justify-center bg-gradient-to-br from-card to-card/50">
-                  <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
+                  <h3 className="font-serif text-3xl md:text-4xl font-light mb-4">
                     Ihre Schönheitsexpertin in Burbach
-                  </h2>
+                  </h3>
                   <p className="text-xl text-primary font-medium mb-8 flex items-center gap-2">
                     <Sparkles className="w-5 h-5" />
                     Wo Schönheit auf Expertise trifft

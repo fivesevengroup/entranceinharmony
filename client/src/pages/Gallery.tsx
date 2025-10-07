@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import beforeAfterImage from "@assets/generated_images/Before_after_skin_treatment_60b501b9.png";
 import facialImage from "@assets/generated_images/Facial_treatment_close-up_d5c55f42.png";
 import massageImage from "@assets/generated_images/Massage_therapy_session_569ccb02.png";
+import heroImage from "@assets/stock_images/beautiful_woman_radi_21787ffe.jpg";
 
 export default function Gallery() {
   const galleryImages = [
@@ -27,7 +28,7 @@ export default function Gallery() {
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center scale-105"
-          style={{ backgroundImage: `url(${beforeAfterImage})` }}
+          style={{ backgroundImage: `url(${heroImage})` }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"></div>

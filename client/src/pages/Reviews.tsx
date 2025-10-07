@@ -4,6 +4,7 @@ import TestimonialCard from "@/components/TestimonialCard";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import massageImage from "@assets/generated_images/Massage_therapy_session_569ccb02.png";
+import heroImage from "@assets/stock_images/happy_satisfied_woma_deeaa9c3.jpg";
 
 export default function Reviews() {
   const allTestimonials = [
@@ -62,7 +63,7 @@ export default function Reviews() {
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center scale-105"
-          style={{ backgroundImage: `url(${massageImage})` }}
+          style={{ backgroundImage: `url(${heroImage})` }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"></div>

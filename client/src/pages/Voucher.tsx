@@ -5,6 +5,7 @@ import VoucherCard from "@/components/VoucherCard";
 import VoucherModal from "@/components/VoucherModal";
 import { Mail, Gift } from "lucide-react";
 import voucherImage from "@assets/generated_images/Elegant_gift_voucher_card_151c453a.png";
+import heroImage from "@assets/stock_images/luxury_gold_gift_wra_ab0dfcf3.jpg";
 
 export default function Voucher() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -23,7 +24,7 @@ export default function Voucher() {
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center scale-105"
-          style={{ backgroundImage: `url(${voucherImage})` }}
+          style={{ backgroundImage: `url(${heroImage})` }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"></div>
