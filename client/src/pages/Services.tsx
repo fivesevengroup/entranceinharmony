@@ -349,7 +349,12 @@ export default function Services() {
               </CardContent>
             </Card>
           </div>
+        </div>
+        <WaveDivider position="bottom" color="hsl(var(--background))" />
+      </section>
 
+      <section className="py-16 md:py-20 bg-background">
+        <div className="container mx-auto px-4">
           <div className="text-center bg-muted/50 py-12 px-6 rounded-lg max-w-3xl mx-auto">
             <h2 className="font-serif text-3xl font-light mb-4">
               Sie wünschen einen Termin?
