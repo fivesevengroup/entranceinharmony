@@ -228,7 +228,7 @@ export default function Header({ transparent = false }: HeaderProps) {
 
                       {/* Navigation */}
                       <nav className="flex-1 py-6 px-6">
-                        <div className="space-y-1">
+                        <div className="space-y-2">
                           {navLinks.map((link) => (
                             <Link
                               key={link.href}
@@ -236,20 +236,23 @@ export default function Header({ transparent = false }: HeaderProps) {
                               onClick={() => setMobileMenuOpen(false)}
                             >
                               <div
-                                className={`group px-4 py-3 rounded-lg transition-all duration-200 ${
+                                className={`group px-5 py-4 rounded-xl transition-all duration-300 ${
                                   location === link.href
-                                    ? 'bg-primary/10 border border-primary/20'
-                                    : 'hover-elevate'
+                                    ? 'bg-white/90 backdrop-blur shadow-[0_4px_12px_rgba(0,0,0,0.08)]'
+                                    : 'bg-white/40 backdrop-blur-sm hover:bg-white/70 hover:shadow-[0_2px_8px_rgba(0,0,0,0.06)]'
                                 }`}
                                 data-testid={`mobile-link-${link.label.toLowerCase()}`}
                               >
-                                <span className={`font-serif text-lg ${
+                                <span className={`font-serif text-lg tracking-wide ${
                                   location === link.href
-                                    ? 'text-primary font-medium'
-                                    : 'text-foreground group-hover:text-primary'
+                                    ? 'text-[hsl(280,32%,32%)] font-semibold'
+                                    : 'text-[hsl(280,25%,40%)] group-hover:text-[hsl(280,32%,32%)]'
                                 }`}>
                                   {link.label}
                                 </span>
+                                {location === link.href && (
+                                  <div className="mt-1.5 h-0.5 w-8 bg-gradient-to-r from-primary to-primary/60 rounded-full"></div>
+                                )}
                               </div>
                             </Link>
                           ))}
