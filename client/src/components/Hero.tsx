@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import WaveDivider from "@/components/WaveDivider";
-import { Gem, Award, Heart, Crown } from "lucide-react";
+import { Gem, Award, Heart, Crown, Sparkles } from "lucide-react";
 import heroImage from "@assets/Screenshot 2025-10-05 225321_1759697624011.png";
+import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
@@ -25,10 +26,40 @@ export default function Hero() {
           </div>
         </div>
 
-        <h1 className="font-serif text-4xl md:text-7xl lg:text-8xl font-light mb-6 text-white drop-shadow-2xl fade-up tracking-wide" style={{ animationDelay: "0.4s", opacity: 0 }}>
-          <span className="block mb-2">ENTRANCE IN</span>
-          <span className="block text-gold-gradient text-5xl md:text-8xl lg:text-9xl">HARMONY</span>
-        </h1>
+        <div className="relative inline-block">
+          <div className="absolute inset-0 -inset-x-20 -inset-y-10 halo-glow pointer-events-none"></div>
+          
+          {[...Array(6)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute sparkle-particle pointer-events-none"
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: [0, 1, 0],
+                x: [0, Math.random() * 100 - 50],
+                y: [0, Math.random() * -80 - 20],
+                scale: [0, 1, 0.5],
+              }}
+              transition={{
+                duration: 3 + Math.random() * 2,
+                repeat: Infinity,
+                delay: i * 0.5 + Math.random(),
+                ease: "easeOut"
+              }}
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+            >
+              <div className="w-1 h-1 bg-primary rounded-full gold-glow"></div>
+            </motion.div>
+          ))}
+
+          <h1 className="relative font-serif text-4xl md:text-7xl lg:text-8xl font-light mb-6 text-white drop-shadow-2xl fade-up tracking-wide" style={{ animationDelay: "0.4s", opacity: 0 }}>
+            <span className="block mb-2 text-reveal">ENTRANCE IN</span>
+            <span className="block text-gold-gradient text-shimmer text-5xl md:text-8xl lg:text-9xl">HARMONY</span>
+          </h1>
+        </div>
         
         <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full fade-up" style={{ animationDelay: "0.6s", opacity: 0 }}></div>
 
