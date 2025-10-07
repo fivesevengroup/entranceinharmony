@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Sparkles, Star, Heart, LifeBuoy, MessageCircle } from "lucide-react";
+import { ShieldCheck, Star, Heart, LifeBuoy, MessageCircle } from "lucide-react";
 import WaveDivider from "@/components/WaveDivider";
 import deepCleansingImage from "@assets/generated_images/Deep_cleansing_facial_treatment_8a24d580.png";
 import basicTreatmentImage from "@assets/generated_images/Basic_facial_treatment_630e122c.png";
@@ -185,7 +185,7 @@ export default function Services() {
         <div className="relative z-10 container mx-auto px-4 text-center pt-44 pb-20">
           <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
             <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full glassmorphism mb-8 border-2 border-white/30 gold-glow">
-              <Sparkles className="w-5 h-5 text-primary" />
+              <ShieldCheck className="w-5 h-5 text-primary" />
               <span className="text-white font-medium text-sm tracking-wide uppercase">Professionelle Behandlungen</span>
             </div>
           </div>
