@@ -39,7 +39,7 @@ export default function Hero() {
           Wo Schönheit auf Expertise trifft – Gönnen Sie sich professionelle Beauty-Behandlungen in luxuriöser Atmosphäre
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-16 fade-up" style={{ animationDelay: "1.2s", opacity: 0 }}>
+        <div className="flex flex-col sm:flex-row gap-5 justify-center items-center fade-up" style={{ animationDelay: "1.2s", opacity: 0 }}>
           <Button
             size="lg"
             variant="ghost"
@@ -60,21 +60,6 @@ export default function Hero() {
           >
             <a href="/leistungen">Behandlungen entdecken</a>
           </Button>
-        </div>
-
-        <div className="flex flex-wrap justify-center gap-6 fade-up" style={{ animationDelay: "1.4s", opacity: 0 }}>
-          <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
-            <Award className="w-4 h-4 mr-2 text-primary" />
-            Zertifiziert & Professionell
-          </Badge>
-          <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
-            <Heart className="w-4 h-4 mr-2 text-primary" />
-            Mit Herz & Leidenschaft
-          </Badge>
-          <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
-            <Crown className="w-4 h-4 mr-2 text-primary" />
-            Premium Behandlungen
-          </Badge>
         </div>
       </div>
 
