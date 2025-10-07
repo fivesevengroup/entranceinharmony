@@ -187,14 +187,14 @@ export default function Header({ transparent = false }: HeaderProps) {
                 </div>
               </nav>
 
-              {/* Mobile Menu Button */}
-              <div className="lg:hidden absolute right-4 top-0">
+              {/* Mobile Menu Button - Sticky */}
+              <div className="lg:hidden fixed right-4 top-4 z-50">
                 <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
                   <SheetTrigger asChild>
                     <Button
                       size="icon"
                       variant="ghost"
-                      className={isScrolled ? 'text-foreground' : 'text-white'}
+                      className={`${isScrolled ? 'bg-background/90 backdrop-blur-sm shadow-md text-foreground' : 'text-white'} transition-all duration-300`}
                       data-testid="button-mobile-menu"
                     >
                       <Menu className="h-6 w-6" />
