@@ -236,17 +236,17 @@ export default function Header({ transparent = false }: HeaderProps) {
                               onClick={() => setMobileMenuOpen(false)}
                             >
                               <div
-                                className={`group relative py-5 border-b border-[hsl(280,25%,85%)] transition-all duration-200 ${
+                                className={`group relative py-3.5 border-b border-[hsl(280,25%,85%)] transition-all duration-200 ${
                                   location === link.href
-                                    ? 'pl-6'
+                                    ? 'pl-5'
                                     : 'pl-3 hover:pl-4'
                                 }`}
                                 data-testid={`mobile-link-${link.label.toLowerCase()}`}
                               >
                                 {location === link.href && (
-                                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-8 bg-primary"></div>
+                                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-6 bg-primary"></div>
                                 )}
-                                <span className={`font-serif text-lg tracking-wider uppercase ${
+                                <span className={`font-serif text-base tracking-wide uppercase ${
                                   location === link.href
                                     ? 'text-[hsl(280,40%,20%)] font-semibold'
                                     : 'text-[hsl(280,28%,35%)] group-hover:text-[hsl(280,35%,25%)]'
