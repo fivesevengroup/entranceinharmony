@@ -32,17 +32,20 @@ export default function Header({ transparent = false }: HeaderProps) {
   return (
     <header className="w-full absolute top-0 left-0 right-0 z-50">
       {/* Harmony Arc - Organischer Bogen passend zum Footer */}
-      <div className={`transition-all duration-500 ${
-        isScrolled 
-          ? 'bg-background/95 backdrop-blur-sm shadow-md' 
-          : ''
-      }`}>
+      <div className="relative">
+        {/* Hintergrund-Layer mit separater Opacity-Transition */}
+        <div 
+          className={`absolute inset-0 bg-background backdrop-blur-sm shadow-md transition-opacity duration-300 ${
+            isScrolled ? 'opacity-95' : 'opacity-0'
+          }`}
+        />
+        
         {/* Hintergrund für bessere Lesbarkeit (nur wenn nicht gescrollt) */}
         {!isScrolled && (
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-transparent pointer-events-none"></div>
         )}
         
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 relative">
           <div className={`relative transition-all duration-500 ${
             isScrolled ? 'py-3' : 'pt-6 pb-8'
           }`}>
