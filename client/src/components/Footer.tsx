@@ -91,11 +91,6 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/galerie" className="text-muted-foreground hover:text-foreground transition-colors duration-200" data-testid="footer-link-galerie">
-                    Galerie
-                  </Link>
-                </li>
-                <li>
                   <Link href="/gutscheine" className="text-muted-foreground hover:text-foreground transition-colors duration-200" data-testid="footer-link-gutscheine">
                     Gutscheine
                   </Link>
