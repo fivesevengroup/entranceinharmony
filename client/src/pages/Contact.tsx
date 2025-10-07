@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Phone, Mail, MapPin, Clock, Award, Heart, Sparkles, User } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import WaveDivider from "@/components/WaveDivider";
-import aboutImage from "@assets/KI-Bewerbungsfoto-31117629-4_1759678066113.jpg";
+import aboutImage from "@assets/Design ohne Titel(3)_1759859758385.png";
 import heroImage from "@assets/Design ohne Titel_1759853631801.jpg";
 
 export default function Contact() {
@@ -119,11 +119,14 @@ export default function Contact() {
             
             <div className="bg-card/80 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border border-border fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
               <div className="grid md:grid-cols-2 gap-0">
-                <div className="relative h-[450px] md:h-auto overflow-hidden elegant-glow">
+                <div className="relative h-[450px] md:h-auto overflow-visible p-8">
                   <img
                     src={aboutImage}
                     alt="Elena Hartstein"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover rounded-2xl"
+                    style={{
+                      boxShadow: '0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(212, 175, 55, 0.15), 0 0 80px rgba(212, 175, 55, 0.1)'
+                    }}
                   />
                 </div>
                 <div className="p-10 md:p-14 flex flex-col justify-center bg-gradient-to-br from-card to-card/50">
