@@ -106,7 +106,7 @@ export default function Contact() {
 
       <section className="py-20 md:py-28 bg-gradient-to-br from-muted/20 via-background to-muted/20 relative">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16 fade-up">
               <h2 className="font-serif text-4xl md:text-5xl font-light mb-6">
                 So erreichen Sie mich
@@ -114,150 +114,116 @@ export default function Contact() {
               <div className="h-0.5 w-32 mx-auto gold-shimmer rounded-full" />
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 mb-16">
-              {/* Telefon Card */}
-              <Card className="border border-border hover:border-primary/40 transition-all backdrop-blur-sm bg-card/90 hover-elevate">
-                <CardContent className="pt-8 pb-8 text-center">
-                  <div className="mb-6 flex justify-center">
-                    <div className="p-4 bg-primary/10 rounded-full">
-                      <Phone className="w-8 h-8 text-primary" />
-                    </div>
-                  </div>
-                  <h3 className="font-serif text-xl font-light mb-3">Telefon</h3>
-                  <a
-                    href="tel:+491709287722"
-                    className="text-lg text-foreground hover:text-primary transition-colors block mb-4"
-                    data-testid="link-phone"
-                  >
-                    0170 9287722
-                  </a>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="w-full"
-                    asChild
-                  >
-                    <a href="tel:+491709287722" data-testid="button-call">
-                      <Phone className="w-4 h-4 mr-2" />
-                      Anrufen
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
+            <div className="grid lg:grid-cols-2 gap-12">
+              {/* Linke Spalte: Kontaktinformationen */}
+              <div className="space-y-8">
+                <Card className="border border-border backdrop-blur-sm bg-card/90">
+                  <CardContent className="pt-8 pb-8">
+                    <div className="space-y-6">
+                      {/* Telefon */}
+                      <div className="flex items-start gap-4 pb-6 border-b border-border">
+                        <div className="p-3 bg-primary/10 rounded-lg shrink-0">
+                          <Phone className="w-6 h-6 text-primary" />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="font-medium mb-2">Telefon</h3>
+                          <a
+                            href="tel:+491709287722"
+                            className="text-foreground hover:text-primary transition-colors"
+                            data-testid="link-phone"
+                          >
+                            0170 9287722
+                          </a>
+                        </div>
+                      </div>
 
-              {/* WhatsApp Card */}
-              <Card className="border border-border hover:border-primary/40 transition-all backdrop-blur-sm bg-card/90 hover-elevate">
-                <CardContent className="pt-8 pb-8 text-center">
-                  <div className="mb-6 flex justify-center">
-                    <div className="p-4 bg-primary/10 rounded-full">
-                      <SiWhatsapp className="w-8 h-8 text-primary" />
-                    </div>
-                  </div>
-                  <h3 className="font-serif text-xl font-light mb-3">WhatsApp</h3>
-                  <a
-                    href="https://wa.me/491709287722"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-lg text-foreground hover:text-primary transition-colors block mb-4"
-                    data-testid="link-whatsapp"
-                  >
-                    0170 9287722
-                  </a>
-                  <Button
-                    size="sm"
-                    variant="default"
-                    className="w-full"
-                    asChild
-                  >
-                    <a href="https://wa.me/491709287722" target="_blank" rel="noopener noreferrer" data-testid="button-whatsapp-contact">
-                      <SiWhatsapp className="w-4 h-4 mr-2" />
-                      Nachricht senden
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
+                      {/* WhatsApp */}
+                      <div className="flex items-start gap-4 pb-6 border-b border-border">
+                        <div className="p-3 bg-primary/10 rounded-lg shrink-0">
+                          <SiWhatsapp className="w-6 h-6 text-primary" />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="font-medium mb-2">WhatsApp</h3>
+                          <a
+                            href="https://wa.me/491709287722"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-foreground hover:text-primary transition-colors"
+                            data-testid="link-whatsapp"
+                          >
+                            0170 9287722
+                          </a>
+                        </div>
+                      </div>
 
-              {/* E-Mail Card */}
-              <Card className="border border-border hover:border-primary/40 transition-all backdrop-blur-sm bg-card/90 hover-elevate">
-                <CardContent className="pt-8 pb-8 text-center">
-                  <div className="mb-6 flex justify-center">
-                    <div className="p-4 bg-primary/10 rounded-full">
-                      <Mail className="w-8 h-8 text-primary" />
-                    </div>
-                  </div>
-                  <h3 className="font-serif text-xl font-light mb-3">E-Mail</h3>
-                  <a
-                    href="mailto:info@entranceinharmony.de"
-                    className="text-sm text-foreground hover:text-primary transition-colors block mb-4 break-all px-2"
-                    data-testid="link-email"
-                  >
-                    info@entranceinharmony.de
-                  </a>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="w-full"
-                    asChild
-                  >
-                    <a href="mailto:info@entranceinharmony.de" data-testid="button-email">
-                      <Mail className="w-4 h-4 mr-2" />
-                      E-Mail schreiben
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
+                      {/* E-Mail */}
+                      <div className="flex items-start gap-4 pb-6 border-b border-border">
+                        <div className="p-3 bg-primary/10 rounded-lg shrink-0">
+                          <Mail className="w-6 h-6 text-primary" />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="font-medium mb-2">E-Mail</h3>
+                          <a
+                            href="mailto:info@entranceinharmony.de"
+                            className="text-foreground hover:text-primary transition-colors break-all"
+                            data-testid="link-email"
+                          >
+                            info@entranceinharmony.de
+                          </a>
+                        </div>
+                      </div>
 
-            {/* Standort & Öffnungszeiten Card */}
-            <Card className="border border-border backdrop-blur-sm bg-card/90 shadow-lg mb-16 fade-up" style={{ animationDelay: "0.1s", opacity: 0 }}>
-              <CardContent className="pt-10 pb-10">
-                <div className="grid md:grid-cols-2 gap-10">
-                  <div className="flex items-start gap-5">
-                    <div className="p-3 bg-primary/10 rounded-full shrink-0">
-                      <MapPin className="w-7 h-7 text-primary" />
+                      {/* Standort */}
+                      <div className="flex items-start gap-4 pb-6 border-b border-border">
+                        <div className="p-3 bg-primary/10 rounded-lg shrink-0">
+                          <MapPin className="w-6 h-6 text-primary" />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="font-medium mb-2">Standort</h3>
+                          <p className="text-muted-foreground">
+                            Elena Hartstein<br />
+                            Beauty & Aesthetics<br />
+                            Burbach und Umgebung
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Öffnungszeiten */}
+                      <div className="flex items-start gap-4">
+                        <div className="p-3 bg-primary/10 rounded-lg shrink-0">
+                          <Clock className="w-6 h-6 text-primary" />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="font-medium mb-2">Öffnungszeiten</h3>
+                          <p className="text-foreground">
+                            Termin nach Vereinbarung
+                          </p>
+                          <p className="text-sm text-muted-foreground mt-1">
+                            Flexibel nach Ihren Wünschen
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                    <div className="flex-1">
-                      <h3 className="font-serif text-2xl font-light mb-3">Standort</h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        Elena Hartstein<br />
-                        Beauty & Aesthetics<br />
-                        Burbach und Umgebung
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Rechte Spalte: Kontaktformular */}
+              <div id="kontakt">
+                <Card className="border border-border backdrop-blur-sm bg-card/90 h-full">
+                  <CardContent className="pt-8">
+                    <div className="mb-8">
+                      <h3 className="font-serif text-2xl md:text-3xl font-light mb-3">
+                        Schreiben Sie mir
+                      </h3>
+                      <p className="text-muted-foreground">
+                        Ich freue mich auf Ihre Nachricht und melde mich schnellstmöglich bei Ihnen
                       </p>
                     </div>
-                  </div>
-
-                  <div className="flex items-start gap-5">
-                    <div className="p-3 bg-primary/10 rounded-full shrink-0">
-                      <Clock className="w-7 h-7 text-primary" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-serif text-2xl font-light mb-3">Öffnungszeiten</h3>
-                      <p className="text-lg font-medium text-primary">
-                        Termin nach Vereinbarung
-                      </p>
-                      <p className="text-sm text-muted-foreground mt-2">
-                        Flexibel nach Ihren Wünschen
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <div id="kontakt" className="max-w-3xl mx-auto fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
-              <Card className="border border-border backdrop-blur-sm bg-card/90 shadow-2xl gold-glow">
-                <CardContent className="pt-8">
-                  <div className="text-center mb-8">
-                    <h2 className="font-serif text-2xl md:text-3xl font-light mb-3">
-                      Schreiben Sie mir
-                    </h2>
-                    <p className="text-muted-foreground">
-                      Ich freue mich auf Ihre Nachricht und melde mich schnellstmöglich bei Ihnen
-                    </p>
-                  </div>
-                  <ContactForm />
-                </CardContent>
-              </Card>
+                    <ContactForm />
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           </div>
         </div>
