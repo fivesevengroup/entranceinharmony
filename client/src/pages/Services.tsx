@@ -190,7 +190,7 @@ export default function Services() {
             </div>
           </div>
 
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-light mb-6 text-white drop-shadow-2xl fade-up tracking-wide" style={{ animationDelay: "0.4s", opacity: 0 }} data-testid="heading-services">
+          <h1 className="font-serif text-4xl md:text-7xl lg:text-8xl font-light mb-6 text-white drop-shadow-2xl fade-up tracking-wide" style={{ animationDelay: "0.4s", opacity: 0 }} data-testid="heading-services">
             Unsere Behandlungen
           </h1>
           

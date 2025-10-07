@@ -25,9 +25,9 @@ export default function Hero() {
           </div>
         </div>
 
-        <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-light mb-6 text-white drop-shadow-2xl fade-up tracking-wide" style={{ animationDelay: "0.4s", opacity: 0 }}>
+        <h1 className="font-serif text-4xl md:text-7xl lg:text-8xl font-light mb-6 text-white drop-shadow-2xl fade-up tracking-wide" style={{ animationDelay: "0.4s", opacity: 0 }}>
           <span className="block mb-2">ENTRANCE IN</span>
-          <span className="block text-gold-gradient text-6xl md:text-8xl lg:text-9xl">HARMONY</span>
+          <span className="block text-gold-gradient text-5xl md:text-8xl lg:text-9xl">HARMONY</span>
         </h1>
         
         <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full fade-up" style={{ animationDelay: "0.6s", opacity: 0 }}></div>

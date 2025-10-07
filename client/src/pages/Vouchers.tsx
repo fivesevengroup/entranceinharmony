@@ -144,7 +144,7 @@ export default function Vouchers() {
             </div>
           </div>
 
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-light mb-6 text-white drop-shadow-2xl fade-up tracking-wide" style={{ animationDelay: "0.4s", opacity: 0 }}>
+          <h1 className="font-serif text-4xl md:text-7xl lg:text-8xl font-light mb-6 text-white drop-shadow-2xl fade-up tracking-wide" style={{ animationDelay: "0.4s", opacity: 0 }}>
             Gutschein kaufen
           </h1>
           
@@ -191,7 +191,7 @@ export default function Vouchers() {
                           <FormItem>
                             <FormLabel>Gutschein-Wert (€)</FormLabel>
                             <div className="space-y-3">
-                              <div className="grid grid-cols-4 gap-3">
+                              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                                 {predefinedAmounts.map((amount) => (
                                   <Button
                                     key={amount}
