@@ -2,8 +2,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Sparkles, Star, Heart } from "lucide-react";
 import deepCleansingImage from "@assets/generated_images/Deep_cleansing_facial_treatment_8a24d580.png";
 import basicTreatmentImage from "@assets/generated_images/Basic_facial_treatment_630e122c.png";
 import carboxyImage from "@assets/generated_images/Carboxy_therapy_facial_979c25d2.png";
@@ -180,15 +182,27 @@ export default function Services() {
         <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/40 to-transparent pointer-events-none"></div>
 
         <div className="relative z-10 container mx-auto px-4 text-center pt-44 pb-20">
-          <div className="max-w-4xl mx-auto fade-up">
-            <h1 className="font-serif text-5xl md:text-7xl font-light mb-6 text-white drop-shadow-2xl" data-testid="heading-services">
-              Unsere Behandlungen
-            </h1>
-            <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full"></div>
-            <p className="text-xl md:text-2xl text-white/95 drop-shadow-lg leading-relaxed mb-8">
-              Ob individuelle Gesichtsbehandlungen, Microneedling, BB Glow oder Laserbehandlung – 
-              wir bieten Ihnen die optimale Leistung rund um eine gesunde und schöne Haut.
-            </p>
+          <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full glassmorphism mb-8 border-2 border-white/30 gold-glow">
+              <Sparkles className="w-5 h-5 text-primary" />
+              <span className="text-white font-medium text-sm tracking-wide uppercase">Professionelle Treatments</span>
+            </div>
+          </div>
+
+          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-light mb-6 text-white drop-shadow-2xl fade-up tracking-wide" style={{ animationDelay: "0.4s", opacity: 0 }} data-testid="heading-services">
+            Unsere Behandlungen
+          </h1>
+          
+          <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full fade-up" style={{ animationDelay: "0.6s", opacity: 0 }}></div>
+
+          <p className="text-xl md:text-3xl mb-6 text-white/95 drop-shadow-lg font-light max-w-2xl mx-auto fade-up" style={{ animationDelay: "0.8s", opacity: 0 }}>
+            Professionelle Beauty-Behandlungen
+          </p>
+          <p className="text-lg md:text-xl mb-12 text-white/90 drop-shadow-lg font-light max-w-3xl mx-auto fade-up leading-relaxed" style={{ animationDelay: "1s", opacity: 0 }}>
+            Ob individuelle Gesichtsbehandlungen, Microneedling, BB Glow oder Laserbehandlung – wir bieten Ihnen die optimale Leistung rund um eine gesunde und schöne Haut.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center fade-up" style={{ animationDelay: "1.2s", opacity: 0 }}>
             <Button
               size="lg"
               className="text-base px-10 py-6 bg-primary hover:bg-primary/90 text-primary-foreground border-2 border-primary shadow-xl font-medium"
@@ -198,6 +212,14 @@ export default function Services() {
               <a href="https://wa.me/491709287722" target="_blank" rel="noopener noreferrer">
                 Jetzt Termin buchen
               </a>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="text-base px-10 py-6 glassmorphism hover:bg-white/20 text-white border-2 border-white/80 font-medium"
+              asChild
+            >
+              <a href="/preisliste">Preise ansehen</a>
             </Button>
           </div>
         </div>

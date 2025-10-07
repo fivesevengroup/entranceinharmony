@@ -15,8 +15,9 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import VoucherPayPalButton from "@/components/VoucherPayPalButton";
-import { Gift, Mail, Truck, CheckCircle2, AlertCircle } from "lucide-react";
+import { Gift, Mail, Truck, CheckCircle2, AlertCircle, Star } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
 import voucherImage from "@assets/generated_images/Elegant_gift_voucher_card_151c453a.png";
 import heroImage from "@assets/stock_images/spa_voucher_gift_cer_15fda10a.jpg";
 
@@ -135,14 +136,35 @@ export default function Vouchers() {
         <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/40 to-transparent pointer-events-none"></div>
 
         <div className="relative z-10 container mx-auto px-4 text-center pt-44 pb-20">
-          <div className="max-w-4xl mx-auto fade-up">
-            <h1 className="font-serif text-5xl md:text-7xl font-light mb-6 text-white drop-shadow-2xl">
-              Geschenkgutscheine
-            </h1>
-            <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full"></div>
-            <p className="text-xl md:text-2xl text-white/95 drop-shadow-lg leading-relaxed">
-              Schenken Sie Entspannung und Schönheit
-            </p>
+          <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full glassmorphism mb-8 border-2 border-white/30 gold-glow">
+              <Gift className="w-5 h-5 text-primary" />
+              <span className="text-white font-medium text-sm tracking-wide uppercase">Geschenkgutscheine</span>
+            </div>
+          </div>
+
+          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-light mb-6 text-white drop-shadow-2xl fade-up tracking-wide" style={{ animationDelay: "0.4s", opacity: 0 }}>
+            Gutschein kaufen
+          </h1>
+          
+          <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full fade-up" style={{ animationDelay: "0.6s", opacity: 0 }}></div>
+
+          <p className="text-xl md:text-3xl mb-6 text-white/95 drop-shadow-lg font-light max-w-2xl mx-auto fade-up" style={{ animationDelay: "0.8s", opacity: 0 }}>
+            Schenken Sie Entspannung und Schönheit
+          </p>
+          <p className="text-lg md:text-xl mb-16 text-white/90 drop-shadow-lg font-light max-w-3xl mx-auto fade-up leading-relaxed" style={{ animationDelay: "1s", opacity: 0 }}>
+            Wählen Sie Ihren Wunschbetrag und Versandart – digital per E-Mail oder elegant verpackt per Post
+          </p>
+
+          <div className="flex flex-wrap justify-center gap-6 fade-up" style={{ animationDelay: "1.2s", opacity: 0 }}>
+            <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
+              <CheckCircle2 className="w-4 h-4 mr-2 text-primary" />
+              Sichere Zahlung mit PayPal
+            </Badge>
+            <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
+              <Star className="w-4 h-4 mr-2 text-primary" />
+              Freier Wunschbetrag
+            </Badge>
           </div>
         </div>
       </section>

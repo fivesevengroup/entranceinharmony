@@ -3,7 +3,8 @@ import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Phone, Mail, MapPin, Clock, Award, Heart, Sparkles } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Phone, Mail, MapPin, Clock, Award, Heart, Sparkles, User } from "lucide-react";
 import aboutImage from "@assets/KI-Bewerbungsfoto-31117629-4_1759678066113.jpg";
 import heroImage from "@assets/stock_images/beauty_expert_aesthe_5e000874.jpg";
 
@@ -25,14 +26,35 @@ export default function Contact() {
         <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/40 to-transparent pointer-events-none"></div>
 
         <div className="relative z-10 container mx-auto px-4 text-center pt-44 pb-20">
-          <div className="max-w-4xl mx-auto fade-up">
-            <h1 className="font-serif text-5xl md:text-7xl font-light mb-6 text-white drop-shadow-2xl">
-              Elena Hartstein
-            </h1>
-            <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full"></div>
-            <p className="text-xl md:text-2xl text-white/95 drop-shadow-lg leading-relaxed">
-              Ihre Beauty-Expertin in Burbach
-            </p>
+          <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full glassmorphism mb-8 border-2 border-white/30 gold-glow">
+              <User className="w-5 h-5 text-primary" />
+              <span className="text-white font-medium text-sm tracking-wide uppercase">Über mich & Kontakt</span>
+            </div>
+          </div>
+
+          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-light mb-6 text-white drop-shadow-2xl fade-up tracking-wide" style={{ animationDelay: "0.4s", opacity: 0 }}>
+            Elena Hartstein
+          </h1>
+          
+          <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full fade-up" style={{ animationDelay: "0.6s", opacity: 0 }}></div>
+
+          <p className="text-xl md:text-3xl mb-6 text-white/95 drop-shadow-lg font-light max-w-2xl mx-auto fade-up" style={{ animationDelay: "0.8s", opacity: 0 }}>
+            Ihre Beauty-Expertin in Burbach
+          </p>
+          <p className="text-lg md:text-xl mb-16 text-white/90 drop-shadow-lg font-light max-w-3xl mx-auto fade-up leading-relaxed" style={{ animationDelay: "1s", opacity: 0 }}>
+            Lernen Sie mich kennen und erfahren Sie mehr über meine Passion für ästhetische Perfektion
+          </p>
+
+          <div className="flex flex-wrap justify-center gap-6 fade-up" style={{ animationDelay: "1.2s", opacity: 0 }}>
+            <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
+              <Award className="w-4 h-4 mr-2 text-primary" />
+              Zertifizierte Expertin
+            </Badge>
+            <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
+              <Heart className="w-4 h-4 mr-2 text-primary" />
+              Persönliche Beratung
+            </Badge>
           </div>
         </div>
       </section>

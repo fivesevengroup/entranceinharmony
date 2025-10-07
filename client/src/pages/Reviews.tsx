@@ -2,7 +2,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TestimonialCard from "@/components/TestimonialCard";
 import { Button } from "@/components/ui/button";
-import { ExternalLink } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { ExternalLink, Users, Star, ThumbsUp } from "lucide-react";
 import massageImage from "@assets/generated_images/Massage_therapy_session_569ccb02.png";
 import heroImage from "@assets/stock_images/happy_woman_smiling__d4fdfc14.jpg";
 
@@ -72,14 +73,35 @@ export default function Reviews() {
         <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/40 to-transparent pointer-events-none"></div>
 
         <div className="relative z-10 container mx-auto px-4 text-center pt-44 pb-20">
-          <div className="max-w-4xl mx-auto fade-up">
-            <h1 className="font-serif text-5xl md:text-7xl font-light mb-6 text-white drop-shadow-2xl">
-              Was Kundinnen über uns sagen
-            </h1>
-            <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full"></div>
-            <p className="text-xl md:text-2xl text-white/95 drop-shadow-lg leading-relaxed">
-              Authentische Bewertungen unserer zufriedenen Kundinnen
-            </p>
+          <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full glassmorphism mb-8 border-2 border-white/30 gold-glow">
+              <ThumbsUp className="w-5 h-5 text-primary" />
+              <span className="text-white font-medium text-sm tracking-wide uppercase">Kundenstimmen</span>
+            </div>
+          </div>
+
+          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-light mb-6 text-white drop-shadow-2xl fade-up tracking-wide" style={{ animationDelay: "0.4s", opacity: 0 }}>
+            Bewertungen
+          </h1>
+          
+          <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full fade-up" style={{ animationDelay: "0.6s", opacity: 0 }}></div>
+
+          <p className="text-xl md:text-3xl mb-6 text-white/95 drop-shadow-lg font-light max-w-2xl mx-auto fade-up" style={{ animationDelay: "0.8s", opacity: 0 }}>
+            Was Kundinnen über uns sagen
+          </p>
+          <p className="text-lg md:text-xl mb-16 text-white/90 drop-shadow-lg font-light max-w-3xl mx-auto fade-up leading-relaxed" style={{ animationDelay: "1s", opacity: 0 }}>
+            Authentische Bewertungen unserer zufriedenen Kundinnen – Ihre Zufriedenheit ist unser Erfolg
+          </p>
+
+          <div className="flex flex-wrap justify-center gap-6 fade-up" style={{ animationDelay: "1.2s", opacity: 0 }}>
+            <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
+              <Star className="w-4 h-4 mr-2 text-primary" />
+              5-Sterne Bewertungen
+            </Badge>
+            <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
+              <Users className="w-4 h-4 mr-2 text-primary" />
+              Zufriedene Kundinnen
+            </Badge>
           </div>
         </div>
       </section>

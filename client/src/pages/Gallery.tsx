@@ -3,6 +3,8 @@ import Footer from "@/components/Footer";
 import GalleryGrid from "@/components/GalleryGrid";
 import { SiInstagram } from "react-icons/si";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Camera, Eye, Award } from "lucide-react";
 import beforeAfterImage from "@assets/generated_images/Before_after_skin_treatment_60b501b9.png";
 import facialImage from "@assets/generated_images/Facial_treatment_close-up_d5c55f42.png";
 import massageImage from "@assets/generated_images/Massage_therapy_session_569ccb02.png";
@@ -37,14 +39,35 @@ export default function Gallery() {
         <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/40 to-transparent pointer-events-none"></div>
 
         <div className="relative z-10 container mx-auto px-4 text-center pt-44 pb-20">
-          <div className="max-w-4xl mx-auto fade-up">
-            <h1 className="font-serif text-5xl md:text-7xl font-light mb-6 text-white drop-shadow-2xl">
-              Galerie
-            </h1>
-            <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full"></div>
-            <p className="text-xl md:text-2xl text-white/95 drop-shadow-lg leading-relaxed">
-              Entdecken Sie unsere Behandlungsergebnisse und lassen Sie sich inspirieren
-            </p>
+          <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full glassmorphism mb-8 border-2 border-white/30 gold-glow">
+              <Camera className="w-5 h-5 text-primary" />
+              <span className="text-white font-medium text-sm tracking-wide uppercase">Vorher-Nachher Galerie</span>
+            </div>
+          </div>
+
+          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-light mb-6 text-white drop-shadow-2xl fade-up tracking-wide" style={{ animationDelay: "0.4s", opacity: 0 }}>
+            Galerie
+          </h1>
+          
+          <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full fade-up" style={{ animationDelay: "0.6s", opacity: 0 }}></div>
+
+          <p className="text-xl md:text-3xl mb-6 text-white/95 drop-shadow-lg font-light max-w-2xl mx-auto fade-up" style={{ animationDelay: "0.8s", opacity: 0 }}>
+            Sichtbare Ergebnisse
+          </p>
+          <p className="text-lg md:text-xl mb-16 text-white/90 drop-shadow-lg font-light max-w-3xl mx-auto fade-up leading-relaxed" style={{ animationDelay: "1s", opacity: 0 }}>
+            Entdecken Sie unsere Behandlungsergebnisse und lassen Sie sich von echten Transformationen inspirieren
+          </p>
+
+          <div className="flex flex-wrap justify-center gap-6 fade-up" style={{ animationDelay: "1.2s", opacity: 0 }}>
+            <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
+              <Eye className="w-4 h-4 mr-2 text-primary" />
+              Authentische Ergebnisse
+            </Badge>
+            <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
+              <Award className="w-4 h-4 mr-2 text-primary" />
+              Professionelle Dokumentation
+            </Badge>
           </div>
         </div>
       </section>
