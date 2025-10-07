@@ -207,7 +207,7 @@ export default function Services() {
             <Button
               size="lg"
               variant="ghost"
-              className="text-sm px-12 py-6 bg-white/5 backdrop-blur text-white/90 text-gold-glow border border-white/20 hover:bg-white/10 hover:border-white/30 font-serif uppercase tracking-widest transition-all duration-300"
+              className="text-sm px-12 py-6 bg-white/5 backdrop-blur text-white/90 border border-white/20 hover:bg-white/10 hover:border-white/30 font-serif uppercase tracking-widest transition-all duration-300"
               asChild
               data-testid="button-termin-services"
             >
@@ -218,7 +218,7 @@ export default function Services() {
             <Button
               size="lg"
               variant="ghost"
-              className="text-sm px-12 py-6 text-white/80 text-gold-glow border border-white/15 hover:bg-white/5 hover:border-white/25 font-serif uppercase tracking-widest transition-all duration-300"
+              className="text-sm px-12 py-6 text-white/80 border border-white/15 hover:bg-white/5 hover:border-white/25 font-serif uppercase tracking-widest transition-all duration-300"
               asChild
             >
               <a href="/preisliste">Preise ansehen</a>
@@ -260,7 +260,7 @@ export default function Services() {
                     <Button
                       variant="ghost"
                       size="sm"
-                      className="text-xs uppercase tracking-wider font-serif text-muted-foreground hover:text-primary text-gold-glow border border-border/50 hover:border-primary/30"
+                      className="text-xs uppercase tracking-wider font-serif text-muted-foreground hover:text-primary border border-border/50 hover:border-primary/30"
                       onClick={() => handleLearnMore(treatment)}
                       data-testid={`button-learn-more-${treatment.id}`}
                     >

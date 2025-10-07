@@ -270,7 +270,7 @@ export default function Header({ transparent = false }: HeaderProps) {
                         >
                           <Button 
                             variant="ghost"
-                            className="w-full bg-white/40 text-[hsl(280,35%,30%)] text-gold-glow border border-[hsl(280,25%,75%)] hover:bg-white/60 hover:border-[hsl(280,30%,65%)] font-serif uppercase tracking-wider text-xs py-5" 
+                            className="w-full bg-white/40 text-[hsl(280,35%,30%)] border border-[hsl(280,25%,75%)] hover:bg-white/60 hover:border-[hsl(280,30%,65%)] font-serif uppercase tracking-wider text-xs py-5" 
                             size="lg"
                           >
                             <Phone className="w-3.5 h-3.5 mr-2" />
@@ -285,7 +285,7 @@ export default function Header({ transparent = false }: HeaderProps) {
                         >
                           <Button 
                             variant="ghost" 
-                            className="w-full text-[hsl(280,35%,35%)] text-gold-glow border border-[hsl(280,25%,80%)] hover:bg-white/30 hover:border-[hsl(280,25%,70%)] font-serif uppercase tracking-wider text-xs py-5"
+                            className="w-full text-[hsl(280,35%,35%)] border border-[hsl(280,25%,80%)] hover:bg-white/30 hover:border-[hsl(280,25%,70%)] font-serif uppercase tracking-wider text-xs py-5"
                             size="lg"
                             data-testid="mobile-voucher-button"
                           >
