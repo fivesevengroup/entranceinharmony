@@ -21,7 +21,7 @@ export default function Hero() {
         <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
           <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full glassmorphism mb-8 border-2 border-white/30 gold-glow">
             <Sparkles className="w-5 h-5 text-primary" />
-            <span className="text-white font-medium text-sm tracking-wide uppercase">Luxuriöse Beauty-Treatments</span>
+            <span className="text-white font-medium text-sm tracking-wide uppercase">Beauty & Aesthetics</span>
           </div>
         </div>
 
