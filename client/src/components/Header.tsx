@@ -203,7 +203,10 @@ export default function Header({ transparent = false }: HeaderProps) {
                   
                   <SheetContent 
                     side="right" 
-                    className="w-[320px] sm:w-[360px] bg-gradient-to-br from-[hsl(280,35%,92%)] via-[hsl(280,30%,88%)] to-[hsl(280,35%,90%)] border-l-2 border-primary/30 p-0"
+                    className="w-[320px] sm:w-[360px] border-l-2 border-primary/30 p-0"
+                    style={{
+                      background: 'linear-gradient(to bottom right, hsl(280, 35%, 92%), hsl(280, 30%, 88%), hsl(280, 35%, 90%))'
+                    }}
                   >
                     <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                     <SheetDescription className="sr-only">Main navigation menu for mobile devices</SheetDescription>
