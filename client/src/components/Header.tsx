@@ -101,18 +101,13 @@ export default function Header({ transparent = false }: HeaderProps) {
               <Link href="/" data-testid="link-home" className={`relative z-20 transition-all duration-500 ${
                 isScrolled ? '' : 'mt-2'
               }`}>
-                <div className={`relative bg-white rounded-full shadow-xl border-2 border-primary/40 transition-all duration-500 ${
-                  isScrolled ? 'p-2' : 'p-3'
-                }`}>
-                  <img 
-                    src={logoImage} 
-                    alt="Entrance in Harmony" 
-                    className={`transition-all duration-500 ${
-                      isScrolled ? 'h-10' : 'h-16'
-                    }`}
-                    style={{ filter: 'brightness(0)' }}
-                  />
-                </div>
+                <img 
+                  src={logoImage} 
+                  alt="Entrance in Harmony" 
+                  className={`w-auto transition-all duration-500 ${
+                    isScrolled ? 'h-14' : 'h-24'
+                  }`}
+                />
               </Link>
 
               {/* Navigation Items im Bogen */}
