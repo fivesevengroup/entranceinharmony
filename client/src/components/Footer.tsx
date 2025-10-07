@@ -44,7 +44,7 @@ export default function Footer() {
       
       <div className="container mx-auto px-4 relative">
         <div className="pt-10 md:pt-8 pb-10">
-          <div className="text-center mb-16 pb-10 border-b border-border/30">
+          <div className="text-center mb-14">
             <div className="relative inline-block">
               <h3 className="font-serif text-3xl md:text-4xl lg:text-5xl font-light mb-1 tracking-wide">
                 <span className="block text-foreground/90">ENTRANCE IN</span>
@@ -62,7 +62,7 @@ export default function Footer() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12 max-w-4xl mx-auto">
             <div className="text-center md:text-left">
-              <h4 className="font-medium text-xs uppercase tracking-widest mb-5 text-foreground/60">Kontakt</h4>
+              <h4 className="font-medium text-sm uppercase tracking-widest mb-6 text-foreground pb-2 border-b border-primary/20 inline-block">Kontakt</h4>
               <ul className="space-y-2.5 text-sm">
                 <li>
                   <a href="tel:+491709287722" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
@@ -78,7 +78,7 @@ export default function Footer() {
             </div>
 
             <div className="text-center">
-              <h4 className="font-medium text-xs uppercase tracking-widest mb-5 text-foreground/60">Navigation</h4>
+              <h4 className="font-medium text-sm uppercase tracking-widest mb-6 text-foreground pb-2 border-b border-primary/20 inline-block">Navigation</h4>
               <ul className="space-y-2.5 text-sm">
                 <li>
                   <Link href="/" className="text-muted-foreground hover:text-foreground transition-colors duration-200" data-testid="footer-link-home">
@@ -104,7 +104,7 @@ export default function Footer() {
             </div>
 
             <div className="text-center md:text-right">
-              <h4 className="font-medium text-xs uppercase tracking-widest mb-5 text-foreground/60">Folgen Sie uns</h4>
+              <h4 className="font-medium text-sm uppercase tracking-widest mb-6 text-foreground pb-2 border-b border-primary/20 inline-block">Folgen Sie uns</h4>
               <div className="flex gap-3 justify-center md:justify-end">
                 <a
                   href="https://wa.me/491709287722"
