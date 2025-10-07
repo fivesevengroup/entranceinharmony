@@ -260,7 +260,7 @@ export default function Header({ transparent = false }: HeaderProps) {
                       </nav>
 
                       {/* Quick Actions */}
-                      <div className="p-6 border-t border-primary/10 space-y-4">
+                      <div className="p-6 border-t border-primary/10 space-y-3">
                         <a 
                           href="https://wa.me/4927369639191" 
                           target="_blank" 
@@ -269,10 +269,10 @@ export default function Header({ transparent = false }: HeaderProps) {
                           data-testid="mobile-whatsapp-button"
                         >
                           <Button 
-                            className="w-full bg-[hsl(280,28%,35%)] text-primary border border-primary/40 shadow-[0_8px_20px_hsla(280,30%,35%,0.25)]" 
+                            className="w-full bg-white text-[hsl(280,35%,25%)] border border-[hsl(280,25%,80%)] hover:border-primary/40 font-serif uppercase tracking-wider text-xs py-5" 
                             size="lg"
                           >
-                            <Phone className="w-4 h-4 mr-2" />
+                            <Phone className="w-3.5 h-3.5 mr-2" />
                             Termin vereinbaren
                           </Button>
                         </a>
@@ -283,12 +283,12 @@ export default function Header({ transparent = false }: HeaderProps) {
                           className="block"
                         >
                           <Button 
-                            variant="outline" 
-                            className="w-full bg-white/80 backdrop-blur text-[hsl(280,32%,32%)] border-[hsl(280,35%,80%)]"
+                            variant="ghost" 
+                            className="w-full text-[hsl(280,32%,32%)] border border-[hsl(280,25%,80%)] hover:bg-white/50 font-serif uppercase tracking-wider text-xs py-5"
                             size="lg"
                             data-testid="mobile-voucher-button"
                           >
-                            <Gift className="w-4 h-4 mr-2" />
+                            <Gift className="w-3.5 h-3.5 mr-2" />
                             Geschenkgutschein
                           </Button>
                         </Link>
