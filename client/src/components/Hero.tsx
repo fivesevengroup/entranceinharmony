@@ -30,6 +30,10 @@ export default function Hero() {
           <span className="block text-gold-gradient text-5xl md:text-8xl lg:text-9xl">HARMONY</span>
         </h1>
         
+        <p className="text-lg md:text-xl mb-6 text-white/80 drop-shadow-lg font-light fade-up italic tracking-wide" style={{ animationDelay: "0.5s", opacity: 0 }}>
+          by Elena Hartstein
+        </p>
+        
         <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full fade-up" style={{ animationDelay: "0.6s", opacity: 0 }}></div>
 
         <p className="text-xl md:text-3xl mb-6 text-white/95 drop-shadow-lg font-light max-w-2xl mx-auto fade-up" style={{ animationDelay: "0.8s", opacity: 0 }}>
