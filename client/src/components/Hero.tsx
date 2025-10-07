@@ -36,7 +36,7 @@ export default function Hero() {
           Ihre Schönheitsexpertin in Burbach
         </p>
         <p className="text-lg md:text-xl mb-12 text-white/90 drop-shadow-lg font-light max-w-3xl mx-auto fade-up leading-relaxed" style={{ animationDelay: "1s", opacity: 0 }}>
-          Wo Schönheit auf Expertise trifft – Gönnen Sie sich professionelle Beauty-Treatments in luxuriöser Atmosphäre
+          Wo Schönheit auf Expertise trifft – Gönnen Sie sich professionelle Beauty-Behandlungen in luxuriöser Atmosphäre
         </p>
         
         <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-16 fade-up" style={{ animationDelay: "1.2s", opacity: 0 }}>
@@ -73,7 +73,7 @@ export default function Hero() {
           </Badge>
           <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
             <Sparkles className="w-4 h-4 mr-2 text-primary" />
-            Premium Treatments
+            Premium Behandlungen
           </Badge>
         </div>
       </div>
