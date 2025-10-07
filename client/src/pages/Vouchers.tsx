@@ -173,194 +173,146 @@ export default function Vouchers() {
         <WaveDivider position="bottom" color="hsl(var(--background))" />
       </section>
 
-      {/* Warum Entrance in Harmony Gutscheine - Split Layout */}
-      <section className="py-16 md:py-24 bg-background overflow-hidden">
+      {/* Warum Entrance in Harmony Gutscheine */}
+      <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              {/* Text Content - Links */}
-              <div className="space-y-8">
-                <div>
-                  <h2 className="font-serif text-3xl md:text-5xl font-light mb-6">
-                    Warum unsere Geschenkgutscheine?
-                  </h2>
-                  <div className="h-0.5 w-24 gold-shimmer rounded-full mb-6"></div>
-                  <p className="text-muted-foreground text-lg leading-relaxed">
-                    Schenken Sie nicht nur eine Behandlung, sondern ein unvergessliches Wohlfühl-Erlebnis mit individueller Betreuung
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="font-serif text-3xl md:text-5xl font-light mb-4">
+                Warum unsere Geschenkgutscheine?
+              </h2>
+              <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-4"></div>
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                Schenken Sie nicht nur eine Behandlung, sondern ein unvergessliches Wohlfühl-Erlebnis
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <Card className="border border-border hover-elevate">
+                <CardContent className="p-6 text-center">
+                  <div className="mb-4 flex justify-center">
+                    <div className="p-4 bg-primary/10 rounded-full">
+                      <Star className="w-8 h-8 text-primary" />
+                    </div>
+                  </div>
+                  <h3 className="font-medium text-lg mb-2">Premium Qualität</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Professionelle Behandlungen mit hochwertigen Produkten
                   </p>
-                </div>
+                </CardContent>
+              </Card>
 
-                <div className="space-y-6">
-                  <div className="flex gap-4">
-                    <div className="shrink-0">
-                      <div className="p-3 bg-primary/10 rounded-full">
-                        <Star className="w-6 h-6 text-primary" />
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="font-medium text-lg mb-2">Premium Qualität</h3>
-                      <p className="text-muted-foreground">
-                        Professionelle Behandlungen mit hochwertigen Produkten und individueller Beratung
-                      </p>
+              <Card className="border border-border hover-elevate">
+                <CardContent className="p-6 text-center">
+                  <div className="mb-4 flex justify-center">
+                    <div className="p-4 bg-primary/10 rounded-full">
+                      <Heart className="w-8 h-8 text-primary" />
                     </div>
                   </div>
+                  <h3 className="font-medium text-lg mb-2">Flexibel einlösbar</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Freie Wahl der Behandlung und Terminvereinbarung
+                  </p>
+                </CardContent>
+              </Card>
 
-                  <div className="flex gap-4">
-                    <div className="shrink-0">
-                      <div className="p-3 bg-primary/10 rounded-full">
-                        <Heart className="w-6 h-6 text-primary" />
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="font-medium text-lg mb-2">Persönlich & Flexibel</h3>
-                      <p className="text-muted-foreground">
-                        Freie Wahl der Behandlung und Terminvereinbarung nach Wunsch
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="shrink-0">
-                      <div className="p-3 bg-primary/10 rounded-full">
-                        <Gift className="w-6 h-6 text-primary" />
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="font-medium text-lg mb-2">Schön Verpackt</h3>
-                      <p className="text-muted-foreground">
-                        Digital sofort per E-Mail oder elegant verpackt per Post
-                      </p>
+              <Card className="border border-border hover-elevate">
+                <CardContent className="p-6 text-center">
+                  <div className="mb-4 flex justify-center">
+                    <div className="p-4 bg-primary/10 rounded-full">
+                      <CheckCircle2 className="w-8 h-8 text-primary" />
                     </div>
                   </div>
-                </div>
-              </div>
+                  <h3 className="font-medium text-lg mb-2">3 Jahre gültig</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Genug Zeit für den perfekten Termin
+                  </p>
+                </CardContent>
+              </Card>
 
-              {/* Visual Content - Rechts */}
-              <div className="relative">
-                <div className="grid grid-cols-2 gap-4">
-                  <Card className="border border-border hover-elevate transform hover:scale-105 transition-transform">
-                    <CardContent className="p-6 text-center">
-                      <div className="aspect-square flex items-center justify-center mb-3">
-                        <img src={voucherImage} alt="Geschenkgutschein" className="w-full h-full object-cover rounded-md" />
-                      </div>
-                      <Badge variant="secondary" className="text-xs">Digital & Post</Badge>
-                    </CardContent>
-                  </Card>
-                  
-                  <Card className="border border-primary/30 hover-elevate transform hover:scale-105 transition-transform mt-8">
-                    <CardContent className="p-6 text-center bg-gradient-to-br from-primary/5 to-transparent">
-                      <div className="mb-4">
-                        <div className="p-4 bg-primary/10 rounded-full inline-flex">
-                          <CheckCircle2 className="w-8 h-8 text-primary" />
-                        </div>
-                      </div>
-                      <h4 className="font-medium mb-2">3 Jahre gültig</h4>
-                      <p className="text-sm text-muted-foreground">Genug Zeit für den perfekten Termin</p>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="border border-primary/30 hover-elevate transform hover:scale-105 transition-transform -mt-4">
-                    <CardContent className="p-6 text-center bg-gradient-to-br from-primary/5 to-transparent">
-                      <div className="mb-4">
-                        <div className="p-4 bg-primary/10 rounded-full inline-flex">
-                          <Sparkles className="w-8 h-8 text-primary" />
-                        </div>
-                      </div>
-                      <h4 className="font-medium mb-2">Freier Betrag</h4>
-                      <p className="text-sm text-muted-foreground">Von 30€ bis zu jedem Wunschbetrag</p>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="border border-border hover-elevate transform hover:scale-105 transition-transform">
-                    <CardContent className="p-6 text-center">
-                      <div className="mb-4">
-                        <div className="p-4 bg-primary/10 rounded-full inline-flex">
-                          <Package className="w-8 h-8 text-primary" />
-                        </div>
-                      </div>
-                      <h4 className="font-medium mb-2">Sofortversand</h4>
-                      <p className="text-sm text-muted-foreground">Digital in Minuten erhalten</p>
-                    </CardContent>
-                  </Card>
-                </div>
-
-                {/* Dekorative Gold-Linie */}
-                <div className="absolute -bottom-4 -right-4 w-24 h-24 border-2 border-primary/20 rounded-full -z-10"></div>
-              </div>
+              <Card className="border border-border hover-elevate">
+                <CardContent className="p-6 text-center">
+                  <div className="mb-4 flex justify-center">
+                    <div className="p-4 bg-primary/10 rounded-full">
+                      <Gift className="w-8 h-8 text-primary" />
+                    </div>
+                  </div>
+                  <h3 className="font-medium text-lg mb-2">Zwei Versandarten</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Digital sofort oder elegant per Post
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Perfekt für diese Anlässe - Asymmetrisches Layout */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-muted/20 via-background to-muted/20 relative overflow-hidden">
-        {/* Dekorative Elemente */}
-        <div className="absolute top-10 right-10 w-32 h-32 bg-primary/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-40 h-40 bg-primary/5 rounded-full blur-3xl"></div>
-        
+      {/* Perfekt für diese Anlässe */}
+      <section className="py-16 md:py-24 bg-gradient-to-br from-muted/20 via-background to-muted/20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
+            <div className="text-center mb-12">
               <h2 className="font-serif text-3xl md:text-5xl font-light mb-4">
                 Perfekt für jeden Anlass
               </h2>
               <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full"></div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              <Card className="hover-elevate border-primary/20 transform hover:rotate-1 transition-all">
-                <CardContent className="p-8 flex items-start gap-4">
-                  <div className="shrink-0">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <Card className="border border-primary/20 hover-elevate">
+                <CardContent className="p-6 text-center">
+                  <div className="mb-4 flex justify-center">
                     <div className="p-4 bg-primary/10 rounded-full">
                       <Calendar className="w-8 h-8 text-primary" />
                     </div>
                   </div>
-                  <div>
-                    <h3 className="font-medium text-xl mb-2">Geburtstag</h3>
-                    <p className="text-muted-foreground">Ein besonderes Geschenk zum Ehrentag – für unvergessliche Momente</p>
-                  </div>
+                  <h3 className="font-medium text-lg mb-2">Geburtstag</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Ein besonderes Geschenk zum Ehrentag
+                  </p>
                 </CardContent>
               </Card>
 
-              <Card className="hover-elevate border-primary/20 transform hover:-rotate-1 transition-all md:mt-12">
-                <CardContent className="p-8 flex items-start gap-4">
-                  <div className="shrink-0">
+              <Card className="border border-primary/20 hover-elevate">
+                <CardContent className="p-6 text-center">
+                  <div className="mb-4 flex justify-center">
                     <div className="p-4 bg-primary/10 rounded-full">
                       <Heart className="w-8 h-8 text-primary" />
                     </div>
                   </div>
-                  <div>
-                    <h3 className="font-medium text-xl mb-2">Muttertag</h3>
-                    <p className="text-muted-foreground">Sagen Sie Danke mit Entspannung – das perfekte Geschenk für Mama</p>
-                  </div>
+                  <h3 className="font-medium text-lg mb-2">Muttertag</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Sagen Sie Danke mit Entspannung
+                  </p>
                 </CardContent>
               </Card>
 
-              <Card className="hover-elevate border-primary/20 transform hover:-rotate-1 transition-all md:-mt-6">
-                <CardContent className="p-8 flex items-start gap-4">
-                  <div className="shrink-0">
+              <Card className="border border-primary/20 hover-elevate">
+                <CardContent className="p-6 text-center">
+                  <div className="mb-4 flex justify-center">
                     <div className="p-4 bg-primary/10 rounded-full">
                       <Sparkles className="w-8 h-8 text-primary" />
                     </div>
                   </div>
-                  <div>
-                    <h3 className="font-medium text-xl mb-2">Hochzeit</h3>
-                    <p className="text-muted-foreground">Perfekt als Geschenk für Braut & Bräutigam oder Gäste</p>
-                  </div>
+                  <h3 className="font-medium text-lg mb-2">Hochzeit</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Perfekt für Braut, Bräutigam & Gäste
+                  </p>
                 </CardContent>
               </Card>
 
-              <Card className="hover-elevate border-primary/20 transform hover:rotate-1 transition-all md:mt-6">
-                <CardContent className="p-8 flex items-start gap-4">
-                  <div className="shrink-0">
+              <Card className="border border-primary/20 hover-elevate">
+                <CardContent className="p-6 text-center">
+                  <div className="mb-4 flex justify-center">
                     <div className="p-4 bg-primary/10 rounded-full">
                       <Gift className="w-8 h-8 text-primary" />
                     </div>
                   </div>
-                  <div>
-                    <h3 className="font-medium text-xl mb-2">Einfach so</h3>
-                    <p className="text-muted-foreground">Eine Freude zwischendurch – ohne besonderen Anlass Freude schenken</p>
-                  </div>
+                  <h3 className="font-medium text-lg mb-2">Einfach so</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Eine Freude ohne besonderen Anlass
+                  </p>
                 </CardContent>
               </Card>
             </div>
