@@ -11,8 +11,8 @@ export default function Impressum() {
     <div className="min-h-screen flex flex-col">
       <Header />
 
-      {/* Hero Section with Background */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Hero Section - Kompakt für rechtliche Seiten */}
+      <section className="relative min-h-[55vh] flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center scale-105"
           style={{ backgroundImage: `url(${heroImage})` }}
@@ -23,33 +23,23 @@ export default function Impressum() {
 
         <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/40 to-transparent pointer-events-none"></div>
 
-        <div className="relative z-10 container mx-auto px-4 text-center pt-44 pb-20">
+        <div className="relative z-10 container mx-auto px-4 text-center pt-28 pb-10">
           <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
-            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full glassmorphism mb-8 border-2 border-white/30 gold-glow">
-              <Scale className="w-5 h-5 text-primary" />
-              <span className="text-white font-medium text-sm tracking-wide uppercase">Rechtliche Informationen</span>
+            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full glassmorphism mb-6 border border-white/30">
+              <Scale className="w-4 h-4 text-primary" />
+              <span className="text-white font-medium text-xs tracking-wide uppercase">Rechtliche Informationen</span>
             </div>
           </div>
 
-          <h1 className="font-serif text-4xl md:text-7xl lg:text-8xl font-light mb-6 text-white drop-shadow-2xl fade-up tracking-wide" style={{ animationDelay: "0.4s", opacity: 0 }} data-testid="heading-impressum">
+          <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl font-light mb-4 text-white drop-shadow-2xl fade-up tracking-wide" style={{ animationDelay: "0.4s", opacity: 0 }} data-testid="heading-impressum">
             Impressum
           </h1>
           
-          <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full fade-up" style={{ animationDelay: "0.6s", opacity: 0 }}></div>
+          <div className="h-0.5 w-24 mx-auto mb-4 gold-shimmer rounded-full fade-up" style={{ animationDelay: "0.6s", opacity: 0 }}></div>
 
-          <p className="text-xl md:text-3xl mb-6 text-white/95 drop-shadow-lg font-light max-w-2xl mx-auto fade-up" style={{ animationDelay: "0.8s", opacity: 0 }}>
+          <p className="text-base md:text-lg text-white/90 drop-shadow-lg font-light max-w-xl mx-auto fade-up" style={{ animationDelay: "0.8s", opacity: 0 }}>
             Angaben gemäß § 5 TMG
           </p>
-          <p className="text-lg md:text-xl mb-16 text-white/90 drop-shadow-lg font-light max-w-3xl mx-auto fade-up leading-relaxed" style={{ animationDelay: "1s", opacity: 0 }}>
-            Transparenz und rechtliche Klarheit – alle wichtigen Informationen zu Entrance in Harmony
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-6 fade-up" style={{ animationDelay: "1.2s", opacity: 0 }}>
-            <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
-              <Shield className="w-4 h-4 mr-2 text-primary" />
-              Rechtlich Geprüft
-            </Badge>
-          </div>
         </div>
 
         <WaveDivider position="bottom" color="hsl(var(--background))" />
