@@ -354,7 +354,7 @@ export default function Services() {
             <h2 className="font-serif text-3xl font-light mb-4">
               Sie wünschen einen Termin?
             </h2>
-            <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
+            <p className="text-lg text-muted-foreground mb-6 max-w-xl mx-auto leading-relaxed">
               Genießen Sie unsere vielfältigen Behandlungsmöglichkeiten und buchen Sie jetzt 
               Ihren persönlichen Termin für eine professionelle Behandlung.
             </p>

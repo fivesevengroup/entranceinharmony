@@ -93,7 +93,7 @@ export default function Gallery() {
           <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
             Folgen Sie uns auf Instagram
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
             Bleiben Sie auf dem Laufenden mit unseren neuesten Behandlungen, 
             Beauty-Tipps und exklusiven Angeboten
           </p>

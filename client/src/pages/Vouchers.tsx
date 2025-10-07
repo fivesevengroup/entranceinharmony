@@ -207,7 +207,7 @@ export default function Vouchers() {
                 Warum unsere Geschenkgutscheine?
               </h2>
               <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-4"></div>
-              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                 Schenken Sie nicht nur eine Behandlung, sondern ein unvergessliches Wohlfühl-Erlebnis
               </p>
             </div>

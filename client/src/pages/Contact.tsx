@@ -116,10 +116,10 @@ export default function Contact() {
                     <Sparkles className="w-5 h-5" />
                     Wo Schönheit auf Expertise trifft
                   </p>
-                  <p className="text-muted-foreground leading-relaxed mb-5">
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-5">
                     Bei mir steht nicht nur Ihre Schönheit im Mittelpunkt, sondern Ihr gesamtes Wohlbefinden. Mit fundierter Ausbildung, kontinuierlicher Weiterbildung und einer Passion für ästhetische Perfektion begleite ich Sie auf Ihrem Weg zu strahlender Haut.
                   </p>
-                  <p className="text-muted-foreground leading-relaxed mb-8">
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-8">
                     Jede Behandlung beginnt mit einer ausführlichen Hautanalyse – denn nur wer Ihre Haut wirklich versteht, kann sie optimal pflegen. In meinem modernen Studio vereinen sich Fachwissen, hochwertige Produkte und eine entspannte Wohlfühlatmosphäre.
                   </p>
                 </div>

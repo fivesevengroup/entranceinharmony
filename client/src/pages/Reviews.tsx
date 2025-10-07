@@ -138,7 +138,7 @@ export default function Reviews() {
           <h2 className="font-serif text-3xl font-light mb-4">
             Ihre Meinung ist uns wichtig
           </h2>
-          <p className="text-muted-foreground mb-8">
+          <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
             Waren Sie bereits bei uns? Wir freuen uns über Ihr Feedback und Ihre Bewertung!
           </p>
           <Button asChild data-testid="button-leave-review">
