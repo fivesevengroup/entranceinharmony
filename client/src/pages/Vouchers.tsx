@@ -287,7 +287,7 @@ export default function Vouchers() {
                       <CheckCircle2 className="w-8 h-8 text-primary" />
                     </div>
                   </div>
-                  <h3 className="font-medium text-lg mb-2 text-center">3 Jahre gültig</h3>
+                  <h3 className="font-medium text-lg mb-2 text-center">1 Jahr gültig</h3>
                   <p className="text-sm text-muted-foreground text-center">
                     Genug Zeit für den perfekten Termin
                   </p>
@@ -796,7 +796,7 @@ export default function Vouchers() {
                         Wie lange ist der Gutschein gültig?
                       </AccordionTrigger>
                       <AccordionContent className="text-muted-foreground">
-                        Unsere Geschenkgutscheine sind ab Kaufdatum 3 Jahre gültig. So hat der Beschenkte genügend Zeit, den perfekten Termin zu finden.
+                        Unsere Geschenkgutscheine sind ab Kaufdatum 1 Jahr gültig. So hat der Beschenkte genügend Zeit, den perfekten Termin zu finden.
                       </AccordionContent>
                     </AccordionItem>
 
