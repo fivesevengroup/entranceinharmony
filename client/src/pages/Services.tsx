@@ -10,7 +10,7 @@ import WaveDivider from "@/components/WaveDivider";
 import deepCleansingImage from "@assets/generated_images/Deep_cleansing_facial_treatment_8a24d580.png";
 import basicTreatmentImage from "@assets/generated_images/Basic_facial_treatment_630e122c.png";
 import carboxyImage from "@assets/generated_images/Carboxy_therapy_facial_979c25d2.png";
-import bbGlowImage from "@assets/generated_images/BB_Glow_treatment_1852d70a.png";
+import bbGlowImage from "@assets/Design ohne Titel(5)_1760190236232.png";
 import microneedlingImage from "@assets/generated_images/Microneedling_facial_treatment_0da7c603.png";
 import btoxImage from "@assets/generated_images/B-Tox_peel_treatment_ba217e96.png";
 import peelingImage from "@assets/generated_images/Revitalizing_peel_treatment_2f08d057.png";
