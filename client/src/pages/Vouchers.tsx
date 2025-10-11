@@ -84,7 +84,12 @@ export default function Vouchers() {
 
   const createVoucherMutation = useMutation({
     mutationFn: async (data: VoucherFormData) => {
-      const res = await apiRequest("POST", "/api/vouchers", data);
+      // Convert amount string to integer for backend
+      const voucherData = {
+        ...data,
+        amount: parseInt(data.amount, 10),
+      };
+      const res = await apiRequest("POST", "/api/vouchers", voucherData);
       return res.json();
     },
     onSuccess: (data: any) => {
