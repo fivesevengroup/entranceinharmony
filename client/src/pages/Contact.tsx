@@ -169,39 +169,39 @@ export default function Contact() {
                 <Card className="border border-border backdrop-blur-sm bg-card/90">
                   <CardContent className="pt-8 pb-8">
                     <div className="space-y-6">
-                      {/* Telefon */}
+                      {/* Telefon & WhatsApp */}
                       <div className="flex items-start gap-4 pb-6 border-b border-border">
-                        <div className="p-3 bg-primary/10 rounded-lg shrink-0">
-                          <Phone className="w-6 h-6 text-primary" />
+                        <div className="flex gap-2 shrink-0">
+                          <div className="p-3 bg-primary/10 rounded-lg">
+                            <Phone className="w-6 h-6 text-primary" />
+                          </div>
+                          <div className="p-3 bg-primary/10 rounded-lg">
+                            <SiWhatsapp className="w-6 h-6 text-primary" />
+                          </div>
                         </div>
                         <div className="flex-1">
-                          <h3 className="font-medium mb-2">Telefon</h3>
-                          <a
-                            href="tel:+491709287722"
-                            className="text-foreground hover:text-primary transition-colors"
-                            data-testid="link-phone"
-                          >
-                            0170 9287722
-                          </a>
-                        </div>
-                      </div>
-
-                      {/* WhatsApp */}
-                      <div className="flex items-start gap-4 pb-6 border-b border-border">
-                        <div className="p-3 bg-primary/10 rounded-lg shrink-0">
-                          <SiWhatsapp className="w-6 h-6 text-primary" />
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="font-medium mb-2">WhatsApp</h3>
-                          <a
-                            href="https://wa.me/491709287722"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-foreground hover:text-primary transition-colors"
-                            data-testid="link-whatsapp"
-                          >
-                            0170 9287722
-                          </a>
+                          <h3 className="font-medium mb-2">Telefon & WhatsApp</h3>
+                          <div className="flex items-center gap-3 flex-wrap">
+                            <span className="text-foreground">0170 9287722</span>
+                            <div className="flex gap-2">
+                              <a
+                                href="tel:+491709287722"
+                                className="px-3 py-1 text-xs rounded-md border border-border/60 text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-all duration-200"
+                                data-testid="link-phone"
+                              >
+                                Anrufen
+                              </a>
+                              <a
+                                href="https://wa.me/491709287722"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="px-3 py-1 text-xs rounded-md border border-border/60 text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-all duration-200"
+                                data-testid="link-whatsapp"
+                              >
+                                WhatsApp
+                              </a>
+                            </div>
+                          </div>
                         </div>
                       </div>
 
