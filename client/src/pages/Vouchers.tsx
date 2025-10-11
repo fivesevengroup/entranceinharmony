@@ -21,7 +21,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import WaveDivider from "@/components/WaveDivider";
 import voucherImage from "@assets/generated_images/Elegant_gift_voucher_card_151c453a.png";
-import heroImage from "@assets/stock_images/spa_voucher_gift_cer_15fda10a.jpg";
+import heroImage from "@assets/Design ohne Titel(5)_1760190903037.png";
 
 const voucherFormSchema = z.object({
   amount: z.string().refine((val) => !isNaN(Number(val)) && Number(val) > 0, {

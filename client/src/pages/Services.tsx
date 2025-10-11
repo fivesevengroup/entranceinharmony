@@ -15,7 +15,7 @@ import microneedlingImage from "@assets/generated_images/Microneedling_facial_tr
 import btoxImage from "@assets/generated_images/B-Tox_peel_treatment_ba217e96.png";
 import peelingImage from "@assets/generated_images/Revitalizing_peel_treatment_2f08d057.png";
 import laserImage from "@assets/generated_images/Red_Touch_laser_with_goggles_86dab14d.png";
-import heroImage from "@assets/stock_images/professional_beauty__01deee28.jpg";
+import heroImage from "@assets/Unbenannt_1760190547528.png";
 
 interface Treatment {
   id: string;
