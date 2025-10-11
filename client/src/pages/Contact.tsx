@@ -230,9 +230,9 @@ export default function Contact() {
                         <div className="flex-1">
                           <h3 className="font-medium mb-2">Standort</h3>
                           <p className="text-muted-foreground">
-                            Elena Hartstein<br />
-                            Beauty & Aesthetics<br />
-                            Burbach und Umgebung
+                            Entrance in Harmony by Elena Hartstein<br />
+                            Höhfeld 5<br />
+                            57299 Burbach
                           </p>
                         </div>
                       </div>
