@@ -4,7 +4,7 @@
 
 This is a beauty salon website for "Entrance in Harmony" in Burbach, Germany, specializing in facial treatments and aesthetic services. The application is a full-stack web platform that allows customers to learn about services, view pricing, purchase gift vouchers, and book appointments via WhatsApp integration.
 
-The site emphasizes elegant, luxurious design with a mauve and gold color palette inspired by high-end beauty brands like Glossier and Sephora. It features service listings, a gallery, testimonials, and an integrated PayPal-based voucher purchasing system.
+The site emphasizes elegant, luxurious design with a mauve and gold color palette inspired by high-end beauty brands like Glossier and Sephora. It features service listings, a gallery, testimonials, and an integrated Stripe-based voucher purchasing system.
 
 ## User Preferences
 
@@ -46,14 +46,14 @@ Preferred communication style: Simple, everyday language.
 
 **API Design:**
 - RESTful API endpoints for voucher management
-- PayPal SDK integration for payment processing
+- Stripe SDK integration for secure payment processing
 - In-memory storage layer with interface for future database migration
 
 **Key Routes:**
 - `/api/vouchers` - Voucher CRUD operations
-- `/order` - PayPal order creation
-- `/order/:orderID/capture` - PayPal payment capture
-- `/setup` - PayPal configuration endpoint
+- `/api/create-payment-intent` - Stripe payment intent creation
+- `/api/vouchers/:id/payment` - Update voucher payment status
+- `/download/elena-portrait.jpg` - Download about page image
 
 **Storage Layer:**
 - Abstract IStorage interface defining data access methods
@@ -77,7 +77,7 @@ Preferred communication style: Simple, everyday language.
 
 **Data Models:**
 - User: Authentication and account management
-- Voucher: Gift voucher with digital/postal delivery options, PayPal integration
+- Voucher: Gift voucher with digital/postal delivery options, Stripe payment integration
 
 ### Authentication & Authorization
 
@@ -93,9 +93,10 @@ Preferred communication style: Simple, everyday language.
 ### External Dependencies
 
 **Payment Processing:**
-- PayPal Server SDK for order creation and payment capture
-- Sandbox environment for development, production for live
-- Critical payment code marked as "DO NOT MODIFY" to prevent integration failures
+- Stripe for secure payment processing with automatic payment methods
+- Supports credit cards, PayPal, and other payment methods through Stripe
+- Environment variables: VITE_STRIPE_PUBLIC_KEY (frontend), STRIPE_SECRET_KEY (backend)
+- Payment flow: Create payment intent → Stripe checkout → Confirm payment → Update voucher status
 
 **UI Libraries:**
 - Radix UI for accessible, unstyled component primitives
