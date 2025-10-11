@@ -5,7 +5,6 @@ import WaveDivider from "@/components/WaveDivider";
 import { Button } from "@/components/ui/button";
 import aboutImage from "@assets/Design ohne Titel(4)_1760188585511.jpg";
 import massageImage from "@assets/generated_images/Massage_therapy_session_569ccb02.png";
-import { Sparkles, Heart, ShieldCheck } from "lucide-react";
 
 export default function Home() {
   return (
@@ -89,59 +88,32 @@ export default function Home() {
 
       <section className="py-20 md:py-32 bg-background relative">
         <div className="container mx-auto px-4 relative">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16 fade-up">
+          <div className="grid md:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+            <div className="order-2 md:order-1 fade-up">
               <h2 className="font-serif text-4xl md:text-5xl font-light mb-6">
-                Warum Entrance in Harmony?
+                Das Studio
               </h2>
-              <div className="h-0.5 w-32 mx-auto mb-6 gold-shimmer rounded-full"></div>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Ihr Vertrauen verdient höchste Qualität – hier sind die Gründe, warum Sie bei mir richtig sind
+              <div className="h-0.5 w-24 mb-8 gold-shimmer rounded-full"></div>
+              <h3 className="text-xl font-light mb-6 text-primary">
+                Lernen Sie mein Studio und mich näher kennen!
+              </h3>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                In entspannter Atmosphäre biete ich Ihnen professionelle Behandlungen für Gesicht und Körper. Lassen Sie sich verwöhnen und genießen Sie einen Moment nur für sich.
               </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              <div className="bg-card/50 backdrop-blur-sm p-8 rounded-2xl border border-border hover-elevate fade-up" style={{ animationDelay: "0.1s", opacity: 0 }} data-testid="usp-premium">
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                  <Sparkles className="w-7 h-7 text-primary" />
-                </div>
-                <h3 className="text-2xl font-serif font-light mb-4">
-                  Premium-Marken & modernste Geräte
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Ich arbeite ausschließlich mit hochwertigen Produkten renommierter Beauty-Marken und setze auf modernste Behandlungstechnologien für optimale Ergebnisse.
-                </p>
-              </div>
-
-              <div className="bg-card/50 backdrop-blur-sm p-8 rounded-2xl border border-border hover-elevate fade-up" style={{ animationDelay: "0.2s", opacity: 0 }} data-testid="usp-individual">
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                  <Heart className="w-7 h-7 text-primary" />
-                </div>
-                <h3 className="text-2xl font-serif font-light mb-4">
-                  Individuelle Hautanalyse
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Jede Haut ist einzigartig. Durch eine ausführliche Analyse stelle ich maßgeschneiderte Behandlungspläne zusammen, die exakt auf Ihre Bedürfnisse abgestimmt sind.
-                </p>
-              </div>
-
-              <div className="bg-card/50 backdrop-blur-sm p-8 rounded-2xl border border-border hover-elevate fade-up" style={{ animationDelay: "0.3s", opacity: 0 }} data-testid="usp-hygiene">
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                  <ShieldCheck className="w-7 h-7 text-primary" />
-                </div>
-                <h3 className="text-2xl font-serif font-light mb-4">
-                  Höchste Hygienestandards
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  In meinen exklusiven Einzelbehandlungen können Sie sich voll und ganz entspannen – unter Einhaltung höchster Hygiene- und Qualitätsstandards.
-                </p>
-              </div>
-            </div>
-
-            <div className="text-center fade-up" style={{ animationDelay: "0.4s", opacity: 0 }}>
-              <Button asChild data-testid="button-termin-buchen" size="lg">
-                <a href="/kontakt">Jetzt Termin vereinbaren</a>
+              <Button asChild data-testid="button-studio" size="lg">
+                <a href="/kontakt">zum Studio</a>
               </Button>
+            </div>
+            <div className="order-1 md:order-2 fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
+              <div className="elegant-glow">
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                  <img
+                    src={massageImage}
+                    alt="Das Studio"
+                    className="w-full aspect-[4/3] object-cover"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
