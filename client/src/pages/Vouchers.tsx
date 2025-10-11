@@ -832,7 +832,7 @@ export default function Vouchers() {
                         Was passiert, wenn der Gutscheinwert nicht ausreicht?
                       </AccordionTrigger>
                       <AccordionContent className="text-muted-foreground">
-                        Sollte die gewünschte Behandlung teurer sein als der Gutscheinwert, kann die Differenz einfach vor Ort beglichen werden. Ist die Behandlung günstiger, bleibt das restliche Guthaben erhalten.
+                        Sollte die gewünschte Behandlung teurer sein als der Gutscheinwert, kann die Differenz einfach vor Ort beglichen werden. Ist die Behandlung günstiger, bleibt das restliche Guthaben auf dem Gutschein erhalten bis der Betrag aufgebraucht ist.
                       </AccordionContent>
                     </AccordionItem>
 
