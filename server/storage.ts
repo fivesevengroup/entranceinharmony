@@ -1,4 +1,4 @@
-import { type User, type InsertUser, type Voucher, type InsertVoucher } from "@shared/schema";
+import { type User, type InsertUser, type Voucher, type InsertVoucher, type Service, type InsertService } from "@shared/schema";
 import { randomUUID } from "crypto";
 
 // modify the interface with any CRUD methods
@@ -13,15 +13,72 @@ export interface IStorage {
   getVoucherByOrderNumber(orderNumber: string): Promise<Voucher | undefined>;
   updateVoucherPaymentStatus(id: string, status: string, paypalOrderId?: string): Promise<Voucher | undefined>;
   getAllVouchers(): Promise<Voucher[]>;
+  getServices(): Promise<Service[]>;
+  getService(id: string): Promise<Service | undefined>;
+  createService(service: InsertService): Promise<Service>;
 }
 
 export class MemStorage implements IStorage {
   private users: Map<string, User>;
   private vouchers: Map<string, Voucher>;
+  private services: Map<string, Service>;
 
   constructor() {
     this.users = new Map();
     this.vouchers = new Map();
+    this.services = new Map();
+    
+    // Pre-load services/treatments
+    this.seedServices();
+  }
+  
+  private seedServices() {
+    const defaultServices: Array<Omit<Service, "id" | "createdAt">> = [
+      {
+        name: "Hydrafacial Deluxe",
+        shortDescription: "Intensive Tiefenreinigung mit Hyaluronsäure",
+        durationMinutes: 60,
+        price: 89,
+        stripeProductId: null,
+      },
+      {
+        name: "Klassische Gesichtsbehandlung",
+        shortDescription: "Entspannende Behandlung für jeden Hauttyp",
+        durationMinutes: 75,
+        price: 75,
+        stripeProductId: null,
+      },
+      {
+        name: "Anti-Aging Behandlung",
+        shortDescription: "Straffende Behandlung gegen Falten",
+        durationMinutes: 90,
+        price: 95,
+        stripeProductId: null,
+      },
+      {
+        name: "Aqua Facial",
+        shortDescription: "Feuchtigkeitsspendende Intensivpflege",
+        durationMinutes: 60,
+        price: 79,
+        stripeProductId: null,
+      },
+      {
+        name: "Microdermabrasion",
+        shortDescription: "Sanftes Peeling für glatte Haut",
+        durationMinutes: 45,
+        price: 65,
+        stripeProductId: null,
+      },
+    ];
+    
+    defaultServices.forEach((service) => {
+      const id = randomUUID();
+      this.services.set(id, {
+        ...service,
+        id,
+        createdAt: new Date(),
+      });
+    });
   }
 
   async getUser(id: string): Promise<User | undefined> {
@@ -46,6 +103,10 @@ export class MemStorage implements IStorage {
     const voucher: Voucher = {
       ...insertVoucher,
       id,
+      purchaseType: insertVoucher.purchaseType ?? "custom",
+      serviceId: insertVoucher.serviceId ?? null,
+      serviceSnapshotName: insertVoucher.serviceSnapshotName ?? null,
+      serviceSnapshotPrice: insertVoucher.serviceSnapshotPrice ?? null,
       recipientEmail: insertVoucher.recipientEmail ?? null,
       recipientAddress: insertVoucher.recipientAddress ?? null,
       message: insertVoucher.message ?? null,
@@ -82,6 +143,28 @@ export class MemStorage implements IStorage {
 
   async getAllVouchers(): Promise<Voucher[]> {
     return Array.from(this.vouchers.values());
+  }
+
+  async getServices(): Promise<Service[]> {
+    return Array.from(this.services.values());
+  }
+
+  async getService(id: string): Promise<Service | undefined> {
+    return this.services.get(id);
+  }
+
+  async createService(insertService: InsertService): Promise<Service> {
+    const id = randomUUID();
+    const service: Service = {
+      ...insertService,
+      id,
+      shortDescription: insertService.shortDescription ?? null,
+      durationMinutes: insertService.durationMinutes ?? null,
+      stripeProductId: insertService.stripeProductId ?? null,
+      createdAt: new Date(),
+    };
+    this.services.set(id, service);
+    return service;
   }
 }
 

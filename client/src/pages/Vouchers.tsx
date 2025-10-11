@@ -24,9 +24,11 @@ import voucherImage from "@assets/generated_images/Elegant_gift_voucher_card_151
 import heroImage from "@assets/voucher_hero_image.png";
 
 const voucherFormSchema = z.object({
+  purchaseType: z.enum(["custom", "service"]),
   amount: z.string().refine((val) => !isNaN(Number(val)) && Number(val) > 0, {
     message: "Betrag muss größer als 0 sein",
   }),
+  serviceId: z.string().optional(),
   deliveryMethod: z.enum(["digital", "postal"]),
   recipientName: z.string().min(2, "Name muss mindestens 2 Zeichen lang sein"),
   recipientEmail: z.string().email("Ungültige E-Mail-Adresse").optional().or(z.literal("")),
@@ -56,9 +58,29 @@ const voucherFormSchema = z.object({
     message: "Adresse ist erforderlich für postalische Gutscheine",
     path: ["recipientAddress"],
   }
+).refine(
+  (data) => {
+    if (data.purchaseType === "service") {
+      return !!data.serviceId;
+    }
+    return true;
+  },
+  {
+    message: "Bitte wählen Sie eine Behandlung aus",
+    path: ["serviceId"],
+  }
 );
 
 type VoucherFormData = z.infer<typeof voucherFormSchema>;
+
+interface Service {
+  id: string;
+  name: string;
+  shortDescription: string | null;
+  durationMinutes: number | null;
+  price: number;
+  stripeProductId: string | null;
+}
 
 export default function Vouchers() {
   const [step, setStep] = useState<"form" | "payment" | "success">("form");
@@ -66,10 +88,17 @@ export default function Vouchers() {
   const [paymentError, setPaymentError] = useState<string | null>(null);
   const { toast } = useToast();
 
+  // Fetch services from backend
+  const { data: services = [], isLoading: servicesLoading } = useQuery<Service[]>({
+    queryKey: ["/api/services"],
+  });
+
   const form = useForm<VoucherFormData>({
     resolver: zodResolver(voucherFormSchema),
     defaultValues: {
+      purchaseType: "custom",
       amount: "50",
+      serviceId: "",
       deliveryMethod: "digital",
       recipientName: "",
       recipientEmail: "",
@@ -81,14 +110,25 @@ export default function Vouchers() {
   });
 
   const deliveryMethod = form.watch("deliveryMethod");
+  const purchaseType = form.watch("purchaseType");
+  const selectedServiceId = form.watch("serviceId");
+
+  // Find selected service to display price
+  const selectedService = services.find((s) => s.id === selectedServiceId);
 
   const createVoucherMutation = useMutation({
     mutationFn: async (data: VoucherFormData) => {
       // Convert amount string to integer for backend
-      const voucherData = {
+      const voucherData: any = {
         ...data,
         amount: parseInt(data.amount, 10),
       };
+      
+      // Only include serviceId if service-based voucher
+      if (data.purchaseType !== "service") {
+        delete voucherData.serviceId;
+      }
+      
       const res = await apiRequest("POST", "/api/vouchers", voucherData);
       return res.json();
     },
@@ -577,39 +617,143 @@ export default function Vouchers() {
                 <CardContent>
                   <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                      {/* Purchase Type Selection */}
                       <FormField
                         control={form.control}
-                        name="amount"
+                        name="purchaseType"
                         render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Gutschein-Wert (€)</FormLabel>
-                            <div className="space-y-3">
-                              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                                {predefinedAmounts.map((amount) => (
-                                  <Button
-                                    key={amount}
-                                    type="button"
-                                    variant={field.value === String(amount) ? "default" : "outline"}
-                                    onClick={() => field.onChange(String(amount))}
-                                    data-testid={`button-amount-${amount}`}
-                                  >
-                                    {amount}€
-                                  </Button>
-                                ))}
-                              </div>
-                              <FormControl>
-                                <Input
-                                  type="number"
-                                  placeholder="Oder eigenen Betrag eingeben"
-                                  {...field}
-                                  data-testid="input-custom-amount"
-                                />
-                              </FormControl>
-                            </div>
+                          <FormItem className="space-y-3">
+                            <FormLabel>Gutschein-Art</FormLabel>
+                            <FormControl>
+                              <RadioGroup
+                                onValueChange={field.onChange}
+                                defaultValue={field.value}
+                                className="flex flex-col space-y-2"
+                              >
+                                <div className="flex items-center space-x-3 p-4 rounded-lg border hover-elevate">
+                                  <RadioGroupItem value="custom" id="purchase-custom" data-testid="radio-purchase-custom" />
+                                  <Label htmlFor="purchase-custom" className="flex items-center gap-2 cursor-pointer flex-1">
+                                    <CreditCard className="h-5 w-5 text-primary" />
+                                    <div>
+                                      <div className="font-medium">Freier Betrag</div>
+                                      <div className="text-sm text-muted-foreground">Wählen Sie Ihren Wunschbetrag</div>
+                                    </div>
+                                  </Label>
+                                </div>
+                                <div className="flex items-center space-x-3 p-4 rounded-lg border hover-elevate">
+                                  <RadioGroupItem value="service" id="purchase-service" data-testid="radio-purchase-service" />
+                                  <Label htmlFor="purchase-service" className="flex items-center gap-2 cursor-pointer flex-1">
+                                    <Sparkles className="h-5 w-5 text-primary" />
+                                    <div>
+                                      <div className="font-medium">Für eine Behandlung</div>
+                                      <div className="text-sm text-muted-foreground">Gutschein für spezifische Behandlung</div>
+                                    </div>
+                                  </Label>
+                                </div>
+                              </RadioGroup>
+                            </FormControl>
                             <FormMessage />
                           </FormItem>
                         )}
                       />
+
+                      {/* Custom Amount Selection - Only show if purchaseType is "custom" */}
+                      {purchaseType === "custom" && (
+                        <FormField
+                          control={form.control}
+                          name="amount"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Gutschein-Wert (€)</FormLabel>
+                              <div className="space-y-3">
+                                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                                  {predefinedAmounts.map((amount) => (
+                                    <Button
+                                      key={amount}
+                                      type="button"
+                                      variant={field.value === String(amount) ? "default" : "outline"}
+                                      onClick={() => field.onChange(String(amount))}
+                                      data-testid={`button-amount-${amount}`}
+                                    >
+                                      {amount}€
+                                    </Button>
+                                  ))}
+                                </div>
+                                <FormControl>
+                                  <Input
+                                    type="number"
+                                    placeholder="Oder eigenen Betrag eingeben"
+                                    {...field}
+                                    data-testid="input-custom-amount"
+                                  />
+                                </FormControl>
+                              </div>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      )}
+
+                      {/* Service Selection - Only show if purchaseType is "service" */}
+                      {purchaseType === "service" && (
+                        <FormField
+                          control={form.control}
+                          name="serviceId"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Behandlung auswählen</FormLabel>
+                              <div className="space-y-3">
+                                {servicesLoading ? (
+                                  <div className="text-muted-foreground py-4 text-center">Lade Behandlungen...</div>
+                                ) : (
+                                  <RadioGroup
+                                    onValueChange={field.onChange}
+                                    value={field.value}
+                                    className="space-y-2"
+                                  >
+                                    {services.map((service) => (
+                                      <div
+                                        key={service.id}
+                                        className="flex items-start space-x-3 p-4 rounded-lg border hover-elevate"
+                                      >
+                                        <RadioGroupItem
+                                          value={service.id}
+                                          id={`service-${service.id}`}
+                                          data-testid={`radio-service-${service.id}`}
+                                        />
+                                        <Label
+                                          htmlFor={`service-${service.id}`}
+                                          className="cursor-pointer flex-1"
+                                        >
+                                          <div className="flex justify-between items-start gap-3">
+                                            <div className="flex-1">
+                                              <div className="font-medium">{service.name}</div>
+                                              {service.shortDescription && (
+                                                <div className="text-sm text-muted-foreground mt-1">
+                                                  {service.shortDescription}
+                                                </div>
+                                              )}
+                                              {service.durationMinutes && (
+                                                <div className="text-xs text-muted-foreground mt-1">
+                                                  {service.durationMinutes} Minuten
+                                                </div>
+                                              )}
+                                            </div>
+                                            <div className="font-semibold text-primary whitespace-nowrap">
+                                              {service.price}€
+                                            </div>
+                                          </div>
+                                        </Label>
+                                      </div>
+                                    ))}
+                                  </RadioGroup>
+                                )}
+                              </div>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      )}
 
                       <FormField
                         control={form.control}

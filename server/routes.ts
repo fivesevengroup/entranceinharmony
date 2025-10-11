@@ -47,17 +47,41 @@ export async function registerRoutes(app: Express): Promise<Server> {
     });
   }
 
+  // Services routes
+  app.get("/api/services", async (req, res) => {
+    try {
+      const services = await storage.getServices();
+      res.json(services);
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch services" });
+    }
+  });
+
   // Voucher routes
   app.post("/api/vouchers", async (req, res) => {
     try {
       const validatedData = insertVoucherSchema.parse(req.body);
       const orderNumber = `VO-${Date.now()}-${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
       
-      const voucher = await storage.createVoucher({
+      let voucherData: any = {
         ...validatedData,
         orderNumber,
-      });
+      };
 
+      // If service-based voucher, fetch service and snapshot details
+      if (validatedData.purchaseType === "service" && validatedData.serviceId) {
+        const service = await storage.getService(validatedData.serviceId);
+        if (!service) {
+          return res.status(404).json({ error: "Service not found" });
+        }
+        
+        // Snapshot service details and override amount
+        voucherData.serviceSnapshotName = service.name;
+        voucherData.serviceSnapshotPrice = service.price;
+        voucherData.amount = service.price;
+      }
+      
+      const voucher = await storage.createVoucher(voucherData);
       res.json(voucher);
     } catch (error) {
       res.status(400).json({ error: "Invalid voucher data" });

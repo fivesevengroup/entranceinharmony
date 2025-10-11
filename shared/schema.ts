@@ -17,10 +17,32 @@ export const insertUserSchema = createInsertSchema(users).pick({
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
 
+export const services = pgTable("services", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  name: text("name").notNull(),
+  shortDescription: text("short_description"),
+  durationMinutes: integer("duration_minutes"),
+  price: integer("price").notNull(),
+  stripeProductId: text("stripe_product_id"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const insertServiceSchema = createInsertSchema(services).omit({
+  id: true,
+  createdAt: true,
+});
+
+export type InsertService = z.infer<typeof insertServiceSchema>;
+export type Service = typeof services.$inferSelect;
+
 export const vouchers = pgTable("vouchers", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
   orderNumber: text("order_number").notNull().unique(),
+  purchaseType: text("purchase_type").notNull().default("custom"),
   amount: integer("amount").notNull(),
+  serviceId: varchar("service_id"),
+  serviceSnapshotName: text("service_snapshot_name"),
+  serviceSnapshotPrice: integer("service_snapshot_price"),
   deliveryMethod: text("delivery_method").notNull(),
   recipientName: text("recipient_name").notNull(),
   recipientEmail: text("recipient_email"),
@@ -37,6 +59,8 @@ export const insertVoucherSchema = createInsertSchema(vouchers)
   .omit({
     id: true,
     createdAt: true,
+    serviceSnapshotName: true,
+    serviceSnapshotPrice: true,
   })
   .refine(
     (data) => {
@@ -60,6 +84,18 @@ export const insertVoucherSchema = createInsertSchema(vouchers)
     {
       message: "Adresse ist erforderlich für postalische Gutscheine",
       path: ["recipientAddress"],
+    }
+  )
+  .refine(
+    (data) => {
+      if (data.purchaseType === "service") {
+        return !!data.serviceId;
+      }
+      return true;
+    },
+    {
+      message: "Service-ID ist erforderlich für Behandlungs-Gutscheine",
+      path: ["serviceId"],
     }
   );
 
