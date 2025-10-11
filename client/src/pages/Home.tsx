@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import WaveDivider from "@/components/WaveDivider";
 import { Button } from "@/components/ui/button";
 import aboutImage from "@assets/Design ohne Titel(4)_1760188585511.jpg";
-import massageImage from "@assets/Chat-GPT-Image-11-Okt-2025-16-46-38_1760195479763.png";
+import massageImage from "@assets/Design-ohne-Titel-7_1760197347929.png";
 
 export default function Home() {
   return (
