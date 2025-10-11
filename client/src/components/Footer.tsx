@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { SiWhatsapp, SiInstagram } from "react-icons/si";
+import { Phone } from "lucide-react";
 import logoImage from "@assets/Design ohne Titel_1759860744691.png";
 
 export default function Footer() {
@@ -65,10 +66,26 @@ export default function Footer() {
             <div className="text-center md:text-left">
               <h4 className="font-medium text-sm uppercase tracking-widest mb-6 text-foreground pb-2 border-b border-primary/20 inline-block">Kontakt</h4>
               <ul className="space-y-2.5 text-sm">
-                <li>
-                  <a href="tel:+491709287722" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
-                    0170 9287722
-                  </a>
+                <li className="flex items-center justify-center md:justify-start gap-3">
+                  <span className="text-muted-foreground">0170 9287722</span>
+                  <div className="flex gap-2">
+                    <a 
+                      href="tel:+491709287722" 
+                      className="p-1.5 rounded-md border border-border/60 text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-all duration-200"
+                      aria-label="Anrufen"
+                    >
+                      <Phone className="h-3.5 w-3.5" />
+                    </a>
+                    <a
+                      href="https://wa.me/491709287722"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-1.5 rounded-md border border-border/60 text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-all duration-200"
+                      aria-label="WhatsApp"
+                    >
+                      <SiWhatsapp className="h-3.5 w-3.5" />
+                    </a>
+                  </div>
                 </li>
                 <li>
                   <a href="mailto:info@entranceinharmony.de" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
