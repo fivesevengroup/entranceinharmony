@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import WaveDivider from "@/components/WaveDivider";
 import { Button } from "@/components/ui/button";
-import aboutImage from "@assets/Design ohne Titel_1759678752531.png";
+import aboutImage from "@assets/Design ohne Titel(4)_1760188585511.jpg";
 import massageImage from "@assets/generated_images/Massage_therapy_session_569ccb02.png";
 
 export default function Home() {
