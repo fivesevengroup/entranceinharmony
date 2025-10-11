@@ -91,17 +91,17 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
             <div className="order-2 md:order-1 fade-up">
               <h2 className="font-serif text-4xl md:text-5xl font-light mb-6">
-                Das Studio
+                Besuchen Sie mein Studio
               </h2>
               <div className="h-0.5 w-24 mb-8 gold-shimmer rounded-full"></div>
               <h3 className="text-xl font-light mb-6 text-primary">
-                Lernen Sie mein Studio und mich näher kennen!
+                Ihr Wohlfühlort in Burbach
               </h3>
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                In entspannter Atmosphäre biete ich Ihnen professionelle Behandlungen für Gesicht und Körper. Lassen Sie sich verwöhnen und genießen Sie einen Moment nur für sich.
+                In entspannter Atmosphäre und modernem Ambiente biete ich Ihnen professionelle Behandlungen für Gesicht und Körper. Überzeugen Sie sich selbst von meinem Studio und vereinbaren Sie jetzt Ihren persönlichen Wohlfühltermin.
               </p>
               <Button asChild data-testid="button-studio" size="lg">
-                <a href="/kontakt">zum Studio</a>
+                <a href="/kontakt">Termin vereinbaren</a>
               </Button>
             </div>
             <div className="order-1 md:order-2 fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
