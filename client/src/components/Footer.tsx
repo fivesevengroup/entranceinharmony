@@ -58,7 +58,7 @@ export default function Footer() {
             </div>
             <div className="h-px w-32 mx-auto mt-3 mb-4 bg-gradient-to-r from-transparent via-primary/40 to-transparent"></div>
             <p className="text-sm font-light text-muted-foreground tracking-wide">
-              Ihre Beauty-Expertin in Burbach
+              Ihre Beauty-Expertin in Burbach und Umgebung
             </p>
           </div>
 

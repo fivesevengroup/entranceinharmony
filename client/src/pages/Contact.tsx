@@ -45,7 +45,7 @@ export default function Contact() {
           <div className="h-0.5 w-32 mx-auto mb-8 gold-shimmer rounded-full fade-up" style={{ animationDelay: "0.6s", opacity: 0 }}></div>
 
           <p className="text-xl md:text-3xl mb-6 text-white/95 drop-shadow-lg font-light max-w-2xl mx-auto fade-up" style={{ animationDelay: "0.8s", opacity: 0 }}>
-            Ihre Beauty-Expertin in Burbach
+            Ihre Beauty-Expertin in Burbach und Umgebung
           </p>
           <p className="text-lg md:text-xl mb-12 text-white/90 drop-shadow-lg font-light max-w-3xl mx-auto fade-up leading-relaxed" style={{ animationDelay: "1s", opacity: 0 }}>
             Lernen Sie mich kennen und erfahren Sie mehr über meine Passion für ästhetische Perfektion
