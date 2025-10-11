@@ -50,7 +50,8 @@ Preferred communication style: Simple, everyday language.
 - In-memory storage layer with interface for future database migration
 
 **Key Routes:**
-- `/api/vouchers` - Voucher CRUD operations
+- `/api/services` - GET endpoint to retrieve available beauty treatments
+- `/api/vouchers` - Voucher CRUD operations (supports both custom-amount and service-based vouchers)
 - `/api/create-payment-intent` - Stripe payment intent creation
 - `/api/vouchers/:id/payment` - Update voucher payment status
 - `/download/elena-portrait.jpg` - Download about page image
@@ -59,7 +60,8 @@ Preferred communication style: Simple, everyday language.
 - Abstract IStorage interface defining data access methods
 - MemStorage implementation for development (in-memory)
 - Designed for easy migration to Drizzle ORM with PostgreSQL
-- Support for User and Voucher entities
+- Support for User, Voucher, and Service entities
+- Pre-loaded services: Hydrafacial Deluxe, Klassische Gesichtsbehandlung, Anti-Aging Behandlung, Aqua Facial, Microdermabrasion
 
 ### Data Storage
 
@@ -73,11 +75,17 @@ Preferred communication style: Simple, everyday language.
 - Drizzle ORM for type-safe database queries
 - Schema definitions in `shared/schema.ts`:
   - Users table (id, username, password)
-  - Vouchers table (id, orderNumber, amount, deliveryMethod, recipient info, payment status)
+  - Services table (id, name, shortDescription, durationMinutes, price, stripeProductId, createdAt)
+  - Vouchers table (id, orderNumber, purchaseType, amount, serviceId, serviceSnapshotName, serviceSnapshotPrice, deliveryMethod, recipient info, payment status)
 
 **Data Models:**
 - User: Authentication and account management
-- Voucher: Gift voucher with digital/postal delivery options, Stripe payment integration
+- Service: Beauty treatments/services with pricing and duration information
+- Voucher: Gift voucher with two purchase types:
+  - Custom: Free-amount vouchers where user chooses any amount
+  - Service: Treatment-specific vouchers linked to a service (amount determined by service price)
+  - Includes service snapshot fields (serviceSnapshotName, serviceSnapshotPrice) to preserve historical pricing
+  - Digital/postal delivery options with Stripe payment integration
 
 ### Authentication & Authorization
 
@@ -165,3 +173,106 @@ The homepage hero section features a spectacular sequential animation for the sl
 - Particles removed after animation completes to prevent DOM bloat
 - Mix-blend-mode screen provides luminous effect without heavy compositing
 - Mobile-responsive with proper breakpoints
+
+## Voucher System Architecture (October 2025)
+
+### Two-Type Voucher System
+
+The application supports two distinct types of gift vouchers, each serving different customer needs:
+
+**1. Custom Amount Vouchers (purchaseType: "custom")**
+- Users select or enter any monetary value (€25, €50, €75, €100, or custom)
+- Flexible redemption - can be applied to any service or combination of services
+- Amount is user-defined and validated on both frontend and backend
+
+**2. Service-Based Vouchers (purchaseType: "service")**
+- Vouchers tied to specific beauty treatments
+- Amount automatically determined by the selected service's price
+- Service details are "snapshotted" at purchase time to preserve historical pricing
+- Prevents pricing discrepancies if service prices change after voucher purchase
+
+### Service Snapshot Pattern
+
+When a service-based voucher is created, the system captures and stores:
+- `serviceSnapshotName`: The name of the treatment at time of purchase
+- `serviceSnapshotPrice`: The exact price at time of purchase
+- `serviceId`: Reference to the original service (for tracking/analytics)
+
+This ensures that voucher value remains consistent even if the salon updates their pricing.
+
+### Security Implementation
+
+**Backend Price Enforcement:**
+- For service-based vouchers, the backend determines the voucher amount from the service price
+- Client-submitted amount is ignored and overridden by backend-fetched service price
+- Prevents price manipulation attacks where users could modify the amount before submission
+
+**Validation Flow:**
+1. Frontend validates purchaseType and serviceId selection
+2. Backend receives voucher creation request
+3. If purchaseType is "service", backend fetches service from storage
+4. Backend snapshots service name and price
+5. Backend overrides any client-submitted amount with service.price
+6. Voucher is created with server-determined amount
+
+### Pre-loaded Services
+
+The system comes with 5 realistic beauty treatments pre-loaded in memory:
+
+1. **Hydrafacial Deluxe** - €89, 60 minutes
+   - Intensive Tiefenreinigung mit Hyaluronsäure
+
+2. **Klassische Gesichtsbehandlung** - €75, 75 minutes
+   - Entspannende Behandlung für jeden Hauttyp
+
+3. **Anti-Aging Behandlung** - €95, 90 minutes
+   - Straffende Behandlung gegen Falten
+
+4. **Aqua Facial** - €79, 60 minutes
+   - Feuchtigkeitsspendende Intensivpflege
+
+5. **Microdermabrasion** - €65, 45 minutes
+   - Sanftes Peeling für glatte Haut
+
+### User Experience Flow
+
+**Voucher Purchase Journey:**
+1. User navigates to /gutscheine (vouchers page)
+2. User selects voucher type:
+   - "Freier Betrag" (Custom Amount) → Shows amount selection with predefined options
+   - "Für eine Behandlung" (For a Treatment) → Shows list of available services
+3. For service vouchers, each service displays:
+   - Treatment name
+   - Short description
+   - Duration in minutes
+   - Price in euros
+4. User selects delivery method (digital email or postal)
+5. User provides recipient and buyer information
+6. System creates voucher with appropriate amount
+7. User proceeds to Stripe payment
+8. Upon successful payment, voucher is marked as paid
+
+### Frontend Implementation
+
+**Component: client/src/pages/Vouchers.tsx**
+- Fetches services from `/api/services` endpoint using TanStack Query
+- Conditionally renders form fields based on selected purchaseType
+- Form validation ensures serviceId is required when purchaseType is "service"
+- Amount field only shown and required for custom vouchers
+- Service selection radio group only shown for service-based vouchers
+
+### Backend Implementation
+
+**Storage: server/storage.ts**
+- `getServices()`: Returns all available services
+- `getService(id)`: Fetches specific service by ID
+- `createService(service)`: Adds new service to storage
+- Services are seeded on MemStorage initialization
+
+**Routes: server/routes.ts**
+- `GET /api/services`: Returns list of all services
+- `POST /api/vouchers`: 
+  - Validates voucher data with Zod schema
+  - For service vouchers: fetches service, snapshots details, overrides amount
+  - Creates voucher with appropriate data
+  - Returns created voucher for payment processing
