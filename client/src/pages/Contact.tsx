@@ -247,9 +247,6 @@ export default function Contact() {
                           <p className="text-foreground">
                             Termin nach Vereinbarung
                           </p>
-                          <p className="text-sm text-muted-foreground mt-1">
-                            Flexibel nach Ihren Wünschen
-                          </p>
                         </div>
                       </div>
                     </div>
