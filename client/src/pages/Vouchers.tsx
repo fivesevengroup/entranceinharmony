@@ -15,7 +15,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
-import VoucherPayPalButton from "@/components/VoucherPayPalButton";
+import VoucherStripeCheckout from "@/components/VoucherStripeCheckout";
 import { Gift, Mail, Truck, CheckCircle2, AlertCircle, Star, Heart, Calendar, Sparkles, CreditCard, Send, Package } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
@@ -63,22 +63,8 @@ type VoucherFormData = z.infer<typeof voucherFormSchema>;
 export default function Vouchers() {
   const [step, setStep] = useState<"form" | "payment" | "success">("form");
   const [voucherId, setVoucherId] = useState<string | null>(null);
-  const [paypalAvailable, setPaypalAvailable] = useState<boolean | null>(null);
   const [paymentError, setPaymentError] = useState<string | null>(null);
   const { toast } = useToast();
-
-  useEffect(() => {
-    const checkPayPal = async () => {
-      try {
-        const response = await fetch("/setup");
-        const data = await response.json();
-        setPaypalAvailable(!data.error);
-      } catch {
-        setPaypalAvailable(false);
-      }
-    };
-    checkPayPal();
-  }, []);
 
   const form = useForm<VoucherFormData>({
     resolver: zodResolver(voucherFormSchema),
@@ -182,7 +168,7 @@ export default function Vouchers() {
           <div className="flex flex-wrap justify-center gap-6 fade-up" style={{ animationDelay: "1.4s", opacity: 0 }}>
             <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
               <CheckCircle2 className="w-4 h-4 mr-2 text-primary" />
-              Sichere PayPal-Zahlung
+              Sichere Zahlung mit Stripe
             </Badge>
             <Badge variant="secondary" className="glassmorphism border-2 border-white/20 text-white px-5 py-3 text-sm font-medium">
               <Star className="w-4 h-4 mr-2 text-primary" />
@@ -894,47 +880,18 @@ export default function Vouchers() {
                       </Alert>
                     )}
 
-                    {paypalAvailable === false && (
-                      <Alert>
-                        <AlertCircle className="h-4 w-4" />
-                        <AlertTitle>Zahlung derzeit nicht verfügbar</AlertTitle>
-                        <AlertDescription>
-                          Die Online-Zahlung ist momentan nicht verfügbar. Bitte kontaktieren Sie uns direkt über WhatsApp, um Ihren Gutschein zu bestellen.
-                        </AlertDescription>
-                      </Alert>
-                    )}
-
-                    {paypalAvailable === true && voucherId && (
-                      <>
-                        <div className="text-center text-sm text-muted-foreground mb-4">
-                          Bezahlen Sie sicher mit PayPal, Klarna oder Kreditkarte
-                        </div>
-
-                        <div className="flex justify-center">
-                          <VoucherPayPalButton
-                            amount={form.getValues("amount")}
-                            currency="EUR"
-                            intent="CAPTURE"
-                            voucherId={voucherId}
-                            onSuccess={() => {
-                              setStep("success");
-                              toast({
-                                title: "Zahlung erfolgreich!",
-                                description: "Ihr Gutschein wurde erfolgreich gekauft.",
-                              });
-                            }}
-                            onError={(error) => {
-                              setPaymentError(error);
-                            }}
-                          />
-                        </div>
-                      </>
-                    )}
-
-                    {paypalAvailable === null && (
-                      <div className="text-center text-muted-foreground">
-                        Zahlungsoptionen werden geladen...
-                      </div>
+                    {voucherId && (
+                      <VoucherStripeCheckout
+                        voucherId={voucherId}
+                        amount={parseFloat(form.getValues("amount"))}
+                        onSuccess={() => {
+                          setStep("success");
+                          toast({
+                            title: "Zahlung erfolgreich!",
+                            description: "Ihr Gutschein wurde erfolgreich gekauft.",
+                          });
+                        }}
+                      />
                     )}
 
                     <Button

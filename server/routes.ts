@@ -3,6 +3,12 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertVoucherSchema, updateVoucherPaymentSchema } from "@shared/schema";
 import path from "path";
+import Stripe from "stripe";
+
+if (!process.env.STRIPE_SECRET_KEY) {
+  throw new Error('Missing required Stripe secret: STRIPE_SECRET_KEY');
+}
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Download route for about page image
@@ -80,6 +86,45 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.json(voucher);
     } catch (error) {
       res.status(400).json({ error: "Invalid payment update data" });
+    }
+  });
+
+  // Stripe payment intent endpoint for vouchers
+  app.post("/api/create-payment-intent", async (req, res) => {
+    try {
+      const { voucherId } = req.body;
+      
+      if (!voucherId) {
+        return res.status(400).json({ error: "Missing voucherId" });
+      }
+
+      // Fetch the voucher to get the actual amount
+      const voucher = await storage.getVoucher(voucherId);
+      if (!voucher) {
+        return res.status(404).json({ error: "Voucher not found" });
+      }
+
+      const amount = voucher.amount;
+      if (amount <= 0) {
+        return res.status(400).json({ error: "Invalid voucher amount" });
+      }
+
+      const paymentIntent = await stripe.paymentIntents.create({
+        amount: Math.round(amount * 100), // Convert EUR to cents
+        currency: "eur",
+        metadata: {
+          voucherId: voucherId,
+        },
+        automatic_payment_methods: {
+          enabled: true,
+        },
+      });
+
+      res.json({ clientSecret: paymentIntent.client_secret });
+    } catch (error: any) {
+      res.status(500).json({ 
+        error: "Error creating payment intent: " + error.message 
+      });
     }
   });
 
