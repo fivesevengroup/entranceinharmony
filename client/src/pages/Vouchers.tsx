@@ -776,7 +776,6 @@ export default function Vouchers() {
                                     <Truck className="h-5 w-5 text-primary" />
                                     <div>
                                       <div className="font-medium">Per Post + 2,90€ Versand</div>
-                                      <div className="text-sm text-muted-foreground">Gedruckter Gutschein</div>
                                     </div>
                                   </Label>
                                 </div>
