@@ -20,7 +20,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/leistungen" component={Services} />
       <Route path="/kontakt" component={Contact} />
-      <Route path="/geschenkgutscheine" component={Vouchers} />
+      <Route path="/gutscheine" component={Vouchers} />
       <Route path="/impressum" component={Impressum} />
       <Route path="/datenschutz" component={Datenschutz} />
       <Route component={NotFound} />

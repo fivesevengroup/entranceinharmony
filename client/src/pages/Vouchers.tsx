@@ -16,9 +16,10 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import VoucherStripeCheckout from "@/components/VoucherStripeCheckout";
-import { Gift, Mail, Truck, CheckCircle2, AlertCircle, Star, Heart, Calendar, Sparkles, CreditCard, Send, Package } from "lucide-react";
+import { Gift, Mail, Truck, CheckCircle2, AlertCircle, Star, Heart, Calendar, Sparkles, CreditCard, Send, Package, X } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose } from "@/components/ui/dialog";
 import WaveDivider from "@/components/WaveDivider";
 import voucherImage from "@assets/generated_images/Elegant_gift_voucher_card_151c453a.png";
 import heroImage from "@assets/voucher_hero_image.png";
@@ -86,6 +87,7 @@ export default function Vouchers() {
   const [step, setStep] = useState<"form" | "payment" | "success">("form");
   const [voucherId, setVoucherId] = useState<string | null>(null);
   const [paymentError, setPaymentError] = useState<string | null>(null);
+  const [serviceDialogOpen, setServiceDialogOpen] = useState(false);
   const { toast } = useToast();
 
   // Check for Stripe Checkout return and verify session
@@ -670,53 +672,102 @@ export default function Vouchers() {
                             <FormItem>
                               <FormLabel>Behandlung auswählen</FormLabel>
                               <div className="space-y-3">
-                                {servicesLoading ? (
-                                  <div className="text-muted-foreground py-4 text-center">Lade Behandlungen...</div>
-                                ) : (
-                                  <RadioGroup
-                                    onValueChange={field.onChange}
-                                    value={field.value}
-                                    className="space-y-2"
-                                  >
-                                    {services.map((service) => (
-                                      <div
-                                        key={service.id}
-                                        className="flex items-start space-x-3 p-4 rounded-lg border hover-elevate"
-                                      >
-                                        <RadioGroupItem
-                                          value={service.id}
-                                          id={`service-${service.id}`}
-                                          data-testid={`radio-service-${service.id}`}
-                                        />
-                                        <Label
-                                          htmlFor={`service-${service.id}`}
-                                          className="cursor-pointer flex-1"
-                                        >
-                                          <div className="flex justify-between items-start gap-3">
-                                            <div className="flex-1">
-                                              <div className="font-medium">{service.name}</div>
-                                              {service.shortDescription && (
-                                                <div className="text-sm text-muted-foreground mt-1">
-                                                  {service.shortDescription}
-                                                </div>
-                                              )}
-                                              {service.durationMinutes && (
-                                                <div className="text-xs text-muted-foreground mt-1">
-                                                  {service.durationMinutes} Minuten
-                                                </div>
-                                              )}
-                                            </div>
-                                            <div className="font-semibold text-primary whitespace-nowrap">
-                                              {service.price}€
-                                            </div>
+                                <Button
+                                  type="button"
+                                  variant="outline"
+                                  onClick={() => setServiceDialogOpen(true)}
+                                  className="w-full justify-start text-left h-auto py-4"
+                                  data-testid="button-select-service"
+                                >
+                                  {selectedService ? (
+                                    <div className="flex justify-between items-center w-full">
+                                      <div>
+                                        <div className="font-medium">{selectedService.name}</div>
+                                        {selectedService.durationMinutes && (
+                                          <div className="text-xs text-muted-foreground mt-1">
+                                            {selectedService.durationMinutes} Minuten
                                           </div>
-                                        </Label>
+                                        )}
                                       </div>
-                                    ))}
-                                  </RadioGroup>
-                                )}
+                                      <div className="font-semibold text-primary">
+                                        {selectedService.price}€
+                                      </div>
+                                    </div>
+                                  ) : (
+                                    <span className="text-muted-foreground">Behandlung wählen...</span>
+                                  )}
+                                </Button>
+                                <FormMessage />
                               </div>
-                              <FormMessage />
+
+                              {/* Service Selection Dialog */}
+                              <Dialog open={serviceDialogOpen} onOpenChange={setServiceDialogOpen}>
+                                <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto">
+                                  <DialogHeader>
+                                    <div className="flex items-center justify-between">
+                                      <DialogTitle className="text-2xl">Behandlung auswählen</DialogTitle>
+                                      <DialogClose className="rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+                                        <X className="h-5 w-5" />
+                                        <span className="sr-only">Schließen</span>
+                                      </DialogClose>
+                                    </div>
+                                  </DialogHeader>
+                                  <div className="space-y-3 mt-4">
+                                    {servicesLoading ? (
+                                      <div className="text-muted-foreground py-8 text-center">Lade Behandlungen...</div>
+                                    ) : (
+                                      <RadioGroup
+                                        onValueChange={(value) => {
+                                          field.onChange(value);
+                                          setServiceDialogOpen(false);
+                                        }}
+                                        value={field.value}
+                                        className="space-y-3"
+                                      >
+                                        {services.map((service) => (
+                                          <div
+                                            key={service.id}
+                                            className="flex items-start space-x-3 p-4 rounded-lg border hover-elevate cursor-pointer"
+                                            onClick={() => {
+                                              field.onChange(service.id);
+                                              setServiceDialogOpen(false);
+                                            }}
+                                          >
+                                            <RadioGroupItem
+                                              value={service.id}
+                                              id={`dialog-service-${service.id}`}
+                                              data-testid={`radio-service-${service.id}`}
+                                            />
+                                            <Label
+                                              htmlFor={`dialog-service-${service.id}`}
+                                              className="cursor-pointer flex-1"
+                                            >
+                                              <div className="flex justify-between items-start gap-3">
+                                                <div className="flex-1">
+                                                  <div className="font-medium">{service.name}</div>
+                                                  {service.shortDescription && (
+                                                    <div className="text-sm text-muted-foreground mt-1">
+                                                      {service.shortDescription}
+                                                    </div>
+                                                  )}
+                                                  {service.durationMinutes && (
+                                                    <div className="text-xs text-muted-foreground mt-1">
+                                                      {service.durationMinutes} Minuten
+                                                    </div>
+                                                  )}
+                                                </div>
+                                                <div className="font-semibold text-primary whitespace-nowrap">
+                                                  {service.price}€
+                                                </div>
+                                              </div>
+                                            </Label>
+                                          </div>
+                                        ))}
+                                      </RadioGroup>
+                                    )}
+                                  </div>
+                                </DialogContent>
+                              </Dialog>
                             </FormItem>
                           )}
                         />

@@ -34,7 +34,7 @@ export default function Header({ transparent = false }: HeaderProps) {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/leistungen", label: "Behandlungen" },
-    { href: "/geschenkgutscheine", label: "Geschenkgutscheine" },
+    { href: "/gutscheine", label: "Geschenkgutscheine" },
     { href: "/kontakt", label: "Über mich" },
   ];
 
@@ -275,7 +275,7 @@ export default function Header({ transparent = false }: HeaderProps) {
                         </a>
 
                         <Link 
-                          href="/geschenkgutscheine" 
+                          href="/gutscheine" 
                           onClick={() => setMobileMenuOpen(false)}
                           className="block"
                         >
