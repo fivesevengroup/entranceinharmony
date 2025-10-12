@@ -237,7 +237,70 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Stripe Checkout Session endpoint for vouchers
+  // Stripe Payment Intent endpoint for embedded checkout
+  app.post("/api/create-payment-intent", async (req, res) => {
+    try {
+      const { voucherId } = req.body;
+      
+      if (!voucherId) {
+        return res.status(400).json({ error: "Missing voucherId" });
+      }
+
+      // Fetch the voucher to get the actual amount and type
+      const voucher = await storage.getVoucher(voucherId);
+      if (!voucher) {
+        return res.status(404).json({ error: "Voucher not found" });
+      }
+
+      let amount = voucher.amount;
+      if (amount <= 0) {
+        return res.status(400).json({ error: "Invalid voucher amount" });
+      }
+
+      // Add shipping cost if delivery method is postal
+      if (voucher.deliveryMethod === "postal") {
+        amount += 2.90; // Add €2.90 shipping
+      }
+
+      // Create description based on voucher type
+      let description = "";
+      if (voucher.purchaseType === "service") {
+        description = `Gutschein - ${voucher.serviceSnapshotName}`;
+      } else {
+        description = `Gutschein - Freier Betrag (€${voucher.amount})`;
+      }
+
+      if (voucher.deliveryMethod === "postal") {
+        description += " (inkl. Versand)";
+      }
+
+      // Create Stripe Payment Intent
+      const paymentIntent = await stripe.paymentIntents.create({
+        amount: Math.round(amount * 100), // Amount in cents
+        currency: "eur",
+        automatic_payment_methods: {
+          enabled: true, // Enables all available payment methods
+        },
+        metadata: {
+          voucherId: voucherId,
+          orderNumber: voucher.orderNumber,
+        },
+        description: description,
+      });
+
+      res.json({ 
+        clientSecret: paymentIntent.client_secret,
+        amount: amount
+      });
+    } catch (error: any) {
+      console.error("Error creating payment intent:", error);
+      res.status(500).json({ 
+        error: "Error creating payment intent: " + error.message 
+      });
+    }
+  });
+
+  // Stripe Checkout Session endpoint for vouchers (kept for backwards compatibility)
   app.post("/api/create-checkout-session", async (req, res) => {
     try {
       const { voucherId } = req.body;
