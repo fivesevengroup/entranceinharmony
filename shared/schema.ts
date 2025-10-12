@@ -59,21 +59,11 @@ export const insertVoucherSchema = createInsertSchema(vouchers)
   .omit({
     id: true,
     createdAt: true,
+    orderNumber: true,
     serviceSnapshotName: true,
     serviceSnapshotPrice: true,
+    message: true,
   })
-  .refine(
-    (data) => {
-      if (data.deliveryMethod === "digital") {
-        return !!data.recipientEmail && data.recipientEmail.length > 0;
-      }
-      return true;
-    },
-    {
-      message: "E-Mail-Adresse ist erforderlich für digitale Gutscheine",
-      path: ["recipientEmail"],
-    }
-  )
   .refine(
     (data) => {
       if (data.deliveryMethod === "postal") {

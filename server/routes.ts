@@ -61,7 +61,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Voucher routes
   app.post("/api/vouchers", async (req, res) => {
     try {
+      console.log("Received voucher data:", JSON.stringify(req.body, null, 2));
       const validatedData = insertVoucherSchema.parse(req.body);
+      console.log("Validated voucher data:", JSON.stringify(validatedData, null, 2));
       const orderNumber = `VO-${Date.now()}-${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
       
       let voucherData: any = {
@@ -85,6 +87,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const voucher = await storage.createVoucher(voucherData);
       res.json(voucher);
     } catch (error) {
+      console.error("Voucher creation error:", error);
+      if (error instanceof Error) {
+        console.error("Error details:", error.message);
+      }
       res.status(400).json({ error: "Invalid voucher data" });
     }
   });
@@ -288,16 +294,34 @@ export async function registerRoutes(app: Express): Promise<Server> {
         };
       }
 
+      // Build line items array
+      const lineItems: any[] = [
+        {
+          price_data: priceData,
+          quantity: 1,
+        },
+      ];
+
+      // Add shipping cost if delivery method is postal
+      if (voucher.deliveryMethod === "postal") {
+        lineItems.push({
+          price_data: {
+            currency: "eur",
+            product_data: {
+              name: "Versand",
+              description: "Postalischer Versand des Gutscheins",
+            },
+            unit_amount: 290, // €2.90 in cents
+          },
+          quantity: 1,
+        });
+      }
+
       // Create Stripe Checkout Session
       const session = await stripe.checkout.sessions.create({
         mode: "payment",
         payment_method_types: ["card"],
-        line_items: [
-          {
-            price_data: priceData,
-            quantity: 1,
-          },
-        ],
+        line_items: lineItems,
         metadata: {
           voucherId: voucherId,
         },
