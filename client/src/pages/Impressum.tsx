@@ -89,27 +89,6 @@ export default function Impressum() {
                 </div>
 
                 <div>
-                  <h2 className="font-medium text-lg mb-3">Berufsbezeichnung und berufsrechtliche Regelungen</h2>
-                  <div className="space-y-1 text-muted-foreground">
-                    <p>
-                      <span className="font-medium text-foreground">Berufsbezeichnung:</span> Kosmetikerin
-                    </p>
-                    <p>
-                      <span className="font-medium text-foreground">Verliehen in:</span> Deutschland
-                    </p>
-                  </div>
-                </div>
-
-                <div>
-                  <h2 className="font-medium text-lg mb-3">Redaktionell verantwortlich</h2>
-                  <div className="text-muted-foreground">
-                    <p>Elena Hartstein</p>
-                    <p>Höhfeld 5</p>
-                    <p>57299 Burbach</p>
-                  </div>
-                </div>
-
-                <div>
                   <h2 className="font-medium text-lg mb-3">EU-Streitschlichtung</h2>
                   <div className="text-muted-foreground">
                     <p>
