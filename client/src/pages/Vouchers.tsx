@@ -775,7 +775,8 @@ export default function Vouchers() {
                                   <Label htmlFor="postal" className="flex items-center gap-2 cursor-pointer flex-1">
                                     <Truck className="h-5 w-5 text-primary" />
                                     <div>
-                                      <div className="font-medium">Per Post + 2,90€ Versand</div>
+                                      <div className="font-medium">Per Post</div>
+                                      <div className="text-sm text-muted-foreground">zzgl. 2,90€ Versand</div>
                                     </div>
                                   </Label>
                                 </div>
