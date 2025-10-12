@@ -34,10 +34,10 @@ export async function initializeStripeProducts() {
         continue;
       }
       
-      // Create Stripe product for this service
+      // Create Stripe product for this service (use existing product if available)
       const product = await createOrGetStripeProduct({
-        name: `Gutschein - ${service.name}`,
-        description: service.shortDescription || `Behandlungsgutschein für ${service.name}`,
+        name: service.name,
+        description: service.shortDescription || `${service.name} - ${service.durationMinutes} Minuten`,
         metadata: {
           type: "service_voucher",
           serviceId: service.id,
@@ -74,18 +74,32 @@ async function createOrGetStripeProduct(params: {
   description: string;
   metadata: Record<string, string>;
 }): Promise<Stripe.Product> {
-  // Check if product already exists by metadata
+  // Check if product already exists by name first, then by metadata
   const existingProducts = await stripe.products.list({
     limit: 100,
   });
   
-  const existing = existingProducts.data.find(
-    (p) => p.metadata.type === params.metadata.type && 
-           (params.metadata.serviceId ? p.metadata.serviceId === params.metadata.serviceId : true)
+  // First try to find by name (for existing products)
+  let existing = existingProducts.data.find(
+    (p) => p.name === params.name && p.active
   );
+  
+  // If not found by name, try by metadata (for products we created before)
+  if (!existing) {
+    existing = existingProducts.data.find(
+      (p) => p.metadata.type === params.metadata.type && 
+             (params.metadata.serviceId ? p.metadata.serviceId === params.metadata.serviceId : true)
+    );
+  }
   
   if (existing) {
     console.log(`Product already exists: ${existing.name}`);
+    // Update metadata if needed
+    if (existing.metadata.type !== params.metadata.type) {
+      await stripe.products.update(existing.id, {
+        metadata: params.metadata,
+      });
+    }
     return existing;
   }
   
