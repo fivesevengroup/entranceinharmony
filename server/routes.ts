@@ -318,6 +318,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
 
       // Create Stripe Checkout Session
+      // Note: Additional payment methods can be enabled in the Stripe Dashboard
       const session = await stripe.checkout.sessions.create({
         mode: "payment",
         payment_method_types: ["card"],
