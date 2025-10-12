@@ -156,8 +156,83 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Stripe payment intent endpoint for vouchers
-  app.post("/api/create-payment-intent", async (req, res) => {
+  // Verify Stripe Checkout Session and update voucher status
+  app.post("/api/verify-checkout-session", async (req, res) => {
+    try {
+      const { sessionId } = req.body;
+      
+      if (!sessionId) {
+        return res.status(400).json({ error: "Missing sessionId" });
+      }
+
+      // Retrieve session from Stripe
+      const session = await stripe.checkout.sessions.retrieve(sessionId);
+      
+      if (!session.metadata?.voucherId) {
+        return res.status(400).json({ error: "No voucherId in session" });
+      }
+
+      // Check if payment was successful
+      if (session.payment_status === "paid") {
+        const voucher = await storage.updateVoucherPaymentStatus(
+          session.metadata.voucherId,
+          "paid"
+        );
+
+        if (!voucher) {
+          return res.status(404).json({ error: "Voucher not found" });
+        }
+
+        // Send emails if configured
+        if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+          try {
+            // Send voucher email to recipient (only for digital vouchers)
+            if (voucher.deliveryMethod === "digital" && voucher.recipientEmail) {
+              await sendVoucherEmail({
+                recipientEmail: voucher.recipientEmail,
+                recipientName: voucher.recipientName,
+                buyerName: voucher.buyerName,
+                amount: voucher.amount,
+                orderNumber: voucher.orderNumber,
+                message: voucher.message || undefined,
+                deliveryMethod: voucher.deliveryMethod as "digital" | "postal",
+                purchaseType: voucher.purchaseType as "custom" | "service",
+                serviceSnapshotName: voucher.serviceSnapshotName || undefined,
+              });
+            }
+
+            // Send confirmation email to buyer
+            await sendPurchaseConfirmationEmail({
+              buyerEmail: voucher.buyerEmail,
+              buyerName: voucher.buyerName,
+              recipientEmail: voucher.recipientEmail || "",
+              recipientName: voucher.recipientName,
+              amount: voucher.amount,
+              orderNumber: voucher.orderNumber,
+              message: voucher.message || undefined,
+              deliveryMethod: voucher.deliveryMethod as "digital" | "postal",
+              purchaseType: voucher.purchaseType as "custom" | "service",
+              serviceSnapshotName: voucher.serviceSnapshotName || undefined,
+            });
+          } catch (emailError) {
+            console.error("Error sending emails:", emailError);
+          }
+        }
+
+        res.json({ success: true, voucher });
+      } else {
+        res.json({ success: false, message: "Payment not completed" });
+      }
+    } catch (error: any) {
+      console.error("Error verifying checkout session:", error);
+      res.status(500).json({ 
+        error: "Error verifying checkout session: " + error.message 
+      });
+    }
+  });
+
+  // Stripe Checkout Session endpoint for vouchers
+  app.post("/api/create-checkout-session", async (req, res) => {
     try {
       const { voucherId } = req.body;
       
@@ -165,7 +240,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ error: "Missing voucherId" });
       }
 
-      // Fetch the voucher to get the actual amount
+      // Fetch the voucher to get the actual amount and type
       const voucher = await storage.getVoucher(voucherId);
       if (!voucher) {
         return res.status(404).json({ error: "Voucher not found" });
@@ -176,21 +251,65 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ error: "Invalid voucher amount" });
       }
 
-      const paymentIntent = await stripe.paymentIntents.create({
-        amount: Math.round(amount * 100), // Convert EUR to cents
-        currency: "eur",
+      // Determine which Stripe product to use
+      let priceData;
+      
+      if (voucher.purchaseType === "service" && voucher.serviceId) {
+        // For service vouchers, use the service's Stripe product
+        const service = await storage.getService(voucher.serviceId);
+        
+        if (service && service.stripeProductId) {
+          // Use the existing product and create a price
+          priceData = {
+            currency: "eur",
+            product: service.stripeProductId,
+            unit_amount: Math.round(amount * 100),
+          };
+        } else {
+          // Fallback: create price data on the fly
+          priceData = {
+            currency: "eur",
+            product_data: {
+              name: `Gutschein - ${voucher.serviceSnapshotName || "Behandlung"}`,
+              description: `Behandlungsgutschein für ${voucher.serviceSnapshotName}`,
+            },
+            unit_amount: Math.round(amount * 100),
+          };
+        }
+      } else {
+        // For custom amount vouchers
+        priceData = {
+          currency: "eur",
+          product_data: {
+            name: "Gutschein - Freier Betrag",
+            description: `Wertgutschein über €${amount}`,
+          },
+          unit_amount: Math.round(amount * 100),
+        };
+      }
+
+      // Create Stripe Checkout Session
+      const session = await stripe.checkout.sessions.create({
+        mode: "payment",
+        payment_method_types: ["card"],
+        line_items: [
+          {
+            price_data: priceData,
+            quantity: 1,
+          },
+        ],
         metadata: {
           voucherId: voucherId,
         },
-        automatic_payment_methods: {
-          enabled: true,
-        },
+        success_url: `${req.headers.origin}/gutscheine?success=true&session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${req.headers.origin}/gutscheine?canceled=true`,
       });
 
-      res.json({ clientSecret: paymentIntent.client_secret });
+      res.json({ url: session.url });
     } catch (error: any) {
+      console.error("Error creating checkout session:", error);
       res.status(500).json({ 
-        error: "Error creating payment intent: " + error.message 
+        error: "Error creating checkout session: " + error.message 
       });
     }
   });
@@ -200,13 +319,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const event = req.body;
 
-      // Handle payment success
-      if (event.type === "payment_intent.succeeded") {
-        const paymentIntent = event.data.object as Stripe.PaymentIntent;
-        const voucherId = paymentIntent.metadata.voucherId;
+      // Handle Stripe Checkout Session completion
+      if (event.type === "checkout.session.completed") {
+        const session = event.data.object as Stripe.Checkout.Session;
+        const voucherId = session.metadata?.voucherId;
 
         if (!voucherId) {
-          console.error("No voucherId in payment intent metadata");
+          console.error("No voucherId in checkout session metadata");
           return res.json({ received: true });
         }
 
@@ -218,7 +337,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
           return res.json({ received: true });
         }
 
-        console.log(`Payment successful for voucher ${voucherId}, sending emails...`);
+        console.log(`Payment successful for voucher ${voucherId} via Checkout Session, sending emails...`);
 
         // Send emails only if EMAIL credentials are configured
         if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {

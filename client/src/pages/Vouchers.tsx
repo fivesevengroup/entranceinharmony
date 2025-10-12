@@ -88,6 +88,54 @@ export default function Vouchers() {
   const [paymentError, setPaymentError] = useState<string | null>(null);
   const { toast } = useToast();
 
+  // Check for Stripe Checkout return and verify session
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const success = urlParams.get('success');
+    const canceled = urlParams.get('canceled');
+    const sessionId = urlParams.get('session_id');
+
+    if (success === 'true' && sessionId) {
+      // Verify the checkout session with backend
+      apiRequest("POST", "/api/verify-checkout-session", { sessionId })
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            setStep('success');
+            toast({
+              title: "Zahlung erfolgreich!",
+              description: "Sie erhalten in Kürze eine Bestätigung per E-Mail.",
+            });
+          } else {
+            toast({
+              title: "Zahlung ausstehend",
+              description: "Die Zahlung wird noch verarbeitet.",
+              variant: "destructive",
+            });
+          }
+        })
+        .catch(() => {
+          toast({
+            title: "Fehler",
+            description: "Fehler bei der Zahlungsbestätigung",
+            variant: "destructive",
+          });
+        })
+        .finally(() => {
+          // Clean up URL
+          window.history.replaceState({}, '', '/gutscheine');
+        });
+    } else if (canceled === 'true') {
+      toast({
+        title: "Zahlung abgebrochen",
+        description: "Die Zahlung wurde abgebrochen. Versuchen Sie es erneut.",
+        variant: "destructive",
+      });
+      // Clean up URL
+      window.history.replaceState({}, '', '/gutscheine');
+    }
+  }, [toast]);
+
   // Fetch services from backend
   const { data: services = [], isLoading: servicesLoading } = useQuery<Service[]>({
     queryKey: ["/api/services"],
