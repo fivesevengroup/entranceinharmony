@@ -85,9 +85,6 @@ export default function Impressum() {
                     <p>
                       Gemäß § 19 UStG (Kleinunternehmerregelung) wird keine Umsatzsteuer ausgewiesen.
                     </p>
-                    <p className="mt-2 text-sm">
-                      Der Umsatz lag im Vorjahr unter 25.000 Euro und wird im laufenden Jahr 100.000 Euro voraussichtlich nicht übersteigen.
-                    </p>
                   </div>
                 </div>
 
