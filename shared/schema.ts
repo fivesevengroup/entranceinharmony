@@ -103,6 +103,6 @@ export type InsertVoucher = z.infer<typeof insertVoucherSchema>;
 export type Voucher = typeof vouchers.$inferSelect;
 
 export const updateVoucherPaymentSchema = z.object({
-  status: z.enum(["pending", "completed", "cancelled"]),
+  status: z.enum(["pending", "paid", "completed", "cancelled"]),
   paypalOrderId: z.string().optional(),
 });

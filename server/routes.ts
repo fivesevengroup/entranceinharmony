@@ -4,6 +4,7 @@ import { storage } from "./storage";
 import { insertVoucherSchema, updateVoucherPaymentSchema } from "@shared/schema";
 import path from "path";
 import Stripe from "stripe";
+import { sendVoucherEmail, sendPurchaseConfirmationEmail } from "./email";
 
 if (!process.env.STRIPE_SECRET_KEY) {
   throw new Error('Missing required Stripe secret: STRIPE_SECRET_KEY');
@@ -107,6 +108,48 @@ export async function registerRoutes(app: Express): Promise<Server> {
       if (!voucher) {
         return res.status(404).json({ error: "Voucher not found" });
       }
+
+      // Send emails automatically when payment is marked as paid
+      if (validatedData.status === "paid" && process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+        try {
+          console.log(`Payment marked as paid for voucher ${voucher.id}, sending emails...`);
+
+          // Send voucher email to recipient (only for digital vouchers)
+          if (voucher.deliveryMethod === "digital" && voucher.recipientEmail) {
+            await sendVoucherEmail({
+              recipientEmail: voucher.recipientEmail,
+              recipientName: voucher.recipientName,
+              buyerName: voucher.buyerName,
+              amount: voucher.amount,
+              orderNumber: voucher.orderNumber,
+              message: voucher.message || undefined,
+              deliveryMethod: voucher.deliveryMethod as "digital" | "postal",
+              purchaseType: voucher.purchaseType as "custom" | "service",
+              serviceSnapshotName: voucher.serviceSnapshotName || undefined,
+            });
+            console.log(`Voucher email sent to ${voucher.recipientEmail}`);
+          }
+
+          // Send confirmation email to buyer
+          await sendPurchaseConfirmationEmail({
+            buyerEmail: voucher.buyerEmail,
+            buyerName: voucher.buyerName,
+            recipientEmail: voucher.recipientEmail || "",
+            recipientName: voucher.recipientName,
+            amount: voucher.amount,
+            orderNumber: voucher.orderNumber,
+            message: voucher.message || undefined,
+            deliveryMethod: voucher.deliveryMethod as "digital" | "postal",
+            purchaseType: voucher.purchaseType as "custom" | "service",
+            serviceSnapshotName: voucher.serviceSnapshotName || undefined,
+          });
+          console.log(`Confirmation email sent to ${voucher.buyerEmail}`);
+        } catch (emailError) {
+          console.error("Error sending emails:", emailError);
+          // Don't fail the payment update if email fails
+        }
+      }
+
       res.json(voucher);
     } catch (error) {
       res.status(400).json({ error: "Invalid payment update data" });
@@ -149,6 +192,80 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({ 
         error: "Error creating payment intent: " + error.message 
       });
+    }
+  });
+
+  // Stripe webhook for payment confirmation and automatic email sending
+  app.post("/api/stripe-webhook", async (req, res) => {
+    try {
+      const event = req.body;
+
+      // Handle payment success
+      if (event.type === "payment_intent.succeeded") {
+        const paymentIntent = event.data.object as Stripe.PaymentIntent;
+        const voucherId = paymentIntent.metadata.voucherId;
+
+        if (!voucherId) {
+          console.error("No voucherId in payment intent metadata");
+          return res.json({ received: true });
+        }
+
+        // Update voucher payment status
+        const voucher = await storage.updateVoucherPaymentStatus(voucherId, "paid");
+        
+        if (!voucher) {
+          console.error(`Voucher ${voucherId} not found`);
+          return res.json({ received: true });
+        }
+
+        console.log(`Payment successful for voucher ${voucherId}, sending emails...`);
+
+        // Send emails only if EMAIL credentials are configured
+        if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+          try {
+            // Send voucher email to recipient (only for digital vouchers)
+            if (voucher.deliveryMethod === "digital" && voucher.recipientEmail) {
+              await sendVoucherEmail({
+                recipientEmail: voucher.recipientEmail,
+                recipientName: voucher.recipientName,
+                buyerName: voucher.buyerName,
+                amount: voucher.amount,
+                orderNumber: voucher.orderNumber,
+                message: voucher.message || undefined,
+                deliveryMethod: voucher.deliveryMethod as "digital" | "postal",
+                purchaseType: voucher.purchaseType as "custom" | "service",
+                serviceSnapshotName: voucher.serviceSnapshotName || undefined,
+              });
+              console.log(`Voucher email sent to ${voucher.recipientEmail}`);
+            }
+
+            // Send confirmation email to buyer
+            await sendPurchaseConfirmationEmail({
+              buyerEmail: voucher.buyerEmail,
+              buyerName: voucher.buyerName,
+              recipientEmail: voucher.recipientEmail || "",
+              recipientName: voucher.recipientName,
+              amount: voucher.amount,
+              orderNumber: voucher.orderNumber,
+              message: voucher.message || undefined,
+              deliveryMethod: voucher.deliveryMethod as "digital" | "postal",
+              purchaseType: voucher.purchaseType as "custom" | "service",
+              serviceSnapshotName: voucher.serviceSnapshotName || undefined,
+            });
+            console.log(`Confirmation email sent to ${voucher.buyerEmail}`);
+          } catch (emailError) {
+            console.error("Error sending emails:", emailError);
+            // Don't fail the webhook if email fails
+          }
+        } else {
+          console.log("Email credentials not configured, skipping email sending");
+        }
+      }
+
+      res.json({ received: true });
+    } catch (error: any) {
+      console.error("Webhook error:", error);
+      res.status(400).json({ error: "Webhook error: " + error.message });
     }
   });
 

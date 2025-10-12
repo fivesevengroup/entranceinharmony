@@ -50,15 +50,15 @@ const CheckoutForm = ({ voucherId, amount, onSuccess }: CheckoutFormProps) => {
         });
         setIsProcessing(false);
       } else if (paymentIntent && paymentIntent.status === "succeeded") {
-        // Update voucher payment status
+        // Update voucher payment status and trigger email
         await apiRequest("PATCH", `/api/vouchers/${voucherId}/payment`, {
-          status: "completed",
+          status: "paid",
           paypalOrderId: paymentIntent.id,
         });
         
         toast({
           title: "Zahlung erfolgreich!",
-          description: "Ihr Gutschein wurde erfolgreich bezahlt.",
+          description: "Ihr Gutschein wurde erfolgreich bezahlt. Sie erhalten in Kürze eine Bestätigung per E-Mail.",
         });
         onSuccess();
       }
