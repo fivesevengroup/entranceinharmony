@@ -440,7 +440,7 @@ export default function Services() {
                         </div>
                         <div className="flex justify-between items-center p-3 rounded-lg bg-muted/30">
                           <span className="text-muted-foreground">Gesicht + Hals + Dekolleté</span>
-                          <span className="font-medium text-primary text-lg">350€</span>
+                          <span className="font-medium text-primary text-lg">400€</span>
                         </div>
                         <div className="flex justify-between items-center p-3 rounded-lg bg-muted/30">
                           <span className="text-muted-foreground">Hände (Handrücken)</span>
