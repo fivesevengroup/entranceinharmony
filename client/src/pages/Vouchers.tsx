@@ -864,24 +864,6 @@ export default function Vouchers() {
                         </div>
                       </div>
 
-                      <FormField
-                        control={form.control}
-                        name="message"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Persönliche Nachricht (optional)</FormLabel>
-                            <FormControl>
-                              <Textarea
-                                placeholder="Ihre persönliche Grußbotschaft"
-                                {...field}
-                                data-testid="textarea-message"
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
                       <Button
                         type="submit"
                         size="lg"
