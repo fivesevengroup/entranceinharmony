@@ -704,13 +704,7 @@ export default function Vouchers() {
                               <Dialog open={serviceDialogOpen} onOpenChange={setServiceDialogOpen}>
                                 <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto">
                                   <DialogHeader>
-                                    <div className="flex items-center justify-between">
-                                      <DialogTitle className="text-2xl">Behandlung auswählen</DialogTitle>
-                                      <DialogClose className="rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
-                                        <X className="h-5 w-5" />
-                                        <span className="sr-only">Schließen</span>
-                                      </DialogClose>
-                                    </div>
+                                    <DialogTitle className="text-2xl">Behandlung auswählen</DialogTitle>
                                   </DialogHeader>
                                   <div className="space-y-3 mt-4">
                                     {servicesLoading ? (
