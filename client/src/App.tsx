@@ -3,6 +3,8 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import CookieBanner from "@/components/CookieBanner";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -15,6 +17,9 @@ import Datenschutz from "@/pages/Datenschutz";
 import AGB from "@/pages/AGB";
 import Widerruf from "@/pages/Widerruf";
 import NotFound from "@/pages/not-found";
+
+// Initialize Stripe
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
 function Router() {
   return (
@@ -35,13 +40,15 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <ScrollToTop />
-        <Toaster />
-        <FloatingWhatsApp />
-        <CookieBanner />
-        <Router />
-      </TooltipProvider>
+      <Elements stripe={stripePromise}>
+        <TooltipProvider>
+          <ScrollToTop />
+          <Toaster />
+          <FloatingWhatsApp />
+          <CookieBanner />
+          <Router />
+        </TooltipProvider>
+      </Elements>
     </QueryClientProvider>
   );
 }
