@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
-import { PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { Elements, PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CreditCard, Loader2, CheckCircle2, Mail } from "lucide-react";
+import { CreditCard, Loader2, CheckCircle2, Mail, AlertCircle, RefreshCw } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
 interface VoucherStripeCheckoutProps {
   voucherId: string;
@@ -13,53 +16,18 @@ interface VoucherStripeCheckoutProps {
   onSuccess: () => void;
 }
 
-export default function VoucherStripeCheckout({ voucherId, amount, onSuccess }: VoucherStripeCheckoutProps) {
+function CheckoutForm({ voucherId, totalAmount, onSuccess }: { voucherId: string; totalAmount: number; onSuccess: () => void }) {
   const stripe = useStripe();
   const elements = useElements();
   const { toast } = useToast();
   
   const [isLoading, setIsLoading] = useState(false);
-  const [clientSecret, setClientSecret] = useState<string | null>(null);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
-  const [totalAmount, setTotalAmount] = useState(amount);
-
-  useEffect(() => {
-    // Create Payment Intent when component mounts
-    const createPaymentIntent = async () => {
-      try {
-        const response = await apiRequest("POST", "/api/create-payment-intent", { 
-          voucherId 
-        });
-        
-        const data = await response.json();
-        
-        if (data.error) {
-          toast({
-            title: "Fehler",
-            description: data.error,
-            variant: "destructive",
-          });
-          return;
-        }
-
-        setClientSecret(data.clientSecret);
-        setTotalAmount(data.amount);
-      } catch (err) {
-        toast({
-          title: "Fehler",
-          description: "Zahlungsformular konnte nicht geladen werden.",
-          variant: "destructive",
-        });
-      }
-    };
-
-    createPaymentIntent();
-  }, [voucherId]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!stripe || !elements || !clientSecret) {
+    if (!stripe || !elements) {
       return;
     }
 
@@ -90,7 +58,7 @@ export default function VoucherStripeCheckout({ voucherId, amount, onSuccess }: 
         setPaymentSuccess(true);
         
         toast({
-          title: "✅ Zahlung erfolgreich!",
+          title: "Zahlung erfolgreich!",
           description: "Ihr Gutschein wird per E-Mail zugestellt.",
         });
 
@@ -128,16 +96,6 @@ export default function VoucherStripeCheckout({ voucherId, amount, onSuccess }: 
           <p className="text-sm text-muted-foreground text-center">
             Vielen Dank für Ihren Einkauf!
           </p>
-        </CardContent>
-      </Card>
-    );
-  }
-
-  if (!clientSecret) {
-    return (
-      <Card>
-        <CardContent className="py-12 flex justify-center">
-          <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
         </CardContent>
       </Card>
     );
@@ -217,9 +175,121 @@ export default function VoucherStripeCheckout({ voucherId, amount, onSuccess }: 
         </div>
 
         <p className="text-xs text-center text-muted-foreground">
-          🔒 Sichere Verschlüsselung • Powered by Stripe
+          Sichere Verschlüsselung • Powered by Stripe
         </p>
       </CardContent>
     </Card>
+  );
+}
+
+export default function VoucherStripeCheckout({ voucherId, amount, onSuccess }: VoucherStripeCheckoutProps) {
+  const { toast } = useToast();
+  const [clientSecret, setClientSecret] = useState<string | null>(null);
+  const [totalAmount, setTotalAmount] = useState(amount);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const createPaymentIntent = async () => {
+    setIsLoading(true);
+    setError(null);
+    
+    try {
+      const response = await apiRequest("POST", "/api/create-payment-intent", { 
+        voucherId 
+      });
+      
+      const data = await response.json();
+      
+      if (data.error) {
+        setError(data.error);
+        toast({
+          title: "Fehler",
+          description: data.error,
+          variant: "destructive",
+        });
+        setIsLoading(false);
+        return;
+      }
+
+      setClientSecret(data.clientSecret);
+      setTotalAmount(data.amount);
+      setIsLoading(false);
+    } catch (err) {
+      const errorMessage = "Zahlungsformular konnte nicht geladen werden.";
+      setError(errorMessage);
+      toast({
+        title: "Fehler",
+        description: errorMessage,
+        variant: "destructive",
+      });
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    createPaymentIntent();
+  }, [voucherId]);
+
+  if (isLoading) {
+    return (
+      <Card>
+        <CardContent className="py-12 flex justify-center">
+          <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
+        </CardContent>
+      </Card>
+    );
+  }
+
+  if (error && !clientSecret) {
+    return (
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-destructive">
+            <AlertCircle className="w-5 h-5" />
+            Fehler beim Laden
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <Alert variant="destructive">
+            <AlertCircle className="h-4 w-4" />
+            <AlertDescription>
+              {error}
+            </AlertDescription>
+          </Alert>
+          <Button 
+            onClick={createPaymentIntent}
+            className="w-full"
+            variant="outline"
+            data-testid="button-retry-payment"
+          >
+            <RefreshCw className="mr-2 h-4 w-4" />
+            Erneut versuchen
+          </Button>
+        </CardContent>
+      </Card>
+    );
+  }
+
+  if (!clientSecret) {
+    return (
+      <Card>
+        <CardContent className="py-12 flex justify-center">
+          <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
+        </CardContent>
+      </Card>
+    );
+  }
+
+  const options = {
+    clientSecret,
+    appearance: {
+      theme: 'stripe' as const,
+    },
+  };
+
+  return (
+    <Elements stripe={stripePromise} options={options}>
+      <CheckoutForm voucherId={voucherId} totalAmount={totalAmount} onSuccess={onSuccess} />
+    </Elements>
   );
 }
