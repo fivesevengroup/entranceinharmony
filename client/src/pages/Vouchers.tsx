@@ -910,6 +910,41 @@ export default function Vouchers() {
                         <Gift className="mr-2 h-5 w-5" />
                         {createVoucherMutation.isPending ? "Wird erstellt..." : "Weiter zur Zahlung"}
                       </Button>
+
+                      <div className="mt-6 pt-6 border-t">
+                        <p className="text-sm text-muted-foreground text-center mb-3">
+                          Sichere Zahlung mit
+                        </p>
+                        <div className="flex items-center justify-center gap-4 flex-wrap">
+                          <div className="flex items-center gap-2 px-3 py-2 bg-muted/30 rounded-md">
+                            <CreditCard className="h-4 w-4 text-muted-foreground" />
+                            <span className="text-xs text-muted-foreground">Kreditkarte</span>
+                          </div>
+                          <div className="flex items-center gap-2 px-3 py-2 bg-muted/30 rounded-md">
+                            <svg className="h-4 w-4 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                              <rect x="2" y="5" width="20" height="14" rx="2" />
+                              <line x1="2" y1="10" x2="22" y2="10" />
+                            </svg>
+                            <span className="text-xs text-muted-foreground">SEPA</span>
+                          </div>
+                          <div className="flex items-center gap-2 px-3 py-2 bg-muted/30 rounded-md">
+                            <svg className="h-4 w-4 text-muted-foreground" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.563.563 0 0 0-.556.479l-1.187 7.527h-.506l1.12-7.106c.082-.518.526-.9 1.05-.9h2.19c4.298 0 7.664-1.747 8.647-6.797.03-.149.054-.294.077-.437a5.11 5.11 0 0 0-.859-.68z"/>
+                            </svg>
+                            <span className="text-xs text-muted-foreground">PayPal</span>
+                          </div>
+                          <div className="flex items-center gap-2 px-3 py-2 bg-muted/30 rounded-md">
+                            <svg className="h-4 w-4 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                              <circle cx="12" cy="12" r="10" />
+                              <path d="M12 6v6l4 2" />
+                            </svg>
+                            <span className="text-xs text-muted-foreground">Sofortüberweisung</span>
+                          </div>
+                        </div>
+                        <p className="text-xs text-muted-foreground text-center mt-3">
+                          Powered by Stripe - Ihre Daten sind sicher verschlüsselt
+                        </p>
+                      </div>
                     </form>
                   </Form>
                 </CardContent>
