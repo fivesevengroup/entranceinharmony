@@ -229,17 +229,90 @@ export default function Vouchers() {
         <WaveDivider position="bottom" color="hsl(var(--background))" />
       </section>
 
-      {/* White Transition Section */}
-      <section className="py-12 md:py-16 bg-background relative">
+      {/* How It Works Section */}
+      <section className="py-16 md:py-20 bg-background relative">
         <div className="container mx-auto px-4">
-          <div className="text-center">
-            <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
-              Schenken Sie Schönheit
-            </h2>
-            <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-4"></div>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Unsere Geschenkgutscheine sind das perfekte Geschenk für besondere Menschen
-            </p>
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
+                So einfach geht's
+              </h2>
+              <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full"></div>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {/* Step 1 */}
+              <div className="text-center">
+                <div className="flex justify-center mb-4">
+                  <div className="relative">
+                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                      <Gift className="w-8 h-8 text-primary" />
+                    </div>
+                    <div className="absolute -top-1 -right-1 w-6 h-6 bg-primary rounded-full flex items-center justify-center text-white text-xs font-bold">
+                      1
+                    </div>
+                  </div>
+                </div>
+                <h3 className="font-medium text-lg mb-2">Betrag wählen</h3>
+                <p className="text-sm text-muted-foreground">
+                  Wunschbetrag und Versandart auswählen
+                </p>
+              </div>
+
+              {/* Step 2 */}
+              <div className="text-center">
+                <div className="flex justify-center mb-4">
+                  <div className="relative">
+                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                      <Send className="w-8 h-8 text-primary" />
+                    </div>
+                    <div className="absolute -top-1 -right-1 w-6 h-6 bg-primary rounded-full flex items-center justify-center text-white text-xs font-bold">
+                      2
+                    </div>
+                  </div>
+                </div>
+                <h3 className="font-medium text-lg mb-2">Daten eingeben</h3>
+                <p className="text-sm text-muted-foreground">
+                  Empfänger-Infos und persönliche Nachricht
+                </p>
+              </div>
+
+              {/* Step 3 */}
+              <div className="text-center">
+                <div className="flex justify-center mb-4">
+                  <div className="relative">
+                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                      <CreditCard className="w-8 h-8 text-primary" />
+                    </div>
+                    <div className="absolute -top-1 -right-1 w-6 h-6 bg-primary rounded-full flex items-center justify-center text-white text-xs font-bold">
+                      3
+                    </div>
+                  </div>
+                </div>
+                <h3 className="font-medium text-lg mb-2">Bezahlen</h3>
+                <p className="text-sm text-muted-foreground">
+                  Sicher mit PayPal bezahlen
+                </p>
+              </div>
+
+              {/* Step 4 */}
+              <div className="text-center">
+                <div className="flex justify-center mb-4">
+                  <div className="relative">
+                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                      <Package className="w-8 h-8 text-primary" />
+                    </div>
+                    <div className="absolute -top-1 -right-1 w-6 h-6 bg-primary rounded-full flex items-center justify-center text-white text-xs font-bold">
+                      4
+                    </div>
+                  </div>
+                </div>
+                <h3 className="font-medium text-lg mb-2">Erhalten</h3>
+                <p className="text-sm text-muted-foreground">
+                  Digital sofort oder per Post in 2-3 Tagen
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
