@@ -43,7 +43,7 @@ app.use((req, res, next) => {
     try {
       await initializeStripeProducts();
     } catch (error) {
-      log("Warning: Failed to initialize Stripe products:", error);
+      log(`Warning: Failed to initialize Stripe products: ${error}`);
     }
   }
 
