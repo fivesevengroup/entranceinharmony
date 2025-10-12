@@ -912,36 +912,58 @@ export default function Vouchers() {
                       </Button>
 
                       <div className="mt-6 pt-6 border-t">
-                        <p className="text-sm text-muted-foreground text-center mb-3">
+                        <p className="text-sm text-muted-foreground text-center mb-4">
                           Sichere Zahlung mit
                         </p>
-                        <div className="flex items-center justify-center gap-4 flex-wrap">
-                          <div className="flex items-center gap-2 px-3 py-2 bg-muted/30 rounded-md">
-                            <CreditCard className="h-4 w-4 text-muted-foreground" />
-                            <span className="text-xs text-muted-foreground">Kreditkarte</span>
-                          </div>
-                          <div className="flex items-center gap-2 px-3 py-2 bg-muted/30 rounded-md">
-                            <svg className="h-4 w-4 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                              <rect x="2" y="5" width="20" height="14" rx="2" />
-                              <line x1="2" y1="10" x2="22" y2="10" />
+                        <div className="flex items-center justify-center gap-3 flex-wrap">
+                          <div className="flex items-center gap-2 px-3 py-2 bg-white/80 dark:bg-card rounded-md border">
+                            <svg className="h-5 w-5" viewBox="0 0 48 32" fill="none">
+                              <rect width="48" height="32" rx="4" fill="#1434CB"/>
+                              <path d="M17.5 11h-5l-3.1 10h2.5l.6-2h3.4l.6 2h2.8l-2.8-10zm-5.8 6l1.3-4.3 1.3 4.3h-2.6z" fill="#fff"/>
+                              <path d="M28.5 11h-6v10h2.3v-3.4h3.7c2 0 3.3-1.2 3.3-3.3s-1.3-3.3-3.3-3.3zm0 4.8h-3.7v-2.5h3.7c.7 0 1.2.5 1.2 1.2s-.5 1.3-1.2 1.3z" fill="#fff"/>
                             </svg>
-                            <span className="text-xs text-muted-foreground">SEPA</span>
+                            <span className="text-xs font-medium text-foreground">Visa</span>
                           </div>
-                          <div className="flex items-center gap-2 px-3 py-2 bg-muted/30 rounded-md">
-                            <svg className="h-4 w-4 text-muted-foreground" viewBox="0 0 24 24" fill="currentColor">
-                              <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.563.563 0 0 0-.556.479l-1.187 7.527h-.506l1.12-7.106c.082-.518.526-.9 1.05-.9h2.19c4.298 0 7.664-1.747 8.647-6.797.03-.149.054-.294.077-.437a5.11 5.11 0 0 0-.859-.68z"/>
+                          <div className="flex items-center gap-2 px-3 py-2 bg-white/80 dark:bg-card rounded-md border">
+                            <svg className="h-5 w-5" viewBox="0 0 48 32" fill="none">
+                              <rect width="48" height="32" rx="4" fill="#EB001B"/>
+                              <circle cx="19" cy="16" r="10" fill="#EB001B"/>
+                              <circle cx="29" cy="16" r="10" fill="#FF5F00"/>
+                              <path d="M24 8c-1.8 1.6-3 4-3 6.5s1.2 4.9 3 6.5c1.8-1.6 3-4 3-6.5s-1.2-4.9-3-6.5z" fill="#F79E1B"/>
                             </svg>
-                            <span className="text-xs text-muted-foreground">PayPal</span>
+                            <span className="text-xs font-medium text-foreground">Mastercard</span>
                           </div>
-                          <div className="flex items-center gap-2 px-3 py-2 bg-muted/30 rounded-md">
-                            <svg className="h-4 w-4 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                              <circle cx="12" cy="12" r="10" />
-                              <path d="M12 6v6l4 2" />
+                          <div className="flex items-center gap-2 px-3 py-2 bg-white/80 dark:bg-card rounded-md border">
+                            <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none">
+                              <path d="M20.905 9.5c-.18-3.45-2.75-5.5-6.2-5.5-3.45 0-6.25 2.4-6.25 6.55 0 4.3 2.4 6.55 6.55 6.55 2.15 0 4.1-.75 5.4-2.1l-1.5-1.85c-.95.9-2.25 1.4-3.65 1.4-1.95 0-3.55-1.1-3.85-3.35h9.45c.05-.35.05-.75.05-1.2zm-9.5-1.55c.25-1.8 1.55-2.95 3.25-2.95 1.85 0 2.95 1.15 3.1 2.95h-6.35z" fill="#0070BA"/>
+                              <path d="M7.455 4.2c-1.4 0-2.6.55-3.3 1.5V4.4h-2.8v12.85h2.9v-4.4c.7.95 1.9 1.5 3.3 1.5 2.85 0 5.05-2.4 5.05-5.6s-2.25-5.55-5.15-5.55zm-.45 8.65c-1.7 0-3.05-1.4-3.05-3.1s1.35-3.1 3.05-3.1 3.05 1.4 3.05 3.1-1.35 3.1-3.05 3.1z" fill="#003087"/>
                             </svg>
-                            <span className="text-xs text-muted-foreground">Sofortüberweisung</span>
+                            <span className="text-xs font-medium text-foreground">PayPal</span>
+                          </div>
+                          <div className="flex items-center gap-2 px-3 py-2 bg-white/80 dark:bg-card rounded-md border">
+                            <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none">
+                              <rect x="2" y="5" width="20" height="14" rx="2" stroke="#003d82" strokeWidth="2" fill="none"/>
+                              <line x1="2" y1="10" x2="22" y2="10" stroke="#003d82" strokeWidth="2"/>
+                              <circle cx="6" cy="14" r="1" fill="#003d82"/>
+                            </svg>
+                            <span className="text-xs font-medium text-foreground">SEPA</span>
+                          </div>
+                          <div className="flex items-center gap-2 px-3 py-2 bg-white/80 dark:bg-card rounded-md border">
+                            <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none">
+                              <rect width="24" height="24" rx="4" fill="#FF6B82"/>
+                              <path d="M7 8h10M7 12h10M7 16h6" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+                            </svg>
+                            <span className="text-xs font-medium text-foreground">Klarna</span>
+                          </div>
+                          <div className="flex items-center gap-2 px-3 py-2 bg-white/80 dark:bg-card rounded-md border">
+                            <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none">
+                              <rect width="24" height="24" rx="4" fill="#D90051"/>
+                              <path d="M12 7v10M16 11l-4 4-4-4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                            <span className="text-xs font-medium text-foreground">Sofort</span>
                           </div>
                         </div>
-                        <p className="text-xs text-muted-foreground text-center mt-3">
+                        <p className="text-xs text-muted-foreground text-center mt-4">
                           Powered by Stripe - Ihre Daten sind sicher verschlüsselt
                         </p>
                       </div>
