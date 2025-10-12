@@ -11,6 +11,25 @@ The site emphasizes elegant, luxurious design with a mauve and gold color palett
 - Preferred communication style: Simple, everyday language.
 - Testing: Do not run tests unless explicitly requested by user.
 
+## Recent Updates (October 2025)
+
+### Legal Pages - Expanded Coverage
+All legal pages (Impressum, Datenschutz, AGB, Widerruf) have been expanded to cover the complete business scope:
+- **Gutscheine** (Vouchers) - Custom amount and service-based vouchers
+- **Behandlungen** (Treatments) - In-studio cosmetic treatments with appointment booking
+- **Pflegeprodukte** (Care Products) - Sale of creams, serums, and other cosmetic products
+
+### Legal Compliance Updates
+- **Datenschutz**: Now includes data processing for treatment bookings (health data under Art. 9 Abs. 2 lit. h DSGVO) and product orders, Stripe payment integration (EU-US Data Privacy Framework), cookies (TTDSG), and email communication sections
+- **AGB**: Expanded with treatment appointment rules (24h cancellation policy), product sales terms, delivery options for products (shipping costs from €4.90), payment methods for in-studio treatments (cash, EC, bank transfer)
+- **Widerruf**: Distinguishes between goods (vouchers/products) and services (treatments), includes special provisions for sealed hygiene products, treatment waiver upon early performance with consent
+- **Impressum**: Maintained Kleinunternehmer status with 2025 regulations (§19 UStG: €25k previous year + €100k current year thresholds)
+
+### AGB Acceptance Checkbox
+- Mandatory checkbox added to voucher purchase form
+- Links to AGB and Widerruf pages open in new tabs
+- Form validation requires acceptance before payment
+
 ## System Architecture
 
 ### Frontend Architecture
