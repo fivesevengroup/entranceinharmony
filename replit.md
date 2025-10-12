@@ -8,7 +8,8 @@ The site emphasizes elegant, luxurious design with a mauve and gold color palett
 
 ## User Preferences
 
-Preferred communication style: Simple, everyday language.
+- Preferred communication style: Simple, everyday language.
+- Testing: Do not run tests unless explicitly requested by user.
 
 ## System Architecture
 
