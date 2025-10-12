@@ -703,14 +703,6 @@ export default function Vouchers() {
                               {/* Service Selection Dialog */}
                               <Dialog open={serviceDialogOpen} onOpenChange={setServiceDialogOpen}>
                                 <DialogContent className="max-w-3xl max-h-[80vh] overflow-hidden">
-                                  <button
-                                    onClick={() => setServiceDialogOpen(false)}
-                                    className="absolute -top-4 -right-4 z-50 p-2.5 rounded-full bg-background border-2 border-border hover:bg-accent transition-colors shadow-xl"
-                                    aria-label="Schließen"
-                                    type="button"
-                                  >
-                                    <X className="h-5 w-5" />
-                                  </button>
                                   <DialogHeader>
                                     <DialogTitle className="text-2xl">Behandlung auswählen</DialogTitle>
                                   </DialogHeader>
