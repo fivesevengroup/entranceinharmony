@@ -80,10 +80,13 @@ export default function Impressum() {
                 </div>
 
                 <div>
-                  <h2 className="font-medium text-lg mb-3">Umsatzsteuer-ID</h2>
+                  <h2 className="font-medium text-lg mb-3">Umsatzsteuer-Identifikationsnummer</h2>
                   <div className="text-muted-foreground">
                     <p>
-                      Als Kleinunternehmer im Sinne von § 19 Abs. 1 UStG wird keine Umsatzsteuer berechnet.
+                      Gemäß § 19 UStG (Kleinunternehmerregelung) wird keine Umsatzsteuer ausgewiesen.
+                    </p>
+                    <p className="mt-2 text-sm">
+                      Der Umsatz lag im Vorjahr unter 25.000 Euro und wird im laufenden Jahr 100.000 Euro voraussichtlich nicht übersteigen.
                     </p>
                   </div>
                 </div>

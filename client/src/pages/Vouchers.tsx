@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -37,6 +38,9 @@ const voucherFormSchema = z.object({
   buyerName: z.string().min(2, "Name muss mindestens 2 Zeichen lang sein"),
   buyerEmail: z.string().email("Ungültige E-Mail-Adresse"),
   message: z.string().optional(),
+  agbAccepted: z.boolean().refine((val) => val === true, {
+    message: "Bitte akzeptieren Sie die AGB und Widerrufsbelehrung",
+  }),
 }).refine(
   (data) => {
     if (data.deliveryMethod === "postal") {
@@ -145,6 +149,7 @@ export default function Vouchers() {
       buyerName: "",
       buyerEmail: "",
       message: "",
+      agbAccepted: false,
     },
   });
 
@@ -859,6 +864,36 @@ export default function Vouchers() {
                                   <Input type="email" {...field} data-testid="input-buyer-email" />
                                 </FormControl>
                                 <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+
+                          <FormField
+                            control={form.control}
+                            name="agbAccepted"
+                            render={({ field }) => (
+                              <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
+                                <FormControl>
+                                  <Checkbox
+                                    checked={field.value}
+                                    onCheckedChange={field.onChange}
+                                    data-testid="checkbox-agb-accepted"
+                                  />
+                                </FormControl>
+                                <div className="space-y-1 leading-none">
+                                  <FormLabel className="text-sm font-normal">
+                                    Ich habe die{" "}
+                                    <a href="/agb" target="_blank" className="text-primary hover:underline">
+                                      AGB
+                                    </a>
+                                    {" "}und die{" "}
+                                    <a href="/widerruf" target="_blank" className="text-primary hover:underline">
+                                      Widerrufsbelehrung
+                                    </a>
+                                    {" "}gelesen und akzeptiere diese.
+                                  </FormLabel>
+                                  <FormMessage />
+                                </div>
                               </FormItem>
                             )}
                           />

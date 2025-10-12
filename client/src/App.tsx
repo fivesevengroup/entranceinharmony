@@ -12,6 +12,8 @@ import Contact from "@/pages/Contact";
 import Vouchers from "@/pages/Vouchers";
 import Impressum from "@/pages/Impressum";
 import Datenschutz from "@/pages/Datenschutz";
+import AGB from "@/pages/AGB";
+import Widerruf from "@/pages/Widerruf";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -23,6 +25,8 @@ function Router() {
       <Route path="/gutscheine" component={Vouchers} />
       <Route path="/impressum" component={Impressum} />
       <Route path="/datenschutz" component={Datenschutz} />
+      <Route path="/agb" component={AGB} />
+      <Route path="/widerruf" component={Widerruf} />
       <Route component={NotFound} />
     </Switch>
   );

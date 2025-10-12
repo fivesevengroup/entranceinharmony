@@ -376,25 +376,49 @@ export default function Datenschutz() {
                     </p>
                   </div>
 
-                  <h3 className="font-medium text-base mb-2 mt-4">Gutschein-Bestellung</h3>
+                  <h3 className="font-medium text-base mb-2 mt-4">Bestellungen und Buchungen</h3>
                   <div className="text-muted-foreground space-y-2">
+                    <p className="font-medium text-foreground">Gutschein-Bestellung</p>
                     <p>
                       Wenn Sie einen Gutschein auf unserer Website bestellen, erheben wir folgende personenbezogene Daten:
                     </p>
                     <ul className="list-disc pl-5 mt-2 space-y-1">
                       <li>Name und E-Mail-Adresse des Käufers</li>
                       <li>Name und E-Mail-Adresse/Postadresse des Empfängers</li>
-                      <li>Gutscheinbetrag und persönliche Nachricht (falls angegeben)</li>
-                      <li>Zahlungsinformationen (werden durch PayPal verarbeitet)</li>
+                      <li>Gutscheinbetrag und Liefermethode (digital oder postalisch)</li>
+                      <li>Zahlungsinformationen (werden durch Stripe verarbeitet)</li>
                     </ul>
-                    <p className="mt-2">
-                      Diese Daten werden zur Abwicklung der Bestellung, zur Zusendung des Gutscheins und zur Erfüllung 
-                      gesetzlicher Aufbewahrungspflichten verwendet. Die Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO 
-                      (Vertragserfüllung).
+
+                    <p className="font-medium text-foreground mt-4">Behandlungsbuchungen</p>
+                    <p>
+                      Wenn Sie eine Behandlung bei uns buchen, erheben wir:
+                    </p>
+                    <ul className="list-disc pl-5 mt-2 space-y-1">
+                      <li>Name, Telefonnummer und E-Mail-Adresse</li>
+                      <li>Terminwünsche und gebuchte Behandlungen</li>
+                      <li>Gesundheitsbezogene Informationen (z. B. Allergien, Hauttyp) soweit für die Behandlung erforderlich</li>
+                      <li>Zahlungsinformationen bei Vorauszahlung</li>
+                    </ul>
+
+                    <p className="font-medium text-foreground mt-4">Produktbestellungen</p>
+                    <p>
+                      Wenn Sie Pflegeprodukte (Cremes, Seren etc.) bei uns bestellen, erheben wir:
+                    </p>
+                    <ul className="list-disc pl-5 mt-2 space-y-1">
+                      <li>Name und Lieferadresse</li>
+                      <li>E-Mail-Adresse und Telefonnummer</li>
+                      <li>Bestelldetails (Produkte, Mengen, Preise)</li>
+                      <li>Zahlungsinformationen (werden durch Stripe verarbeitet)</li>
+                    </ul>
+
+                    <p className="mt-4">
+                      <span className="font-medium text-foreground">Rechtsgrundlage:</span> Art. 6 Abs. 1 lit. b DSGVO 
+                      (Vertragserfüllung) sowie Art. 9 Abs. 2 lit. h DSGVO für gesundheitsbezogene Daten bei Behandlungen.
                     </p>
                     <p className="mt-2">
-                      Gutscheindaten werden für die Dauer der gesetzlichen Aufbewahrungspflichten (in der Regel 10 Jahre 
-                      nach Handels- und Steuerrecht) gespeichert.
+                      <span className="font-medium text-foreground">Speicherdauer:</span> Bestelldaten werden für die Dauer 
+                      der gesetzlichen Aufbewahrungspflichten (in der Regel 10 Jahre nach Handels- und Steuerrecht) gespeichert. 
+                      Gesundheitsdaten werden nach Abschluss der Behandlung gemäß gesetzlicher Vorgaben aufbewahrt.
                     </p>
                   </div>
                 </div>
@@ -406,49 +430,85 @@ export default function Datenschutz() {
                 <div>
                   <h2 className="font-medium text-lg mb-3">5. Zahlungsanbieter</h2>
                   
-                  <h3 className="font-medium text-base mb-2 mt-4">PayPal</h3>
+                  <h3 className="font-medium text-base mb-2 mt-4">Stripe</h3>
                   <div className="text-muted-foreground space-y-2">
                     <p>
-                      Auf dieser Website bieten wir u. a. die Bezahlung via PayPal an. Anbieter dieses Zahlungsdienstes ist 
-                      die PayPal (Europe) S.à.r.l. et Cie, S.C.A., 22-24 Boulevard Royal, L-2449 Luxembourg (im Folgenden „PayPal").
+                      Auf dieser Website bieten wir die Bezahlung via Stripe an. Anbieter dieses Zahlungsdienstes ist für 
+                      Kunden in der EU die Stripe Payments Europe Ltd., 1 Grand Canal Street Lower, Grand Canal Dock, Dublin, 
+                      Irland (im Folgenden „Stripe").
+                    </p>
+                    <p className="mt-2 font-medium text-foreground">
+                      Zweck und Rechtsgrundlage
+                    </p>
+                    <p>
+                      Die Verwendung von Stripe dient der sicheren und effizienten Zahlungsabwicklung und entspricht unserem 
+                      berechtigten Interesse an einer optimalen Kaufabwicklung (Art. 6 Abs. 1 lit. f DSGVO). Die Weitergabe 
+                      Ihrer Daten an Stripe ist zudem für die Vertragserfüllung erforderlich (Art. 6 Abs. 1 lit. b DSGVO).
+                    </p>
+                    <p className="mt-2 font-medium text-foreground">
+                      Übermittelte Daten
+                    </p>
+                    <p>
+                      Bei der Zahlungsabwicklung über Stripe werden folgende Daten an Stripe übermittelt:
+                    </p>
+                    <ul className="list-disc pl-5 mt-2 space-y-1">
+                      <li>Name des Karteninhabers</li>
+                      <li>E-Mail-Adresse</li>
+                      <li>Gutscheinnummer/Bestellnummer</li>
+                      <li>Kreditkarten-/Bankverbindungsdaten</li>
+                      <li>Gültigkeit der Kreditkarte</li>
+                      <li>Prüfnummer (CVC)</li>
+                      <li>Datum, Uhrzeit und Transaktionssumme</li>
+                      <li>Anbietername und Standort</li>
+                    </ul>
+                    <p className="mt-2 font-medium text-foreground">
+                      Datenverarbeitung außerhalb der EU
+                    </p>
+                    <p>
+                      Stripe verarbeitet Daten auch in den USA. Stripe ist aktiver Teilnehmer des EU-US Data Privacy Framework 
+                      und setzt Standardvertragsklauseln der EU-Kommission ein (Art. 46 DSGVO). Dies gewährleistet einen 
+                      angemessenen Schutz Ihrer Daten beim Transfer in die USA.
                     </p>
                     <p className="mt-2">
-                      Wenn Sie die Bezahlung via PayPal auswählen, werden die von Ihnen eingegebenen Zahlungsdaten an PayPal 
-                      übermittelt.
-                    </p>
-                    <p className="mt-2">
-                      Die Übermittlung Ihrer Daten an PayPal erfolgt auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) 
-                      und Art. 6 Abs. 1 lit. b DSGVO (Verarbeitung zur Erfüllung eines Vertrags). Sie haben die Möglichkeit, 
-                      Ihre Einwilligung zur Datenverarbeitung jederzeit zu widerrufen. Ein Widerruf wirkt sich auf die 
-                      Wirksamkeit von in der Vergangenheit liegenden Datenverarbeitungsvorgängen nicht aus.
-                    </p>
-                    <p className="mt-2">
-                      Die Datenverarbeitung durch PayPal erfolgt gemäß deren Datenschutzerklärung. Diese finden Sie unter:{" "}
+                      Weitere Informationen zur Zertifizierung finden Sie hier:{" "}
                       <a 
-                        href="https://www.paypal.com/de/webapps/mpp/ua/privacy-full" 
+                        href="https://www.dataprivacyframework.gov/s/participant-search/participant-detail?contact=true&id=a2zt0000000TO6hAAG" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="text-primary hover:underline"
                       >
-                        https://www.paypal.com/de/webapps/mpp/ua/privacy-full
+                        Data Privacy Framework
                       </a>
                       .
                     </p>
                     <p className="mt-2 font-medium text-foreground">
-                      Welche Daten werden an PayPal übermittelt?
+                      Speicherdauer
                     </p>
                     <p>
-                      Bei der Zahlungsabwicklung über PayPal werden folgende Daten übermittelt:
+                      Stripe speichert Ihre Daten für die Dauer der Diensterbringung und zur Erfüllung rechtlicher und 
+                      behördlicher Verpflichtungen (z. B. Geldwäscheprävention, Betrugsbekämpfung).
                     </p>
-                    <ul className="list-disc pl-5 mt-2 space-y-1">
-                      <li>Zahlungsbetrag und Währung</li>
-                      <li>Bestellnummer/Gutscheinnummer</li>
-                      <li>E-Mail-Adresse des Käufers (soweit von Ihnen angegeben)</li>
-                      <li>Beschreibung der Transaktion (z. B. "Gutschein für Entrance in Harmony")</li>
-                    </ul>
-                    <p className="mt-2">
-                      PayPal verarbeitet diese Daten zur Zahlungsabwicklung und zur Betrugsprävention. Detaillierte Informationen 
-                      zur Datenverarbeitung durch PayPal finden Sie in deren Datenschutzerklärung.
+                    <p className="mt-2 font-medium text-foreground">
+                      Cookies
+                    </p>
+                    <p>
+                      Stripe kann technisch notwendige Cookies setzen, um die Zahlungsabwicklung zu ermöglichen. Diese dienen 
+                      ausschließlich der Transaktionssicherheit.
+                    </p>
+                    <p className="mt-2 font-medium text-foreground">
+                      Weitere Informationen
+                    </p>
+                    <p>
+                      Details zur Datenverarbeitung durch Stripe entnehmen Sie der Datenschutzerklärung von Stripe:{" "}
+                      <a 
+                        href="https://stripe.com/de/privacy" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline"
+                      >
+                        https://stripe.com/de/privacy
+                      </a>
+                      .
                     </p>
                   </div>
                 </div>
@@ -458,7 +518,68 @@ export default function Datenschutz() {
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-6">
                 <div>
-                  <h2 className="font-medium text-lg mb-3">6. Externe Verlinkungen</h2>
+                  <h2 className="font-medium text-lg mb-3">6. Cookies und Tracking-Technologien</h2>
+                  
+                  <h3 className="font-medium text-base mb-2 mt-4">Einsatz von Cookies</h3>
+                  <div className="text-muted-foreground space-y-2">
+                    <p>
+                      Diese Website verwendet nur technisch notwendige Cookies, die für den Betrieb der Seite und die 
+                      Zahlungsabwicklung erforderlich sind. Diese Cookies dienen ausschließlich der Funktionsfähigkeit und 
+                      Sicherheit der Website.
+                    </p>
+                    <p className="mt-2">
+                      <span className="font-medium text-foreground">Was sind Cookies?</span> Cookies sind kleine Textdateien, 
+                      die auf Ihrem Endgerät gespeichert werden und bestimmte Informationen über Ihre Nutzung der Website enthalten.
+                    </p>
+                    <p className="mt-2">
+                      <span className="font-medium text-foreground">Rechtsgrundlage:</span> Die Verwendung technisch notwendiger 
+                      Cookies erfolgt auf Basis von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an funktionsfähiger Website).
+                    </p>
+                    <p className="mt-2">
+                      <span className="font-medium text-foreground">Keine Analyse-Tools:</span> Wir setzen derzeit keine 
+                      Analyse-Tools wie Google Analytics, Facebook Pixel oder ähnliche Tracking-Dienste ein.
+                    </p>
+                    <p className="mt-2">
+                      Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies informiert werden und 
+                      Cookies nur im Einzelfall erlauben oder die Annahme von Cookies grundsätzlich deaktivieren. Bitte beachten 
+                      Sie, dass bei Deaktivierung von Cookies die Funktionalität dieser Website eingeschränkt sein kann.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="mb-6">
+              <CardContent className="pt-6 space-y-6">
+                <div>
+                  <h2 className="font-medium text-lg mb-3">7. E-Mail-Kommunikation</h2>
+                  
+                  <div className="text-muted-foreground space-y-2">
+                    <p>
+                      Wenn Sie uns per E-Mail kontaktieren oder einen Gutschein erwerben, verarbeiten wir Ihre E-Mail-Adresse 
+                      und weitere von Ihnen mitgeteilte Daten zur Bearbeitung Ihrer Anfrage bzw. zur Zusendung des Gutscheins.
+                    </p>
+                    <p className="mt-2">
+                      <span className="font-medium text-foreground">E-Mail-Provider:</span> Der Versand von E-Mails erfolgt über 
+                      unseren E-Mail-Hosting-Provider. Die E-Mail-Kommunikation ist SSL/TLS-verschlüsselt.
+                    </p>
+                    <p className="mt-2">
+                      <span className="font-medium text-foreground">Rechtsgrundlage:</span> Art. 6 Abs. 1 lit. b DSGVO 
+                      (Vertragserfüllung) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an Kundenkommunikation).
+                    </p>
+                    <p className="mt-2">
+                      <span className="font-medium text-foreground">Speicherdauer:</span> E-Mails werden bis zur vollständigen 
+                      Bearbeitung Ihrer Anfrage bzw. bis zum Ablauf gesetzlicher Aufbewahrungsfristen gespeichert.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="mb-6">
+              <CardContent className="pt-6 space-y-6">
+                <div>
+                  <h2 className="font-medium text-lg mb-3">8. Externe Verlinkungen</h2>
                   
                   <div className="text-muted-foreground space-y-2">
                     <h3 className="font-medium text-foreground mb-2">WhatsApp</h3>
@@ -509,7 +630,7 @@ export default function Datenschutz() {
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-6">
                 <div>
-                  <h2 className="font-medium text-lg mb-3">7. Änderungen dieser Datenschutzerklärung</h2>
+                  <h2 className="font-medium text-lg mb-3">9. Änderungen dieser Datenschutzerklärung</h2>
                   
                   <div className="text-muted-foreground space-y-2">
                     <p>

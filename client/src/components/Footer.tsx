@@ -161,6 +161,12 @@ export default function Footer() {
               <Link href="/datenschutz" className="hover:text-foreground transition-colors duration-200" data-testid="footer-link-datenschutz">
                 Datenschutz
               </Link>
+              <Link href="/agb" className="hover:text-foreground transition-colors duration-200" data-testid="footer-link-agb">
+                AGB
+              </Link>
+              <Link href="/widerruf" className="hover:text-foreground transition-colors duration-200" data-testid="footer-link-widerruf">
+                Widerruf
+              </Link>
             </div>
           </div>
         </div>
