@@ -1,6 +1,7 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import { initializeStripeProducts } from "./stripe-init";
 
 const app = express();
 app.use(express.json());
@@ -37,6 +38,15 @@ app.use((req, res, next) => {
 });
 
 (async () => {
+  // Initialize Stripe products on startup
+  if (process.env.STRIPE_SECRET_KEY) {
+    try {
+      await initializeStripeProducts();
+    } catch (error) {
+      log("Warning: Failed to initialize Stripe products:", error);
+    }
+  }
+
   const server = await registerRoutes(app);
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {

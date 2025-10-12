@@ -16,6 +16,7 @@ export interface IStorage {
   getServices(): Promise<Service[]>;
   getService(id: string): Promise<Service | undefined>;
   createService(service: InsertService): Promise<Service>;
+  updateServiceStripeProductId(id: string, stripeProductId: string): Promise<Service | undefined>;
 }
 
 export class MemStorage implements IStorage {
@@ -105,8 +106,8 @@ export class MemStorage implements IStorage {
       id,
       purchaseType: insertVoucher.purchaseType ?? "custom",
       serviceId: insertVoucher.serviceId ?? null,
-      serviceSnapshotName: insertVoucher.serviceSnapshotName ?? null,
-      serviceSnapshotPrice: insertVoucher.serviceSnapshotPrice ?? null,
+      serviceSnapshotName: null,
+      serviceSnapshotPrice: null,
       recipientEmail: insertVoucher.recipientEmail ?? null,
       recipientAddress: insertVoucher.recipientAddress ?? null,
       message: insertVoucher.message ?? null,
@@ -165,6 +166,18 @@ export class MemStorage implements IStorage {
     };
     this.services.set(id, service);
     return service;
+  }
+
+  async updateServiceStripeProductId(id: string, stripeProductId: string): Promise<Service | undefined> {
+    const service = this.services.get(id);
+    if (!service) return undefined;
+    
+    const updatedService: Service = {
+      ...service,
+      stripeProductId,
+    };
+    this.services.set(id, updatedService);
+    return updatedService;
   }
 }
 
