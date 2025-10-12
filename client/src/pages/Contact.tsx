@@ -8,7 +8,7 @@ import { Phone, Mail, MapPin, Clock, Award, Heart, Sparkles, User } from "lucide
 import { SiWhatsapp } from "react-icons/si";
 import WaveDivider from "@/components/WaveDivider";
 import aboutImage from "@assets/Design ohne Titel(3)_1759859758385.png";
-import heroImage from "@assets/Design ohne Titel(8)_1760263001064.jpg";
+import heroImage from "@assets/elena-portrait.jpg";
 
 export default function Contact() {
   return (
