@@ -16,7 +16,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import VoucherStripeCheckout from "@/components/VoucherStripeCheckout";
-import { Gift, Mail, Truck, CheckCircle2, AlertCircle, Star, Heart, Calendar, Sparkles, CreditCard, Send, Package, X } from "lucide-react";
+import { Gift, Mail, Truck, CheckCircle2, AlertCircle, Star, Heart, Calendar, Sparkles, CreditCard, Send, Package, X, Store } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose } from "@/components/ui/dialog";
@@ -30,7 +30,7 @@ const voucherFormSchema = z.object({
     message: "Betrag muss größer als 0 sein",
   }),
   serviceId: z.string().optional(),
-  deliveryMethod: z.enum(["digital", "postal"]),
+  deliveryMethod: z.enum(["postal", "pickup"]),
   recipientName: z.string().min(2, "Name muss mindestens 2 Zeichen lang sein"),
   recipientEmail: z.string().email("Ungültige E-Mail-Adresse").optional().or(z.literal("")),
   recipientAddress: z.string().optional(),
@@ -38,17 +38,6 @@ const voucherFormSchema = z.object({
   buyerEmail: z.string().email("Ungültige E-Mail-Adresse"),
   message: z.string().optional(),
 }).refine(
-  (data) => {
-    if (data.deliveryMethod === "digital") {
-      return !!data.recipientEmail && data.recipientEmail.length > 0;
-    }
-    return true;
-  },
-  {
-    message: "E-Mail-Adresse ist erforderlich für digitale Gutscheine",
-    path: ["recipientEmail"],
-  }
-).refine(
   (data) => {
     if (data.deliveryMethod === "postal") {
       return !!data.recipientAddress && data.recipientAddress.length > 0;
@@ -149,7 +138,7 @@ export default function Vouchers() {
       purchaseType: "custom",
       amount: "50",
       serviceId: "",
-      deliveryMethod: "digital",
+      deliveryMethod: "postal",
       recipientName: "",
       recipientEmail: "",
       recipientAddress: "",
@@ -782,22 +771,22 @@ export default function Vouchers() {
                                 className="flex flex-col space-y-2"
                               >
                                 <div className="flex items-center space-x-3 p-4 rounded-lg border hover-elevate">
-                                  <RadioGroupItem value="digital" id="digital" data-testid="radio-digital" />
-                                  <Label htmlFor="digital" className="flex items-center gap-2 cursor-pointer flex-1">
-                                    <Mail className="h-5 w-5 text-primary" />
-                                    <div>
-                                      <div className="font-medium">Digital per E-Mail</div>
-                                      <div className="text-sm text-muted-foreground">Sofortiger Versand</div>
-                                    </div>
-                                  </Label>
-                                </div>
-                                <div className="flex items-center space-x-3 p-4 rounded-lg border hover-elevate">
                                   <RadioGroupItem value="postal" id="postal" data-testid="radio-postal" />
                                   <Label htmlFor="postal" className="flex items-center gap-2 cursor-pointer flex-1">
                                     <Truck className="h-5 w-5 text-primary" />
                                     <div>
-                                      <div className="font-medium">Per Post</div>
+                                      <div className="font-medium">Per Post + 2,90€ Versand</div>
                                       <div className="text-sm text-muted-foreground">Gedruckter Gutschein</div>
+                                    </div>
+                                  </Label>
+                                </div>
+                                <div className="flex items-center space-x-3 p-4 rounded-lg border hover-elevate">
+                                  <RadioGroupItem value="pickup" id="pickup" data-testid="radio-pickup" />
+                                  <Label htmlFor="pickup" className="flex items-center gap-2 cursor-pointer flex-1">
+                                    <Store className="h-5 w-5 text-primary" />
+                                    <div>
+                                      <div className="font-medium">Abholung</div>
+                                      <div className="text-sm text-muted-foreground">Persönlich im Studio abholen</div>
                                     </div>
                                   </Label>
                                 </div>
@@ -824,22 +813,6 @@ export default function Vouchers() {
                               </FormItem>
                             )}
                           />
-
-                          {deliveryMethod === "digital" && (
-                            <FormField
-                              control={form.control}
-                              name="recipientEmail"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel>E-Mail des Empfängers</FormLabel>
-                                  <FormControl>
-                                    <Input type="email" {...field} data-testid="input-recipient-email" />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                          )}
 
                           {deliveryMethod === "postal" && (
                             <FormField
@@ -1082,7 +1055,7 @@ export default function Vouchers() {
                         Vielen Dank für Ihren Kauf!
                       </h2>
                       <p className="text-muted-foreground">
-                        Ihr Gutschein wurde erfolgreich erstellt und wird in Kürze {form.getValues("deliveryMethod") === "digital" ? "per E-Mail versandt" : "per Post zugestellt"}.
+                        Ihr Gutschein wurde erfolgreich erstellt und {form.getValues("deliveryMethod") === "postal" ? "wird in Kürze per Post zugestellt" : "steht zur Abholung bereit"}.
                       </p>
                     </div>
                     <Button
