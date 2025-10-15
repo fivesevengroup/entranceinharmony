@@ -109,37 +109,41 @@ export default function Datenschutz() {
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-6">
                 <div>
-                  <h2 className="font-medium text-lg mb-3">2. Hosting und Content Delivery Networks (CDN)</h2>
+                  <h2 className="font-medium text-lg mb-3">2. Hosting</h2>
                   
                   <div className="text-muted-foreground space-y-2">
                     <p>
                       Wir hosten die Inhalte unserer Website bei folgendem Anbieter:
                     </p>
                     
-                    <h3 className="font-medium text-foreground mt-4">Replit</h3>
+                    <h3 className="font-medium text-foreground mt-4">Strato</h3>
                     <p>
-                      Anbieter ist Replit, Inc., 3500 South Dupont Highway, Dover, Delaware 19901, USA (nachfolgend „Replit").
+                      Anbieter ist die Strato AG, Pascalstraße 10, 10587 Berlin, Deutschland (nachfolgend „Strato").
                     </p>
                     <p className="mt-2">
-                      Wenn Sie unsere Website besuchen, erfasst Replit verschiedene Logfiles inklusive Ihrer IP-Adressen. 
-                      Details entnehmen Sie der Datenschutzerklärung von Replit:{" "}
+                      Wenn Sie unsere Website besuchen, erfasst Strato verschiedene Logfiles inklusive Ihrer IP-Adressen. 
+                      Details entnehmen Sie der Datenschutzerklärung von Strato:{" "}
                       <a 
-                        href="https://replit.com/site/privacy" 
+                        href="https://www.strato.de/datenschutz/" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="text-primary hover:underline"
                       >
-                        https://replit.com/site/privacy
+                        https://www.strato.de/datenschutz/
                       </a>
                       .
                     </p>
                     <p className="mt-2">
-                      Die Verwendung von Replit erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein 
+                      Die Verwendung von Strato erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein 
                       berechtigtes Interesse an einer möglichst zuverlässigen Darstellung unserer Website. Sofern eine 
                       entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf Grundlage 
                       von Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TTDSG, soweit die Einwilligung die Speicherung von 
                       Cookies oder den Zugriff auf Informationen im Endgerät des Nutzers (z. B. Device-Fingerprinting) 
                       im Sinne des TTDSG umfasst.
+                    </p>
+                    <p className="mt-2">
+                      Da Strato ein deutscher Anbieter ist, erfolgt die Datenverarbeitung innerhalb der Europäischen Union 
+                      und unterliegt den strengen Anforderungen der DSGVO.
                     </p>
                   </div>
                 </div>
