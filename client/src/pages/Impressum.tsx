@@ -101,20 +101,17 @@ export default function Impressum() {
                       >
                         https://ec.europa.eu/consumers/odr/
                       </a>
-                      .
-                    </p>
-                    <p className="mt-2">
+                      .<br />
                       Unsere E-Mail-Adresse finden Sie oben im Impressum.
                     </p>
                   </div>
                 </div>
 
                 <div>
-                  <h2 className="font-medium text-lg mb-3">Verbraucher­streit­beilegung/Universal­schlichtungs­stelle</h2>
+                  <h2 className="font-medium text-lg mb-3">Verbraucherstreitbeilegung / Universalschlichtungsstelle</h2>
                   <div className="text-muted-foreground">
                     <p>
-                      Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer 
-                      Verbraucherschlichtungsstelle teilzunehmen.
+                      Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
                     </p>
                   </div>
                 </div>
