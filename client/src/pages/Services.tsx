@@ -152,7 +152,7 @@ const treatments: Treatment[] = [
       "Aknenarben-Behandlung",
       "Porenverfeinerung"
     ],
-    price: "ab 100€",
+    price: "ab 90€",
     image: laserImage
   }
 ];
