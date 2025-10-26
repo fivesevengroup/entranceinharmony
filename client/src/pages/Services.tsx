@@ -87,7 +87,7 @@ const treatments: Treatment[] = [
       "Natürlicher Glow-Effekt",
       "Lang anhaltende Wirkung"
     ],
-    price: "95€",
+    price: "85€",
     image: bbGlowImage
   },
   {
@@ -103,7 +103,7 @@ const treatments: Treatment[] = [
       "Beruhigende Maske",
       "Intensive Abschlusspflege"
     ],
-    price: "100€",
+    price: "90€",
     image: microneedlingImage
   },
   {
@@ -119,7 +119,7 @@ const treatments: Treatment[] = [
       "Botox-ähnlicher Effekt",
       "Keine Nadeln erforderlich"
     ],
-    price: "90€",
+    price: "85€",
     image: btoxImage
   },
   {
