@@ -1,0 +1,54 @@
+{
+  "title": "Datenschutzerklärung für www.entranceinharmony.de",
+  "stand": "26.10.2025",
+  "abschnitte": [
+    {
+      "titel": "1. Allgemeine Hinweise",
+      "inhalt": "Diese Datenschutzerklärung informiert Sie über die Art, den Umfang und Zweck der Verarbeitung personenbezogener Daten beim Besuch unserer Website. Personenbezogene Daten sind alle Informationen, mit denen Sie persönlich identifiziert werden können."
+    },
+    {
+      "titel": "2. Verantwortliche Stelle",
+      "inhalt": "Entrance in Harmony\nElena Hartstein\nHöhfeld 5\n57299 Burbach\nDeutschland\nTelefon: 0170 9287722\nE-Mail: info@entranceinharmony.de"
+    },
+    {
+      "titel": "3. Hosting über Replit (USA)",
+      "inhalt": "Unsere Website wird bei Replit Inc., 767 Bryant St, Suite 210, San Francisco, CA 94107, USA gehostet. Dabei werden IP-Adressen und technische Informationen verarbeitet.\n\nDie Datenübermittlung in die USA erfolgt auf Grundlage von Art. 46 Abs. 2 lit. c DSGVO (Standardvertragsklauseln). Zusätzliche Schutzmaßnahmen wie Verschlüsselung und Zugriffsbeschränkungen sind implementiert."
+    },
+    {
+      "titel": "4. Kontaktformular und E-Mail",
+      "inhalt": "Wenn Sie uns per Kontaktformular oder E-Mail kontaktieren, speichern und verarbeiten wir Ihre Angaben (z. B. Name, E-Mail, Nachricht) zur Bearbeitung Ihrer Anfrage. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse).\n\nIhre Daten werden gelöscht, sobald der Zweck der Speicherung entfällt, es sei denn, gesetzliche Aufbewahrungspflichten bestehen."
+    },
+    {
+      "titel": "5. Bestellungen und Buchungen",
+      "inhalt": "Für Gutscheinbestellungen, Produktkäufe oder Behandlungen verarbeiten wir Name, Kontakt-, Zahlungs- und ggf. Gesundheitsdaten (z. B. Allergien).\nRechtsgrundlagen: Art. 6 Abs. 1 lit. b DSGVO (Vertrag), Art. 9 Abs. 2 lit. h DSGVO (Gesundheitsdaten).\n\nDaten werden für 10 Jahre gemäß handels- und steuerrechtlicher Vorgaben gespeichert."
+    },
+    {
+      "titel": "6. Zahlungsdienstleister Stripe",
+      "inhalt": "Zahlungen werden über Stripe Payments Europe Ltd., Dublin, Irland abgewickelt. Dabei werden personenbezogene Zahlungsdaten (z. B. Name, Kartendaten, Transaktionsnummer) verarbeitet.\n\nStripe kann Daten in die USA übermitteln. Grundlage ist die Teilnahme am EU-US Data Privacy Framework sowie SCC gemäß Art. 46 DSGVO.\nWeitere Infos: https://stripe.com/de/privacy"
+    },
+    {
+      "titel": "7. Cookies",
+      "inhalt": "Diese Website verwendet nur technisch notwendige Cookies zur Gewährleistung der Funktionalität.\nRechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.\n\nEs findet kein Tracking oder Analyse statt. Eine Einwilligung ist daher nicht erforderlich."
+    },
+    {
+      "titel": "8. WhatsApp und Instagram",
+      "inhalt": "Bei Klick auf Links zu WhatsApp oder Instagram werden Sie zu diesen externen Diensten weitergeleitet. Dabei können personenbezogene Daten (z. B. Ihre Telefonnummer, IP-Adresse) verarbeitet werden.\n\nVerantwortlich: Meta Platforms Ireland Ltd., Dublin, Irland. Meta kann Daten in die USA übermitteln (DPF/SCC)."
+    },
+    {
+      "titel": "9. Speicherdauer",
+      "inhalt": "Personenbezogene Daten werden nur solange gespeichert, wie es für die jeweiligen Verarbeitungszwecke erforderlich ist. Im Falle gesetzlicher Aufbewahrungspflichten erfolgt die Löschung nach deren Ablauf."
+    },
+    {
+      "titel": "10. Ihre Rechte",
+      "inhalt": "Sie haben folgende Rechte:\n- Auskunft (Art. 15 DSGVO)\n- Berichtigung (Art. 16 DSGVO)\n- Löschung (Art. 17 DSGVO)\n- Einschränkung der Verarbeitung (Art. 18 DSGVO)\n- Datenübertragbarkeit (Art. 20 DSGVO)\n- Widerspruch (Art. 21 DSGVO)\n- Beschwerde bei einer Aufsichtsbehörde (Art. 77 DSGVO)"
+    },
+    {
+      "titel": "11. Datensicherheit",
+      "inhalt": "Diese Website nutzt SSL- bzw. TLS-Verschlüsselung zur sicheren Übertragung Ihrer Daten. Eine verschlüsselte Verbindung erkennen Sie an der Adresszeile des Browsers („https://“ und Schloss-Symbol)."
+    },
+    {
+      "titel": "12. Änderungen dieser Erklärung",
+      "inhalt": "Wir behalten uns vor, diese Datenschutzerklärung bei Änderungen unserer Leistungen oder rechtlichen Vorgaben anzupassen. Es gilt jeweils die zum Zeitpunkt Ihres Besuchs abrufbare Version."
+    }
+  ]
+}
