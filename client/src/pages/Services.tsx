@@ -439,7 +439,7 @@ export default function Services() {
                       <div className="space-y-3">
                         <div className="flex justify-between items-center p-3 rounded-lg bg-muted/30">
                           <span className="text-muted-foreground">Gesicht</span>
-                          <span className="font-medium text-primary text-lg">300€</span>
+                          <span className="font-medium text-primary text-lg">250€</span>
                         </div>
                         <div className="flex justify-between items-center p-3 rounded-lg bg-muted/30">
                           <span className="text-muted-foreground">Gesicht + Hals</span>
@@ -451,7 +451,7 @@ export default function Services() {
                         </div>
                         <div className="flex justify-between items-center p-3 rounded-lg bg-muted/30">
                           <span className="text-muted-foreground">Hände (Handrücken)</span>
-                          <span className="font-medium text-primary text-lg">100€</span>
+                          <span className="font-medium text-primary text-lg">90€</span>
                         </div>
                         <div className="flex justify-between items-center p-3 rounded-lg bg-muted/30">
                           <span className="text-muted-foreground">Hände + Arme bis zum Ellbogen</span>
