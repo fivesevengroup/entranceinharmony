@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ShieldCheck, Lock } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 import WaveDivider from "@/components/WaveDivider";
 import heroImage from "@assets/stock_images/professional_legal_d_a8468a57.jpg";
 
@@ -57,92 +57,176 @@ export default function Datenschutz() {
             
             {/* Section 1: Datenschutz auf einen Blick */}
             <Card className="mb-6">
-              <CardContent className="pt-6 space-y-6">
-                <div>
-                  <h2 className="font-medium text-lg mb-3">1. Datenschutz auf einen Blick</h2>
-                  
-                  <h3 className="font-medium text-base mb-2 mt-4">Allgemeine Hinweise</h3>
-                  <div className="text-muted-foreground space-y-2">
-                    <p>
-                      Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten 
-                      passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie 
-                      persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz entnehmen 
-                      Sie unserer unter diesem Text aufgeführten Datenschutzerklärung.
-                    </p>
-                  </div>
-
-                  <h3 className="font-medium text-base mb-2 mt-4">Datenerfassung auf dieser Website</h3>
-                  <div className="text-muted-foreground space-y-2">
-                    <p className="font-medium text-foreground">Wer ist verantwortlich für die Datenerfassung auf dieser Website?</p>
-                    <p>
-                      Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten 
-                      können Sie dem Abschnitt „Hinweis zur Verantwortlichen Stelle" in dieser Datenschutzerklärung entnehmen.
-                    </p>
-
-                    <p className="font-medium text-foreground mt-3">Wie erfassen wir Ihre Daten?</p>
-                    <p>
-                      Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. 
-                      um Daten handeln, die Sie in ein Kontaktformular oder beim Kauf eines Gutscheins eingeben.
-                    </p>
-                    <p className="mt-2">
-                      Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere 
-                      IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder 
-                      Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt automatisch, sobald Sie diese Website betreten.
-                    </p>
-
-                    <p className="font-medium text-foreground mt-3">Wofür nutzen wir Ihre Daten?</p>
-                    <p>
-                      Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. 
-                      Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden. Beim Kauf von Gutscheinen 
-                      werden Ihre Daten zur Abwicklung der Bestellung und Zahlung verwendet.
-                    </p>
-
-                    <p className="font-medium text-foreground mt-3">Welche Rechte haben Sie bezüglich Ihrer Daten?</p>
-                    <p>
-                      Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer 
-                      gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung 
-                      oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt 
-                      haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Außerdem haben Sie das 
-                      Recht, unter bestimmten Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten 
-                      zu verlangen. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.
-                    </p>
-                    <p className="mt-2">
-                      Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an uns wenden.
-                    </p>
-                  </div>
+              <CardContent className="pt-6 space-y-4">
+                <h2 className="font-medium text-lg mb-3">1. Datenschutz auf einen Blick</h2>
+                <div className="text-muted-foreground space-y-3">
+                  <p>
+                    Die folgenden Hinweise geben einen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.
+                  </p>
+                  <p className="font-medium text-foreground">Datenerfassung auf dieser Website</p>
+                  <p>
+                    Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten entnehmen Sie dem Abschnitt „Verantwortliche Stelle".
+                  </p>
+                  <p>
+                    Ein Teil der Daten wird erhoben, weil Sie uns diese mitteilen (z. B. über das Kontaktformular). Andere Daten werden automatisch beim Besuch der Website erfasst (z. B. technische Daten, IP-Adresse).
+                  </p>
+                  <p>
+                    Ein Teil der Daten dient der technischen Bereitstellung, andere ggf. zur Analyse Ihres Nutzerverhaltens oder zur Abwicklung von Bestellungen. Sie haben jederzeit Rechte wie Auskunft, Löschung, Einschränkung oder Widerspruch. Wenden Sie sich dazu an die im Impressum genannte Adresse.
+                  </p>
                 </div>
               </CardContent>
             </Card>
 
-            {/* Section 2: Hosting - CORRECTED TO STRATO AG */}
+            {/* Section 2: Verantwortliche Stelle */}
             <Card className="mb-6">
-              <CardContent className="pt-6 space-y-6">
-                <div>
-                  <h2 className="font-medium text-lg mb-3">2. Hosting</h2>
-                  
-                  <div className="text-muted-foreground space-y-2">
-                    <p>
-                      Diese Website wird über die Plattform <strong className="text-foreground">Strato AG</strong>, Pascalstraße 10, 10587 Berlin, Deutschland gehostet.
-                    </p>
-                    <p className="mt-2">
-                      Beim Aufruf der Website werden personenbezogene Daten wie Ihre IP-Adresse verarbeitet. Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an sicherem Websitebetrieb).
-                    </p>
-                    <p className="mt-2">
-                      Da Strato ein deutscher Anbieter ist, erfolgt die Datenverarbeitung innerhalb der Europäischen Union und unterliegt den strengen Anforderungen der DSGVO. Strato verpflichtet sich zur Einhaltung technischer und organisatorischer Maßnahmen (z. B. Verschlüsselung, Zugriffsschutz), um die Datenverarbeitung DSGVO-konform zu gestalten.
-                    </p>
-                    <p className="mt-2">
-                      Weitere Details entnehmen Sie der Datenschutzerklärung von Strato:{" "}
-                      <a 
-                        href="https://www.strato.de/datenschutz/" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-primary hover:underline"
-                        data-testid="link-strato-privacy"
-                      >
-                        https://www.strato.de/datenschutz/
-                      </a>
-                    </p>
-                  </div>
+              <CardContent className="pt-6 space-y-4">
+                <h2 className="font-medium text-lg mb-3">2. Verantwortliche Stelle</h2>
+                <div className="text-muted-foreground space-y-1">
+                  <p className="font-medium text-foreground">Entrance in Harmony</p>
+                  <p>Elena Hartstein</p>
+                  <p>Höhfeld 5</p>
+                  <p>57299 Burbach</p>
+                  <p>Deutschland</p>
+                  <p className="mt-2">
+                    Telefon:{" "}
+                    <a href="tel:+491709287722" className="hover:text-foreground" data-testid="link-phone">0170 9287722</a>
+                  </p>
+                  <p>
+                    E-Mail:{" "}
+                    <a href="mailto:info@entranceinharmony.de" className="hover:text-foreground" data-testid="link-email">info@entranceinharmony.de</a>
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Section 3: Hosting über Replit (USA) */}
+            <Card className="mb-6">
+              <CardContent className="pt-6 space-y-4">
+                <h2 className="font-medium text-lg mb-3">3. Hosting über Replit (USA)</h2>
+                <div className="text-muted-foreground space-y-3">
+                  <p>
+                    Diese Website wird bei Replit Inc., 767 Bryant St, Suite 210, San Francisco, CA 94107, USA gehostet. Beim Aufruf der Website werden personenbezogene Daten wie IP-Adressen verarbeitet.
+                  </p>
+                  <p>
+                    Datenübermittlungen in die USA erfolgen auf Basis der EU-Standardvertragsklauseln gem. Art. 46 Abs. 2 lit. c DSGVO. Zusätzliche Schutzmaßnahmen wie Verschlüsselung werden eingesetzt.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Section 4: Kontaktformular und E-Mail */}
+            <Card className="mb-6">
+              <CardContent className="pt-6 space-y-4">
+                <h2 className="font-medium text-lg mb-3">4. Kontaktformular und E-Mail</h2>
+                <div className="text-muted-foreground">
+                  <p>
+                    Wenn Sie uns per Formular oder E-Mail kontaktieren, verarbeiten wir Ihre Angaben zur Beantwortung Ihrer Anfrage. Rechtsgrundlagen sind Art. 6 Abs. 1 lit. b und f DSGVO. Ihre Daten werden gelöscht, sobald der Zweck entfällt oder auf Wunsch.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Section 5: Bestellungen und Buchungen */}
+            <Card className="mb-6">
+              <CardContent className="pt-6 space-y-4">
+                <h2 className="font-medium text-lg mb-3">5. Bestellungen und Buchungen</h2>
+                <div className="text-muted-foreground">
+                  <p>
+                    Bei Gutscheinbestellungen, Produktkäufen oder Terminbuchungen verarbeiten wir Ihre personenbezogenen Daten zur Vertragsabwicklung. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO. Gesundheitsbezogene Daten bei Behandlungen werden nach Art. 9 Abs. 2 lit. h DSGVO verarbeitet und sicher gespeichert.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Section 6: Zahlungsanbieter Stripe */}
+            <Card className="mb-6">
+              <CardContent className="pt-6 space-y-4">
+                <h2 className="font-medium text-lg mb-3">6. Zahlungsanbieter Stripe</h2>
+                <div className="text-muted-foreground">
+                  <p>
+                    Zahlungen erfolgen über Stripe Payments Europe Ltd., Dublin, Irland. Stripe kann Daten in die USA übertragen. Dies geschieht auf Basis der Standardvertragsklauseln sowie der Teilnahme am EU-US Data Privacy Framework. Weitere Infos:{" "}
+                    <a 
+                      href="https://stripe.com/de/privacy" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                      data-testid="link-stripe-privacy"
+                    >
+                      https://stripe.com/de/privacy
+                    </a>
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Section 7: Cookies */}
+            <Card className="mb-6">
+              <CardContent className="pt-6 space-y-4">
+                <h2 className="font-medium text-lg mb-3">7. Cookies</h2>
+                <div className="text-muted-foreground space-y-3">
+                  <p>
+                    Diese Website verwendet ausschließlich technisch notwendige Cookies. Sie dienen der Funktionalität und Sicherheit der Website und werden nicht zur Analyse verwendet.
+                  </p>
+                  <p>
+                    Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Section 8: Ihre Rechte */}
+            <Card className="mb-6">
+              <CardContent className="pt-6 space-y-4">
+                <h2 className="font-medium text-lg mb-3">8. Ihre Rechte</h2>
+                <div className="text-muted-foreground space-y-3">
+                  <p>Sie haben jederzeit das Recht auf:</p>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li>Auskunft nach Art. 15 DSGVO</li>
+                    <li>Berichtigung nach Art. 16 DSGVO</li>
+                    <li>Löschung nach Art. 17 DSGVO</li>
+                    <li>Einschränkung der Verarbeitung nach Art. 18 DSGVO</li>
+                    <li>Datenübertragbarkeit nach Art. 20 DSGVO</li>
+                    <li>Widerspruch nach Art. 21 DSGVO</li>
+                  </ul>
+                  <p>
+                    Zudem besteht ein Beschwerderecht bei der zuständigen Aufsichtsbehörde.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Section 9: Externe Dienste */}
+            <Card className="mb-6">
+              <CardContent className="pt-6 space-y-4">
+                <h2 className="font-medium text-lg mb-3">9. Externe Dienste</h2>
+                <div className="text-muted-foreground">
+                  <p>
+                    Beim Klicken auf WhatsApp- oder Instagram-Links werden Sie zu den jeweiligen Diensten weitergeleitet. Es gelten deren Datenschutzbestimmungen. Verantwortlich ist Meta Platforms Ireland Ltd., Dublin, Irland.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Section 10: Sicherheit */}
+            <Card className="mb-6">
+              <CardContent className="pt-6 space-y-4">
+                <h2 className="font-medium text-lg mb-3">10. Sicherheit</h2>
+                <div className="text-muted-foreground">
+                  <p>
+                    Diese Website verwendet SSL- bzw. TLS-Verschlüsselung zur sicheren Übertragung Ihrer Daten. Bitte achten Sie auf die verschlüsselte Verbindung in der Adresszeile des Browsers (https und Schloss-Symbol).
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Section 11: Änderungen dieser Datenschutzerklärung */}
+            <Card className="mb-6">
+              <CardContent className="pt-6 space-y-4">
+                <h2 className="font-medium text-lg mb-3">11. Änderungen dieser Datenschutzerklärung</h2>
+                <div className="text-muted-foreground">
+                  <p>
+                    Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen umzusetzen.
+                  </p>
                 </div>
               </CardContent>
             </Card>
