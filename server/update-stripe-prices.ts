@@ -11,6 +11,8 @@ import { stripe } from "./stripe-init.js";
 
 const SERVICES_TO_UPDATE = [
   { name: "Red Touch Pro Laser - Gesicht", newPrice: 250 },
+  { name: "Red Touch Pro Laser - Gesicht + Hals", newPrice: 300 },
+  { name: "Red Touch Pro Laser - Gesicht + Hals + Dekolleté", newPrice: 350 },
   { name: "Red Touch Pro Laser - Hände (Handrücken)", newPrice: 90 },
   { name: "Microneedling", newPrice: 90 },
   { name: "BB Glow Skin", newPrice: 85 },

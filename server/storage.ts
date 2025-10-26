@@ -88,14 +88,14 @@ export class MemStorage implements IStorage {
         name: "Red Touch Pro Laser - Gesicht + Hals",
         shortDescription: "Hautverjüngung, Beseitigung von Hauterschlaffung, Wiederherstellung der Hautelastizität (Demnächst erhältlich)",
         durationMinutes: 75,
-        price: 350,
+        price: 300,
         stripeProductId: null,
       },
       {
         name: "Red Touch Pro Laser - Gesicht + Hals + Dekolleté",
         shortDescription: "Hautverjüngung, Beseitigung von Hauterschlaffung, Wiederherstellung der Hautelastizität (Demnächst erhältlich)",
         durationMinutes: 90,
-        price: 400,
+        price: 350,
         stripeProductId: null,
       },
       {
