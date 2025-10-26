@@ -22,7 +22,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose } from "@/components/ui/dialog";
 import WaveDivider from "@/components/WaveDivider";
-import voucherImage from "@assets/generated_images/Luxury_voucher_with_real_logo_2e8c63d3.png";
+import voucherImage from "@assets/generated_images/Voucher_with_wax_seal_ribbon_c2133166.png";
 import heroImage from "@assets/voucher_hero_image.png";
 
 const voucherFormSchema = z.object({
