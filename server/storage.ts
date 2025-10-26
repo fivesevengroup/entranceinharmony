@@ -150,16 +150,18 @@ export class MemStorage implements IStorage {
 
   async createVoucher(insertVoucher: InsertVoucher): Promise<Voucher> {
     const id = randomUUID();
+    const orderNumber = `GS-${Date.now()}-${Math.random().toString(36).substring(2, 9).toUpperCase()}`;
     const voucher: Voucher = {
       ...insertVoucher,
       id,
+      orderNumber,
       purchaseType: insertVoucher.purchaseType ?? "custom",
       serviceId: insertVoucher.serviceId ?? null,
       serviceSnapshotName: null,
       serviceSnapshotPrice: null,
       recipientEmail: insertVoucher.recipientEmail ?? null,
       recipientAddress: insertVoucher.recipientAddress ?? null,
-      message: insertVoucher.message ?? null,
+      message: null,
       paymentStatus: insertVoucher.paymentStatus ?? "pending",
       paypalOrderId: insertVoucher.paypalOrderId ?? null,
       createdAt: new Date(),

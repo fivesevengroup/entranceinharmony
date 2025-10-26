@@ -261,12 +261,19 @@ export default function Services() {
                 className="overflow-hidden hover-elevate transition-all"
                 data-testid={`card-treatment-${treatment.id}`}
               >
-                <div className="aspect-[4/3] overflow-hidden">
+                <div className="aspect-[4/3] overflow-hidden relative">
                   <img
                     src={treatment.image}
                     alt={treatment.title}
                     className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                   />
+                  {treatment.id === "laser" && (
+                    <div className="absolute top-4 left-4 z-10">
+                      <Badge className="bg-primary text-primary-foreground px-4 py-2 text-xs font-medium uppercase tracking-wide shadow-lg">
+                        Demnächst erhältlich
+                      </Badge>
+                    </div>
+                  )}
                 </div>
                 <CardContent className="p-6">
                   <h3 className="font-serif text-2xl font-light mb-2" data-testid={`text-treatment-title-${treatment.id}`}>
