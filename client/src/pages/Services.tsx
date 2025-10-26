@@ -141,7 +141,7 @@ const treatments: Treatment[] = [
   {
     id: "laser",
     title: "Red Touch Pro Laser",
-    shortDescription: "Professionelle Laser-Hautverjüngung",
+    shortDescription: "Professionelle Laser-Hautverjüngung (Demnächst erhältlich)",
     description: "Hautverjüngung, Beseitigung von Hauterschlaffung, Wiederherstellung der Hautelastizität, Narbenverbesserung, Kollagenstimulation, Verbesserung von Dehnungsstreifen, Glättung von Aknenarben, Porenverfeinerung",
     details: [
       "Hautverjüngung und Straffung",
