@@ -89,16 +89,16 @@ export default function Datenschutz() {
               </CardContent>
             </Card>
 
-            {/* Section 3: Hosting über Replit (USA) */}
+            {/* Section 3: Hosting über Render (EU - Frankfurt) */}
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-4">
-                <h2 className="font-medium text-lg mb-3">3. Hosting über Replit (USA)</h2>
+                <h2 className="font-medium text-lg mb-3">3. Hosting über Render (EU - Frankfurt)</h2>
                 <div className="text-muted-foreground space-y-3">
                   <p>
-                    Unsere Website wird bei Replit Inc., 767 Bryant St, Suite 210, San Francisco, CA 94107, USA gehostet. Dabei werden IP-Adressen und technische Informationen verarbeitet.
+                    Unsere Website wird bei Render Services Inc. (Render.com) auf Servern in der Europäischen Union (Frankfurt, Deutschland) gehostet. Dabei werden IP-Adressen und technische Informationen verarbeitet.
                   </p>
                   <p>
-                    Die Datenübermittlung in die USA erfolgt auf Grundlage von Art. 46 Abs. 2 lit. c DSGVO (Standardvertragsklauseln). Zusätzliche Schutzmaßnahmen wie Verschlüsselung und Zugriffsbeschränkungen sind implementiert.
+                    Die Datenverarbeitung erfolgt ausschließlich in der EU. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse). Mit Render besteht ein Auftragsverarbeitungsvertrag (Data Processing Agreement) gemäß Art. 28 DSGVO. Zusätzliche Schutzmaßnahmen wie SSL/TLS-Verschlüsselung und Zugriffsbeschränkungen sind implementiert.
                   </p>
                 </div>
               </CardContent>
