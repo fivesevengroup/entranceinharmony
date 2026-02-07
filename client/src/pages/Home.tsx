@@ -117,14 +117,14 @@ export default function Home() {
                 </ul>
 
                 <div className="flex flex-wrap items-center gap-4">
-                  <Button asChild data-testid="button-redtouch-cta" size="lg" className="text-sm uppercase tracking-widest px-8">
-                    <a href="https://wa.me/491709287722?text=Hallo,%20ich%20interessiere%20mich%20f%C3%BCr%20die%20Red%20Touch%20Pro%20Behandlung%20und%20h%C3%A4tte%20gerne%20eine%20Beratung." target="_blank" rel="noopener noreferrer">
-                      Jetzt beraten lassen
+                  <Button asChild data-testid="button-redtouch-cta" size="lg" className="rounded-none text-sm uppercase tracking-widest px-8">
+                    <a href="/kontakt">
+                      Jetzt Termin vereinbaren
                     </a>
                   </Button>
-                  <Button variant="outline" asChild data-testid="button-redtouch-more" size="lg" className="text-sm uppercase tracking-widest px-8">
+                  <Button variant="outline" asChild data-testid="button-redtouch-more" size="lg" className="rounded-none text-sm uppercase tracking-widest px-8">
                     <a href="/leistungen" className="flex items-center gap-2">
-                      <span>Entdecken</span>
+                      <span>Weitere Informationen</span>
                       <ArrowRight className="w-4 h-4" />
                     </a>
                   </Button>
@@ -149,7 +149,7 @@ export default function Home() {
                 ))}
               </div>
 
-              <div className="absolute bottom-8 right-8 flex items-center gap-3 z-10">
+              <div className="absolute bottom-12 right-12 flex items-center gap-3 z-10">
                 <button
                   onClick={prevSlide}
                   className="w-10 h-10 rounded-full border border-foreground/15 bg-background/60 backdrop-blur-sm flex items-center justify-center transition-all hover:border-foreground/30 hover:bg-background/80"
