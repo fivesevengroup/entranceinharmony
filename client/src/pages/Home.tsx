@@ -3,8 +3,11 @@ import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import WaveDivider from "@/components/WaveDivider";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Check, ArrowRight } from "lucide-react";
 import aboutImage from "@assets/Design ohne Titel(4)_1760188585511.jpg";
 import massageImage from "@assets/Design-ohne-Titel-7_1760197347929.png";
+import laserImage from "@assets/generated_images/Red_Touch_laser_with_goggles_86dab14d.png";
 
 export default function Home() {
   return (
@@ -42,7 +45,7 @@ export default function Home() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16 fade-up">
               <h2 className="font-serif text-4xl md:text-5xl font-light mb-6">
-                Ihre Expertin für natürliche Schönheit
+                Hautverjüngung auf höchstem Niveau
               </h2>
               <div className="h-0.5 w-32 mx-auto gold-shimmer rounded-full" />
             </div>
@@ -53,29 +56,58 @@ export default function Home() {
                   <div className="elegant-glow h-full">
                     <div className="relative h-full overflow-hidden rounded-2xl">
                       <img
-                        src={aboutImage}
-                        alt="Elena Hartstein"
+                        src={laserImage}
+                        alt="Red Touch Pro Behandlung"
                         className="w-full h-full object-cover"
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
                     </div>
                   </div>
                 </div>
                 <div className="md:col-span-3 p-10 md:p-14 flex flex-col justify-center">
-                  <h3 className="text-3xl md:text-4xl font-serif font-light mb-3">
-                    Elena Hartstein
+                  <Badge variant="secondary" className="w-fit mb-6 bg-primary/10 text-primary border-primary/20 text-xs uppercase tracking-widest">
+                    Neu bei uns
+                  </Badge>
+                  <h3 className="text-3xl md:text-4xl font-serif font-light mb-3" data-testid="text-redtouch-headline">
+                    Sichtbar straffere, glattere Haut
                   </h3>
-                  <p className="text-primary font-semibold mb-8 text-lg">
-                    Zertifizierte Kosmetikerin · Burbach & Umgebung
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed mb-5">
-                    Mit langjähriger Erfahrung in der professionellen Kosmetik bringe ich Ihre natürliche Schönheit zum Strahlen. Meine Passion liegt darin, für jeden Hauttyp die perfekte Behandlung zu finden.
+                  <p className="text-primary font-medium mb-6 text-lg">
+                    Red Touch Pro<sup className="text-xs">&reg;</sup>
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-8">
-                    In meinem Studio erwartet Sie eine Atmosphäre zum Wohlfühlen – modern, hygienisch und mit Liebe zum Detail gestaltet. Jede Behandlung ist individuell auf Ihre Bedürfnisse abgestimmt und kombiniert bewährte Techniken mit den neuesten Beauty-Innovationen.
+                    Wo müde, erschlaffte Haut war, entsteht ein frischer, ebenmäßiger Teint. Durch die sanfte Aktivierung Ihrer natürlichen Kollagenbildung gewinnt Ihre Haut spürbar an Festigkeit und Ausstrahlung &ndash; ganz ohne Ausfallzeit.
                   </p>
-                  <div className="flex gap-4">
-                    <Button asChild data-testid="button-ueber-mich" size="lg">
-                      <a href="/kontakt">Jetzt kennenlernen</a>
+
+                  <ul className="space-y-3 mb-10">
+                    <li className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                      <span className="text-muted-foreground">Sichtbare Ergebnisse bereits nach der ersten Sitzung</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                      <span className="text-muted-foreground">Sanft und angenehm &ndash; keine Ausfallzeit</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                      <span className="text-muted-foreground">Natürliche Kollagenstimulation von innen heraus</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                      <span className="text-muted-foreground">Für Gesicht, Hals, Dekolleté und Hände</span>
+                    </li>
+                  </ul>
+
+                  <div className="flex flex-wrap items-center gap-4">
+                    <Button asChild data-testid="button-redtouch-cta" size="lg">
+                      <a href="https://wa.me/491709287722?text=Hallo,%20ich%20interessiere%20mich%20für%20die%20Red%20Touch%20Pro%20Behandlung%20und%20hätte%20gerne%20eine%20Beratung." target="_blank" rel="noopener noreferrer">
+                        Jetzt beraten lassen
+                      </a>
+                    </Button>
+                    <Button variant="ghost" asChild data-testid="button-redtouch-more" size="lg" className="text-muted-foreground">
+                      <a href="/leistungen" className="flex items-center gap-2">
+                        <span>Ergebnisse entdecken</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </a>
                     </Button>
                   </div>
                 </div>
