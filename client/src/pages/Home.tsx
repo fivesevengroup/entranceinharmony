@@ -132,8 +132,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative order-1 lg:order-2 h-[50vh] lg:h-[85vh]">
-              <div className="absolute inset-0">
+            <div className="relative order-1 lg:order-2 h-[50vh] lg:h-[85vh] p-4 lg:p-6">
+              <div className="absolute inset-4 lg:inset-6 rounded-2xl overflow-hidden border-2 border-white shadow-lg">
                 {slides.map((slide, index) => (
                   <div
                     key={index}
@@ -147,9 +147,6 @@ export default function Home() {
                     />
                   </div>
                 ))}
-                <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-white z-10 lg:block hidden" />
-                <div className="absolute inset-0 lg:hidden" style={{ background: "linear-gradient(to top, hsl(var(--section-accent)) 0%, hsl(var(--section-accent) / 0.7) 15%, transparent 45%)" }} />
-                <div className="absolute inset-0 lg:hidden" style={{ background: "linear-gradient(to bottom, hsl(var(--section-accent) / 0.4) 0%, transparent 20%)" }} />
               </div>
 
               <div className="absolute bottom-8 right-8 flex items-center gap-3 z-10">
