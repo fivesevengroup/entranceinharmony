@@ -165,14 +165,14 @@ export default function Home() {
                   ref={marqueeRef}
                   className="flex h-[80%] animate-marquee-scroll"
                   style={{
-                    width: `${marqueeSlides.length * 45}%`,
+                    width: `${marqueeSlides.length * 55}%`,
                     animationPlayState: isPaused && !isDragging ? "paused" : undefined,
                   }}
                 >
                   {marqueeSlides.map((slide, index) => (
                     <div
                       key={index}
-                      className="h-full shrink-0 px-2"
+                      className="h-full shrink-0 px-3"
                       style={{ width: `${100 / marqueeSlides.length}%` }}
                     >
                       <img
