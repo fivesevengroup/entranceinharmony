@@ -141,19 +141,19 @@ export default function Home() {
             <div className="relative order-1 lg:order-2 h-[50vh] lg:h-[85vh] p-4 lg:p-6">
               <div className="absolute inset-4 lg:inset-6 overflow-hidden border-2 border-white shadow-lg">
                 {slides.map((slide, index) => {
-                  let translateY = "-100%";
-                  if (currentSlide === index) translateY = "0%";
+                  let translateX = "100%";
+                  if (currentSlide === index) translateX = "0%";
                   else if (
                     index < currentSlide ||
                     (currentSlide === 0 && index === slides.length - 1)
-                  ) translateY = "100%";
+                  ) translateX = "-100%";
 
                   return (
                     <div
                       key={index}
                       className="absolute inset-0"
                       style={{
-                        transform: `translateY(${translateY})`,
+                        transform: `translateX(${translateX})`,
                         transition: "transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
                       }}
                     >
