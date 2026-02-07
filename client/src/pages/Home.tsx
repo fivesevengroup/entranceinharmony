@@ -147,9 +147,7 @@ export default function Home() {
                     />
                   </div>
                 ))}
-                <div className="absolute inset-0 lg:block hidden" style={{ background: "linear-gradient(to right, hsl(var(--section-accent)) 0%, hsl(var(--section-accent) / 0.85) 8%, hsl(var(--section-accent) / 0.4) 25%, transparent 50%)" }} />
-                <div className="absolute inset-0 lg:block hidden" style={{ background: "linear-gradient(to top, hsl(var(--section-accent) / 0.3) 0%, transparent 15%)" }} />
-                <div className="absolute inset-0 lg:block hidden" style={{ background: "linear-gradient(to bottom, hsl(var(--section-accent) / 0.3) 0%, transparent 15%)" }} />
+                <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-white z-10 lg:block hidden" />
                 <div className="absolute inset-0 lg:hidden" style={{ background: "linear-gradient(to top, hsl(var(--section-accent)) 0%, hsl(var(--section-accent) / 0.7) 15%, transparent 45%)" }} />
                 <div className="absolute inset-0 lg:hidden" style={{ background: "linear-gradient(to bottom, hsl(var(--section-accent) / 0.4) 0%, transparent 20%)" }} />
               </div>
