@@ -172,13 +172,13 @@ export default function Home() {
                   {marqueeSlides.map((slide, index) => (
                     <div
                       key={index}
-                      className="h-full shrink-0 px-3"
+                      className="h-full shrink-0 px-8"
                       style={{ width: `${100 / marqueeSlides.length}%` }}
                     >
                       <img
                         src={slide.src}
                         alt={slide.alt}
-                        className="w-full h-full object-cover pointer-events-none select-none"
+                        className="w-full h-full object-contain pointer-events-none select-none"
                         draggable={false}
                       />
                     </div>
