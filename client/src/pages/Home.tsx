@@ -82,7 +82,7 @@ export default function Home() {
       </section>
 
       <section className="relative bg-section-accent overflow-hidden" data-testid="section-redtouch">
-        <div className="relative max-w-[1400px] mx-auto">
+        <div className="relative">
           <div className="grid lg:grid-cols-2 min-h-[85vh] items-center">
 
             <div className="relative order-2 lg:order-1 px-8 py-16 md:px-16 lg:px-20 lg:py-0">
@@ -138,8 +138,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative order-1 lg:order-2 h-[50vh] lg:h-[85vh] p-4 lg:p-6">
-              <div className="absolute inset-4 lg:inset-6 overflow-hidden border-2 border-white shadow-lg">
+            <div className="relative order-1 lg:order-2 h-[50vh] lg:h-[85vh] pl-4 lg:pl-6 py-4 lg:py-6">
+              <div className="absolute inset-y-4 left-4 lg:inset-y-6 lg:left-6 right-0 overflow-hidden border-2 border-r-0 border-white shadow-lg">
                 {slides.map((slide, index) => {
                   let translateX = "100%";
                   if (currentSlide === index) translateX = "0%";
