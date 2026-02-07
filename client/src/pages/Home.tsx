@@ -3,11 +3,9 @@ import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import WaveDivider from "@/components/WaveDivider";
 import { Button } from "@/components/ui/button";
-import { useState, useEffect, useCallback } from "react";
-import { Check, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 import aboutImage from "@assets/Design ohne Titel(4)_1760188585511.jpg";
 import massageImage from "@assets/Design-ohne-Titel-7_1760197347929.png";
-import redTouchLogo from "@assets/grafik_1770477233707.png";
 import laserImage1 from "@assets/generated_images/Red_Touch_laser_with_goggles_86dab14d.png";
 import laserImage2 from "@assets/generated_images/Red_Touch_laser_treatment_4f8328f9.png";
 import laserImage3 from "@assets/generated_images/Red_laser_therapy_bf6d9b43.png";
@@ -28,28 +26,8 @@ const benefits = [
 ];
 
 export default function Home() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const marqueeSlides = [...slides, ...slides];
 
-  const goToSlide = useCallback((index: number) => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentSlide(index);
-    setTimeout(() => setIsTransitioning(false), 700);
-  }, [isTransitioning]);
-
-  const nextSlide = useCallback(() => {
-    goToSlide((currentSlide + 1) % slides.length);
-  }, [currentSlide, goToSlide]);
-
-  const prevSlide = useCallback(() => {
-    goToSlide((currentSlide - 1 + slides.length) % slides.length);
-  }, [currentSlide, goToSlide]);
-
-  useEffect(() => {
-    const timer = setInterval(nextSlide, 5000);
-    return () => clearInterval(timer);
-  }, [nextSlide]);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -138,24 +116,17 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative order-1 lg:order-2 h-[50vh] lg:h-[85vh] pl-4 lg:pl-6 py-4 lg:py-6">
-              <div className="absolute inset-y-4 left-4 lg:inset-y-6 lg:left-6 right-0 overflow-hidden border-2 border-r-0 border-white shadow-lg">
-                {slides.map((slide, index) => {
-                  let translateX = "100%";
-                  if (currentSlide === index) translateX = "0%";
-                  else if (
-                    index < currentSlide ||
-                    (currentSlide === 0 && index === slides.length - 1)
-                  ) translateX = "-100%";
-
-                  return (
+            <div className="relative order-1 lg:order-2 h-[50vh] lg:h-[85vh] py-4 lg:py-6">
+              <div className="absolute inset-y-4 left-0 right-0 lg:inset-y-6 overflow-hidden border-y-2 border-white shadow-lg">
+                <div
+                  className="flex h-full animate-marquee-scroll"
+                  style={{ width: `${marqueeSlides.length * 80}%` }}
+                >
+                  {marqueeSlides.map((slide, index) => (
                     <div
                       key={index}
-                      className="absolute inset-0"
-                      style={{
-                        transform: `translateX(${translateX})`,
-                        transition: "transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
-                      }}
+                      className="h-full shrink-0 px-1"
+                      style={{ width: `${100 / marqueeSlides.length}%` }}
                     >
                       <img
                         src={slide.src}
@@ -163,52 +134,8 @@ export default function Home() {
                         className="w-full h-full object-cover"
                       />
                     </div>
-                  );
-                })}
-              </div>
-
-              <div className="absolute bottom-12 right-12 flex items-center gap-3 z-10">
-                <button
-                  onClick={prevSlide}
-                  className="w-10 h-10 rounded-full border border-foreground/15 bg-background/60 backdrop-blur-sm flex items-center justify-center transition-all hover:border-foreground/30 hover:bg-background/80"
-                  data-testid="button-slide-prev"
-                  aria-label="Vorheriges Bild"
-                >
-                  <ChevronLeft className="w-4 h-4 text-foreground/60" />
-                </button>
-                <div className="flex items-center gap-2 px-3">
-                  {slides.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => goToSlide(index)}
-                      className="group p-1"
-                      data-testid={`button-slide-dot-${index}`}
-                      aria-label={`Bild ${index + 1}`}
-                    >
-                      <span
-                        className={`block rounded-full transition-all duration-500 ${
-                          currentSlide === index
-                            ? "w-6 h-1.5 bg-primary"
-                            : "w-1.5 h-1.5 bg-foreground/20 group-hover:bg-foreground/40"
-                        }`}
-                      />
-                    </button>
                   ))}
                 </div>
-                <button
-                  onClick={nextSlide}
-                  className="w-10 h-10 rounded-full border border-foreground/15 bg-background/60 backdrop-blur-sm flex items-center justify-center transition-all hover:border-foreground/30 hover:bg-background/80"
-                  data-testid="button-slide-next"
-                  aria-label="N&auml;chstes Bild"
-                >
-                  <ChevronRight className="w-4 h-4 text-foreground/60" />
-                </button>
-              </div>
-
-              <div className="absolute top-8 right-8 z-10 hidden lg:block">
-                <span className="text-foreground/25 text-xs tracking-[0.3em] uppercase font-light">
-                  {String(currentSlide + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
-                </span>
               </div>
             </div>
           </div>
