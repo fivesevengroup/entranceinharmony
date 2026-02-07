@@ -163,9 +163,9 @@ export default function Home() {
               <div className="h-full w-full overflow-hidden flex items-center">
                 <div
                   ref={marqueeRef}
-                  className="flex h-[60%] animate-marquee-scroll"
+                  className="flex h-[80%] animate-marquee-scroll"
                   style={{
-                    width: `${marqueeSlides.length * 70}%`,
+                    width: `${marqueeSlides.length * 80}%`,
                     animationPlayState: isPaused && !isDragging ? "paused" : undefined,
                   }}
                 >
