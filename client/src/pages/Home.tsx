@@ -133,7 +133,7 @@ export default function Home() {
             </div>
 
             <div className="relative order-1 lg:order-2 h-[50vh] lg:h-[85vh] p-4 lg:p-6">
-              <div className="absolute inset-4 lg:inset-6 rounded-2xl overflow-hidden border-2 border-white shadow-lg">
+              <div className="absolute inset-4 lg:inset-6 overflow-hidden border-2 border-white shadow-lg">
                 {slides.map((slide, index) => (
                   <div
                     key={index}
