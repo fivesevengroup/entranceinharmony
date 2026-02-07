@@ -140,12 +140,12 @@ export default function Home() {
             <div className="relative order-1 lg:order-2 h-[50vh] lg:h-[85vh] p-4 lg:p-6">
               <div className="absolute inset-4 lg:inset-6 overflow-hidden border-2 border-white shadow-lg">
                 {slides.map((slide, index) => {
-                  let translateY = "100%";
+                  let translateY = "-100%";
                   if (currentSlide === index) translateY = "0%";
                   else if (
                     index < currentSlide ||
                     (currentSlide === 0 && index === slides.length - 1)
-                  ) translateY = "-100%";
+                  ) translateY = "100%";
 
                   return (
                     <div
