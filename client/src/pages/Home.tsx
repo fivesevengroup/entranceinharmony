@@ -105,10 +105,10 @@ export default function Home() {
 
       <section className="relative bg-section-accent overflow-hidden" data-testid="section-redtouch">
         <div className="relative">
-          <div className="grid lg:grid-cols-2 min-h-[85vh] items-center">
+          <div className="grid lg:grid-cols-2 min-h-[85vh] items-center relative">
 
-            <div className="relative order-2 lg:order-1 px-8 py-16 md:px-16 lg:px-20 lg:py-0">
-              <div className="max-w-xl">
+            <div className="relative order-2 lg:order-1 px-8 py-16 md:px-16 lg:px-20 lg:py-0 z-10">
+              <div className="max-w-xl bg-section-accent/85 backdrop-blur-sm lg:rounded-2xl lg:p-8 lg:-ml-4">
                 <a
                   href="/leistungen"
                   className="inline-flex items-center gap-3 px-6 py-3 mb-10 bg-primary text-primary-foreground font-semibold text-sm uppercase tracking-[0.2em] transition-all shadow-md"
@@ -160,39 +160,41 @@ export default function Home() {
               </div>
             </div>
 
-            <div
-              className="relative order-1 lg:order-2 h-[50vh] lg:h-[85vh] py-4 lg:py-6"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              onMouseDown={handleMouseDown}
-              onMouseMove={handleMouseMove}
-              onMouseUp={handleMouseUp}
-              style={{ cursor: isDragging ? "grabbing" : "grab" }}
-            >
-              <div className="absolute inset-y-4 left-0 right-0 lg:inset-y-6 overflow-hidden border-y-2 border-white shadow-lg">
-                <div
-                  ref={marqueeRef}
-                  className="flex h-full animate-marquee-scroll"
-                  style={{
-                    width: `${marqueeSlides.length * 80}%`,
-                    animationPlayState: isPaused && !isDragging ? "paused" : undefined,
-                  }}
-                >
-                  {marqueeSlides.map((slide, index) => (
-                    <div
-                      key={index}
-                      className="h-full shrink-0 px-1"
-                      style={{ width: `${100 / marqueeSlides.length}%` }}
-                    >
-                      <img
-                        src={slide.src}
-                        alt={slide.alt}
-                        className="w-full h-full object-cover pointer-events-none select-none"
-                        draggable={false}
-                      />
-                    </div>
-                  ))}
-                </div>
+            <div className="relative order-1 lg:order-2 h-[50vh] lg:h-auto" />
+          </div>
+
+          <div
+            className="absolute inset-0 z-0"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            style={{ cursor: isDragging ? "grabbing" : "grab" }}
+          >
+            <div className="h-full w-full overflow-hidden">
+              <div
+                ref={marqueeRef}
+                className="flex h-full animate-marquee-scroll"
+                style={{
+                  width: `${marqueeSlides.length * 50}%`,
+                  animationPlayState: isPaused && !isDragging ? "paused" : undefined,
+                }}
+              >
+                {marqueeSlides.map((slide, index) => (
+                  <div
+                    key={index}
+                    className="h-full shrink-0 px-1"
+                    style={{ width: `${100 / marqueeSlides.length}%` }}
+                  >
+                    <img
+                      src={slide.src}
+                      alt={slide.alt}
+                      className="w-full h-full object-cover pointer-events-none select-none"
+                      draggable={false}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
