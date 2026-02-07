@@ -118,7 +118,7 @@ export default function Home() {
           <div className="relative min-h-[70vh]">
 
             <div className="relative z-10 px-8 py-12 md:px-16 lg:px-20 lg:py-16 flex items-center min-h-[70vh]">
-              <div className="max-w-xl bg-section-accent/70 backdrop-blur-[2px] lg:rounded-2xl lg:p-8">
+              <div className="max-w-xl bg-section-accent/93 backdrop-blur-[3px] lg:rounded-2xl lg:p-8">
 
                 <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-12 max-w-md">
                   Wo m&uuml;de, erschlaffte Haut war, entsteht ein frischer, ebenm&auml;&szlig;iger Teint. Durch sanfte Aktivierung Ihrer nat&uuml;rlichen Kollagenbildung gewinnt Ihre Haut sp&uuml;rbar an Festigkeit &ndash; ganz ohne Ausfallzeit.
