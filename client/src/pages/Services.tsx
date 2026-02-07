@@ -29,6 +29,23 @@ interface Treatment {
 
 const treatments: Treatment[] = [
   {
+    id: "laser",
+    title: "Red Touch Pro Laser",
+    shortDescription: "Professionelle Laser-Hautverjüngung",
+    description: "Hautverjüngung, Beseitigung von Hauterschlaffung, Wiederherstellung der Hautelastizität, Narbenverbesserung, Kollagenstimulation, Verbesserung von Dehnungsstreifen, Glättung von Aknenarben, Porenverfeinerung",
+    details: [
+      "Hautverjüngung und Straffung",
+      "Verbesserung der Hautelastizität",
+      "Narbenbehandlung",
+      "Kollagenstimulation",
+      "Verbesserung von Dehnungsstreifen",
+      "Aknenarben-Behandlung",
+      "Porenverfeinerung"
+    ],
+    price: "ab 90€",
+    image: laserImage
+  },
+  {
     id: "tiefenreinigung",
     title: "Tiefenreinigung",
     shortDescription: "Intensive Reinigung für porentief saubere Haut",
@@ -137,23 +154,6 @@ const treatments: Treatment[] = [
     ],
     price: "80€",
     image: peelingImage
-  },
-  {
-    id: "laser",
-    title: "Red Touch Pro Laser",
-    shortDescription: "Professionelle Laser-Hautverjüngung (Demnächst erhältlich)",
-    description: "Hautverjüngung, Beseitigung von Hauterschlaffung, Wiederherstellung der Hautelastizität, Narbenverbesserung, Kollagenstimulation, Verbesserung von Dehnungsstreifen, Glättung von Aknenarben, Porenverfeinerung",
-    details: [
-      "Hautverjüngung und Straffung",
-      "Verbesserung der Hautelastizität",
-      "Narbenbehandlung",
-      "Kollagenstimulation",
-      "Verbesserung von Dehnungsstreifen",
-      "Aknenarben-Behandlung",
-      "Porenverfeinerung"
-    ],
-    price: "ab 90€",
-    image: laserImage
   }
 ];
 
