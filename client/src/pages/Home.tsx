@@ -80,31 +80,29 @@ export default function Home() {
         <WaveDivider position="bottom" color="hsl(var(--section-accent))" />
       </section>
 
-      <section className="relative bg-[#0a0a0a] overflow-hidden" data-testid="section-redtouch">
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
-
+      <section className="relative bg-section-accent overflow-hidden" data-testid="section-redtouch">
         <div className="relative max-w-[1400px] mx-auto">
-          <div className="grid lg:grid-cols-2 min-h-[90vh] items-center">
+          <div className="grid lg:grid-cols-2 min-h-[85vh] items-center">
 
             <div className="relative order-2 lg:order-1 px-8 py-16 md:px-16 lg:px-20 lg:py-0">
               <div className="max-w-xl">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 mb-10" data-testid="badge-redtouch-new">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 mb-10" data-testid="badge-redtouch-new">
                   <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                  <span className="text-xs uppercase tracking-[0.25em] text-white/70 font-medium">Neu bei uns</span>
+                  <span className="text-xs uppercase tracking-[0.25em] text-muted-foreground font-medium">Neu bei uns</span>
                 </div>
 
-                <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-white leading-[1.1] mb-4" data-testid="text-redtouch-headline">
+                <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-foreground leading-[1.1] mb-4" data-testid="text-redtouch-headline">
                   Sichtbar straffere,
                   <br />
                   <span className="text-primary">glattere Haut.</span>
                 </h2>
 
-                <p className="text-white/40 text-lg md:text-xl font-light tracking-wide mb-10">
+                <p className="text-muted-foreground/60 text-lg md:text-xl font-light tracking-wide mb-10">
                   Red Touch Pro<sup className="text-xs">&reg;</sup>
                 </p>
 
-                <p className="text-white/60 text-base md:text-lg leading-relaxed mb-12 max-w-md">
-                  Wo m&uuml;de, erschlaffte Haut war, entsteht ein frischer, ebenmäßiger Teint. Durch sanfte Aktivierung Ihrer nat&uuml;rlichen Kollagenbildung gewinnt Ihre Haut sp&uuml;rbar an Festigkeit &ndash; ganz ohne Ausfallzeit.
+                <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-12 max-w-md">
+                  Wo m&uuml;de, erschlaffte Haut war, entsteht ein frischer, ebenm&auml;&szlig;iger Teint. Durch sanfte Aktivierung Ihrer nat&uuml;rlichen Kollagenbildung gewinnt Ihre Haut sp&uuml;rbar an Festigkeit &ndash; ganz ohne Ausfallzeit.
                 </p>
 
                 <ul className="space-y-4 mb-14">
@@ -113,18 +111,18 @@ export default function Home() {
                       <span className="mt-1 shrink-0 w-5 h-5 rounded-full border border-primary/40 flex items-center justify-center bg-primary/10">
                         <Check className="w-3 h-3 text-primary" />
                       </span>
-                      <span className="text-white/60 text-sm md:text-base">{benefit}</span>
+                      <span className="text-muted-foreground text-sm md:text-base">{benefit}</span>
                     </li>
                   ))}
                 </ul>
 
                 <div className="flex flex-wrap items-center gap-4">
-                  <Button asChild data-testid="button-redtouch-cta" size="lg" className="bg-primary text-primary-foreground border-primary/80 text-sm uppercase tracking-widest px-8">
+                  <Button asChild data-testid="button-redtouch-cta" size="lg" className="text-sm uppercase tracking-widest px-8">
                     <a href="https://wa.me/491709287722?text=Hallo,%20ich%20interessiere%20mich%20f%C3%BCr%20die%20Red%20Touch%20Pro%20Behandlung%20und%20h%C3%A4tte%20gerne%20eine%20Beratung." target="_blank" rel="noopener noreferrer">
                       Jetzt beraten lassen
                     </a>
                   </Button>
-                  <Button variant="ghost" asChild data-testid="button-redtouch-more" size="lg" className="text-white/50 border border-white/10 text-sm uppercase tracking-widest px-8">
+                  <Button variant="outline" asChild data-testid="button-redtouch-more" size="lg" className="text-sm uppercase tracking-widest px-8">
                     <a href="/leistungen" className="flex items-center gap-2">
                       <span>Entdecken</span>
                       <ArrowRight className="w-4 h-4" />
@@ -134,7 +132,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative order-1 lg:order-2 h-[50vh] lg:h-[90vh]">
+            <div className="relative order-1 lg:order-2 h-[50vh] lg:h-[85vh]">
               <div className="absolute inset-0">
                 {slides.map((slide, index) => (
                   <div
@@ -149,19 +147,18 @@ export default function Home() {
                     />
                   </div>
                 ))}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/20 to-transparent lg:block hidden" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent lg:hidden" />
-                <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/40 via-transparent to-transparent" />
+                <div className="absolute inset-0 lg:block hidden" style={{ background: "linear-gradient(to right, hsl(var(--section-accent)) 0%, hsl(var(--section-accent) / 0.6) 15%, transparent 40%)" }} />
+                <div className="absolute inset-0 lg:hidden" style={{ background: "linear-gradient(to top, hsl(var(--section-accent)) 0%, hsl(var(--section-accent) / 0.4) 20%, transparent 50%)" }} />
               </div>
 
               <div className="absolute bottom-8 right-8 flex items-center gap-3 z-10">
                 <button
                   onClick={prevSlide}
-                  className="w-10 h-10 rounded-full border border-white/20 bg-black/40 backdrop-blur-sm flex items-center justify-center transition-all hover:border-white/40 hover:bg-black/60"
+                  className="w-10 h-10 rounded-full border border-foreground/15 bg-background/60 backdrop-blur-sm flex items-center justify-center transition-all hover:border-foreground/30 hover:bg-background/80"
                   data-testid="button-slide-prev"
                   aria-label="Vorheriges Bild"
                 >
-                  <ChevronLeft className="w-4 h-4 text-white/70" />
+                  <ChevronLeft className="w-4 h-4 text-foreground/60" />
                 </button>
                 <div className="flex items-center gap-2 px-3">
                   {slides.map((_, index) => (
@@ -176,7 +173,7 @@ export default function Home() {
                         className={`block rounded-full transition-all duration-500 ${
                           currentSlide === index
                             ? "w-6 h-1.5 bg-primary"
-                            : "w-1.5 h-1.5 bg-white/30 group-hover:bg-white/50"
+                            : "w-1.5 h-1.5 bg-foreground/20 group-hover:bg-foreground/40"
                         }`}
                       />
                     </button>
@@ -184,16 +181,16 @@ export default function Home() {
                 </div>
                 <button
                   onClick={nextSlide}
-                  className="w-10 h-10 rounded-full border border-white/20 bg-black/40 backdrop-blur-sm flex items-center justify-center transition-all hover:border-white/40 hover:bg-black/60"
+                  className="w-10 h-10 rounded-full border border-foreground/15 bg-background/60 backdrop-blur-sm flex items-center justify-center transition-all hover:border-foreground/30 hover:bg-background/80"
                   data-testid="button-slide-next"
-                  aria-label="N\u00e4chstes Bild"
+                  aria-label="N&auml;chstes Bild"
                 >
-                  <ChevronRight className="w-4 h-4 text-white/70" />
+                  <ChevronRight className="w-4 h-4 text-foreground/60" />
                 </button>
               </div>
 
               <div className="absolute top-8 right-8 z-10 hidden lg:block">
-                <span className="text-white/20 text-xs tracking-[0.3em] uppercase font-light">
+                <span className="text-foreground/25 text-xs tracking-[0.3em] uppercase font-light">
                   {String(currentSlide + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
                 </span>
               </div>
