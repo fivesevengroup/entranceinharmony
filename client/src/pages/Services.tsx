@@ -270,7 +270,7 @@ export default function Services() {
                   {treatment.id === "laser" && (
                     <div className="absolute top-4 left-4 z-10">
                       <Badge className="bg-primary text-primary-foreground px-4 py-2 text-xs font-medium uppercase tracking-wide shadow-lg">
-                        Demnächst erhältlich
+                        Neu bei uns
                       </Badge>
                     </div>
                   )}
