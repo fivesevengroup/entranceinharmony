@@ -461,7 +461,7 @@
 }
 
 .animate-marquee-scroll {
-  animation: marqueeScroll 40s linear infinite;
+  animation: marqueeScroll 60s linear infinite;
 }
 
 @keyframes textShimmer {

@@ -70,7 +70,7 @@ export default function Home() {
     const progress = Math.abs(currentX % totalWidth) / totalWidth;
     el.style.transform = "";
     el.style.animation = "";
-    el.style.animationDelay = `-${progress * 40}s`;
+    el.style.animationDelay = `-${progress * 60}s`;
   }, [isDragging]);
 
   return (
@@ -109,16 +109,6 @@ export default function Home() {
 
             <div className="relative order-2 lg:order-1 px-8 py-16 md:px-16 lg:px-20 lg:py-0 z-10">
               <div className="max-w-xl bg-section-accent/85 backdrop-blur-sm lg:rounded-2xl lg:p-8 lg:-ml-4">
-                <a
-                  href="/leistungen"
-                  className="inline-flex items-center gap-3 px-6 py-3 mb-10 bg-primary text-primary-foreground font-semibold text-sm uppercase tracking-[0.2em] transition-all shadow-md"
-                  data-testid="badge-redtouch-new"
-                >
-                  <span className="w-2 h-2 rounded-full bg-primary-foreground animate-pulse" />
-                  Neu bei uns
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-
                 <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-foreground leading-[1.1] mb-4" data-testid="text-redtouch-headline">
                   Sichtbar straffere,
                   <br />
@@ -172,19 +162,19 @@ export default function Home() {
             onMouseUp={handleMouseUp}
             style={{ cursor: isDragging ? "grabbing" : "grab" }}
           >
-            <div className="h-full w-full overflow-hidden">
+            <div className="h-full w-full overflow-hidden flex items-center">
               <div
                 ref={marqueeRef}
-                className="flex h-full animate-marquee-scroll"
+                className="flex h-[75%] animate-marquee-scroll"
                 style={{
-                  width: `${marqueeSlides.length * 50}%`,
+                  width: `${marqueeSlides.length * 45}%`,
                   animationPlayState: isPaused && !isDragging ? "paused" : undefined,
                 }}
               >
                 {marqueeSlides.map((slide, index) => (
                   <div
                     key={index}
-                    className="h-full shrink-0 px-1"
+                    className="h-full shrink-0 px-2"
                     style={{ width: `${100 / marqueeSlides.length}%` }}
                   >
                     <img
