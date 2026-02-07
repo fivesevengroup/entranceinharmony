@@ -115,9 +115,9 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 min-h-[70vh] items-center relative">
+          <div className="grid lg:grid-cols-2 items-stretch relative">
 
-            <div className="relative order-2 lg:order-1 px-8 py-12 md:px-16 lg:px-20 lg:py-0 z-10">
+            <div className="relative order-2 lg:order-1 px-8 py-12 md:px-16 lg:px-20 lg:py-8 z-10 flex items-center">
               <div className="max-w-xl bg-section-accent/85 backdrop-blur-sm lg:rounded-2xl lg:p-8 lg:-ml-4">
 
                 <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-12 max-w-md">
