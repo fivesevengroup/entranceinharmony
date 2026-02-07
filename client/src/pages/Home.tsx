@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import WaveDivider from "@/components/WaveDivider";
 import { Button } from "@/components/ui/button";
+import { useRef, useCallback, useState } from "react";
 import { Check, ArrowRight } from "lucide-react";
 import aboutImage from "@assets/Design ohne Titel(4)_1760188585511.jpg";
 import massageImage from "@assets/Design-ohne-Titel-7_1760197347929.png";
@@ -27,7 +28,50 @@ const benefits = [
 
 export default function Home() {
   const marqueeSlides = [...slides, ...slides];
+  const marqueeRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const dragStart = useRef({ x: 0, scrollLeft: 0 });
 
+  const handleMouseEnter = useCallback(() => {
+    setIsPaused(true);
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    setIsPaused(false);
+    setIsDragging(false);
+  }, []);
+
+  const handleMouseDown = useCallback((e: React.MouseEvent) => {
+    setIsDragging(true);
+    const el = marqueeRef.current;
+    if (!el) return;
+    const computedStyle = window.getComputedStyle(el);
+    const matrix = new DOMMatrix(computedStyle.transform);
+    dragStart.current = { x: e.clientX, scrollLeft: matrix.m41 };
+    el.style.animationPlayState = "paused";
+  }, []);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    if (!isDragging || !marqueeRef.current) return;
+    e.preventDefault();
+    const dx = e.clientX - dragStart.current.x;
+    const el = marqueeRef.current;
+    el.style.animation = "none";
+    el.style.transform = `translateX(${dragStart.current.scrollLeft + dx}px)`;
+  }, [isDragging]);
+
+  const handleMouseUp = useCallback(() => {
+    if (!isDragging || !marqueeRef.current) return;
+    setIsDragging(false);
+    const el = marqueeRef.current;
+    const currentX = new DOMMatrix(window.getComputedStyle(el).transform).m41;
+    const totalWidth = el.scrollWidth / 2;
+    const progress = Math.abs(currentX % totalWidth) / totalWidth;
+    el.style.transform = "";
+    el.style.animation = "";
+    el.style.animationDelay = `-${progress * 40}s`;
+  }, [isDragging]);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -116,11 +160,23 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative order-1 lg:order-2 h-[50vh] lg:h-[85vh] py-4 lg:py-6">
+            <div
+              className="relative order-1 lg:order-2 h-[50vh] lg:h-[85vh] py-4 lg:py-6"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              style={{ cursor: isDragging ? "grabbing" : "grab" }}
+            >
               <div className="absolute inset-y-4 left-0 right-0 lg:inset-y-6 overflow-hidden border-y-2 border-white shadow-lg">
                 <div
+                  ref={marqueeRef}
                   className="flex h-full animate-marquee-scroll"
-                  style={{ width: `${marqueeSlides.length * 80}%` }}
+                  style={{
+                    width: `${marqueeSlides.length * 80}%`,
+                    animationPlayState: isPaused && !isDragging ? "paused" : undefined,
+                  }}
                 >
                   {marqueeSlides.map((slide, index) => (
                     <div
@@ -131,7 +187,8 @@ export default function Home() {
                       <img
                         src={slide.src}
                         alt={slide.alt}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover pointer-events-none select-none"
+                        draggable={false}
                       />
                     </div>
                   ))}
