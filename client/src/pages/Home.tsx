@@ -105,19 +105,20 @@ export default function Home() {
 
       <section className="relative bg-section-accent overflow-hidden" data-testid="section-redtouch">
         <div className="relative">
-          <div className="grid lg:grid-cols-2 min-h-[85vh] items-center relative">
+          <div className="text-center pt-12 pb-6 px-8 relative z-10">
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-foreground leading-[1.1] mb-3" data-testid="text-redtouch-headline">
+              Sichtbar straffere,{" "}
+              <span className="text-primary">glattere Haut.</span>
+            </h2>
+            <p className="text-muted-foreground/60 text-lg md:text-xl font-light tracking-wide">
+              Red Touch Pro<sup className="text-xs">&reg;</sup>
+            </p>
+          </div>
 
-            <div className="relative order-2 lg:order-1 px-8 py-16 md:px-16 lg:px-20 lg:py-0 z-10">
+          <div className="grid lg:grid-cols-2 min-h-[70vh] items-center relative">
+
+            <div className="relative order-2 lg:order-1 px-8 py-12 md:px-16 lg:px-20 lg:py-0 z-10">
               <div className="max-w-xl bg-section-accent/85 backdrop-blur-sm lg:rounded-2xl lg:p-8 lg:-ml-4">
-                <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-foreground leading-[1.1] mb-4" data-testid="text-redtouch-headline">
-                  Sichtbar straffere,
-                  <br />
-                  <span className="text-primary">glattere Haut.</span>
-                </h2>
-
-                <p className="text-muted-foreground/60 text-lg md:text-xl font-light tracking-wide mb-10">
-                  Red Touch Pro<sup className="text-xs">&reg;</sup>
-                </p>
 
                 <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-12 max-w-md">
                   Wo m&uuml;de, erschlaffte Haut war, entsteht ein frischer, ebenm&auml;&szlig;iger Teint. Durch sanfte Aktivierung Ihrer nat&uuml;rlichen Kollagenbildung gewinnt Ihre Haut sp&uuml;rbar an Festigkeit &ndash; ganz ohne Ausfallzeit.
