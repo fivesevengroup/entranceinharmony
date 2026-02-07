@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { SiWhatsapp, SiInstagram } from "react-icons/si";
 import { Phone } from "lucide-react";
 import logoImage from "@assets/Design ohne Titel_1759860744691.png";
+import redTouchLogo from "@assets/grafik_1770477786405.png";
 
 export default function Footer() {
   return (
@@ -148,6 +149,23 @@ export default function Footer() {
 
           <div className="relative mb-10">
             <div className="h-px w-full bg-gradient-to-r from-transparent via-border/50 to-transparent"></div>
+          </div>
+
+          <div className="flex items-center justify-center gap-8 mb-8">
+            <a href="https://deka-beauty.de" target="_blank" rel="noopener noreferrer" data-testid="footer-logo-deka">
+              <img
+                src="https://deka-beauty.de/wp-content/uploads/2024/11/deka_web2024_mainlogo.svg"
+                alt="DEKA"
+                className="h-6 w-auto opacity-60 hover:opacity-100 transition-opacity duration-200"
+              />
+            </a>
+            <div className="h-6 w-px bg-border/40"></div>
+            <img
+              src={redTouchLogo}
+              alt="Red Touch Pro"
+              className="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity duration-200"
+              data-testid="footer-logo-redtouch"
+            />
           </div>
 
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground">
