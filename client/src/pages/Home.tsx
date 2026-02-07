@@ -7,6 +7,7 @@ import { useState, useEffect, useCallback } from "react";
 import { Check, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import aboutImage from "@assets/Design ohne Titel(4)_1760188585511.jpg";
 import massageImage from "@assets/Design-ohne-Titel-7_1760197347929.png";
+import redTouchLogo from "@assets/grafik_1770477233707.png";
 import laserImage1 from "@assets/generated_images/Red_Touch_laser_with_goggles_86dab14d.png";
 import laserImage2 from "@assets/generated_images/Red_Touch_laser_treatment_4f8328f9.png";
 import laserImage3 from "@assets/generated_images/Red_laser_therapy_bf6d9b43.png";
@@ -102,9 +103,12 @@ export default function Home() {
                   <span className="text-primary">glattere Haut.</span>
                 </h2>
 
-                <p className="text-muted-foreground/60 text-lg md:text-xl font-light tracking-wide mb-10">
-                  Red Touch Pro<sup className="text-xs">&reg;</sup>
-                </p>
+                <img
+                  src={redTouchLogo}
+                  alt="Red Touch Pro"
+                  className="h-10 md:h-14 w-auto mb-10 object-contain"
+                  data-testid="img-redtouch-logo"
+                />
 
                 <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-12 max-w-md">
                   Wo m&uuml;de, erschlaffte Haut war, entsteht ein frischer, ebenm&auml;&szlig;iger Teint. Durch sanfte Aktivierung Ihrer nat&uuml;rlichen Kollagenbildung gewinnt Ihre Haut sp&uuml;rbar an Festigkeit &ndash; ganz ohne Ausfallzeit.
