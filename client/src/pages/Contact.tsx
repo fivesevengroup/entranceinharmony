@@ -140,10 +140,10 @@ export default function Contact() {
                     Wo Schönheit auf Expertise trifft
                   </p>
                   <p className="text-lg text-muted-foreground leading-relaxed mb-5">
-                    Bei mir steht nicht nur Ihre Schönheit im Mittelpunkt, sondern Ihr gesamtes Wohlbefinden. Mit fundierter Ausbildung, kontinuierlicher Weiterbildung und einer Passion für ästhetische Perfektion begleite ich Sie auf Ihrem Weg zu strahlender Haut.
+                    Mit langjähriger Erfahrung und kontinuierlicher Weiterbildung in der professionellen Kosmetik begleite ich Sie auf Ihrem Weg zu strahlender Haut. Jede Behandlung beginnt mit einer ausführlichen Hautanalyse, denn nur wer Ihre Haut wirklich versteht, kann sie optimal pflegen.
                   </p>
                   <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                    Jede Behandlung beginnt mit einer ausführlichen Hautanalyse, denn nur wer Ihre Haut wirklich versteht, kann sie optimal pflegen. In meinem modernen Studio vereinen sich Fachwissen, hochwertige Produkte und eine entspannte Wohlfühlatmosphäre.
+                    In meinem modernen Studio vereinen sich Fachwissen, hochwertige Produkte und eine entspannte Wohlfühlatmosphäre – individuell auf Ihre Bedürfnisse abgestimmt, mit Liebe zum Detail und bewährten Techniken kombiniert mit den neuesten Beauty-Innovationen.
                   </p>
                 </div>
               </div>
