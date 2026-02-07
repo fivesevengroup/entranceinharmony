@@ -3,13 +3,53 @@ import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import WaveDivider from "@/components/WaveDivider";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Check, ArrowRight } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
+import { Check, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import aboutImage from "@assets/Design ohne Titel(4)_1760188585511.jpg";
 import massageImage from "@assets/Design-ohne-Titel-7_1760197347929.png";
-import laserImage from "@assets/generated_images/Red_Touch_laser_with_goggles_86dab14d.png";
+import laserImage1 from "@assets/generated_images/Red_Touch_laser_with_goggles_86dab14d.png";
+import laserImage2 from "@assets/generated_images/Red_Touch_laser_treatment_4f8328f9.png";
+import laserImage3 from "@assets/generated_images/Red_laser_therapy_bf6d9b43.png";
+import skinResultImage from "@assets/generated_images/Before_after_skin_treatment_60b501b9.png";
+
+const slides = [
+  { src: laserImage1, alt: "Red Touch Pro Behandlung" },
+  { src: laserImage2, alt: "Red Touch Pro Laser-Therapie" },
+  { src: laserImage3, alt: "Professionelle Laserbehandlung" },
+  { src: skinResultImage, alt: "Sichtbare Hautergebnisse" },
+];
+
+const benefits = [
+  "Sichtbare Ergebnisse bereits nach der ersten Sitzung",
+  "Sanft und angenehm \u2013 keine Ausfallzeit",
+  "Nat\u00fcrliche Kollagenstimulation von innen heraus",
+  "F\u00fcr Gesicht, Hals, Dekollet\u00e9 und H\u00e4nde",
+];
 
 export default function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const goToSlide = useCallback((index: number) => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setCurrentSlide(index);
+    setTimeout(() => setIsTransitioning(false), 700);
+  }, [isTransitioning]);
+
+  const nextSlide = useCallback(() => {
+    goToSlide((currentSlide + 1) % slides.length);
+  }, [currentSlide, goToSlide]);
+
+  const prevSlide = useCallback(() => {
+    goToSlide((currentSlide - 1 + slides.length) % slides.length);
+  }, [currentSlide, goToSlide]);
+
+  useEffect(() => {
+    const timer = setInterval(nextSlide, 5000);
+    return () => clearInterval(timer);
+  }, [nextSlide]);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header transparent={true} />
@@ -26,13 +66,13 @@ export default function Home() {
             </div>
             <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                Entfliehen Sie dem Alltag und gönnen Sie sich einen Moment nur für sich. Stress, Hektik und Umwelteinflüsse hinterlassen Spuren, doch mit individuell abgestimmten Behandlungen bringe ich Ihre natürliche Schönheit wieder zum Strahlen.
+                Entfliehen Sie dem Alltag und g&ouml;nnen Sie sich einen Moment nur f&uuml;r sich. Stress, Hektik und Umwelteinfl&uuml;sse hinterlassen Spuren, doch mit individuell abgestimmten Behandlungen bringe ich Ihre nat&uuml;rliche Sch&ouml;nheit wieder zum Strahlen.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                In einem eleganten Ambiente genießen Sie hochwertige Pflege, sanfte Berührungen und modernste Techniken für eine Haut, die aufatmet, und ein Wohlgefühl, das von innen kommt.
+                In einem eleganten Ambiente genie&szlig;en Sie hochwertige Pflege, sanfte Ber&uuml;hrungen und modernste Techniken f&uuml;r eine Haut, die aufatmet, und ein Wohlgef&uuml;hl, das von innen kommt.
               </p>
               <p className="text-xl text-primary font-medium leading-relaxed">
-                Lassen Sie sich verwöhnen, Sie haben es verdient.
+                Lassen Sie sich verw&ouml;hnen, Sie haben es verdient.
               </p>
             </div>
           </div>
@@ -40,82 +80,126 @@ export default function Home() {
         <WaveDivider position="bottom" color="hsl(var(--section-accent))" />
       </section>
 
-      <section className="py-20 md:py-32 bg-section-accent relative">
-        <div className="container mx-auto px-4 relative">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16 fade-up">
-              <h2 className="font-serif text-4xl md:text-5xl font-light mb-6">
-                Hautverjüngung auf höchstem Niveau
-              </h2>
-              <div className="h-0.5 w-32 mx-auto gold-shimmer rounded-full" />
+      <section className="relative bg-[#0a0a0a] overflow-hidden" data-testid="section-redtouch">
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
+
+        <div className="relative max-w-[1400px] mx-auto">
+          <div className="grid lg:grid-cols-2 min-h-[90vh] items-center">
+
+            <div className="relative order-2 lg:order-1 px-8 py-16 md:px-16 lg:px-20 lg:py-0">
+              <div className="max-w-xl">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 mb-10" data-testid="badge-redtouch-new">
+                  <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                  <span className="text-xs uppercase tracking-[0.25em] text-white/70 font-medium">Neu bei uns</span>
+                </div>
+
+                <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-white leading-[1.1] mb-4" data-testid="text-redtouch-headline">
+                  Sichtbar straffere,
+                  <br />
+                  <span className="text-primary">glattere Haut.</span>
+                </h2>
+
+                <p className="text-white/40 text-lg md:text-xl font-light tracking-wide mb-10">
+                  Red Touch Pro<sup className="text-xs">&reg;</sup>
+                </p>
+
+                <p className="text-white/60 text-base md:text-lg leading-relaxed mb-12 max-w-md">
+                  Wo m&uuml;de, erschlaffte Haut war, entsteht ein frischer, ebenmäßiger Teint. Durch sanfte Aktivierung Ihrer nat&uuml;rlichen Kollagenbildung gewinnt Ihre Haut sp&uuml;rbar an Festigkeit &ndash; ganz ohne Ausfallzeit.
+                </p>
+
+                <ul className="space-y-4 mb-14">
+                  {benefits.map((benefit, i) => (
+                    <li key={i} className="flex items-start gap-3 group">
+                      <span className="mt-1 shrink-0 w-5 h-5 rounded-full border border-primary/40 flex items-center justify-center bg-primary/10">
+                        <Check className="w-3 h-3 text-primary" />
+                      </span>
+                      <span className="text-white/60 text-sm md:text-base">{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="flex flex-wrap items-center gap-4">
+                  <Button asChild data-testid="button-redtouch-cta" size="lg" className="bg-primary text-primary-foreground border-primary/80 text-sm uppercase tracking-widest px-8">
+                    <a href="https://wa.me/491709287722?text=Hallo,%20ich%20interessiere%20mich%20f%C3%BCr%20die%20Red%20Touch%20Pro%20Behandlung%20und%20h%C3%A4tte%20gerne%20eine%20Beratung." target="_blank" rel="noopener noreferrer">
+                      Jetzt beraten lassen
+                    </a>
+                  </Button>
+                  <Button variant="ghost" asChild data-testid="button-redtouch-more" size="lg" className="text-white/50 border border-white/10 text-sm uppercase tracking-widest px-8">
+                    <a href="/leistungen" className="flex items-center gap-2">
+                      <span>Entdecken</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </a>
+                  </Button>
+                </div>
+              </div>
             </div>
-            
-            <div className="bg-card/80 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden border border-border fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
-              <div className="grid md:grid-cols-5 gap-0">
-                <div className="md:col-span-2 relative">
-                  <div className="elegant-glow h-full">
-                    <div className="relative h-full overflow-hidden rounded-2xl">
-                      <img
-                        src={laserImage}
-                        alt="Red Touch Pro Behandlung"
-                        className="w-full h-full object-cover"
+
+            <div className="relative order-1 lg:order-2 h-[50vh] lg:h-[90vh]">
+              <div className="absolute inset-0">
+                {slides.map((slide, index) => (
+                  <div
+                    key={index}
+                    className="absolute inset-0 transition-opacity duration-700 ease-in-out"
+                    style={{ opacity: currentSlide === index ? 1 : 0 }}
+                  >
+                    <img
+                      src={slide.src}
+                      alt={slide.alt}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/20 to-transparent lg:block hidden" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent lg:hidden" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/40 via-transparent to-transparent" />
+              </div>
+
+              <div className="absolute bottom-8 right-8 flex items-center gap-3 z-10">
+                <button
+                  onClick={prevSlide}
+                  className="w-10 h-10 rounded-full border border-white/20 bg-black/40 backdrop-blur-sm flex items-center justify-center transition-all hover:border-white/40 hover:bg-black/60"
+                  data-testid="button-slide-prev"
+                  aria-label="Vorheriges Bild"
+                >
+                  <ChevronLeft className="w-4 h-4 text-white/70" />
+                </button>
+                <div className="flex items-center gap-2 px-3">
+                  {slides.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => goToSlide(index)}
+                      className="group p-1"
+                      data-testid={`button-slide-dot-${index}`}
+                      aria-label={`Bild ${index + 1}`}
+                    >
+                      <span
+                        className={`block rounded-full transition-all duration-500 ${
+                          currentSlide === index
+                            ? "w-6 h-1.5 bg-primary"
+                            : "w-1.5 h-1.5 bg-white/30 group-hover:bg-white/50"
+                        }`}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                    </div>
-                  </div>
+                    </button>
+                  ))}
                 </div>
-                <div className="md:col-span-3 p-10 md:p-14 flex flex-col justify-center">
-                  <Badge variant="secondary" className="w-fit mb-6 bg-primary/10 text-primary border-primary/20 text-xs uppercase tracking-widest">
-                    Neu bei uns
-                  </Badge>
-                  <h3 className="text-3xl md:text-4xl font-serif font-light mb-3" data-testid="text-redtouch-headline">
-                    Sichtbar straffere, glattere Haut
-                  </h3>
-                  <p className="text-primary font-medium mb-6 text-lg">
-                    Red Touch Pro<sup className="text-xs">&reg;</sup>
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed mb-8">
-                    Wo müde, erschlaffte Haut war, entsteht ein frischer, ebenmäßiger Teint. Durch die sanfte Aktivierung Ihrer natürlichen Kollagenbildung gewinnt Ihre Haut spürbar an Festigkeit und Ausstrahlung &ndash; ganz ohne Ausfallzeit.
-                  </p>
+                <button
+                  onClick={nextSlide}
+                  className="w-10 h-10 rounded-full border border-white/20 bg-black/40 backdrop-blur-sm flex items-center justify-center transition-all hover:border-white/40 hover:bg-black/60"
+                  data-testid="button-slide-next"
+                  aria-label="N\u00e4chstes Bild"
+                >
+                  <ChevronRight className="w-4 h-4 text-white/70" />
+                </button>
+              </div>
 
-                  <ul className="space-y-3 mb-10">
-                    <li className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                      <span className="text-muted-foreground">Sichtbare Ergebnisse bereits nach der ersten Sitzung</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                      <span className="text-muted-foreground">Sanft und angenehm &ndash; keine Ausfallzeit</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                      <span className="text-muted-foreground">Natürliche Kollagenstimulation von innen heraus</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                      <span className="text-muted-foreground">Für Gesicht, Hals, Dekolleté und Hände</span>
-                    </li>
-                  </ul>
-
-                  <div className="flex flex-wrap items-center gap-4">
-                    <Button asChild data-testid="button-redtouch-cta" size="lg">
-                      <a href="https://wa.me/491709287722?text=Hallo,%20ich%20interessiere%20mich%20für%20die%20Red%20Touch%20Pro%20Behandlung%20und%20hätte%20gerne%20eine%20Beratung." target="_blank" rel="noopener noreferrer">
-                        Jetzt beraten lassen
-                      </a>
-                    </Button>
-                    <Button variant="ghost" asChild data-testid="button-redtouch-more" size="lg" className="text-muted-foreground">
-                      <a href="/leistungen" className="flex items-center gap-2">
-                        <span>Ergebnisse entdecken</span>
-                        <ArrowRight className="w-4 h-4" />
-                      </a>
-                    </Button>
-                  </div>
-                </div>
+              <div className="absolute top-8 right-8 z-10 hidden lg:block">
+                <span className="text-white/20 text-xs tracking-[0.3em] uppercase font-light">
+                  {String(currentSlide + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
+                </span>
               </div>
             </div>
           </div>
         </div>
-        <WaveDivider position="bottom" color="hsl(var(--background))" />
       </section>
 
       <section className="py-20 md:py-32 bg-background relative">
@@ -130,7 +214,7 @@ export default function Home() {
                 Ihr Wohlfühlort in Burbach
               </h3>
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                In entspannter Atmosphäre und modernem Ambiente biete ich Ihnen professionelle Behandlungen für Gesicht und Körper. Überzeugen Sie sich selbst von meinem Studio und vereinbaren Sie jetzt Ihren persönlichen Wohlfühltermin.
+                In entspannter Atmosph&auml;re und modernem Ambiente biete ich Ihnen professionelle Behandlungen f&uuml;r Gesicht und K&ouml;rper. &Uuml;berzeugen Sie sich selbst von meinem Studio und vereinbaren Sie jetzt Ihren pers&ouml;nlichen Wohlf&uuml;hltermin.
               </p>
               <Button asChild data-testid="button-studio" size="lg">
                 <a href="/kontakt">Termin vereinbaren</a>
