@@ -115,10 +115,10 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 items-stretch relative">
+          <div className="relative min-h-[70vh]">
 
-            <div className="relative order-2 lg:order-1 px-8 py-12 md:px-16 lg:px-20 lg:py-8 z-10 flex items-center">
-              <div className="max-w-xl bg-section-accent/85 backdrop-blur-sm lg:rounded-2xl lg:p-8 lg:-ml-4">
+            <div className="relative z-10 px-8 py-12 md:px-16 lg:px-20 lg:py-16 flex items-center min-h-[70vh]">
+              <div className="max-w-xl bg-section-accent/70 backdrop-blur-[2px] lg:rounded-2xl lg:p-8">
 
                 <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-12 max-w-md">
                   Wo m&uuml;de, erschlaffte Haut war, entsteht ein frischer, ebenm&auml;&szlig;iger Teint. Durch sanfte Aktivierung Ihrer nat&uuml;rlichen Kollagenbildung gewinnt Ihre Haut sp&uuml;rbar an Festigkeit &ndash; ganz ohne Ausfallzeit.
@@ -152,7 +152,7 @@ export default function Home() {
             </div>
 
             <div
-              className="relative order-1 lg:order-2 min-h-[50vh] lg:min-h-0 overflow-hidden"
+              className="absolute inset-0 z-0"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
               onMouseDown={handleMouseDown}
@@ -160,10 +160,10 @@ export default function Home() {
               onMouseUp={handleMouseUp}
               style={{ cursor: isDragging ? "grabbing" : "grab" }}
             >
-              <div className="h-full w-[120%] overflow-hidden flex items-center">
+              <div className="h-full w-full overflow-hidden flex items-center">
                 <div
                   ref={marqueeRef}
-                  className="flex h-full animate-marquee-scroll"
+                  className="flex h-[80%] animate-marquee-scroll"
                   style={{
                     width: `${marqueeSlides.length * 45}%`,
                     animationPlayState: isPaused && !isDragging ? "paused" : undefined,
