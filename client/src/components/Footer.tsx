@@ -200,7 +200,7 @@ export default function Footer() {
           <div className="mt-6 text-center">
             <a href="https://57group.eu" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 opacity-40 hover:opacity-70 transition-opacity duration-200" data-testid="footer-link-57group">
               <img src="/assets/57group-icon.png" alt="57 Group" className="h-4 w-auto" />
-              <span className="text-[10px] text-white/80 font-medium tracking-[0.15em] uppercase">57Group</span>
+              <span className="text-[10px] text-foreground font-medium tracking-[0.15em] uppercase">57Group</span>
             </a>
           </div>
         </div>
