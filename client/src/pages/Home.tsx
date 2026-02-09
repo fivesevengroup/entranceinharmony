@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import WaveDivider from "@/components/WaveDivider";
 import { Button } from "@/components/ui/button";
-import { useRef, useCallback, useState } from "react";
+import { useRef, useCallback, useState, useEffect } from "react";
 import { Check, ArrowRight } from "lucide-react";
 import aboutImage from "@assets/Design ohne Titel(4)_1760188585511.jpg";
 import massageImage from "@assets/Design-ohne-Titel-7_1760197347929.png";
@@ -30,51 +30,70 @@ export default function Home() {
   const marqueeSlides = [...slides, ...slides];
   const marqueeRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
-  const dragStart = useRef({ x: 0, scrollLeft: 0 });
+  const positionRef = useRef(0);
+  const speedRef = useRef(1.5);
+  const rafRef = useRef<number>(0);
+  const draggingRef = useRef(false);
+  const pausedRef = useRef(false);
+  const dragStartRef = useRef({ x: 0, pos: 0 });
+
+  useEffect(() => {
+    const el = marqueeRef.current;
+    if (!el) return;
+
+    let lastTime = performance.now();
+
+    const animate = (now: number) => {
+      const dt = now - lastTime;
+      lastTime = now;
+
+      if (!draggingRef.current && !pausedRef.current) {
+        const totalWidth = el.scrollWidth / 2;
+        positionRef.current -= speedRef.current * (dt / 16.667);
+        if (Math.abs(positionRef.current) >= totalWidth) {
+          positionRef.current += totalWidth;
+        }
+        el.style.transform = `translateX(${positionRef.current}px)`;
+      }
+
+      rafRef.current = requestAnimationFrame(animate);
+    };
+
+    rafRef.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, []);
 
   const handleMouseEnter = useCallback(() => {
-    setIsPaused(true);
+    pausedRef.current = true;
   }, []);
 
   const handleMouseLeave = useCallback(() => {
-    setIsPaused(false);
+    pausedRef.current = false;
+    draggingRef.current = false;
     setIsDragging(false);
   }, []);
 
   const handleMouseDown = useCallback((e: React.MouseEvent) => {
+    draggingRef.current = true;
     setIsDragging(true);
-    const el = marqueeRef.current;
-    if (!el) return;
-    const computedStyle = window.getComputedStyle(el);
-    const matrix = new DOMMatrix(computedStyle.transform);
-    dragStart.current = { x: e.clientX, scrollLeft: matrix.m41 };
-    el.style.animation = "none";
-    el.style.transform = `translateX(${matrix.m41}px)`;
+    dragStartRef.current = { x: e.clientX, pos: positionRef.current };
   }, []);
 
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
-    if (!isDragging || !marqueeRef.current) return;
+    if (!draggingRef.current || !marqueeRef.current) return;
     e.preventDefault();
-    const dx = e.clientX - dragStart.current.x;
-    marqueeRef.current.style.transform = `translateX(${dragStart.current.scrollLeft + dx}px)`;
-  }, [isDragging]);
+    const dx = e.clientX - dragStartRef.current.x;
+    const newPos = dragStartRef.current.pos + dx;
+    positionRef.current = newPos;
+    marqueeRef.current.style.transform = `translateX(${newPos}px)`;
+  }, []);
 
   const handleMouseUp = useCallback(() => {
-    if (!isDragging || !marqueeRef.current) return;
+    if (!draggingRef.current) return;
+    draggingRef.current = false;
     setIsDragging(false);
-    setIsPaused(false);
-    const el = marqueeRef.current;
-    const currentX = new DOMMatrix(window.getComputedStyle(el).transform).m41;
-    const totalWidth = el.scrollWidth / 2;
-    let normalizedX = currentX % totalWidth;
-    if (normalizedX > 0) normalizedX -= totalWidth;
-    const progress = Math.abs(normalizedX) / totalWidth;
-    el.style.transform = "";
-    el.style.animation = "";
-    el.style.animationDelay = `-${progress * 30}s`;
-    el.style.animationPlayState = "running";
-  }, [isDragging]);
+    pausedRef.current = false;
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -166,10 +185,8 @@ export default function Home() {
               <div className="h-full w-full overflow-hidden">
                 <div
                   ref={marqueeRef}
-                  className="flex h-full animate-marquee-scroll"
-                  style={{
-                    animationPlayState: isPaused && !isDragging ? "paused" : undefined,
-                  }}
+                  className="flex h-full"
+                  style={{ willChange: "transform" }}
                 >
                   {marqueeSlides.map((slide, index) => (
                     <div
