@@ -12,13 +12,14 @@ export default function WaveDivider({
   const rotation = position === 'top' ? 'rotate-180' : '';
   
   return (
-    <div className={`absolute ${position === 'top' ? 'top-0' : 'bottom-0'} left-0 right-0 w-full ${rotation} ${className}`} style={{ height: '80px', overflow: 'hidden', lineHeight: 0 }}>
+    <div className={`absolute ${position === 'top' ? 'top-0' : '-bottom-px'} left-0 right-0 w-full ${rotation} ${className}`} style={{ height: '80px', overflow: 'hidden', lineHeight: 0 }}>
       <svg 
         viewBox="0 0 1200 120" 
         preserveAspectRatio="none" 
-        className="relative block w-full h-full"
+        className="relative block w-full"
         style={{ 
-          fill: color || 'hsl(var(--section-warm-ivory))'
+          fill: color || 'hsl(var(--section-warm-ivory))',
+          height: 'calc(100% + 2px)'
         }}
       >
         <path d="M0,0 C150,80 350,0 600,60 C850,120 1050,40 1200,60 L1200,120 L0,120 Z"></path>
