@@ -10,8 +10,9 @@ import heroImg from "@assets/stock_images/laser_hero.jpg";
 import resultImg from "@assets/stock_images/laser_result_skin.jpg";
 import treatmentImg from "@assets/grafik_1770659141702.png";
 import smoothImg from "@assets/stock_images/laser_smooth_skin.jpg";
-import glowingFaceImg from "@assets/stock_images/glowing_face_closeup.jpg";
-import decolletteImg from "@assets/stock_images/smooth_decollete.jpg";
+import laserFaceImg from "@assets/images/laser_face_treatment.png";
+import laserDecolletteImg from "@assets/images/laser_decollete_treatment.png";
+import laserBodyImg from "@assets/images/laser_body_treatment.png";
 import beautyProfileImg from "@assets/stock_images/beauty_profile_golden.jpg";
 import dekaLogo from "@assets/deka-logo.svg";
 import redtouchLogo from "@assets/grafik_1770659116331.png";
@@ -39,7 +40,7 @@ const treatmentAreas = [
     id: "face",
     title: "Gesicht & Hals",
     subtitle: "Anti-Aging & Glow",
-    image: glowingFaceImg,
+    image: laserFaceImg,
     benefits: [
       "Gl\u00E4ttung feiner Linien",
       "Porenverfeinerung",
@@ -52,7 +53,7 @@ const treatmentAreas = [
     id: "decollete",
     title: "Dekollet\u00E9",
     subtitle: "Straffung & Erneuerung",
-    image: decolletteImg,
+    image: laserDecolletteImg,
     benefits: [
       "Lichtbedingte Hautver\u00E4nderungen",
       "Straffung & Gl\u00E4ttung",
@@ -62,7 +63,7 @@ const treatmentAreas = [
     id: "body",
     title: "K\u00F6rper",
     subtitle: "Hauterneuerung & Straffung",
-    image: smoothImg,
+    image: laserBodyImg,
     benefits: [
       "Dehnungsstreifen (Striae)",
       "Oberfl\u00E4chliche Narben",
