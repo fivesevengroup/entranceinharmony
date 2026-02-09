@@ -49,28 +49,31 @@ export default function Home() {
     const computedStyle = window.getComputedStyle(el);
     const matrix = new DOMMatrix(computedStyle.transform);
     dragStart.current = { x: e.clientX, scrollLeft: matrix.m41 };
-    el.style.animationPlayState = "paused";
+    el.style.animation = "none";
+    el.style.transform = `translateX(${matrix.m41}px)`;
   }, []);
 
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
     if (!isDragging || !marqueeRef.current) return;
     e.preventDefault();
     const dx = e.clientX - dragStart.current.x;
-    const el = marqueeRef.current;
-    el.style.animation = "none";
-    el.style.transform = `translateX(${dragStart.current.scrollLeft + dx}px)`;
+    marqueeRef.current.style.transform = `translateX(${dragStart.current.scrollLeft + dx}px)`;
   }, [isDragging]);
 
   const handleMouseUp = useCallback(() => {
     if (!isDragging || !marqueeRef.current) return;
     setIsDragging(false);
+    setIsPaused(false);
     const el = marqueeRef.current;
     const currentX = new DOMMatrix(window.getComputedStyle(el).transform).m41;
     const totalWidth = el.scrollWidth / 2;
-    const progress = Math.abs(currentX % totalWidth) / totalWidth;
+    let normalizedX = currentX % totalWidth;
+    if (normalizedX > 0) normalizedX -= totalWidth;
+    const progress = Math.abs(normalizedX) / totalWidth;
     el.style.transform = "";
     el.style.animation = "";
-    el.style.animationDelay = `-${progress * 60}s`;
+    el.style.animationDelay = `-${progress * 30}s`;
+    el.style.animationPlayState = "running";
   }, [isDragging]);
 
   return (
