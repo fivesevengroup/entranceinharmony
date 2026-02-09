@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { useEffect, useState } from "react";
 import { Check, MessageCircle, ChevronDown, Star, ArrowRight, Sparkles, Shield, Clock, Zap } from "lucide-react";
 import heroImg from "@assets/stock_images/laser_hero.jpg";
-import resultImg from "@assets/stock_images/laser_result_skin.jpg";
+import resultImg from "@assets/laser_result_woman.png";
 import treatmentImg from "@assets/grafik_1770659141702.png";
 import smoothImg from "@assets/stock_images/laser_smooth_skin.jpg";
 import laserFaceImg from "@assets/laser_face_treatment.png";
