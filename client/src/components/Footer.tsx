@@ -100,27 +100,27 @@ export default function Footer() {
               <h4 className="font-medium text-sm uppercase tracking-widest mb-6 text-foreground pb-2 border-b border-primary/20 inline-block">Navigation</h4>
               <ul className="space-y-2.5 text-sm">
                 <li>
-                  <Link href="/" className="text-muted-foreground hover:text-foreground transition-colors duration-200" data-testid="footer-link-home">
+                  <Link href="/" onClick={() => window.scrollTo(0, 0)} className="text-muted-foreground hover:text-foreground transition-colors duration-200" data-testid="footer-link-home">
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link href="/gesichtsbehandlungen" className="text-muted-foreground hover:text-foreground transition-colors duration-200" data-testid="footer-link-leistungen">
+                  <Link href="/gesichtsbehandlungen" onClick={() => window.scrollTo(0, 0)} className="text-muted-foreground hover:text-foreground transition-colors duration-200" data-testid="footer-link-leistungen">
                     Gesichtsbehandlungen
                   </Link>
                 </li>
                 <li>
-                  <Link href="/laserbehandlungen" className="text-muted-foreground hover:text-foreground transition-colors duration-200" data-testid="footer-link-laser">
+                  <Link href="/laserbehandlungen" onClick={() => window.scrollTo(0, 0)} className="text-muted-foreground hover:text-foreground transition-colors duration-200" data-testid="footer-link-laser">
                     Laserbehandlungen
                   </Link>
                 </li>
                 <li>
-                  <Link href="/gutscheine" className="text-muted-foreground hover:text-foreground transition-colors duration-200" data-testid="footer-link-gutscheine">
+                  <Link href="/gutscheine" onClick={() => window.scrollTo(0, 0)} className="text-muted-foreground hover:text-foreground transition-colors duration-200" data-testid="footer-link-gutscheine">
                     Geschenkgutscheine
                   </Link>
                 </li>
                 <li>
-                  <Link href="/kontakt" className="text-muted-foreground hover:text-foreground transition-colors duration-200" data-testid="footer-link-kontakt">
+                  <Link href="/kontakt" onClick={() => window.scrollTo(0, 0)} className="text-muted-foreground hover:text-foreground transition-colors duration-200" data-testid="footer-link-kontakt">
                     Über mich
                   </Link>
                 </li>
