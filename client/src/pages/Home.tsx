@@ -20,11 +20,11 @@ const slides = [
 ];
 
 const benefits = [
-  "Hautverjüngung & Anti-Aging (Faltenreduktion)",
   "Sichtbare Ergebnisse bereits nach der ersten Sitzung",
   "Sanft und angenehm \u2013 keine Ausfallzeit",
   "Natürliche Kollagenstimulation von innen heraus",
   "Für Gesicht, Hals, Dekolleté und Hände",
+  "Hautverjüngung & Anti-Aging (Faltenreduktion)",
   "...und vieles mehr",
 ];
 
