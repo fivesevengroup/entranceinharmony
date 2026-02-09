@@ -10,7 +10,7 @@ interface ServiceCardProps {
   link?: string;
 }
 
-export default function ServiceCard({ icon: Icon, title, description, price, link = "/leistungen" }: ServiceCardProps) {
+export default function ServiceCard({ icon: Icon, title, description, price, link = "/gesichtsbehandlungen" }: ServiceCardProps) {
   return (
     <Card className="hover-elevate transition-all duration-300 hover:-translate-y-1">
       <CardHeader className="text-center pb-4">

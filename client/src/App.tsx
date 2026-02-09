@@ -21,7 +21,7 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/leistungen" component={Services} />
+      <Route path="/gesichtsbehandlungen" component={Services} />
       <Route path="/laserbehandlungen" component={LaserBehandlungen} />
       <Route path="/kontakt" component={Contact} />
       <Route path="/gutscheine" component={Vouchers} />

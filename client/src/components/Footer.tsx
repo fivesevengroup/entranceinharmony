@@ -105,7 +105,7 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/leistungen" className="text-muted-foreground hover:text-foreground transition-colors duration-200" data-testid="footer-link-leistungen">
+                  <Link href="/gesichtsbehandlungen" className="text-muted-foreground hover:text-foreground transition-colors duration-200" data-testid="footer-link-leistungen">
                     Gesichtsbehandlungen
                   </Link>
                 </li>

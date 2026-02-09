@@ -68,7 +68,7 @@ export default function Contact() {
               className="text-sm px-12 py-6 text-white/80 border border-white/15 hover:bg-white/5 hover:border-white/25 font-serif uppercase tracking-widest transition-all duration-300"
               asChild
             >
-              <a href="/leistungen">Behandlungen ansehen</a>
+              <a href="/gesichtsbehandlungen">Behandlungen ansehen</a>
             </Button>
           </div>
 
