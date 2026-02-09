@@ -461,7 +461,10 @@
 }
 
 .animate-marquee-scroll {
-  animation: marqueeScroll 60s linear infinite;
+  animation: marqueeScroll 30s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 @keyframes textShimmer {
