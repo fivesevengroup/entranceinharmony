@@ -157,13 +157,13 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center justify-center gap-8 mb-8">
-            <a href="https://deka-beauty.de" target="_blank" rel="noopener noreferrer" data-testid="footer-logo-deka">
+            <div data-testid="footer-logo-deka">
               <img
                 src="https://deka-beauty.de/wp-content/uploads/2024/11/deka_web2024_mainlogo.svg"
                 alt="DEKA"
-                className="h-6 w-auto opacity-60 hover:opacity-100 transition-opacity duration-200"
+                className="h-6 w-auto opacity-60"
               />
-            </a>
+            </div>
             <div className="h-6 w-px bg-border/40"></div>
             <img
               src={redTouchLogo}
