@@ -197,6 +197,11 @@ export default function Footer() {
               </Link>
             </div>
           </div>
+          <div className="mt-6 text-center">
+            <a href="https://57group.eu" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-[10px] text-muted-foreground/50 hover:text-muted-foreground/80 transition-colors duration-200" data-testid="footer-link-57group">
+              powered by <span className="font-medium">57group.eu</span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>
