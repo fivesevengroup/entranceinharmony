@@ -233,21 +233,21 @@ export default function LaserBehandlungen() {
       </section>
 
       {/* ===== SECTION 2: TECHNOLOGY + PARTNERS ===== */}
-      <section id="technologie" className="relative py-24 md:py-36 overflow-hidden" data-testid="section-technology" style={{ background: 'linear-gradient(180deg, hsl(var(--background)) 0%, #0a0a0a 15%, #0a0a0a 85%, hsl(var(--background)) 100%)' }}>
+      <section id="technologie" className="relative py-24 md:py-36 overflow-hidden bg-section-accent" data-testid="section-technology">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(202, 169, 80, 0.08) 0%, transparent 70%)' }} />
-          <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent 20%, rgba(202, 169, 80, 0.3) 50%, transparent 80%)' }} />
-          <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent 20%, rgba(202, 169, 80, 0.3) 50%, transparent 80%)' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(202, 169, 80, 0.06) 0%, transparent 70%)' }} />
+          <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent 20%, rgba(202, 169, 80, 0.15) 50%, transparent 80%)' }} />
+          <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent 20%, rgba(202, 169, 80, 0.15) 50%, transparent 80%)' }} />
         </div>
 
         <div className="relative z-10 container mx-auto px-4">
           <div className="text-center mb-16 md:mb-24 fade-up">
             <p className="text-primary text-sm font-medium tracking-[0.3em] uppercase mb-6">Technologie</p>
-            <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl font-light text-white mb-6 leading-tight" data-testid="text-tech-h2">
+            <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl font-light mb-6 leading-tight" data-testid="text-tech-h2">
               Red Touch Pro<sup className="text-lg align-super">&reg;</sup>
             </h2>
             <div className="h-0.5 w-32 mx-auto gold-shimmer rounded-full mb-6"></div>
-            <p className="text-white/50 text-lg max-w-xl mx-auto">
+            <p className="text-muted-foreground text-lg max-w-xl mx-auto">
               DEKA Lasertechnologie aus Italien &ndash; Pr&auml;zision auf h&ouml;chstem Niveau.
             </p>
           </div>
@@ -262,9 +262,9 @@ export default function LaserBehandlungen() {
                       <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ background: 'rgba(202, 169, 80, 0.12)', border: '1px solid rgba(202, 169, 80, 0.25)' }}>
                         <feature.icon className="w-4.5 h-4.5 text-primary" />
                       </div>
-                      <h3 className="font-serif text-lg text-white font-light">{feature.title}</h3>
+                      <h3 className="font-serif text-lg font-light">{feature.title}</h3>
                     </div>
-                    <p className="text-white/45 text-sm leading-relaxed max-w-xs">{feature.text}</p>
+                    <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">{feature.text}</p>
                   </div>
                 ))}
               </div>
@@ -291,9 +291,9 @@ export default function LaserBehandlungen() {
                       <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ background: 'rgba(202, 169, 80, 0.12)', border: '1px solid rgba(202, 169, 80, 0.25)' }}>
                         <feature.icon className="w-4.5 h-4.5 text-primary" />
                       </div>
-                      <h3 className="font-serif text-lg text-white font-light">{feature.title}</h3>
+                      <h3 className="font-serif text-lg font-light">{feature.title}</h3>
                     </div>
-                    <p className="text-white/45 text-sm leading-relaxed max-w-xs">{feature.text}</p>
+                    <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">{feature.text}</p>
                   </div>
                 ))}
               </div>
@@ -303,12 +303,12 @@ export default function LaserBehandlungen() {
 
           <div className="mt-20 pt-12 fade-up" style={{ animationDelay: "0.5s", opacity: 0 }}>
             <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
-              <p className="text-white/30 text-xs tracking-[0.2em] uppercase">Technologiepartner</p>
-              <div data-testid="partner-deka" className="opacity-50 transition-opacity duration-300" style={{ filter: 'brightness(0) invert(1)' }}>
-                <img src={dekaLogo} alt="DEKA Lasertechnologie" className="h-8 md:h-10 w-auto object-contain" />
+              <p className="text-muted-foreground text-xs tracking-[0.2em] uppercase">Technologiepartner</p>
+              <div data-testid="partner-deka" className="opacity-70 transition-opacity duration-300">
+                <img src={dekaLogo} alt="DEKA Lasertechnologie" className="h-10 md:h-12 w-auto object-contain" />
               </div>
-              <div data-testid="partner-redtouch" className="opacity-50 transition-opacity duration-300" style={{ filter: 'brightness(0) invert(1)' }}>
-                <img src={redtouchLogo} alt="Red Touch Pro" className="h-8 md:h-10 w-auto object-contain" />
+              <div data-testid="partner-redtouch" className="opacity-70 transition-opacity duration-300">
+                <img src={redtouchLogo} alt="Red Touch Pro" className="h-10 md:h-12 w-auto object-contain" />
               </div>
             </div>
           </div>
