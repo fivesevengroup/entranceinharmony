@@ -233,7 +233,7 @@ export default function LaserBehandlungen() {
       </section>
 
       {/* ===== SECTION 2: TECHNOLOGY + PARTNERS ===== */}
-      <section id="technologie" className="relative py-24 md:py-36 overflow-hidden bg-section-accent" data-testid="section-technology">
+      <section id="technologie" className="relative py-16 md:py-24 overflow-hidden bg-section-accent" data-testid="section-technology">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(202, 169, 80, 0.06) 0%, transparent 70%)' }} />
           <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent 20%, rgba(202, 169, 80, 0.15) 50%, transparent 80%)' }} />
@@ -241,9 +241,9 @@ export default function LaserBehandlungen() {
         </div>
 
         <div className="relative z-10 container mx-auto px-4">
-          <div className="text-center mb-16 md:mb-24 fade-up">
-            <p className="text-primary text-sm font-medium tracking-[0.3em] uppercase mb-6">Technologie</p>
-            <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl font-light mb-6 leading-tight" data-testid="text-tech-h2">
+          <div className="text-center mb-10 md:mb-16 fade-up">
+            <p className="text-primary text-sm font-medium tracking-[0.3em] uppercase mb-4">Technologie</p>
+            <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl font-light mb-4 leading-tight" data-testid="text-tech-h2">
               Red Touch Pro<sup className="text-lg align-super">&reg;</sup>
             </h2>
             <div className="h-0.5 w-32 mx-auto gold-shimmer rounded-full mb-6"></div>
@@ -252,10 +252,10 @@ export default function LaserBehandlungen() {
             </p>
           </div>
 
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-8 lg:gap-4 items-center">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-6 lg:gap-6 items-center">
 
-              <div className="space-y-10 lg:space-y-16">
+              <div className="space-y-8 lg:space-y-10">
                 {deviceFeatures.filter(f => f.side === "left").map((feature, i) => (
                   <div key={i} className="flex flex-col lg:items-end lg:text-right slide-in-left" style={{ animationDelay: `${0.2 + i * 0.15}s`, opacity: 0 }} data-testid={`card-tech-${i}`}>
                     <div className="flex items-center gap-3 mb-2 lg:flex-row-reverse flex-wrap">
@@ -277,14 +277,14 @@ export default function LaserBehandlungen() {
                       src={treatmentImg}
                       alt="Red Touch Pro Laserger\u00E4t"
                       className="w-auto object-contain relative z-10"
-                      style={{ maxHeight: '600px', filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.5))' }}
+                      style={{ maxHeight: '450px', filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.5))' }}
                     />
                     <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-8" style={{ background: 'radial-gradient(ellipse, rgba(202, 169, 80, 0.15) 0%, transparent 70%)', filter: 'blur(10px)' }} />
                   </div>
                 </div>
               </div>
 
-              <div className="space-y-10 lg:space-y-16">
+              <div className="space-y-8 lg:space-y-10">
                 {deviceFeatures.filter(f => f.side === "right").map((feature, i) => (
                   <div key={i} className="flex flex-col lg:items-start lg:text-left slide-in-right" style={{ animationDelay: `${0.3 + i * 0.15}s`, opacity: 0 }} data-testid={`card-tech-${i + 3}`}>
                     <div className="flex items-center gap-3 mb-2 flex-wrap">
@@ -301,7 +301,7 @@ export default function LaserBehandlungen() {
             </div>
           </div>
 
-          <div className="mt-20 pt-12 fade-up" style={{ animationDelay: "0.5s", opacity: 0 }}>
+          <div className="mt-12 pt-8 fade-up" style={{ animationDelay: "0.5s", opacity: 0 }}>
             <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
               <p className="text-muted-foreground text-xs tracking-[0.2em] uppercase">Technologiepartner</p>
               <div data-testid="partner-deka" className="opacity-70 transition-opacity duration-300">
