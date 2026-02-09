@@ -1,0 +1,103 @@
+{
+  "page_type": "landingpage",
+  "topic": "Red Touch Pro Laser – Hautverjüngung",
+  "seo": {
+    "meta_title": "Red Touch Pro Laser – Moderne Hautverjüngung ohne OP",
+    "meta_description": "Sanfte Laser-Hautverjüngung mit Red Touch Pro. Sichtbare Straffung, verfeinerte Hautstruktur und mehr Glow – ohne OP und mit minimaler Ausfallzeit."
+  },
+  "hero_section": {
+    "h1": "Red Touch Pro Laser – Moderne Hautverjüngung für straffe, glatte Haut",
+    "subheadline": "Nicht-invasive Laserbehandlung zur gezielten Kollagenstimulation – sanft, effektiv und alltagstauglich.",
+    "cta_primary": "Jetzt Beratung vereinbaren"
+  },
+  "problem_section": {
+    "headline": "Wenn Pflege allein nicht mehr ausreicht",
+    "text": "Mit zunehmendem Alter verliert die Haut an Kollagen. Spannkraft nimmt ab, feine Linien entstehen und der Teint wirkt unruhig. Klassische Pflegeprodukte können diese Prozesse nur begrenzt beeinflussen. Die Red Touch Pro Laserbehandlung setzt gezielt dort an, wo Hautstruktur und Elastizität entstehen – im Kollagen."
+  },
+  "technology_section": {
+    "headline": "Was macht den Red Touch Pro Laser besonders?",
+    "benefits": [
+      "Gezielte Kollagenstimulation mit 675-nm-Wellenlänge",
+      "Sanfte Behandlung mit angenehmem Wärmegefühl",
+      "Keine Verletzung der Hautoberfläche",
+      "Kurze Behandlungsdauer und minimale Ausfallzeit",
+      "Moderne, medizinisch fundierte Lasertechnologie"
+    ]
+  },
+  "target_group_section": {
+    "headline": "Für wen ist die Red Touch Pro Behandlung geeignet?",
+    "bullets": [
+      "Bei feinen Linien und beginnender Hautalterung",
+      "Bei Spannkraftverlust und unruhiger Hautstruktur",
+      "Bei vergrößerten Poren oder fahlem Teint",
+      "Für alle, die eine Alternative zu invasiven Eingriffen suchen",
+      "Für anspruchsvolle Kunden mit Fokus auf natürliche Ergebnisse"
+    ]
+  },
+  "treatment_areas": {
+    "headline": "Behandlungsareale & Einsatzmöglichkeiten",
+    "areas": {
+      "face_and_neck": [
+        "Glättung feiner Linien und Knitterfältchen",
+        "Verbesserung der Hautstruktur und Porenverfeinerung",
+        "Ausgleich eines unruhigen Teints",
+        "Milderung von Pickelmalen und Unebenheiten",
+        "Mehr Frische und Glow"
+      ],
+      "decollete": [
+        "Verbesserung lichtbedingter Hautveränderungen",
+        "Straffung und Glättung der Hautstruktur"
+      ],
+      "body": [
+        "Verfeinerung von Dehnungsstreifen (Striae)",
+        "Kosmetische Verbesserung oberflächlicher Narben",
+        "Straffung bei leichter Hauterschlaffung"
+      ]
+    }
+  },
+  "process_section": {
+    "headline": "So läuft die Red Touch Pro Behandlung ab",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Individuelle Beratung & Hautanalyse",
+        "description": "Analyse des Hautzustands, Definition der Behandlungsziele und individuelle Einstellung des Lasers."
+      },
+      {
+        "step": 2,
+        "title": "Die Behandlung",
+        "description": "Behandlungsdauer ca. 40 Minuten im Gesicht. Angenehmes Wärmegefühl, meist ohne Betäubung."
+      },
+      {
+        "step": 3,
+        "title": "Nach der Behandlung",
+        "description": "Leichte Rötung oder Bräunung möglich, meist innerhalb von 24–48 Stunden rückläufig. In der Regel sofort gesellschaftsfähig."
+      }
+    ]
+  },
+  "results_section": {
+    "headline": "Ergebnisse & Behandlungsplan",
+    "text": "Erste Hautverbesserungen sind häufig bereits nach der ersten Sitzung sichtbar. Für optimale Ergebnisse werden meist 3–4 Behandlungen im Abstand von mehreren Wochen empfohlen. Die Hautstraffung entwickelt sich natürlich über die Zeit durch Neubildung von Kollagen.",
+    "combinations": [
+      "Medical Peelings",
+      "Skinbooster",
+      "Infusionen",
+      "RF-Microneedling"
+    ]
+  },
+  "trust_section": {
+    "headline": "Warum diese Behandlung?",
+    "bullets": [
+      "Moderne, wissenschaftlich fundierte Lasertechnologie",
+      "Natürliche Ergebnisse ohne künstlichen Effekt",
+      "Ganzheitlicher Ansatz für Hautgesundheit",
+      "Transparente Beratung und realistische Erwartungen"
+    ]
+  },
+  "cta_section": {
+    "headline": "Bereit für ein frischeres Hautbild?",
+    "cta_primary": "Individuelle Beratung buchen",
+    "cta_secondary": "Mehr über die Behandlung erfahren"
+  },
+  "disclaimer": "Diese Behandlung dient der kosmetischen Verbesserung des Hautbildes und ersetzt keine medizinische Beratung. Es handelt sich um kein Heilversprechen. Ergebnisse können individuell variieren."
+}
