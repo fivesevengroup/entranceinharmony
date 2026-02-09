@@ -141,7 +141,7 @@ export default function Home() {
           </div>
 
           <div
-            className="relative min-h-[70vh]"
+            className="relative min-h-[50vh]"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             onMouseDown={handleMouseDown}
@@ -150,7 +150,7 @@ export default function Home() {
             style={{ cursor: isDragging ? "grabbing" : "grab" }}
           >
 
-            <div className="relative z-10 px-8 py-12 md:px-16 lg:px-20 lg:py-16 flex items-center min-h-[70vh] pointer-events-none">
+            <div className="relative z-10 px-8 py-12 md:px-16 lg:px-20 lg:py-16 flex items-center min-h-[50vh] pointer-events-none">
               <div className="max-w-xl bg-gray-200/60 backdrop-blur-[3px] lg:rounded-2xl lg:p-8 pointer-events-auto" style={{ cursor: "default" }}>
 
                 <p className="text-black text-base md:text-lg leading-relaxed mb-12 max-w-md">
