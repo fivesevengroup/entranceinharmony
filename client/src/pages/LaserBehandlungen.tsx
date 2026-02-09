@@ -256,10 +256,15 @@ export default function LaserBehandlungen() {
                 </div>
               </div>
               <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
-                <div className="elegant-glow">
-                  <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                    <img src={treatmentImg} alt="Professionelle Laserbehandlung mit Red Touch Pro" className="w-full aspect-[4/5] object-cover" />
+                <div className="device-3d-wrapper relative pb-8">
+                  <div className="device-3d-glow"></div>
+                  <div className="device-3d relative">
+                    <div className="relative rounded-md overflow-visible shadow-2xl" style={{ border: '2px solid rgba(202, 169, 80, 0.3)' }}>
+                      <div className="device-3d-reflection rounded-md"></div>
+                      <img src={treatmentImg} alt="Professionelle Laserbehandlung mit Red Touch Pro" className="w-full object-contain rounded-md" />
+                    </div>
                   </div>
+                  <div className="device-3d-shadow"></div>
                 </div>
               </div>
             </div>
