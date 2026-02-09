@@ -137,7 +137,28 @@ export default function LaserBehandlungen() {
       meta.setAttribute("content", "Sanfte Laser-Hautverjüngung mit Red Touch Pro. Sichtbare Straffung, verfeinerte Hautstruktur und mehr Glow.");
       document.head.appendChild(meta);
     }
+    const slideObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target as HTMLElement;
+            const delay = el.dataset.slideDelay || '0';
+            setTimeout(() => {
+              el.classList.add('visible');
+            }, parseFloat(delay) * 1000);
+            slideObserver.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    document.querySelectorAll('.slide-in-left, .slide-in-right').forEach((el) => {
+      slideObserver.observe(el);
+    });
+
     return () => {
+      slideObserver.disconnect();
       document.title = "Entrance in Harmony - Beauty & Aesthetics";
       const metaD = document.querySelector('meta[name="description"]');
       if (metaD) {
@@ -257,7 +278,7 @@ export default function LaserBehandlungen() {
 
               <div className="space-y-8 lg:space-y-10">
                 {deviceFeatures.filter(f => f.side === "left").map((feature, i) => (
-                  <div key={i} className="flex flex-col lg:items-end lg:text-right slide-in-left" style={{ animationDelay: `${0.2 + i * 0.15}s`, opacity: 0 }} data-testid={`card-tech-${i}`}>
+                  <div key={i} className="flex flex-col lg:items-end lg:text-right slide-in-left" data-slide-delay={`${0.1 + i * 0.2}`} data-testid={`card-tech-${i}`}>
                     <div className="flex items-center gap-3 mb-2 lg:flex-row-reverse flex-wrap">
                       <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ background: 'rgba(202, 169, 80, 0.12)', border: '1px solid rgba(202, 169, 80, 0.25)' }}>
                         <feature.icon className="w-4.5 h-4.5 text-primary" />
@@ -286,7 +307,7 @@ export default function LaserBehandlungen() {
 
               <div className="space-y-8 lg:space-y-10">
                 {deviceFeatures.filter(f => f.side === "right").map((feature, i) => (
-                  <div key={i} className="flex flex-col lg:items-start lg:text-left slide-in-right" style={{ animationDelay: `${0.3 + i * 0.15}s`, opacity: 0 }} data-testid={`card-tech-${i + 3}`}>
+                  <div key={i} className="flex flex-col lg:items-start lg:text-left slide-in-right" data-slide-delay={`${0.1 + i * 0.2}`} data-testid={`card-tech-${i + 3}`}>
                     <div className="flex items-center gap-3 mb-2 flex-wrap">
                       <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ background: 'rgba(202, 169, 80, 0.12)', border: '1px solid rgba(202, 169, 80, 0.25)' }}>
                         <feature.icon className="w-4.5 h-4.5 text-primary" />
