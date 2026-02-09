@@ -5,11 +5,14 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useEffect, useState } from "react";
-import { Check, MessageCircle, ChevronDown, Star, ArrowRight } from "lucide-react";
+import { Check, MessageCircle, ChevronDown, Star, ArrowRight, Sparkles, Shield, Clock, Zap } from "lucide-react";
 import heroImg from "@assets/stock_images/laser_hero.jpg";
 import resultImg from "@assets/stock_images/laser_result_skin.jpg";
 import treatmentImg from "@assets/grafik_1770659141702.png";
 import smoothImg from "@assets/stock_images/laser_smooth_skin.jpg";
+import glowingFaceImg from "@assets/stock_images/glowing_face_closeup.jpg";
+import decolletteImg from "@assets/stock_images/smooth_decollete.jpg";
+import beautyProfileImg from "@assets/stock_images/beauty_profile_golden.jpg";
 import dekaLogo from "@assets/deka-logo.svg";
 import redtouchLogo from "@assets/grafik_1770659116331.png";
 
@@ -31,23 +34,41 @@ const technologyBenefits = [
   { title: "Medizinisch fundiert", text: "Wissenschaftlich basierte DEKA-Lasertechnologie" },
 ];
 
-const faceNeckBenefits = [
-  "Gl\u00E4ttung feiner Linien und Knitterf\u00E4ltchen",
-  "Verbesserung der Hautstruktur und Porenverfeinerung",
-  "Ausgleich eines unruhigen Teints",
-  "Milderung von Pickelmalen und Unebenheiten",
-  "Mehr Frische und nat\u00FCrlicher Glow",
-];
-
-const decolleteBenefits = [
-  "Verbesserung lichtbedingter Hautver\u00E4nderungen",
-  "Straffung und Gl\u00E4ttung der Hautstruktur",
-];
-
-const bodyBenefits = [
-  "Verfeinerung von Dehnungsstreifen (Striae)",
-  "Kosmetische Verbesserung oberfl\u00E4chlicher Narben",
-  "Straffung bei leichter Hauterschlaffung",
+const treatmentAreas = [
+  {
+    id: "face",
+    title: "Gesicht & Hals",
+    subtitle: "Anti-Aging & Glow",
+    image: glowingFaceImg,
+    benefits: [
+      "Gl\u00E4ttung feiner Linien",
+      "Porenverfeinerung",
+      "Gleichm\u00E4\u00DFigerer Teint",
+      "Nat\u00FCrlicher Glow",
+      "Milderung von Pickelmalen",
+    ],
+  },
+  {
+    id: "decollete",
+    title: "Dekollet\u00E9",
+    subtitle: "Straffung & Erneuerung",
+    image: decolletteImg,
+    benefits: [
+      "Lichtbedingte Hautver\u00E4nderungen",
+      "Straffung & Gl\u00E4ttung",
+    ],
+  },
+  {
+    id: "body",
+    title: "K\u00F6rper",
+    subtitle: "Hauterneuerung & Straffung",
+    image: smoothImg,
+    benefits: [
+      "Dehnungsstreifen (Striae)",
+      "Oberfl\u00E4chliche Narben",
+      "Leichte Hauterschlaffung",
+    ],
+  },
 ];
 
 const targetGroups = [
@@ -256,92 +277,119 @@ export default function LaserBehandlungen() {
         </div>
       </section>
 
-      {/* ===== SECTION 3: TARGET GROUP + TREATMENT AREAS ===== */}
-      <section className="py-20 md:py-28 bg-background" data-testid="section-target">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-16 items-center mb-24">
-              <div className="order-2 md:order-1 fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
-                <div className="elegant-glow">
-                  <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                    <img src={resultImg} alt="Strahlende Haut nach Red Touch Pro Behandlung" className="w-full aspect-[3/4] object-cover" />
+      {/* ===== SECTION 3: CINEMATIC TARGET GROUP ===== */}
+      <section className="relative overflow-hidden" data-testid="section-target">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${beautyProfileImg})` }}
+        >
+          <div className="absolute inset-0 cinematic-overlay" />
+        </div>
+        <div className="relative z-10 py-24 md:py-32">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+                <div className="fade-up">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 backdrop-blur-sm mb-6">
+                    <Sparkles className="w-3.5 h-3.5 text-primary" />
+                    <span className="text-white/80 text-xs tracking-[0.2em] uppercase">F&uuml;r Sie</span>
+                  </div>
+                  <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-white mb-6 leading-tight" data-testid="text-target-h2">
+                    F&uuml;r wen ist die Behandlung <span className="text-gold-gradient">geeignet?</span>
+                  </h2>
+                  <div className="h-0.5 w-24 mb-10 gold-shimmer rounded-full"></div>
+                  <div className="space-y-4">
+                    {targetGroups.map((item, i) => (
+                      <div key={i} className="flex items-start gap-4 fade-up" style={{ animationDelay: `${0.15 + i * 0.08}s`, opacity: 0 }}>
+                        <span className="mt-1 shrink-0 w-6 h-6 rounded-full border border-primary/50 flex items-center justify-center" style={{ background: 'rgba(202, 169, 80, 0.15)' }}>
+                          <Check className="w-3.5 h-3.5 text-primary" />
+                        </span>
+                        <span className="text-white/80 leading-relaxed">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-10">
+                    <Button size="lg" className="rounded-none text-sm uppercase tracking-widest" asChild data-testid="button-target-cta">
+                      <a href="https://wa.me/491709287722?text=Hallo,%20ich%20möchte%20gerne%20wissen,%20ob%20die%20Red%20Touch%20Pro%20Behandlung%20für%20mich%20geeignet%20ist." target="_blank" rel="noopener noreferrer">
+                        <MessageCircle className="w-4 h-4 mr-2" />
+                        Bin ich geeignet?
+                      </a>
+                    </Button>
                   </div>
                 </div>
-              </div>
-              <div className="order-1 md:order-2 fade-up">
-                <p className="text-primary text-sm font-medium tracking-[0.2em] uppercase mb-4">F&uuml;r Sie</p>
-                <h2 className="font-serif text-4xl md:text-5xl font-light mb-6 leading-tight" data-testid="text-target-h2">
-                  F&uuml;r wen ist die Behandlung geeignet?
-                </h2>
-                <div className="h-0.5 w-24 mb-8 gold-shimmer rounded-full"></div>
-                <ul className="space-y-5">
-                  {targetGroups.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <span className="mt-1 shrink-0 w-5 h-5 rounded-full border border-primary/40 flex items-center justify-center bg-primary/10">
-                        <Check className="w-3 h-3 text-primary" />
-                      </span>
-                      <span className="text-foreground/80 leading-relaxed">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
 
-            <div className="fade-up" data-testid="section-areas">
-              <div className="text-center mb-12">
-                <p className="text-primary text-sm font-medium tracking-[0.2em] uppercase mb-4">Behandlungsareale</p>
-                <h3 className="font-serif text-3xl md:text-4xl font-light mb-6" data-testid="text-areas-h2">
-                  Einsatzm&ouml;glichkeiten
-                </h3>
-                <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full"></div>
-              </div>
-              <div className="grid md:grid-cols-3 gap-6">
-                <Card data-testid="card-area-face">
-                  <CardContent className="p-8">
-                    <h4 className="font-serif text-2xl font-light mb-6">Gesicht & Hals</h4>
-                    <ul className="space-y-3">
-                      {faceNeckBenefits.map((item, i) => (
-                        <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
-                          <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                          <span>{item}</span>
-                        </li>
+                <div className="hidden md:flex items-center justify-center fade-up" style={{ animationDelay: "0.3s", opacity: 0 }}>
+                  <div className="relative">
+                    <div className="absolute -inset-8 rounded-full halo-glow"></div>
+                    <div className="grid grid-cols-2 gap-4">
+                      {[
+                        { icon: Sparkles, label: "Nat\u00FCrlicher Glow", value: "Sofort sichtbar" },
+                        { icon: Shield, label: "Nicht-invasiv", value: "Keine Nadeln" },
+                        { icon: Clock, label: "Behandlung", value: "Ca. 40 Min." },
+                        { icon: Zap, label: "Ergebnis", value: "Ab 1. Sitzung" },
+                      ].map((stat, i) => (
+                        <div key={i} className="p-5 rounded-md backdrop-blur-md border border-white/10 text-center float-animation" style={{ animationDelay: `${i * 0.5}s`, background: 'rgba(255,255,255,0.05)' }} data-testid={`stat-card-${i}`}>
+                          <stat.icon className="w-5 h-5 text-primary mx-auto mb-2" />
+                          <p className="text-white text-sm font-medium mb-0.5">{stat.label}</p>
+                          <p className="text-white/50 text-xs">{stat.value}</p>
+                        </div>
                       ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-                <Card data-testid="card-area-decollete">
-                  <CardContent className="p-8">
-                    <h4 className="font-serif text-2xl font-light mb-6">Dekollet&eacute;</h4>
-                    <ul className="space-y-3">
-                      {decolleteBenefits.map((item, i) => (
-                        <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
-                          <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-                <Card data-testid="card-area-body">
-                  <CardContent className="p-8">
-                    <h4 className="font-serif text-2xl font-light mb-6">K&ouml;rper</h4>
-                    <ul className="space-y-3">
-                      {bodyBenefits.map((item, i) => (
-                        <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
-                          <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ===== SECTION 4: PROCESS ===== */}
+      {/* ===== SECTION 4: TREATMENT AREAS - VISUAL SHOWCASE ===== */}
+      <section className="py-20 md:py-28 bg-background" data-testid="section-areas">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16 fade-up">
+              <p className="text-primary text-sm font-medium tracking-[0.2em] uppercase mb-4">Behandlungsareale</p>
+              <h2 className="font-serif text-4xl md:text-5xl font-light mb-6" data-testid="text-areas-h2">
+                Einsatzm&ouml;glichkeiten
+              </h2>
+              <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-6"></div>
+              <p className="text-muted-foreground max-w-lg mx-auto">
+                Red Touch Pro entfaltet seine Wirkung in verschiedenen Bereichen &ndash; f&uuml;r sichtbare Hauterneuerung genau dort, wo Sie es sich w&uuml;nschen.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {treatmentAreas.map((area, i) => (
+                <div key={area.id} className="group relative rounded-md overflow-hidden fade-up" style={{ animationDelay: `${i * 0.15}s`, opacity: 0 }} data-testid={`card-area-${area.id}`}>
+                  <div className="aspect-[3/4] overflow-hidden">
+                    <img
+                      src={area.image}
+                      alt={area.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 30%, rgba(15,10,8,0.85) 70%, rgba(15,10,8,0.95) 100%)' }} />
+                  <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                    <p className="text-primary text-xs tracking-[0.2em] uppercase mb-1">{area.subtitle}</p>
+                    <h3 className="font-serif text-2xl md:text-3xl font-light text-white mb-4">{area.title}</h3>
+                    <div className="h-px w-12 mb-4 gold-shimmer rounded-full"></div>
+                    <ul className="space-y-2">
+                      {area.benefits.map((b, j) => (
+                        <li key={j} className="flex items-center gap-2">
+                          <Check className="w-3.5 h-3.5 text-primary shrink-0" />
+                          <span className="text-white/70 text-sm">{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== SECTION 5: PROCESS - PREMIUM TIMELINE ===== */}
       <section className="py-20 md:py-28 bg-section-accent" data-testid="section-process">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 fade-up">
@@ -351,102 +399,117 @@ export default function LaserBehandlungen() {
             </h2>
             <div className="h-0.5 w-32 mx-auto gold-shimmer rounded-full"></div>
           </div>
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-12">
-              {processSteps.map((step) => (
-                <div key={step.step} className="text-center fade-up" style={{ animationDelay: `${step.step * 0.15}s`, opacity: 0 }} data-testid={`step-${step.step}`}>
-                  <div className="w-16 h-16 mx-auto mb-6 rounded-full border-2 border-primary/30 flex items-center justify-center">
-                    <span className="font-serif text-2xl font-light text-primary">{step.step}</span>
+          <div className="max-w-5xl mx-auto">
+            <div className="relative">
+              <div className="hidden md:block absolute top-1/2 left-0 right-0 h-px bg-border/50 -translate-y-1/2"></div>
+              <div className="grid md:grid-cols-3 gap-8">
+                {processSteps.map((step) => (
+                  <div key={step.step} className="relative fade-up" style={{ animationDelay: `${step.step * 0.15}s`, opacity: 0 }} data-testid={`step-${step.step}`}>
+                    <Card className="overflow-visible">
+                      <CardContent className="p-8 text-center relative">
+                        <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full border-2 border-primary flex items-center justify-center z-10" style={{ background: 'hsl(var(--card))' }}>
+                          <span className="font-serif text-lg text-primary">{step.step}</span>
+                        </div>
+                        <div className="pt-4">
+                          <h3 className="font-serif text-xl font-light mb-3">{step.title}</h3>
+                          <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+                        </div>
+                      </CardContent>
+                    </Card>
                   </div>
-                  <h3 className="font-serif text-xl font-light mb-3">{step.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ===== SECTION 5: RESULTS + PRICING ===== */}
+      {/* ===== SECTION 6: RESULTS + PRICING - PREMIUM ===== */}
       <section className="py-20 md:py-28 bg-background" data-testid="section-results">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-16 items-center mb-24">
+            <div className="text-center mb-16 fade-up">
+              <p className="text-primary text-sm font-medium tracking-[0.2em] uppercase mb-4">Ergebnisse</p>
+              <h2 className="font-serif text-4xl md:text-5xl font-light mb-6" data-testid="text-results-h2">
+                Ergebnisse &amp; Behandlungsplan
+              </h2>
+              <div className="h-0.5 w-32 mx-auto gold-shimmer rounded-full"></div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
               <div className="fade-up">
-                <p className="text-primary text-sm font-medium tracking-[0.2em] uppercase mb-4">Ergebnisse</p>
-                <h2 className="font-serif text-4xl md:text-5xl font-light mb-6 leading-tight" data-testid="text-results-h2">
-                  Ergebnisse & Behandlungsplan
-                </h2>
-                <div className="h-0.5 w-24 mb-8 gold-shimmer rounded-full"></div>
+                <div className="relative rounded-md overflow-hidden">
+                  <img src={resultImg} alt="Strahlende Haut nach Red Touch Pro" className="w-full aspect-[4/5] object-cover" />
+                  <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 50%, rgba(15,10,8,0.8) 100%)' }} />
+                  <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                    <div className="grid grid-cols-3 gap-4 text-center">
+                      {[
+                        { value: "1.", label: "Sitzung", sub: "Erste Verbesserung" },
+                        { value: "3\u20134", label: "Sitzungen", sub: "Optimales Ergebnis" },
+                        { value: "40", label: "Minuten", sub: "Pro Behandlung" },
+                      ].map((item, i) => (
+                        <div key={i} className="result-counter" style={{ animationDelay: `${i * 0.3}s` }} data-testid={`result-stat-${i}`}>
+                          <p className="font-serif text-2xl md:text-3xl text-primary font-light">{item.value}</p>
+                          <p className="text-white text-xs font-medium">{item.label}</p>
+                          <p className="text-white/50 text-[10px]">{item.sub}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="fade-up" style={{ animationDelay: "0.15s", opacity: 0 }}>
                 <p className="text-muted-foreground leading-relaxed mb-6">
                   Erste Hautverbesserungen sind h&auml;ufig bereits nach der ersten Sitzung sichtbar. F&uuml;r optimale Ergebnisse werden meist 3&ndash;4 Behandlungen im Abstand von mehreren Wochen empfohlen.
                 </p>
                 <p className="text-muted-foreground leading-relaxed mb-8">
                   F&uuml;r ein noch umfassenderes Ergebnis kann die Behandlung kombiniert werden mit:
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-10">
                   {["Medical Peelings", "Skinbooster", "Infusionen", "RF-Microneedling"].map((item) => (
                     <Badge key={item} variant="secondary" className="text-sm">{item}</Badge>
                   ))}
                 </div>
-              </div>
-              <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
-                <div className="elegant-glow">
-                  <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                    <img src={smoothImg} alt="Strahlende, glatte Haut nach Laserbehandlung" className="w-full aspect-[3/4] object-cover" />
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <div className="fade-up" data-testid="section-pricing">
-              <div className="text-center mb-12">
-                <p className="text-primary text-sm font-medium tracking-[0.2em] uppercase mb-4">Preise</p>
-                <h3 className="font-serif text-3xl md:text-4xl font-light mb-6" data-testid="text-pricing-h2">
-                  Preis&uuml;bersicht
-                </h3>
-                <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-6"></div>
-                <p className="text-muted-foreground max-w-xl mx-auto text-sm">
-                  W&auml;hlen Sie die passende Behandlung f&uuml;r Ihren Wunschbereich
-                </p>
-              </div>
-              <div className="max-w-3xl mx-auto">
-                <Card>
-                  <CardContent className="p-0">
+                <div data-testid="section-pricing">
+                  <h3 className="font-serif text-2xl font-light mb-6" data-testid="text-pricing-h2">Preis&uuml;bersicht</h3>
+                  <div className="space-y-0">
                     {laserTreatments.map((treatment, i) => (
                       <div
                         key={treatment.id}
-                        className={`flex items-center justify-between gap-4 flex-wrap px-6 md:px-8 py-5 ${i < laserTreatments.length - 1 ? 'border-b border-border/50' : ''} ${treatment.highlight ? 'bg-primary/5' : ''}`}
+                        className={`flex items-center justify-between gap-4 flex-wrap py-4 ${i < laserTreatments.length - 1 ? 'border-b border-border/30' : ''}`}
                         data-testid={`row-laser-${treatment.id}`}
                       >
-                        <div className="flex items-center gap-4 flex-wrap">
-                          <h4 className="font-serif text-lg font-light" data-testid={`text-laser-title-${treatment.id}`}>{treatment.title}</h4>
+                        <div className="flex items-center gap-3 flex-wrap">
+                          <h4 className="text-sm font-medium" data-testid={`text-laser-title-${treatment.id}`}>{treatment.title}</h4>
                           {treatment.highlight && (
-                            <Badge variant="secondary" className="text-xs" data-testid={`badge-highlight-${treatment.id}`}>Beliebt</Badge>
+                            <Badge variant="secondary" className="text-[10px]" data-testid={`badge-highlight-${treatment.id}`}>Beliebt</Badge>
                           )}
                         </div>
-                        <div className="flex items-center gap-4 flex-wrap">
-                          <span className="font-serif text-xl text-primary font-medium" data-testid={`text-laser-price-${treatment.id}`}>{treatment.price}</span>
-                          <Button size="sm" className="rounded-none text-xs uppercase tracking-widest" asChild data-testid={`button-laser-book-${treatment.id}`}>
-                            <a href={`https://wa.me/491709287722?text=Hallo,%20ich%20möchte%20gerne%20einen%20Termin%20für%20eine%20Laserbehandlung%20(${encodeURIComponent(treatment.title)})%20buchen.`} target="_blank" rel="noopener noreferrer">
-                              Termin buchen
-                            </a>
-                          </Button>
-                        </div>
+                        <span className="font-serif text-lg text-primary font-medium" data-testid={`text-laser-price-${treatment.id}`}>{treatment.price}</span>
                       </div>
                     ))}
-                  </CardContent>
-                </Card>
-                <p className="text-xs text-muted-foreground text-center mt-6">
-                  Alle Preise inkl. individueller Beratung. Kleinunternehmer gem. &sect;19 UStG &ndash; keine MwSt. ausgewiesen.
-                </p>
+                  </div>
+                  <div className="mt-6 flex flex-col sm:flex-row gap-3 flex-wrap">
+                    <Button className="rounded-none text-xs uppercase tracking-widest" asChild data-testid="button-pricing-book">
+                      <a href="https://wa.me/491709287722?text=Hallo,%20ich%20möchte%20gerne%20einen%20Termin%20für%20eine%20Laserbehandlung%20buchen." target="_blank" rel="noopener noreferrer">
+                        <MessageCircle className="w-4 h-4 mr-2" />
+                        Termin buchen
+                      </a>
+                    </Button>
+                  </div>
+                  <p className="text-[10px] text-muted-foreground mt-4">
+                    Alle Preise inkl. individueller Beratung. Kleinunternehmer gem. &sect;19 UStG &ndash; keine MwSt. ausgewiesen.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ===== SECTION 6: REVIEWS + TRUST ===== */}
+      {/* ===== SECTION 7: REVIEWS + TRUST ===== */}
       <section className="py-20 md:py-28 bg-section-accent" data-testid="section-reviews">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
@@ -517,7 +580,7 @@ export default function LaserBehandlungen() {
         </div>
       </section>
 
-      {/* ===== SECTION 7: WHY US + FAQ ===== */}
+      {/* ===== SECTION 8: WHY US + FAQ ===== */}
       <section className="py-20 md:py-28 bg-background" data-testid="section-faq">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
@@ -574,7 +637,7 @@ export default function LaserBehandlungen() {
         </div>
       </section>
 
-      {/* ===== SECTION 8: FINAL CTA ===== */}
+      {/* ===== SECTION 9: FINAL CTA ===== */}
       <section className="relative py-24 md:py-32 overflow-hidden" data-testid="section-cta-final">
         <div
           className="absolute inset-0 bg-cover bg-center"
