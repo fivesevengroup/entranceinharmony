@@ -10,8 +10,8 @@ import heroImg from "@assets/stock_images/laser_hero.jpg";
 import resultImg from "@assets/stock_images/laser_result_skin.jpg";
 import treatmentImg from "@assets/stock_images/laser_treatment_face.jpg";
 import smoothImg from "@assets/stock_images/laser_smooth_skin.jpg";
-import dekaLogo from "@assets/deka-logo.png";
-import redtouchLogo from "@assets/redtouchpro-logo.png";
+import dekaLogo from "@assets/deka-logo.svg";
+import redtouchLogo from "@assets/grafik_1770659116331.png";
 
 const laserTreatments = [
   { id: "gesicht", title: "Gesicht", price: "250\u20AC" },
