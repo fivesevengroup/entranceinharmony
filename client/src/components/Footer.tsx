@@ -198,8 +198,9 @@ export default function Footer() {
             </div>
           </div>
           <div className="mt-6 text-center">
-            <a href="https://57group.eu" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-[10px] text-muted-foreground/50 hover:text-muted-foreground/80 transition-colors duration-200" data-testid="footer-link-57group">
-              powered by <span className="font-medium">57group.eu</span>
+            <a href="https://57group.eu" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-[10px] text-muted-foreground/50 hover:text-muted-foreground/80 transition-colors duration-200" data-testid="footer-link-57group">
+              <span>powered by</span>
+              <img src="/assets/57group-logo.png" alt="57 Group" className="h-3.5 w-auto opacity-50 hover:opacity-80 transition-opacity duration-200" />
             </a>
           </div>
         </div>
