@@ -14,6 +14,7 @@ import Impressum from "@/pages/Impressum";
 import Datenschutz from "@/pages/Datenschutz";
 import AGB from "@/pages/AGB";
 import Widerruf from "@/pages/Widerruf";
+import LaserBehandlungen from "@/pages/LaserBehandlungen";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -21,6 +22,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/leistungen" component={Services} />
+      <Route path="/laserbehandlungen" component={LaserBehandlungen} />
       <Route path="/kontakt" component={Contact} />
       <Route path="/gutscheine" component={Vouchers} />
       <Route path="/impressum" component={Impressum} />

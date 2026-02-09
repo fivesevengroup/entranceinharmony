@@ -34,6 +34,7 @@ export default function Header({ transparent = false }: HeaderProps) {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/leistungen", label: "Gesichtsbehandlungen" },
+    { href: "/laserbehandlungen", label: "Laserbehandlungen" },
     { href: "/gutscheine", label: "Geschenkgutscheine" },
     { href: "/kontakt", label: "Über mich" },
   ];
