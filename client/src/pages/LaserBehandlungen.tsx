@@ -173,13 +173,13 @@ export default function LaserBehandlungen() {
             Nicht-invasive Kollagenstimulation f&uuml;r ein jugendliches, strahlendes Hautbild &ndash; sanft, effektiv und ohne Ausfallzeit.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center fade-up" style={{ opacity: 0, animationDelay: "0.9s" }}>
-            <Button asChild size="lg" className="rounded-none text-sm uppercase tracking-widest px-10" data-testid="button-laser-hero-cta">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap fade-up" style={{ opacity: 0, animationDelay: "0.9s" }}>
+            <Button asChild size="lg" className="rounded-none text-sm uppercase tracking-widest" data-testid="button-laser-hero-cta">
               <a href="https://wa.me/491709287722?text=Hallo,%20ich%20interessiere%20mich%20für%20eine%20Laserbehandlung%20mit%20Red%20Touch%20Pro%20und%20hätte%20gerne%20eine%20individuelle%20Beratung." target="_blank" rel="noopener noreferrer">
                 Jetzt Beratung vereinbaren
               </a>
             </Button>
-            <Button variant="outline" asChild size="lg" className="rounded-none text-sm uppercase tracking-widest px-10 text-white border-white/30 backdrop-blur-sm" data-testid="button-laser-hero-more">
+            <Button variant="outline" asChild size="lg" className="rounded-none text-sm uppercase tracking-widest text-white border-white/30 backdrop-blur-sm" data-testid="button-laser-hero-more">
               <a href="#technologie">
                 Mehr erfahren
               </a>
@@ -413,16 +413,16 @@ export default function LaserBehandlungen() {
                 {laserTreatments.map((treatment, i) => (
                   <div
                     key={treatment.id}
-                    className={`flex items-center justify-between gap-4 flex-wrap px-8 py-5 ${i < laserTreatments.length - 1 ? 'border-b border-border/50' : ''} ${treatment.highlight ? 'bg-primary/5' : ''}`}
+                    className={`flex items-center justify-between gap-4 flex-wrap px-6 md:px-8 py-5 ${i < laserTreatments.length - 1 ? 'border-b border-border/50' : ''} ${treatment.highlight ? 'bg-primary/5' : ''}`}
                     data-testid={`row-laser-${treatment.id}`}
                   >
                     <div className="flex items-center gap-4 flex-wrap">
                       <h3 className="font-serif text-lg font-light" data-testid={`text-laser-title-${treatment.id}`}>{treatment.title}</h3>
                       {treatment.highlight && (
-                        <Badge variant="secondary" className="text-xs">Beliebt</Badge>
+                        <Badge variant="secondary" className="text-xs" data-testid={`badge-highlight-${treatment.id}`}>Beliebt</Badge>
                       )}
                     </div>
-                    <div className="flex items-center gap-6 flex-wrap">
+                    <div className="flex items-center gap-4 flex-wrap">
                       <span className="font-serif text-xl text-primary font-medium" data-testid={`text-laser-price-${treatment.id}`}>{treatment.price}</span>
                       <Button size="sm" className="rounded-none text-xs uppercase tracking-widest" asChild data-testid={`button-laser-book-${treatment.id}`}>
                         <a href={`https://wa.me/491709287722?text=Hallo,%20ich%20möchte%20gerne%20einen%20Termin%20für%20eine%20Laserbehandlung%20(${encodeURIComponent(treatment.title)})%20buchen.`} target="_blank" rel="noopener noreferrer">
@@ -455,7 +455,7 @@ export default function LaserBehandlungen() {
             {reviews.map((review, i) => (
               <Card key={i} data-testid={`card-review-${i}`}>
                 <CardContent className="p-8">
-                  <div className="flex items-center gap-1 mb-4">
+                  <div className="flex items-center gap-1 flex-wrap mb-4">
                     {Array.from({ length: review.rating }).map((_, j) => (
                       <Star key={j} className="w-4 h-4 text-primary fill-primary" />
                     ))}
@@ -558,7 +558,7 @@ export default function LaserBehandlungen() {
               <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
                 <Card>
                   <CardContent className="p-10 text-center">
-                    <div className="flex items-center justify-center gap-1 mb-6">
+                    <div className="flex items-center justify-center gap-1 flex-wrap mb-6">
                       {Array.from({ length: 5 }).map((_, i) => (
                         <Star key={i} className="w-5 h-5 text-primary fill-primary" />
                       ))}
@@ -601,14 +601,14 @@ export default function LaserBehandlungen() {
             <p className="text-white/70 text-lg mb-12 max-w-xl mx-auto leading-relaxed">
               Vereinbaren Sie jetzt Ihren pers&ouml;nlichen Beratungstermin und erfahren Sie, wie Red Touch Pro Ihre Haut sichtbar verj&uuml;ngen kann.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-[#25D366] text-white border-[#25D366] rounded-none text-sm uppercase tracking-widest px-10" asChild data-testid="button-laser-cta-bottom">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
+              <Button size="lg" className="bg-[#25D366] text-white border-[#25D366] rounded-none text-sm uppercase tracking-widest" asChild data-testid="button-laser-cta-bottom">
                 <a href="https://wa.me/491709287722?text=Hallo,%20ich%20interessiere%20mich%20für%20eine%20Laserbehandlung%20mit%20Red%20Touch%20Pro%20und%20hätte%20gerne%20eine%20individuelle%20Beratung." target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-5 h-5 mr-2" />
                   Beratung vereinbaren
                 </a>
               </Button>
-              <Button variant="outline" size="lg" className="rounded-none text-sm uppercase tracking-widest px-10 text-white border-white/30 backdrop-blur-sm" asChild data-testid="button-laser-cta-services">
+              <Button variant="outline" size="lg" className="rounded-none text-sm uppercase tracking-widest text-white border-white/30 backdrop-blur-sm" asChild data-testid="button-laser-cta-services">
                 <a href="/gesichtsbehandlungen" className="flex items-center gap-2">
                   <span>Alle Behandlungen</span>
                   <ArrowRight className="w-4 h-4" />
