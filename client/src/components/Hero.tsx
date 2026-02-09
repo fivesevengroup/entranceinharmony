@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import WaveDivider from "@/components/WaveDivider";
-import { Gem } from "lucide-react";
+import { Gem, ArrowRight } from "lucide-react";
 import heroImage from "@assets/Screenshot 2025-10-05 225321_1759697624011.png";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -226,11 +226,17 @@ export default function Hero() {
           <Button
             size="lg"
             variant="ghost"
-            className="text-sm px-12 py-6 text-white/80 border border-white/15 hover:bg-white/5 hover:border-white/25 font-serif uppercase tracking-widest transition-all duration-300"
+            className="group text-sm px-12 py-6 text-white/90 border border-primary/40 hover:border-primary/70 hover:bg-primary/10 font-serif uppercase tracking-widest transition-all duration-500"
             asChild
             data-testid="button-behandlungen-hero"
           >
-            <a href="/leistungen">Behandlungen entdecken</a>
+            <a href="/laserbehandlungen" className="flex items-center gap-3">
+              <span className="relative">
+                Neuheit entdecken
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-500 group-hover:w-full" />
+              </span>
+              <ArrowRight className="w-4 h-4 text-primary transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
           </Button>
         </div>
       </div>
