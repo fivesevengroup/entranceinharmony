@@ -160,25 +160,24 @@ export default function Home() {
               onMouseUp={handleMouseUp}
               style={{ cursor: isDragging ? "grabbing" : "grab" }}
             >
-              <div className="h-full w-full overflow-hidden flex items-center">
+              <div className="h-full w-full overflow-hidden">
                 <div
                   ref={marqueeRef}
                   className="flex h-full animate-marquee-scroll"
                   style={{
-                    width: `${marqueeSlides.length * 80}%`,
                     animationPlayState: isPaused && !isDragging ? "paused" : undefined,
                   }}
                 >
                   {marqueeSlides.map((slide, index) => (
                     <div
                       key={index}
-                      className="h-full shrink-0 px-8"
-                      style={{ width: `${100 / marqueeSlides.length}%` }}
+                      className="h-full shrink-0"
+                      style={{ width: "60vw", marginRight: "2rem" }}
                     >
                       <img
                         src={slide.src}
                         alt={slide.alt}
-                        className="w-full h-full object-contain pointer-events-none select-none"
+                        className="w-full h-full object-cover pointer-events-none select-none"
                         draggable={false}
                       />
                     </div>
