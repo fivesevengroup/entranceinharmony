@@ -73,11 +73,12 @@ const treatmentAreas = [
 ];
 
 const targetGroups = [
-  "Bei feinen Linien und beginnender Hautalterung",
-  "Bei Spannkraftverlust und unruhiger Hautstruktur",
-  "Bei vergr\u00F6\u00DFerten Poren oder fahlem Teint",
-  "F\u00FCr alle, die eine Alternative zu invasiven Eingriffen suchen",
-  "F\u00FCr anspruchsvolle Kundinnen mit Fokus auf nat\u00FCrliche Ergebnisse",
+  "Hautverjüngung & Anti-Aging (Faltenreduktion)",
+  "Hautstraffung (Lifting-Effekt)",
+  "Verbesserung des Hautbildes (feinere Poren)",
+  "Reduzierung von Pigmentflecken/Altersflecken",
+  "Behandlung von Rötungen/Rosacea",
+  "Reduzierung von Narben",
 ];
 
 const processSteps = [
