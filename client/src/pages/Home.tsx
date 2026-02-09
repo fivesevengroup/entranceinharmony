@@ -142,14 +142,14 @@ export default function Home() {
 
           <div className="relative min-h-[50vh]">
 
-            <div className="relative z-10 px-8 py-12 md:px-16 lg:px-20 lg:py-16 flex items-center min-h-[50vh] pointer-events-none">
-              <div className="max-w-xl bg-gray-200/60 backdrop-blur-[3px] lg:rounded-2xl lg:p-8 pointer-events-auto">
+            <div className="relative z-10 px-4 py-10 md:px-16 lg:px-20 lg:py-16 flex items-center justify-center lg:justify-start min-h-[50vh] pointer-events-none">
+              <div className="max-w-xl bg-gray-200/50 backdrop-blur-sm rounded-2xl p-6 md:p-8 pointer-events-auto text-center lg:text-left">
 
-                <p className="text-black text-base md:text-lg leading-relaxed mb-12 max-w-md">
+                <p className="text-black text-base md:text-lg leading-relaxed mb-10 max-w-md mx-auto lg:mx-0">
                   Wo m&uuml;de, erschlaffte Haut war, entsteht ein frischer, ebenm&auml;&szlig;iger Teint. Durch sanfte Aktivierung Ihrer nat&uuml;rlichen Kollagenbildung gewinnt Ihre Haut sp&uuml;rbar an Festigkeit &ndash; ganz ohne Ausfallzeit.
                 </p>
 
-                <ul className="space-y-4 mb-14">
+                <ul className="space-y-4 mb-10 text-left max-w-sm mx-auto lg:mx-0 lg:max-w-none">
                   {benefits.map((benefit, i) => (
                     <li key={i} className="flex items-start gap-3 group">
                       <span className="mt-1 shrink-0 w-5 h-5 rounded-full border border-primary/40 flex items-center justify-center bg-primary/10">
@@ -160,14 +160,14 @@ export default function Home() {
                   ))}
                 </ul>
 
-                <div className="flex flex-wrap items-center gap-4">
-                  <Button asChild data-testid="button-redtouch-cta" size="lg" className="rounded-none text-sm uppercase tracking-widest px-8">
+                <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                  <Button asChild data-testid="button-redtouch-cta" size="lg" className="rounded-none text-sm uppercase tracking-widest px-8 w-full sm:w-auto">
                     <a href="/kontakt">
                       Jetzt Termin vereinbaren
                     </a>
                   </Button>
-                  <Button variant="outline" asChild data-testid="button-redtouch-more" size="lg" className="rounded-none text-sm uppercase tracking-widest px-8">
-                    <a href="/leistungen" className="flex items-center gap-2">
+                  <Button variant="outline" asChild data-testid="button-redtouch-more" size="lg" className="rounded-none text-sm uppercase tracking-widest px-8 w-full sm:w-auto">
+                    <a href="/leistungen" className="flex items-center justify-center gap-2">
                       <span>Weitere Informationen</span>
                       <ArrowRight className="w-4 h-4" />
                     </a>
