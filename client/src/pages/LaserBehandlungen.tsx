@@ -373,14 +373,6 @@ export default function LaserBehandlungen() {
                       </div>
                     ))}
                   </div>
-                  <div className="mt-10">
-                    <Button size="lg" className="rounded-none text-sm uppercase tracking-widest" asChild data-testid="button-target-cta">
-                      <a href="https://wa.me/491709287722?text=Hallo,%20ich%20möchte%20gerne%20wissen,%20ob%20die%20Red%20Touch%20Pro%20Behandlung%20für%20mich%20geeignet%20ist." target="_blank" rel="noopener noreferrer">
-                        <MessageCircle className="w-4 h-4 mr-2" />
-                        Bin ich geeignet?
-                      </a>
-                    </Button>
-                  </div>
                 </div>
 
                 <div className="hidden md:flex items-center justify-center fade-up" style={{ animationDelay: "0.3s", opacity: 0 }}>
