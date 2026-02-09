@@ -27,11 +27,11 @@ const benefits = [
 ];
 
 export default function Home() {
-  const marqueeSlides = [...slides, ...slides];
+  const marqueeSlides = [...slides, ...slides, ...slides];
   const marqueeRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const positionRef = useRef(0);
-  const speedRef = useRef(1.5);
+  const speedRef = useRef(0.7);
   const rafRef = useRef<number>(0);
   const draggingRef = useRef(false);
   const pausedRef = useRef(false);
@@ -48,10 +48,13 @@ export default function Home() {
       lastTime = now;
 
       if (!draggingRef.current && !pausedRef.current) {
-        const totalWidth = el.scrollWidth / 2;
+        const oneSetWidth = el.scrollWidth / 3;
         positionRef.current -= speedRef.current * (dt / 16.667);
-        if (Math.abs(positionRef.current) >= totalWidth) {
-          positionRef.current += totalWidth;
+        if (positionRef.current <= -oneSetWidth * 2) {
+          positionRef.current += oneSetWidth;
+        }
+        if (positionRef.current > 0) {
+          positionRef.current -= oneSetWidth;
         }
         el.style.transform = `translateX(${positionRef.current}px)`;
       }
