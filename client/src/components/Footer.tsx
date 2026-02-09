@@ -101,7 +101,7 @@ export default function Footer() {
               <ul className="space-y-2.5 text-sm">
                 <li>
                   <Link href="/" onClick={() => window.scrollTo(0, 0)} className="text-muted-foreground hover:text-foreground transition-colors duration-200" data-testid="footer-link-home">
-                    Home
+                    Startseite
                   </Link>
                 </li>
                 <li>
