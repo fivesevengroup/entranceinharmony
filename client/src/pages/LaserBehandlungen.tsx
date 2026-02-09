@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useEffect, useState } from "react";
-import { Check, MessageCircle, ChevronDown, Star, ArrowRight, Sparkles, Shield, Clock, Zap } from "lucide-react";
+import { Check, MessageCircle, ChevronDown, Star, ArrowRight, Sparkles, Shield, Clock, Zap, Waves, ScanLine, Thermometer, Monitor, Snowflake, Activity } from "lucide-react";
 import heroImg from "@assets/laser_hero_header.png";
 import resultImg from "@assets/laser_result_beauty.png";
 import treatmentImg from "@assets/grafik_1770659141702.png";
@@ -26,13 +26,13 @@ const laserTreatments = [
   { id: "oberarme", title: "Oberarme (Ellbogen bis Schulter)", price: "350\u20AC" },
 ];
 
-const technologyBenefits = [
-  { title: "675-nm-Wellenl\u00E4nge", text: "Gezielte Kollagenstimulation in den tieferen Hautschichten" },
-  { title: "Sanft & angenehm", text: "Angenehmes W\u00E4rmegef\u00FChl, meist ohne Bet\u00E4ubung n\u00F6tig" },
-  { title: "Nicht-invasiv", text: "Keine Verletzung der Hautoberfl\u00E4che, keine Nadeln" },
-  { title: "Ca. 40 Min.", text: "Kompakte Behandlungsdauer f\u00FCr das Gesicht" },
-  { title: "Sofort alltagstauglich", text: "Minimale Ausfallzeit, leichte R\u00F6tung klingt schnell ab" },
-  { title: "Medizinisch fundiert", text: "Wissenschaftlich basierte DEKA-Lasertechnologie" },
+const deviceFeatures = [
+  { icon: ScanLine, title: "Scanner", text: "Optimierte Ergonomie für bestmögliche Ergebnisse. Mikrozonen thermischer Schädigung stimulieren die Neokollagenese.", side: "left" as const },
+  { icon: Waves, title: "Flexible Faser", text: "Das Laserlicht wird über eine flexible Faser übertragen – für optimalen Komfort bei der Behandlung.", side: "left" as const },
+  { icon: Monitor, title: "10,1\" LCD Touchscreen", text: "Ultrascharfes Display für präzise Steuerung aller Behandlungsparameter in Echtzeit.", side: "left" as const },
+  { icon: Activity, title: "Integrierte Protokolle", text: "Spezielle Behandlungsprotokolle für Hautverjüngung, individuell anpassbar.", side: "right" as const },
+  { icon: Snowflake, title: "Integrierte Hautkühlung", text: "Schützt die Epidermis – minimiert Nebenwirkungen und Ausfallzeiten.", side: "right" as const },
+  { icon: Zap, title: "675-nm-Wellenlänge", text: "Innovatives Wellenlängen-System für gezielte Kollagenstimulation in der Tiefe.", side: "right" as const },
 ];
 
 const treatmentAreas = [
@@ -233,51 +233,82 @@ export default function LaserBehandlungen() {
       </section>
 
       {/* ===== SECTION 2: TECHNOLOGY + PARTNERS ===== */}
-      <section id="technologie" className="py-20 md:py-28 bg-section-accent" data-testid="section-technology">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-16 items-center">
-              <div className="fade-up">
-                <p className="text-primary text-sm font-medium tracking-[0.2em] uppercase mb-4">Technologie</p>
-                <h2 className="font-serif text-4xl md:text-5xl font-light mb-6 leading-tight" data-testid="text-tech-h2">
-                  Was macht den Red Touch Pro besonders?
-                </h2>
-                <div className="h-0.5 w-24 mb-8 gold-shimmer rounded-full"></div>
-                <p className="text-muted-foreground leading-relaxed mb-10">
-                  Red Touch Pro nutzt eine pr&auml;zise 675-nm-Wellenl&auml;nge zur gezielten Stimulation der Kollagenproduktion. Die Technologie stammt von DEKA &ndash; einem der weltweit f&uuml;hrenden Hersteller medizinischer Lasersysteme aus Italien.
-                </p>
-                <div className="grid grid-cols-2 gap-6">
-                  {technologyBenefits.map((item, i) => (
-                    <div key={i} data-testid={`card-tech-${i}`}>
-                      <h3 className="font-medium text-sm mb-1">{item.title}</h3>
-                      <p className="text-xs text-muted-foreground leading-relaxed">{item.text}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
-                <div className="device-3d-wrapper relative pb-8">
-                  <div className="device-3d-glow"></div>
-                  <div className="device-3d relative">
-                    <div className="relative rounded-md overflow-visible shadow-2xl" style={{ border: '2px solid rgba(202, 169, 80, 0.3)' }}>
-                      <div className="device-3d-reflection rounded-md"></div>
-                      <img src={treatmentImg} alt="Professionelle Laserbehandlung mit Red Touch Pro" className="w-full object-contain rounded-md" />
-                    </div>
-                  </div>
-                  <div className="device-3d-shadow"></div>
-                </div>
-              </div>
-            </div>
+      <section id="technologie" className="relative py-24 md:py-36 overflow-hidden" data-testid="section-technology" style={{ background: 'linear-gradient(180deg, hsl(var(--background)) 0%, #0a0a0a 15%, #0a0a0a 85%, hsl(var(--background)) 100%)' }}>
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(202, 169, 80, 0.08) 0%, transparent 70%)' }} />
+          <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent 20%, rgba(202, 169, 80, 0.3) 50%, transparent 80%)' }} />
+          <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent 20%, rgba(202, 169, 80, 0.3) 50%, transparent 80%)' }} />
+        </div>
 
-            <div className="mt-20 pt-16 border-t border-border/20">
-              <div className="flex flex-wrap items-center justify-center gap-12 md:gap-20">
-                <p className="text-muted-foreground text-sm tracking-[0.15em] uppercase">Technologiepartner</p>
-                <div data-testid="partner-deka">
-                  <img src={dekaLogo} alt="DEKA Lasertechnologie" className="h-10 md:h-12 w-auto object-contain opacity-70" />
+        <div className="relative z-10 container mx-auto px-4">
+          <div className="text-center mb-16 md:mb-24 fade-up">
+            <p className="text-primary text-sm font-medium tracking-[0.3em] uppercase mb-6">Technologie</p>
+            <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl font-light text-white mb-6 leading-tight" data-testid="text-tech-h2">
+              Red Touch Pro<sup className="text-lg align-super">&reg;</sup>
+            </h2>
+            <div className="h-0.5 w-32 mx-auto gold-shimmer rounded-full mb-6"></div>
+            <p className="text-white/50 text-lg max-w-xl mx-auto">
+              DEKA Lasertechnologie aus Italien &ndash; Pr&auml;zision auf h&ouml;chstem Niveau.
+            </p>
+          </div>
+
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-8 lg:gap-4 items-center">
+
+              <div className="space-y-10 lg:space-y-16">
+                {deviceFeatures.filter(f => f.side === "left").map((feature, i) => (
+                  <div key={i} className="flex flex-col lg:items-end lg:text-right fade-up" style={{ animationDelay: `${0.2 + i * 0.15}s`, opacity: 0 }} data-testid={`card-tech-${i}`}>
+                    <div className="flex items-center gap-3 mb-2 lg:flex-row-reverse flex-wrap">
+                      <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ background: 'rgba(202, 169, 80, 0.12)', border: '1px solid rgba(202, 169, 80, 0.25)' }}>
+                        <feature.icon className="w-4.5 h-4.5 text-primary" />
+                      </div>
+                      <h3 className="font-serif text-lg text-white font-light">{feature.title}</h3>
+                    </div>
+                    <p className="text-white/45 text-sm leading-relaxed max-w-xs">{feature.text}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex justify-center fade-up order-first lg:order-none" style={{ animationDelay: "0.1s", opacity: 0 }}>
+                <div className="device-3d-wrapper relative">
+                  <div className="device-3d-glow"></div>
+                  <div className="relative">
+                    <img
+                      src={treatmentImg}
+                      alt="Red Touch Pro Laserger\u00E4t"
+                      className="w-auto object-contain relative z-10"
+                      style={{ maxHeight: '600px', filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.5))' }}
+                    />
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-8" style={{ background: 'radial-gradient(ellipse, rgba(202, 169, 80, 0.15) 0%, transparent 70%)', filter: 'blur(10px)' }} />
+                  </div>
                 </div>
-                <div data-testid="partner-redtouch">
-                  <img src={redtouchLogo} alt="Red Touch Pro" className="h-10 md:h-12 w-auto object-contain opacity-70" />
-                </div>
+              </div>
+
+              <div className="space-y-10 lg:space-y-16">
+                {deviceFeatures.filter(f => f.side === "right").map((feature, i) => (
+                  <div key={i} className="flex flex-col lg:items-start lg:text-left fade-up" style={{ animationDelay: `${0.3 + i * 0.15}s`, opacity: 0 }} data-testid={`card-tech-${i + 3}`}>
+                    <div className="flex items-center gap-3 mb-2 flex-wrap">
+                      <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ background: 'rgba(202, 169, 80, 0.12)', border: '1px solid rgba(202, 169, 80, 0.25)' }}>
+                        <feature.icon className="w-4.5 h-4.5 text-primary" />
+                      </div>
+                      <h3 className="font-serif text-lg text-white font-light">{feature.title}</h3>
+                    </div>
+                    <p className="text-white/45 text-sm leading-relaxed max-w-xs">{feature.text}</p>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+          </div>
+
+          <div className="mt-20 pt-12 fade-up" style={{ animationDelay: "0.5s", opacity: 0 }}>
+            <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
+              <p className="text-white/30 text-xs tracking-[0.2em] uppercase">Technologiepartner</p>
+              <div data-testid="partner-deka" className="opacity-50 transition-opacity duration-300" style={{ filter: 'brightness(0) invert(1)' }}>
+                <img src={dekaLogo} alt="DEKA Lasertechnologie" className="h-8 md:h-10 w-auto object-contain" />
+              </div>
+              <div data-testid="partner-redtouch" className="opacity-50 transition-opacity duration-300" style={{ filter: 'brightness(0) invert(1)' }}>
+                <img src={redtouchLogo} alt="Red Touch Pro" className="h-8 md:h-10 w-auto object-contain" />
               </div>
             </div>
           </div>
