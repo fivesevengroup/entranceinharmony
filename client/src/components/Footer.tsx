@@ -121,7 +121,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link href="/kontakt" className="text-muted-foreground hover:text-foreground transition-colors duration-200" data-testid="footer-link-kontakt">
-                    Kontakt
+                    Über mich
                   </Link>
                 </li>
               </ul>
