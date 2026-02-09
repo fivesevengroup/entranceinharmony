@@ -383,7 +383,7 @@ export default function Vouchers() {
                   <div className="w-full aspect-video mb-6 rounded-lg overflow-hidden">
                     <img 
                       src={voucherImage} 
-                      alt="Elegant Geschenkgutschein" 
+                      alt="Geschenkgutschein Gesichtsbehandlung Kosmetik Beauty Burbach" 
                       className="w-full h-full object-cover"
                     />
                   </div>

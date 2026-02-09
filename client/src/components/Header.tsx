@@ -104,7 +104,7 @@ export default function Header({ transparent = false }: HeaderProps) {
               }`}>
                 <img 
                   src={logoImage} 
-                  alt="Entrance in Harmony" 
+                  alt="Entrance in Harmony Kosmetikstudio Burbach Gesichtsbehandlung Laserbehandlung" 
                   className={`w-auto transition-all duration-500 ${
                     isScrolled ? 'h-14' : 'h-24'
                   }`}
@@ -213,7 +213,7 @@ export default function Header({ transparent = false }: HeaderProps) {
                         <Link href="/" onClick={() => setMobileMenuOpen(false)}>
                           <img 
                             src={logoImage} 
-                            alt="Entrance in Harmony" 
+                            alt="Entrance in Harmony Kosmetikstudio Burbach" 
                             className="h-16 w-auto mx-auto mb-3"
                             style={{ filter: 'brightness(0)' }}
                           />

@@ -36,7 +36,7 @@ export default function Footer() {
             <div className="relative bg-white rounded-full p-4 shadow-xl border-2 border-primary/40">
               <img 
                 src={logoImage} 
-                alt="Entrance in Harmony" 
+                alt="Entrance in Harmony Kosmetikstudio Gesichtsbehandlung Laserbehandlung Burbach" 
                 className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
                 style={{ filter: 'brightness(0)' }}
               />
@@ -165,14 +165,14 @@ export default function Footer() {
             <div data-testid="footer-logo-deka">
               <img
                 src="https://deka-beauty.de/wp-content/uploads/2024/11/deka_web2024_mainlogo.svg"
-                alt="DEKA"
+                alt="DEKA Lasertechnologie Medizinische Laser"
                 className="h-6 w-auto opacity-60"
               />
             </div>
             <div className="h-6 w-px bg-border/40"></div>
             <img
               src={redTouchLogo}
-              alt="Red Touch Pro"
+              alt="Red Touch Pro Laserbehandlung Hautverjüngung"
               className="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity duration-200"
               data-testid="footer-logo-redtouch"
             />

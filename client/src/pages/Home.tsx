@@ -13,10 +13,10 @@ import laserImage3 from "@assets/generated_images/lasertherapie-rosacea-roetunge
 import skinResultImage from "@assets/generated_images/vorher-nachher-hautverbesserung-ergebnis.png";
 
 const slides = [
-  { src: laserImage1, alt: "Red Touch Pro Behandlung" },
-  { src: laserImage2, alt: "Red Touch Pro Laser-Therapie" },
-  { src: laserImage3, alt: "Professionelle Laserbehandlung" },
-  { src: skinResultImage, alt: "Sichtbare Hautergebnisse" },
+  { src: laserImage1, alt: "Red Touch Pro Laserbehandlung Hautverjüngung Anti-Aging Burbach" },
+  { src: laserImage2, alt: "Laserbehandlung Hautstraffung Faltenreduktion Kosmetikstudio" },
+  { src: laserImage3, alt: "Lasertherapie Rosacea Rötungen Pigmentflecken Behandlung" },
+  { src: skinResultImage, alt: "Vorher Nachher Ergebnis Hautverbesserung Gesichtsbehandlung" },
 ];
 
 const benefits = [
@@ -232,7 +232,7 @@ export default function Home() {
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                   <img
                     src={massageImage}
-                    alt="Das Studio"
+                    alt="Kosmetikstudio Entrance in Harmony Gesichtsbehandlung Burbach"
                     className="w-full aspect-[4/3] object-cover"
                   />
                 </div>

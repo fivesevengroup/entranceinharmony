@@ -122,7 +122,7 @@ export default function Contact() {
                 <div className="relative h-[450px] md:h-auto overflow-visible p-4 pb-0 flex items-end justify-center">
                   <img
                     src={aboutImage}
-                    alt="Elena Hartstein"
+                    alt="Kosmetikerin Elena Hartstein Gesichtsbehandlung Laserbehandlung Burbach"
                     className="w-auto h-[110%] object-contain object-bottom"
                     style={{
                       filter: 'drop-shadow(0 20px 60px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 40px rgba(212, 175, 55, 0.15))'

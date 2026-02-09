@@ -13,14 +13,14 @@ import heroImage from "@assets/stock_images/kosmetikstudio-innenraum-beauty-salo
 
 export default function Gallery() {
   const galleryImages = [
-    { src: beforeAfterImage, alt: "Vorher-Nachher Gesichtsbehandlung", category: "facial" },
-    { src: facialImage, alt: "Professionelle Gesichtspflege", category: "facial" },
-    { src: massageImage, alt: "Entspannende Massage", category: "body" },
-    { src: beforeAfterImage, alt: "Behandlungsergebnis", category: "facial" },
-    { src: facialImage, alt: "Anti-Aging Behandlung", category: "facial" },
-    { src: massageImage, alt: "Hot Stone Massage", category: "body" },
-    { src: beforeAfterImage, alt: "Hautpflege Ergebnis", category: "facial" },
-    { src: facialImage, alt: "Hydra Facial", category: "facial" },
+    { src: beforeAfterImage, alt: "Vorher Nachher Gesichtsbehandlung Hautverbesserung Ergebnis", category: "facial" },
+    { src: facialImage, alt: "Professionelle Gesichtspflege Hautbild Akne Pickel Behandlung", category: "facial" },
+    { src: massageImage, alt: "Entspannende Gesichtsmassage Wellness Hautpflege", category: "body" },
+    { src: beforeAfterImage, alt: "Behandlungsergebnis Hautverjüngung Anti-Aging Kosmetik", category: "facial" },
+    { src: facialImage, alt: "Anti-Aging Gesichtsbehandlung Faltenreduktion Hautstraffung", category: "facial" },
+    { src: massageImage, alt: "Gesichtsbehandlung Massage Entspannung Kosmetikstudio Burbach", category: "body" },
+    { src: beforeAfterImage, alt: "Hautpflege Ergebnis Pigmentflecken Rosacea Behandlung", category: "facial" },
+    { src: facialImage, alt: "Hydra Facial Gesichtsbehandlung Glow Hautbild Verbesserung", category: "facial" },
   ];
 
   return (

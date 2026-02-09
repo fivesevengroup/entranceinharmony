@@ -76,7 +76,7 @@ export default function Voucher() {
           <div className="max-w-5xl mx-auto mb-16">
             <img
               src={voucherImage}
-              alt="Beauty Gutschein"
+              alt="Beauty Gutschein Gesichtsbehandlung Kosmetik Geschenk Burbach"
               className="w-full rounded-lg shadow-lg"
             />
           </div>

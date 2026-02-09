@@ -302,7 +302,7 @@ export default function LaserBehandlungen() {
                   <div className="relative">
                     <img
                       src={treatmentImg}
-                      alt="Red Touch Pro Laserger\u00E4t"
+                      alt="Red Touch Pro Lasergerät Hautverjüngung Anti-Aging Hautstraffung"
                       className="w-auto object-contain relative z-10"
                       style={{ maxHeight: '450px', filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.5))' }}
                     />
@@ -332,10 +332,10 @@ export default function LaserBehandlungen() {
             <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
               <p className="text-muted-foreground text-xs tracking-[0.2em] uppercase">Technologiepartner</p>
               <div data-testid="partner-deka" className="opacity-70 transition-opacity duration-300">
-                <img src={dekaLogo} alt="DEKA Lasertechnologie" className="h-10 md:h-12 w-auto object-contain" />
+                <img src={dekaLogo} alt="DEKA Lasertechnologie Medizinische Lasergeräte Hautverjüngung" className="h-10 md:h-12 w-auto object-contain" />
               </div>
               <div data-testid="partner-redtouch" className="opacity-70 transition-opacity duration-300">
-                <img src={redtouchLogo} alt="Red Touch Pro" className="h-10 md:h-12 w-auto object-contain" />
+                <img src={redtouchLogo} alt="Red Touch Pro Laser Hautstraffung Faltenreduktion" className="h-10 md:h-12 w-auto object-contain" />
               </div>
             </div>
           </div>
@@ -421,7 +421,7 @@ export default function LaserBehandlungen() {
                   <div className="aspect-[3/4] overflow-hidden">
                     <img
                       src={area.image}
-                      alt={area.title}
+                      alt={`Laserbehandlung ${area.title} Hautverjüngung Hautstraffung Burbach`}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   </div>
@@ -496,7 +496,7 @@ export default function LaserBehandlungen() {
             <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
               <div className="fade-up">
                 <div className="relative rounded-md overflow-hidden">
-                  <img src={resultImg} alt="Strahlende Haut nach Red Touch Pro" className="w-full aspect-[4/5] object-cover" />
+                  <img src={resultImg} alt="Strahlende Haut nach Red Touch Pro Laserbehandlung Hautverjüngung Ergebnis" className="w-full aspect-[4/5] object-cover" />
                   <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 50%, rgba(15,10,8,0.8) 100%)' }} />
                   <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
                     <div className="grid grid-cols-3 gap-4 text-center">
