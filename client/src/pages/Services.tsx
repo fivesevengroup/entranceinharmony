@@ -286,15 +286,27 @@ export default function Services() {
                     <span className="text-lg font-medium text-primary" data-testid={`text-price-${treatment.id}`}>
                       {treatment.price}
                     </span>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="text-xs uppercase tracking-wider font-serif text-muted-foreground hover:text-primary border border-border/50 hover:border-primary/30"
-                      onClick={() => handleLearnMore(treatment)}
-                      data-testid={`button-learn-more-${treatment.id}`}
-                    >
-                      Mehr erfahren
-                    </Button>
+                    {treatment.id === "laser" ? (
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="text-xs uppercase tracking-wider font-serif text-muted-foreground hover:text-primary border border-border/50 hover:border-primary/30"
+                        asChild
+                        data-testid={`button-learn-more-${treatment.id}`}
+                      >
+                        <a href="/laserbehandlungen">Mehr erfahren</a>
+                      </Button>
+                    ) : (
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="text-xs uppercase tracking-wider font-serif text-muted-foreground hover:text-primary border border-border/50 hover:border-primary/30"
+                        onClick={() => handleLearnMore(treatment)}
+                        data-testid={`button-learn-more-${treatment.id}`}
+                      >
+                        Mehr erfahren
+                      </Button>
+                    )}
                   </div>
                 </CardContent>
               </Card>
