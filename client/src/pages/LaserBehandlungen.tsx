@@ -257,7 +257,7 @@ export default function LaserBehandlungen() {
 
               <div className="space-y-10 lg:space-y-16">
                 {deviceFeatures.filter(f => f.side === "left").map((feature, i) => (
-                  <div key={i} className="flex flex-col lg:items-end lg:text-right fade-up" style={{ animationDelay: `${0.2 + i * 0.15}s`, opacity: 0 }} data-testid={`card-tech-${i}`}>
+                  <div key={i} className="flex flex-col lg:items-end lg:text-right slide-in-left" style={{ animationDelay: `${0.2 + i * 0.15}s`, opacity: 0 }} data-testid={`card-tech-${i}`}>
                     <div className="flex items-center gap-3 mb-2 lg:flex-row-reverse flex-wrap">
                       <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ background: 'rgba(202, 169, 80, 0.12)', border: '1px solid rgba(202, 169, 80, 0.25)' }}>
                         <feature.icon className="w-4.5 h-4.5 text-primary" />
@@ -286,7 +286,7 @@ export default function LaserBehandlungen() {
 
               <div className="space-y-10 lg:space-y-16">
                 {deviceFeatures.filter(f => f.side === "right").map((feature, i) => (
-                  <div key={i} className="flex flex-col lg:items-start lg:text-left fade-up" style={{ animationDelay: `${0.3 + i * 0.15}s`, opacity: 0 }} data-testid={`card-tech-${i + 3}`}>
+                  <div key={i} className="flex flex-col lg:items-start lg:text-left slide-in-right" style={{ animationDelay: `${0.3 + i * 0.15}s`, opacity: 0 }} data-testid={`card-tech-${i + 3}`}>
                     <div className="flex items-center gap-3 mb-2 flex-wrap">
                       <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ background: 'rgba(202, 169, 80, 0.12)', border: '1px solid rgba(202, 169, 80, 0.25)' }}>
                         <feature.icon className="w-4.5 h-4.5 text-primary" />
