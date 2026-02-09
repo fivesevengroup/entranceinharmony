@@ -444,32 +444,44 @@ export default function LaserBehandlungen() {
       {/* ===== REVIEWS ===== */}
       <section className="py-20 md:py-28 bg-section-accent" data-testid="section-reviews">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 fade-up">
+          <div className="text-center mb-6 fade-up">
             <p className="text-primary text-sm font-medium tracking-[0.2em] uppercase mb-4">Erfahrungen</p>
             <h2 className="font-serif text-4xl md:text-5xl font-light mb-6" data-testid="text-reviews-h2">
               Das sagen unsere Kundinnen
             </h2>
             <div className="h-0.5 w-32 mx-auto gold-shimmer rounded-full"></div>
           </div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="flex items-center justify-center gap-2 flex-wrap mb-12 fade-up">
+            <div className="flex items-center gap-1 flex-wrap">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="w-6 h-6 text-amber-400 fill-amber-400" />
+              ))}
+            </div>
+            <span className="font-serif text-2xl font-medium ml-2" data-testid="text-reviews-avg">5.0</span>
+            <span className="text-muted-foreground text-sm ml-1">({reviews.length} Bewertungen)</span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
             {reviews.map((review, i) => (
-              <Card key={i} data-testid={`card-review-${i}`}>
-                <CardContent className="p-8">
-                  <div className="flex items-center gap-1 flex-wrap mb-4">
-                    {Array.from({ length: review.rating }).map((_, j) => (
-                      <Star key={j} className="w-4 h-4 text-primary fill-primary" />
-                    ))}
-                  </div>
-                  <p className="text-foreground/80 leading-relaxed mb-6 italic font-serif text-lg font-light">
-                    &bdquo;{review.text}&ldquo;
-                  </p>
-                  <div className="flex items-center justify-between gap-4 flex-wrap">
+              <Card key={i} className="fade-up" style={{ animationDelay: `${i * 0.1}s`, opacity: 0 }} data-testid={`card-review-${i}`}>
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-3 flex-wrap mb-4">
+                    <div className="w-10 h-10 rounded-full bg-primary/15 flex items-center justify-center shrink-0">
+                      <span className="font-medium text-sm text-primary">{review.name.split(" ").map(n => n[0]).join("")}</span>
+                    </div>
                     <div>
-                      <p className="font-medium text-sm">{review.name}</p>
+                      <p className="font-medium text-sm leading-tight" data-testid={`text-review-name-${i}`}>{review.name}</p>
                       <p className="text-xs text-muted-foreground">{review.location}</p>
                     </div>
-                    <span className="text-xs text-muted-foreground">{review.date}</span>
                   </div>
+                  <div className="flex items-center gap-1 flex-wrap mb-1">
+                    {Array.from({ length: review.rating }).map((_, j) => (
+                      <Star key={j} className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+                    ))}
+                  </div>
+                  <p className="text-xs text-muted-foreground mb-3">{review.date}</p>
+                  <p className="text-sm text-foreground/80 leading-relaxed" data-testid={`text-review-text-${i}`}>
+                    &bdquo;{review.text}&ldquo;
+                  </p>
                 </CardContent>
               </Card>
             ))}
