@@ -25,6 +25,7 @@ const benefits = [
   "Sanft und angenehm \u2013 keine Ausfallzeit",
   "Natürliche Kollagenstimulation von innen heraus",
   "Für Gesicht, Hals, Dekolleté und Hände",
+  "...und vieles mehr",
 ];
 
 export default function Home() {
@@ -161,13 +162,8 @@ export default function Home() {
                   ))}
                 </ul>
 
-                <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                  <Button asChild data-testid="button-redtouch-cta" variant="ghost" className="rounded-none text-xs uppercase tracking-widest px-5 py-2.5 w-full sm:w-auto bg-black/70 text-white border border-white/20 hover:bg-black/80 hover:border-white/30">
-                    <a href="/kontakt">
-                      Jetzt Termin vereinbaren
-                    </a>
-                  </Button>
-                  <Button variant="ghost" asChild data-testid="button-redtouch-more" className="group rounded-none text-xs uppercase tracking-widest px-5 py-2.5 w-full sm:w-auto bg-white/20 text-black/80 border border-black/10 hover:bg-white/30 hover:border-black/15">
+                <div className="flex items-center justify-center lg:justify-start">
+                  <Button variant="ghost" asChild data-testid="button-redtouch-more" className="group rounded-none text-xs uppercase tracking-widest px-5 py-2.5 bg-black/70 text-white border border-white/20 hover:bg-black/80 hover:border-white/30">
                     <a href="/laserbehandlungen" className="flex items-center justify-center gap-2">
                       <span>Mehr erfahren</span>
                       <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
