@@ -5,90 +5,90 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useEffect, useState } from "react";
-import { Check, MessageCircle, Zap, Shield, Sparkles, ChevronDown, Star, Clock, Eye, Heart, Users, Award, ArrowRight } from "lucide-react";
-import laserImage1 from "@assets/generated_images/Red_Touch_laser_with_goggles_86dab14d.png";
-import laserImage2 from "@assets/generated_images/Red_Touch_laser_treatment_4f8328f9.png";
-import laserImage3 from "@assets/generated_images/Red_laser_therapy_bf6d9b43.png";
-import skinResultImage from "@assets/generated_images/Before_after_skin_treatment_60b501b9.png";
+import { Check, MessageCircle, ChevronDown, Star, ArrowRight } from "lucide-react";
+import heroImg from "@assets/stock_images/laser_hero.jpg";
+import resultImg from "@assets/stock_images/laser_result_skin.jpg";
+import treatmentImg from "@assets/stock_images/laser_treatment_face.jpg";
+import smoothImg from "@assets/stock_images/laser_smooth_skin.jpg";
 import dekaLogo from "@assets/deka-logo.png";
 import redtouchLogo from "@assets/redtouchpro-logo.png";
 
 const laserTreatments = [
-  { id: "gesicht", title: "Gesicht", description: "Hautverjüngung, Straffung und Kollagenstimulation für ein jugendliches, strahlendes Hautbild.", price: "250\u20AC", image: laserImage1 },
-  { id: "gesicht-hals", title: "Gesicht + Hals", description: "Erweiterte Behandlung für Gesicht und Hals \u2013 für eine nahtlose, gleichmäßige Hautverjüngung.", price: "300\u20AC", image: laserImage2 },
-  { id: "gesicht-hals-dekollete", title: "Gesicht + Hals + Dekollet\u00E9", description: "Die umfassende Premium-Behandlung für Gesicht, Hals und Dekollet\u00E9 \u2013 maximale Ergebnisse.", price: "350\u20AC", image: laserImage3 },
-  { id: "haende", title: "Hände (Handrücken)", description: "Gezielte Laserbehandlung der Handrücken für glatte, verjüngte Haut.", price: "90\u20AC", image: skinResultImage },
-  { id: "haende-arme", title: "Hände + Arme bis zum Ellbogen", description: "Umfassende Behandlung von den Händen bis zum Ellbogen für ein ebenmäßiges Hautbild.", price: "350\u20AC", image: laserImage2 },
-  { id: "oberarme", title: "Oberarme (Ellbogen bis Schulter)", description: "Straffung und Hautverjüngung der Oberarme vom Ellbogen bis zur Schulter.", price: "350\u20AC", image: laserImage3 },
+  { id: "gesicht", title: "Gesicht", price: "250\u20AC" },
+  { id: "gesicht-hals", title: "Gesicht + Hals", price: "300\u20AC" },
+  { id: "gesicht-hals-dekollete", title: "Gesicht + Hals + Dekollet\u00E9", price: "350\u20AC", highlight: true },
+  { id: "haende", title: "H\u00E4nde (Handr\u00FCcken)", price: "90\u20AC" },
+  { id: "haende-arme", title: "H\u00E4nde + Arme bis zum Ellbogen", price: "350\u20AC" },
+  { id: "oberarme", title: "Oberarme (Ellbogen bis Schulter)", price: "350\u20AC" },
 ];
 
 const technologyBenefits = [
-  { icon: Zap, title: "675-nm-Wellenlänge", text: "Gezielte Kollagenstimulation in den tieferen Hautschichten" },
-  { icon: Heart, title: "Sanft & angenehm", text: "Angenehmes Wärmegefühl, meist ohne Betäubung nötig" },
-  { icon: Shield, title: "Nicht-invasiv", text: "Keine Verletzung der Hautoberfläche, keine Nadeln" },
-  { icon: Clock, title: "Kurze Behandlung", text: "Ca. 40 Minuten Behandlungsdauer im Gesicht" },
-  { icon: Eye, title: "Sofort alltagstauglich", text: "Minimale Ausfallzeit, leichte Rötung klingt schnell ab" },
-  { icon: Award, title: "Medizinisch fundiert", text: "Moderne, wissenschaftlich basierte Lasertechnologie" },
+  { title: "675-nm-Wellenl\u00E4nge", text: "Gezielte Kollagenstimulation in den tieferen Hautschichten" },
+  { title: "Sanft & angenehm", text: "Angenehmes W\u00E4rmegef\u00FChl, meist ohne Bet\u00E4ubung n\u00F6tig" },
+  { title: "Nicht-invasiv", text: "Keine Verletzung der Hautoberfl\u00E4che, keine Nadeln" },
+  { title: "Ca. 40 Min.", text: "Kompakte Behandlungsdauer f\u00FCr das Gesicht" },
+  { title: "Sofort alltagstauglich", text: "Minimale Ausfallzeit, leichte R\u00F6tung klingt schnell ab" },
+  { title: "Medizinisch fundiert", text: "Wissenschaftlich basierte DEKA-Lasertechnologie" },
 ];
 
 const faceNeckBenefits = [
-  "Glättung feiner Linien und Knitterfältchen",
+  "Gl\u00E4ttung feiner Linien und Knitterf\u00E4ltchen",
   "Verbesserung der Hautstruktur und Porenverfeinerung",
   "Ausgleich eines unruhigen Teints",
   "Milderung von Pickelmalen und Unebenheiten",
-  "Mehr Frische und natürlicher Glow",
+  "Mehr Frische und nat\u00FCrlicher Glow",
 ];
 
 const decolleteBenefits = [
-  "Verbesserung lichtbedingter Hautveränderungen",
-  "Straffung und Glättung der Hautstruktur",
+  "Verbesserung lichtbedingter Hautver\u00E4nderungen",
+  "Straffung und Gl\u00E4ttung der Hautstruktur",
 ];
 
 const bodyBenefits = [
   "Verfeinerung von Dehnungsstreifen (Striae)",
-  "Kosmetische Verbesserung oberflächlicher Narben",
+  "Kosmetische Verbesserung oberfl\u00E4chlicher Narben",
   "Straffung bei leichter Hauterschlaffung",
 ];
 
 const targetGroups = [
   "Bei feinen Linien und beginnender Hautalterung",
   "Bei Spannkraftverlust und unruhiger Hautstruktur",
-  "Bei vergrößerten Poren oder fahlem Teint",
-  "Für alle, die eine Alternative zu invasiven Eingriffen suchen",
-  "Für anspruchsvolle Kundinnen mit Fokus auf natürliche Ergebnisse",
+  "Bei vergr\u00F6\u00DFerten Poren oder fahlem Teint",
+  "F\u00FCr alle, die eine Alternative zu invasiven Eingriffen suchen",
+  "F\u00FCr anspruchsvolle Kundinnen mit Fokus auf nat\u00FCrliche Ergebnisse",
 ];
 
 const processSteps = [
-  { step: 1, title: "Individuelle Beratung & Hautanalyse", description: "Analyse des Hautzustands, Definition der Behandlungsziele und individuelle Einstellung des Lasers.", icon: MessageCircle },
-  { step: 2, title: "Die Behandlung", description: "Behandlungsdauer ca. 40 Minuten im Gesicht. Angenehmes Wärmegefühl, meist ohne Betäubung.", icon: Zap },
-  { step: 3, title: "Nach der Behandlung", description: "Leichte Rötung oder Bräunung möglich, meist innerhalb von 24\u201348 Stunden rückläufig. In der Regel sofort gesellschaftsfähig.", icon: Shield },
+  { step: 1, title: "Beratung & Hautanalyse", description: "Analyse des Hautzustands, Definition der Behandlungsziele und individuelle Einstellung des Lasers." },
+  { step: 2, title: "Die Behandlung", description: "Behandlungsdauer ca. 40 Minuten im Gesicht. Angenehmes W\u00E4rmegef\u00FChl, meist ohne Bet\u00E4ubung." },
+  { step: 3, title: "Nachsorge", description: "Leichte R\u00F6tung m\u00F6glich, meist innerhalb von 24\u201348 Stunden r\u00FCckl\u00E4ufig. In der Regel sofort gesellschaftsf\u00E4hig." },
 ];
 
 const reviews = [
-  { name: "Sabine M.", location: "Siegen", rating: 5, text: "Nach nur zwei Sitzungen sehe ich einen deutlichen Unterschied. Meine Haut fühlt sich straffer an und der Teint ist viel gleichmäßiger. Kann ich nur weiterempfehlen!", date: "November 2025" },
-  { name: "Claudia R.", location: "Burbach", rating: 5, text: "Ich hatte etwas Bedenken vor der Laserbehandlung, aber es war wirklich angenehm. Das Wärmegefühl war sogar entspannend. Die Ergebnisse nach drei Sitzungen sind beeindruckend.", date: "Dezember 2025" },
-  { name: "Petra K.", location: "Neunkirchen", rating: 5, text: "Endlich eine Behandlung, die wirklich hält was sie verspricht. Meine Nasolabialfalten sind sichtbar glatter und meine Poren feiner. Elena berät zudem sehr ehrlich und kompetent.", date: "Januar 2026" },
-  { name: "Monika L.", location: "Wilnsdorf", rating: 5, text: "Die Behandlung meiner Dehnungsstreifen hat mich positiv überrascht. Nach dem dritten Termin sind sie deutlich blasser und die Hautstruktur hat sich spürbar verbessert.", date: "Oktober 2025" },
+  { name: "Sabine M.", location: "Siegen", rating: 5, text: "Nach nur zwei Sitzungen sehe ich einen deutlichen Unterschied. Meine Haut f\u00FChlt sich straffer an und der Teint ist viel gleichm\u00E4\u00DFiger. Kann ich nur weiterempfehlen!", date: "November 2025" },
+  { name: "Claudia R.", location: "Burbach", rating: 5, text: "Ich hatte etwas Bedenken vor der Laserbehandlung, aber es war wirklich angenehm. Das W\u00E4rmegef\u00FChl war sogar entspannend. Die Ergebnisse nach drei Sitzungen sind beeindruckend.", date: "Dezember 2025" },
+  { name: "Petra K.", location: "Neunkirchen", rating: 5, text: "Endlich eine Behandlung, die wirklich h\u00E4lt was sie verspricht. Meine Nasolabialfalten sind sichtbar glatter und meine Poren feiner. Elena ber\u00E4t zudem sehr ehrlich und kompetent.", date: "Januar 2026" },
+  { name: "Monika L.", location: "Wilnsdorf", rating: 5, text: "Die Behandlung meiner Dehnungsstreifen hat mich positiv \u00FCberrascht. Nach dem dritten Termin sind sie deutlich blasser und die Hautstruktur hat sich sp\u00FCrbar verbessert.", date: "Oktober 2025" },
 ];
 
 const faqs = [
-  { q: "Ist die Red Touch Pro Behandlung schmerzhaft?", a: "Nein, die Behandlung ist sanft und angenehm. Die meisten Kundinnen beschreiben ein warmes, leicht prickelndes Gefühl auf der Haut. Eine Betäubung ist in der Regel nicht notwendig." },
-  { q: "Wie viele Sitzungen sind notwendig?", a: "Für optimale Ergebnisse empfehlen wir 3\u20134 Behandlungen im Abstand von mehreren Wochen. Erste Verbesserungen sind häufig bereits nach der ersten Sitzung sichtbar. Der Kollagenaufbau entwickelt sich natürlich über die Zeit." },
-  { q: "Gibt es Ausfallzeit nach der Behandlung?", a: "Die Ausfallzeit ist minimal. Eine leichte Rötung oder Bräunung der behandelten Stellen ist möglich und klingt meist innerhalb von 24\u201348 Stunden ab. Sie sind in der Regel sofort wieder gesellschaftsfähig." },
-  { q: "Für welche Hauttypen ist die Behandlung geeignet?", a: "Red Touch Pro eignet sich für verschiedene Hauttypen. In einem persönlichen Beratungsgespräch analysieren wir Ihren individuellen Hautzustand und besprechen, ob die Behandlung für Sie geeignet ist." },
-  { q: "Kann die Laserbehandlung mit anderen Behandlungen kombiniert werden?", a: "Ja, Red Touch Pro lässt sich hervorragend mit Medical Peelings, Skinboostern oder Microneedling kombinieren. Wir erstellen Ihnen gerne einen individuellen Behandlungsplan." },
-  { q: "Ab welchem Alter ist die Behandlung sinnvoll?", a: "Die Behandlung eignet sich generell ab dem 30. Lebensjahr, wenn erste Zeichen der Hautalterung sichtbar werden. Grundsätzlich gibt es keine strikte Altersgrenze \u2013 entscheidend ist der individuelle Hautzustand." },
-  { q: "Was kostet eine Red Touch Pro Behandlung?", a: "Die Preise variieren je nach Behandlungsareal. Eine Gesichtsbehandlung kostet 250\u20AC, Gesicht + Hals 300\u20AC und Gesicht + Hals + Dekollet\u00E9 350\u20AC. Handrücken sind ab 90\u20AC möglich. In einem Beratungsgespräch erstellen wir Ihnen gerne ein individuelles Angebot." },
-  { q: "Welche Technologie steckt hinter Red Touch Pro?", a: "Red Touch Pro nutzt eine 675-nm-Wellenlänge zur gezielten Stimulation der Kollagenproduktion in den tieferen Hautschichten. Die Technologie stammt von DEKA, einem der weltweit führenden Hersteller medizinischer Lasersysteme." },
+  { q: "Ist die Red Touch Pro Behandlung schmerzhaft?", a: "Nein, die Behandlung ist sanft und angenehm. Die meisten Kundinnen beschreiben ein warmes, leicht prickelndes Gef\u00FChl auf der Haut. Eine Bet\u00E4ubung ist in der Regel nicht notwendig." },
+  { q: "Wie viele Sitzungen sind notwendig?", a: "F\u00FCr optimale Ergebnisse empfehlen wir 3\u20134 Behandlungen im Abstand von mehreren Wochen. Erste Verbesserungen sind h\u00E4ufig bereits nach der ersten Sitzung sichtbar. Der Kollagenaufbau entwickelt sich nat\u00FCrlich \u00FCber die Zeit." },
+  { q: "Gibt es Ausfallzeit nach der Behandlung?", a: "Die Ausfallzeit ist minimal. Eine leichte R\u00F6tung oder Br\u00E4unung der behandelten Stellen ist m\u00F6glich und klingt meist innerhalb von 24\u201348 Stunden ab. Sie sind in der Regel sofort wieder gesellschaftsf\u00E4hig." },
+  { q: "F\u00FCr welche Hauttypen ist die Behandlung geeignet?", a: "Red Touch Pro eignet sich f\u00FCr verschiedene Hauttypen. In einem pers\u00F6nlichen Beratungsgespr\u00E4ch analysieren wir Ihren individuellen Hautzustand und besprechen, ob die Behandlung f\u00FCr Sie geeignet ist." },
+  { q: "Kann die Laserbehandlung mit anderen Behandlungen kombiniert werden?", a: "Ja, Red Touch Pro l\u00E4sst sich hervorragend mit Medical Peelings, Skinboostern oder Microneedling kombinieren. Wir erstellen Ihnen gerne einen individuellen Behandlungsplan." },
+  { q: "Ab welchem Alter ist die Behandlung sinnvoll?", a: "Die Behandlung eignet sich generell ab dem 30. Lebensjahr, wenn erste Zeichen der Hautalterung sichtbar werden. Grunds\u00E4tzlich gibt es keine strikte Altersgrenze \u2013 entscheidend ist der individuelle Hautzustand." },
+  { q: "Was kostet eine Red Touch Pro Behandlung?", a: "Die Preise variieren je nach Behandlungsareal. Eine Gesichtsbehandlung kostet 250\u20AC, Gesicht + Hals 300\u20AC und Gesicht + Hals + Dekollet\u00E9 350\u20AC. Handr\u00FCcken sind ab 90\u20AC m\u00F6glich. In einem Beratungsgespr\u00E4ch erstellen wir Ihnen gerne ein individuelles Angebot." },
+  { q: "Welche Technologie steckt hinter Red Touch Pro?", a: "Red Touch Pro nutzt eine 675-nm-Wellenl\u00E4nge zur gezielten Stimulation der Kollagenproduktion in den tieferen Hautschichten. Die Technologie stammt von DEKA, einem der weltweit f\u00FChrenden Hersteller medizinischer Lasersysteme." },
 ];
 
 const trustPoints = [
   "Moderne, wissenschaftlich fundierte Lasertechnologie",
-  "Natürliche Ergebnisse ohne künstlichen Effekt",
-  "Ganzheitlicher Ansatz für Hautgesundheit",
+  "Nat\u00FCrliche Ergebnisse ohne k\u00FCnstlichen Effekt",
+  "Ganzheitlicher Ansatz f\u00FCr Hautgesundheit",
   "Transparente Beratung und realistische Erwartungen",
   "Zertifizierte DEKA-Technologie aus Italien",
-  "Individuelle Behandlungspläne für Ihre Hautbedürfnisse",
+  "Individuelle Behandlungspl\u00E4ne f\u00FCr Ihre Hautbed\u00FCrfnisse",
 ];
 
 export default function LaserBehandlungen() {
@@ -118,7 +118,7 @@ export default function LaserBehandlungen() {
       document.title = "Entrance in Harmony - Beauty & Aesthetics";
       const metaD = document.querySelector('meta[name="description"]');
       if (metaD) {
-        metaD.setAttribute("content", "Entrance in Harmony - Beauty & Aesthetics in Harmonie mit Elena Hartstein. Professionelle Gesichts- und Körperbehandlungen für Ihre Schönheit und Wohlbefinden.");
+        metaD.setAttribute("content", "Entrance in Harmony - Beauty & Aesthetics in Harmonie mit Elena Hartstein. Professionelle Gesichts- und K\u00F6rperbehandlungen f\u00FCr Ihre Sch\u00F6nheit und Wohlbefinden.");
       }
       const ogT = document.querySelector('meta[property="og:title"]');
       if (ogT) ogT.remove();
@@ -140,33 +140,46 @@ export default function LaserBehandlungen() {
   return (
     <div className="min-h-screen bg-background" data-testid="page-laser">
       <Header transparent />
-
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      {/* HERO */}
-      <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden" data-testid="section-laser-hero">
-        <div className="absolute inset-0">
-          <img src={laserImage1} alt="Red Touch Pro Laserbehandlung für Hautverjüngung in Burbach" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
+      {/* ===== HERO ===== */}
+      <section className="relative min-h-screen overflow-hidden" data-testid="section-laser-hero">
+        <div
+          className="absolute inset-0 bg-cover bg-center scale-105"
+          style={{ backgroundImage: `url(${heroImg})` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30" />
         </div>
-        <div className="relative z-10 container mx-auto px-4 text-center py-20">
-          <Badge variant="secondary" className="mb-6 bg-white/10 text-white border-white/20 px-5 py-2 text-sm backdrop-blur-sm">
-            <Zap className="w-4 h-4 mr-2 text-primary" />
-            DEKA Lasertechnologie
-          </Badge>
-          <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl font-light text-white mb-6 drop-shadow-lg fade-up leading-tight" style={{ opacity: 0, animationDelay: "0.3s" }}>
-            Red Touch Pro Laser &ndash;<br className="hidden md:block" /> Moderne Hautverjüngung für<br className="hidden md:block" /> straffe, glatte Haut
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/40 to-transparent pointer-events-none" />
+
+        <div className="relative z-10 container mx-auto px-4 text-center pt-44 pb-20">
+          <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
+            <p className="text-primary font-medium text-sm tracking-[0.3em] uppercase mb-8" data-testid="text-hero-tag">
+              DEKA Lasertechnologie
+            </p>
+          </div>
+
+          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-light text-white mb-8 leading-[1.1] fade-up" style={{ opacity: 0, animationDelay: "0.4s" }} data-testid="text-hero-h1">
+            Sichtbar straffere,{" "}
+            <span className="text-primary">glattere Haut.</span>
           </h1>
-          <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto mb-10 drop-shadow-md fade-up leading-relaxed" style={{ opacity: 0, animationDelay: "0.6s" }}>
-            Nicht-invasive Laserbehandlung zur gezielten Kollagenstimulation &ndash; sanft, effektiv und alltagstauglich.
+
+          <p className="text-white/70 text-lg md:text-xl font-light tracking-wide mb-3 fade-up" style={{ opacity: 0, animationDelay: "0.6s" }}>
+            Red Touch Pro<sup className="text-xs">&reg;</sup>
           </p>
+
+          <p className="text-white/60 text-base md:text-lg max-w-xl mx-auto mb-12 leading-relaxed fade-up" style={{ opacity: 0, animationDelay: "0.7s" }}>
+            Nicht-invasive Kollagenstimulation f&uuml;r ein jugendliches, strahlendes Hautbild &ndash; sanft, effektiv und ohne Ausfallzeit.
+          </p>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center fade-up" style={{ opacity: 0, animationDelay: "0.9s" }}>
-            <Button size="lg" className="text-sm px-10 bg-primary text-primary-foreground border-primary font-serif uppercase tracking-widest" asChild data-testid="button-laser-hero-cta">
+            <Button asChild size="lg" className="rounded-none text-sm uppercase tracking-widest px-10" data-testid="button-laser-hero-cta">
               <a href="https://wa.me/491709287722?text=Hallo,%20ich%20interessiere%20mich%20für%20eine%20Laserbehandlung%20mit%20Red%20Touch%20Pro%20und%20hätte%20gerne%20eine%20individuelle%20Beratung." target="_blank" rel="noopener noreferrer">
                 Jetzt Beratung vereinbaren
               </a>
             </Button>
-            <Button variant="outline" size="lg" className="text-sm px-10 text-white border-white/30 font-serif uppercase tracking-widest backdrop-blur-sm" asChild data-testid="button-laser-hero-more">
+            <Button variant="outline" asChild size="lg" className="rounded-none text-sm uppercase tracking-widest px-10 text-white border-white/30 backdrop-blur-sm" data-testid="button-laser-hero-more">
               <a href="#technologie">
                 Mehr erfahren
               </a>
@@ -176,79 +189,87 @@ export default function LaserBehandlungen() {
         <WaveDivider position="bottom" color="hsl(var(--background))" />
       </section>
 
-      {/* PROBLEM SECTION */}
-      <section className="py-16 md:py-24 bg-background" data-testid="section-problem">
+      {/* ===== INTRO / PROBLEM ===== */}
+      <section className="py-20 md:py-28 bg-background" data-testid="section-problem">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="font-serif text-3xl md:text-4xl font-light mb-6">
-                  Wenn Pflege allein nicht mehr ausreicht
+          <div className="max-w-4xl mx-auto text-center fade-up">
+            <h2 className="font-serif text-4xl md:text-5xl font-light mb-10 leading-relaxed" data-testid="text-problem-h2">
+              Wenn Pflege allein nicht mehr ausreicht
+            </h2>
+            <div className="h-0.5 w-32 mx-auto mb-12 gold-shimmer rounded-full"></div>
+          </div>
+          <div className="max-w-3xl mx-auto fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6 text-center">
+              Mit zunehmendem Alter verliert die Haut an Kollagen. Spannkraft nimmt ab, feine Linien entstehen und der Teint wirkt unruhig. Klassische Pflegeprodukte k&ouml;nnen diese Prozesse nur begrenzt beeinflussen.
+            </p>
+            <p className="text-xl text-primary font-medium leading-relaxed text-center">
+              Die Red Touch Pro Laserbehandlung setzt gezielt dort an, wo Hautstruktur und Elastizit&auml;t entstehen &ndash; im Kollagen.
+            </p>
+          </div>
+        </div>
+        <WaveDivider position="bottom" color="hsl(var(--section-accent))" />
+      </section>
+
+      {/* ===== TECHNOLOGY ===== */}
+      <section id="technologie" className="py-20 md:py-28 bg-section-accent" data-testid="section-technology">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-16 items-center">
+              <div className="fade-up">
+                <p className="text-primary text-sm font-medium tracking-[0.2em] uppercase mb-4">Technologie</p>
+                <h2 className="font-serif text-4xl md:text-5xl font-light mb-6 leading-tight" data-testid="text-tech-h2">
+                  Was macht den Red Touch Pro besonders?
                 </h2>
-                <div className="h-0.5 w-16 gold-shimmer rounded-full mb-6"></div>
-                <p className="text-muted-foreground leading-relaxed mb-6">
-                  Mit zunehmendem Alter verliert die Haut an Kollagen. Spannkraft nimmt ab, feine Linien entstehen und der Teint wirkt unruhig. Klassische Pflegeprodukte können diese Prozesse nur begrenzt beeinflussen.
+                <div className="h-0.5 w-24 mb-8 gold-shimmer rounded-full"></div>
+                <p className="text-muted-foreground leading-relaxed mb-10">
+                  Red Touch Pro nutzt eine pr&auml;zise 675-nm-Wellenl&auml;nge zur gezielten Stimulation der Kollagenproduktion. Die Technologie stammt von DEKA &ndash; einem der weltweit f&uuml;hrenden Hersteller medizinischer Lasersysteme aus Italien.
                 </p>
-                <p className="text-foreground/80 leading-relaxed font-medium">
-                  Die Red Touch Pro Laserbehandlung setzt gezielt dort an, wo Hautstruktur und Elastizität entstehen &ndash; im Kollagen.
-                </p>
+                <div className="grid grid-cols-2 gap-6">
+                  {technologyBenefits.map((item, i) => (
+                    <div key={i} data-testid={`card-tech-${i}`}>
+                      <h3 className="font-medium text-sm mb-1">{item.title}</h3>
+                      <p className="text-xs text-muted-foreground leading-relaxed">{item.text}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div className="relative">
-                <img src={skinResultImage} alt="Sichtbare Hautverjüngung durch Red Touch Pro Laser - Vorher Nachher" className="w-full h-auto object-cover rounded-lg shadow-lg" />
+              <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
+                <div className="elegant-glow">
+                  <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                    <img src={treatmentImg} alt="Professionelle Laserbehandlung mit Red Touch Pro" className="w-full aspect-[4/5] object-cover" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* TECHNOLOGY SECTION */}
-      <section id="technologie" className="py-16 md:py-24 bg-section-accent" data-testid="section-technology">
+      {/* ===== TARGET GROUP ===== */}
+      <section className="py-20 md:py-28 bg-background" data-testid="section-target">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-14">
-            <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
-              Was macht den Red Touch Pro Laser besonders?
-            </h2>
-            <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-6"></div>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Modernste 675-nm-Lasertechnologie von DEKA für gezielte, nachhaltige Kollagenstimulation
-            </p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {technologyBenefits.map((item, i) => (
-              <Card key={i} data-testid={`card-tech-${i}`}>
-                <CardContent className="p-6">
-                  <div className="w-12 h-12 mb-4 rounded-full bg-primary/10 flex items-center justify-center">
-                    <item.icon className="w-6 h-6 text-primary" />
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-16 items-center">
+              <div className="order-2 md:order-1 fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
+                <div className="elegant-glow">
+                  <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                    <img src={resultImg} alt="Strahlende Haut nach Red Touch Pro Behandlung" className="w-full aspect-[3/4] object-cover" />
                   </div>
-                  <h3 className="font-serif text-lg font-medium mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{item.text}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* TARGET GROUP */}
-      <section className="py-16 md:py-24 bg-background" data-testid="section-target">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="order-2 md:order-1">
-                <img src={laserImage3} alt="Red Touch Pro Laserbehandlung geeignet für verschiedene Hautprobleme" className="w-full h-auto object-cover rounded-lg shadow-lg" />
+                </div>
               </div>
-              <div className="order-1 md:order-2">
-                <h2 className="font-serif text-3xl md:text-4xl font-light mb-6">
-                  Für wen ist die Behandlung geeignet?
+              <div className="order-1 md:order-2 fade-up">
+                <p className="text-primary text-sm font-medium tracking-[0.2em] uppercase mb-4">F&uuml;r Sie</p>
+                <h2 className="font-serif text-4xl md:text-5xl font-light mb-6 leading-tight" data-testid="text-target-h2">
+                  F&uuml;r wen ist die Behandlung geeignet?
                 </h2>
-                <div className="h-0.5 w-16 gold-shimmer rounded-full mb-6"></div>
-                <ul className="space-y-4">
+                <div className="h-0.5 w-24 mb-8 gold-shimmer rounded-full"></div>
+                <ul className="space-y-5">
                   {targetGroups.map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <span className="mt-1 shrink-0 w-5 h-5 rounded-full border border-primary/40 flex items-center justify-center bg-primary/10">
                         <Check className="w-3 h-3 text-primary" />
                       </span>
-                      <span className="text-foreground/80 text-sm leading-relaxed">{item}</span>
+                      <span className="text-foreground/80 leading-relaxed">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -258,25 +279,23 @@ export default function LaserBehandlungen() {
         </div>
       </section>
 
-      {/* TREATMENT AREAS */}
-      <section className="py-16 md:py-24 bg-section-accent" data-testid="section-areas">
+      {/* ===== TREATMENT AREAS ===== */}
+      <section className="py-20 md:py-28 bg-section-accent" data-testid="section-areas">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-14">
-            <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
-              Behandlungsareale & Einsatzmöglichkeiten
+          <div className="text-center mb-16 fade-up">
+            <p className="text-primary text-sm font-medium tracking-[0.2em] uppercase mb-4">Behandlungsareale</p>
+            <h2 className="font-serif text-4xl md:text-5xl font-light mb-6" data-testid="text-areas-h2">
+              Einsatzm&ouml;glichkeiten
             </h2>
-            <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-6"></div>
+            <div className="h-0.5 w-32 mx-auto gold-shimmer rounded-full"></div>
           </div>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <Card data-testid="card-area-face">
-              <CardContent className="p-6">
-                <div className="w-12 h-12 mb-4 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Sparkles className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="font-serif text-xl font-medium mb-4">Gesicht & Hals</h3>
-                <ul className="space-y-2">
+              <CardContent className="p-8">
+                <h3 className="font-serif text-2xl font-light mb-6">Gesicht & Hals</h3>
+                <ul className="space-y-3">
                   {faceNeckBenefits.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
                       <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                       <span>{item}</span>
                     </li>
@@ -285,14 +304,11 @@ export default function LaserBehandlungen() {
               </CardContent>
             </Card>
             <Card data-testid="card-area-decollete">
-              <CardContent className="p-6">
-                <div className="w-12 h-12 mb-4 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Heart className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="font-serif text-xl font-medium mb-4">Dekollet&eacute;</h3>
-                <ul className="space-y-2">
+              <CardContent className="p-8">
+                <h3 className="font-serif text-2xl font-light mb-6">Dekollet&eacute;</h3>
+                <ul className="space-y-3">
                   {decolleteBenefits.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
                       <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                       <span>{item}</span>
                     </li>
@@ -301,14 +317,11 @@ export default function LaserBehandlungen() {
               </CardContent>
             </Card>
             <Card data-testid="card-area-body">
-              <CardContent className="p-6">
-                <div className="w-12 h-12 mb-4 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Shield className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="font-serif text-xl font-medium mb-4">Körper</h3>
-                <ul className="space-y-2">
+              <CardContent className="p-8">
+                <h3 className="font-serif text-2xl font-light mb-6">K&ouml;rper</h3>
+                <ul className="space-y-3">
                   {bodyBenefits.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
                       <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                       <span>{item}</span>
                     </li>
@@ -320,26 +333,24 @@ export default function LaserBehandlungen() {
         </div>
       </section>
 
-      {/* PROCESS */}
-      <section className="py-16 md:py-24 bg-background" data-testid="section-process">
+      {/* ===== PROCESS ===== */}
+      <section className="py-20 md:py-28 bg-background" data-testid="section-process">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-14">
-            <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
-              So läuft die Red Touch Pro Behandlung ab
+          <div className="text-center mb-16 fade-up">
+            <p className="text-primary text-sm font-medium tracking-[0.2em] uppercase mb-4">Ablauf</p>
+            <h2 className="font-serif text-4xl md:text-5xl font-light mb-6" data-testid="text-process-h2">
+              Ihre Behandlung in drei Schritten
             </h2>
-            <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-6"></div>
+            <div className="h-0.5 w-32 mx-auto gold-shimmer rounded-full"></div>
           </div>
           <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-12">
               {processSteps.map((step) => (
-                <div key={step.step} className="text-center" data-testid={`step-${step.step}`}>
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center relative">
-                    <step.icon className="w-7 h-7 text-primary" />
-                    <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center">
-                      {step.step}
-                    </span>
+                <div key={step.step} className="text-center fade-up" style={{ animationDelay: `${step.step * 0.15}s`, opacity: 0 }} data-testid={`step-${step.step}`}>
+                  <div className="w-16 h-16 mx-auto mb-6 rounded-full border-2 border-primary/30 flex items-center justify-center">
+                    <span className="font-serif text-2xl font-light text-primary">{step.step}</span>
                   </div>
-                  <h3 className="font-serif text-lg font-medium mb-3">{step.title}</h3>
+                  <h3 className="font-serif text-xl font-light mb-3">{step.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
                 </div>
               ))}
@@ -348,96 +359,108 @@ export default function LaserBehandlungen() {
         </div>
       </section>
 
-      {/* RESULTS & COMBINATIONS */}
-      <section className="py-16 md:py-24 bg-section-accent" data-testid="section-results">
+      {/* ===== RESULTS ===== */}
+      <section className="py-20 md:py-28 bg-section-accent" data-testid="section-results">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="font-serif text-3xl md:text-4xl font-light mb-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-16 items-center">
+              <div className="fade-up">
+                <p className="text-primary text-sm font-medium tracking-[0.2em] uppercase mb-4">Ergebnisse</p>
+                <h2 className="font-serif text-4xl md:text-5xl font-light mb-6 leading-tight" data-testid="text-results-h2">
                   Ergebnisse & Behandlungsplan
                 </h2>
-                <div className="h-0.5 w-16 gold-shimmer rounded-full mb-6"></div>
+                <div className="h-0.5 w-24 mb-8 gold-shimmer rounded-full"></div>
                 <p className="text-muted-foreground leading-relaxed mb-6">
-                  Erste Hautverbesserungen sind häufig bereits nach der ersten Sitzung sichtbar. Für optimale Ergebnisse werden meist 3&ndash;4 Behandlungen im Abstand von mehreren Wochen empfohlen.
+                  Erste Hautverbesserungen sind h&auml;ufig bereits nach der ersten Sitzung sichtbar. F&uuml;r optimale Ergebnisse werden meist 3&ndash;4 Behandlungen im Abstand von mehreren Wochen empfohlen.
                 </p>
                 <p className="text-muted-foreground leading-relaxed mb-8">
-                  Die Hautstraffung entwickelt sich natürlich über die Zeit durch Neubildung von Kollagen. Für ein noch umfassenderes Ergebnis kann die Behandlung kombiniert werden mit:
+                  F&uuml;r ein noch umfassenderes Ergebnis kann die Behandlung kombiniert werden mit:
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {["Medical Peelings", "Skinbooster", "Infusionen", "RF-Microneedling"].map((item) => (
-                    <Badge key={item} variant="secondary" className="px-4 py-2 text-sm">
-                      {item}
-                    </Badge>
+                    <Badge key={item} variant="secondary" className="px-4 py-2 text-sm">{item}</Badge>
                   ))}
                 </div>
               </div>
-              <div>
-                <img src={laserImage2} alt="Red Touch Pro Laser Behandlungsergebnis - straffere Haut" className="w-full h-auto object-cover rounded-lg shadow-lg" />
+              <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
+                <div className="elegant-glow">
+                  <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                    <img src={smoothImg} alt="Strahlende, glatte Haut nach Laserbehandlung" className="w-full aspect-[3/4] object-cover" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* PRICING */}
-      <section className="py-16 md:py-24 bg-background" data-testid="section-pricing">
+      {/* ===== PRICING ===== */}
+      <section className="py-20 md:py-28 bg-background" data-testid="section-pricing">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-14">
-            <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
-              Preisübersicht
+          <div className="text-center mb-16 fade-up">
+            <p className="text-primary text-sm font-medium tracking-[0.2em] uppercase mb-4">Preise</p>
+            <h2 className="font-serif text-4xl md:text-5xl font-light mb-6" data-testid="text-pricing-h2">
+              Preis&uuml;bersicht
             </h2>
-            <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-6"></div>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Wählen Sie die passende Behandlung für Ihren Wunschbereich
+            <div className="h-0.5 w-32 mx-auto gold-shimmer rounded-full mb-8"></div>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              W&auml;hlen Sie die passende Behandlung f&uuml;r Ihren Wunschbereich
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {laserTreatments.map((treatment) => (
-              <Card key={treatment.id} className="overflow-hidden hover-elevate transition-all" data-testid={`card-laser-${treatment.id}`}>
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img src={treatment.image} alt={`Red Touch Pro Laserbehandlung ${treatment.title}`} className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="font-serif text-xl font-light mb-2" data-testid={`text-laser-title-${treatment.id}`}>{treatment.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{treatment.description}</p>
-                  <div className="flex items-center justify-between gap-4 flex-wrap">
-                    <span className="text-2xl font-medium text-primary" data-testid={`text-laser-price-${treatment.id}`}>{treatment.price}</span>
-                    <Button size="sm" className="text-xs uppercase tracking-wider font-serif" asChild data-testid={`button-laser-book-${treatment.id}`}>
-                      <a href={`https://wa.me/491709287722?text=Hallo,%20ich%20möchte%20gerne%20einen%20Termin%20für%20eine%20Laserbehandlung%20(${encodeURIComponent(treatment.title)})%20buchen.`} target="_blank" rel="noopener noreferrer">
-                        Termin buchen
-                      </a>
-                    </Button>
+          <div className="max-w-3xl mx-auto">
+            <Card>
+              <CardContent className="p-0">
+                {laserTreatments.map((treatment, i) => (
+                  <div
+                    key={treatment.id}
+                    className={`flex items-center justify-between gap-4 flex-wrap px-8 py-5 ${i < laserTreatments.length - 1 ? 'border-b border-border/50' : ''} ${treatment.highlight ? 'bg-primary/5' : ''}`}
+                    data-testid={`row-laser-${treatment.id}`}
+                  >
+                    <div className="flex items-center gap-4 flex-wrap">
+                      <h3 className="font-serif text-lg font-light" data-testid={`text-laser-title-${treatment.id}`}>{treatment.title}</h3>
+                      {treatment.highlight && (
+                        <Badge variant="secondary" className="text-xs">Beliebt</Badge>
+                      )}
+                    </div>
+                    <div className="flex items-center gap-6 flex-wrap">
+                      <span className="font-serif text-xl text-primary font-medium" data-testid={`text-laser-price-${treatment.id}`}>{treatment.price}</span>
+                      <Button size="sm" className="rounded-none text-xs uppercase tracking-widest" asChild data-testid={`button-laser-book-${treatment.id}`}>
+                        <a href={`https://wa.me/491709287722?text=Hallo,%20ich%20möchte%20gerne%20einen%20Termin%20für%20eine%20Laserbehandlung%20(${encodeURIComponent(treatment.title)})%20buchen.`} target="_blank" rel="noopener noreferrer">
+                          Termin buchen
+                        </a>
+                      </Button>
+                    </div>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
+                ))}
+              </CardContent>
+            </Card>
+            <p className="text-xs text-muted-foreground text-center mt-6">
+              Alle Preise inkl. individueller Beratung. Kleinunternehmer gem. &sect;19 UStG &ndash; keine MwSt. ausgewiesen.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* REVIEWS */}
-      <section className="py-16 md:py-24 bg-section-accent" data-testid="section-reviews">
+      {/* ===== REVIEWS ===== */}
+      <section className="py-20 md:py-28 bg-section-accent" data-testid="section-reviews">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-14">
-            <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
+          <div className="text-center mb-16 fade-up">
+            <p className="text-primary text-sm font-medium tracking-[0.2em] uppercase mb-4">Erfahrungen</p>
+            <h2 className="font-serif text-4xl md:text-5xl font-light mb-6" data-testid="text-reviews-h2">
               Das sagen unsere Kundinnen
             </h2>
-            <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-6"></div>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Echte Erfahrungsberichte unserer zufriedenen Kundinnen
-            </p>
+            <div className="h-0.5 w-32 mx-auto gold-shimmer rounded-full"></div>
           </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {reviews.map((review, i) => (
               <Card key={i} data-testid={`card-review-${i}`}>
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-1 mb-3">
+                <CardContent className="p-8">
+                  <div className="flex items-center gap-1 mb-4">
                     {Array.from({ length: review.rating }).map((_, j) => (
                       <Star key={j} className="w-4 h-4 text-primary fill-primary" />
                     ))}
                   </div>
-                  <p className="text-foreground/80 leading-relaxed mb-4 italic">
+                  <p className="text-foreground/80 leading-relaxed mb-6 italic font-serif text-lg font-light">
                     &bdquo;{review.text}&ldquo;
                   </p>
                   <div className="flex items-center justify-between gap-4 flex-wrap">
@@ -454,32 +477,33 @@ export default function LaserBehandlungen() {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-16 md:py-24 bg-background" data-testid="section-faq">
+      {/* ===== FAQ ===== */}
+      <section className="py-20 md:py-28 bg-background" data-testid="section-faq">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-14">
-            <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
-              Häufig gestellte Fragen
+          <div className="text-center mb-16 fade-up">
+            <p className="text-primary text-sm font-medium tracking-[0.2em] uppercase mb-4">FAQ</p>
+            <h2 className="font-serif text-4xl md:text-5xl font-light mb-6" data-testid="text-faq-h2">
+              H&auml;ufig gestellte Fragen
             </h2>
-            <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-6"></div>
+            <div className="h-0.5 w-32 mx-auto gold-shimmer rounded-full"></div>
           </div>
-          <div className="max-w-3xl mx-auto space-y-3">
+          <div className="max-w-3xl mx-auto space-y-2">
             {faqs.map((faq, i) => (
-              <div key={i} className="border border-border/50 rounded-lg overflow-hidden" data-testid={`faq-item-${i}`}>
+              <div key={i} className="border-b border-border/40" data-testid={`faq-item-${i}`}>
                 <button
-                  className="w-full flex items-center justify-between gap-4 p-5 text-left hover-elevate transition-all"
+                  className="w-full flex items-center justify-between gap-4 py-6 text-left hover-elevate transition-all"
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   data-testid={`button-faq-${i}`}
                 >
-                  <span className="font-medium text-sm md:text-base pr-4">{faq.q}</span>
-                  <ChevronDown className={`w-5 h-5 shrink-0 text-muted-foreground transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`} />
+                  <span className="font-serif text-lg font-light pr-4">{faq.q}</span>
+                  <ChevronDown className={`w-5 h-5 shrink-0 text-muted-foreground transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} />
                 </button>
                 <div
-                  className="overflow-hidden transition-all duration-200"
+                  className="overflow-hidden transition-all duration-300"
                   style={{ maxHeight: openFaq === i ? "500px" : "0", opacity: openFaq === i ? 1 : 0 }}
                 >
-                  <div className="px-5 pb-5">
-                    <p className="text-sm text-muted-foreground leading-relaxed" data-testid={`text-faq-answer-${i}`}>{faq.a}</p>
+                  <div className="pb-6">
+                    <p className="text-muted-foreground leading-relaxed" data-testid={`text-faq-answer-${i}`}>{faq.a}</p>
                   </div>
                 </div>
               </div>
@@ -488,104 +512,105 @@ export default function LaserBehandlungen() {
         </div>
       </section>
 
-      {/* PARTNERS */}
+      {/* ===== PARTNERS ===== */}
       <section className="py-16 md:py-20 bg-section-accent" data-testid="section-partners">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-10">
-            <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
-              Unsere Technologiepartner
-            </h2>
-            <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-6"></div>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Wir arbeiten ausschließlich mit weltweit führenden Herstellern medizinischer Lasertechnologie
-            </p>
+          <div className="text-center mb-12">
+            <p className="text-muted-foreground text-sm tracking-[0.2em] uppercase mb-2">Unsere Technologiepartner</p>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-12 md:gap-20 max-w-3xl mx-auto">
+          <div className="flex flex-wrap items-center justify-center gap-16 md:gap-24 max-w-3xl mx-auto">
             <div className="text-center" data-testid="partner-deka">
-              <div className="bg-white rounded-lg p-6 shadow-sm border border-border/30 mb-3">
-                <img src={dekaLogo} alt="DEKA Lasertechnologie - Partner von Entrance in Harmony" className="h-16 md:h-20 w-auto object-contain mx-auto" />
+              <div className="bg-white rounded-md p-6 shadow-sm border border-border/20">
+                <img src={dekaLogo} alt="DEKA Lasertechnologie" className="h-14 md:h-16 w-auto object-contain mx-auto opacity-80" />
               </div>
-              <p className="text-xs text-muted-foreground">Medizinische Lasersysteme</p>
             </div>
             <div className="text-center" data-testid="partner-redtouch">
-              <div className="bg-white rounded-lg p-6 shadow-sm border border-border/30 mb-3">
-                <img src={redtouchLogo} alt="Red Touch Pro - Laser Hautverjüngung Partner" className="h-16 md:h-20 w-auto object-contain mx-auto" />
+              <div className="bg-white rounded-md p-6 shadow-sm border border-border/20">
+                <img src={redtouchLogo} alt="Red Touch Pro" className="h-14 md:h-16 w-auto object-contain mx-auto opacity-80" />
               </div>
-              <p className="text-xs text-muted-foreground">Laser-Hautverjüngung</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* TRUST */}
-      <section className="py-16 md:py-24 bg-background" data-testid="section-trust">
+      {/* ===== TRUST ===== */}
+      <section className="py-20 md:py-28 bg-background" data-testid="section-trust">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="font-serif text-3xl md:text-4xl font-light mb-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-16 items-center">
+              <div className="fade-up">
+                <p className="text-primary text-sm font-medium tracking-[0.2em] uppercase mb-4">Vertrauen</p>
+                <h2 className="font-serif text-4xl md:text-5xl font-light mb-6 leading-tight" data-testid="text-trust-h2">
                   Warum diese Behandlung?
                 </h2>
-                <div className="h-0.5 w-16 gold-shimmer rounded-full mb-6"></div>
-                <ul className="space-y-4">
+                <div className="h-0.5 w-24 mb-8 gold-shimmer rounded-full"></div>
+                <ul className="space-y-5">
                   {trustPoints.map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <span className="mt-1 shrink-0 w-5 h-5 rounded-full border border-primary/40 flex items-center justify-center bg-primary/10">
                         <Check className="w-3 h-3 text-primary" />
                       </span>
-                      <span className="text-foreground/80 text-sm leading-relaxed">{item}</span>
+                      <span className="text-foreground/80 leading-relaxed">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="bg-muted/30 rounded-lg p-8">
-                <div className="text-center">
-                  <div className="flex items-center justify-center gap-1 mb-4">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} className="w-6 h-6 text-primary fill-primary" />
-                    ))}
-                  </div>
-                  <p className="font-serif text-4xl font-light text-primary mb-2">5.0</p>
-                  <p className="text-sm text-muted-foreground mb-4">Durchschnittliche Kundenbewertung</p>
-                  <div className="h-px w-16 mx-auto bg-border mb-4"></div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <p className="font-serif text-2xl font-light text-primary">100%</p>
-                      <p className="text-xs text-muted-foreground">Kundenzufriedenheit</p>
+              <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
+                <Card>
+                  <CardContent className="p-10 text-center">
+                    <div className="flex items-center justify-center gap-1 mb-6">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <Star key={i} className="w-5 h-5 text-primary fill-primary" />
+                      ))}
                     </div>
-                    <div>
-                      <p className="font-serif text-2xl font-light text-primary">3&ndash;4</p>
-                      <p className="text-xs text-muted-foreground">Sitzungen empfohlen</p>
+                    <p className="font-serif text-5xl font-light text-primary mb-2" data-testid="text-rating">5.0</p>
+                    <p className="text-sm text-muted-foreground mb-8">Durchschnittliche Kundenbewertung</p>
+                    <div className="h-px w-20 mx-auto bg-border mb-8"></div>
+                    <div className="grid grid-cols-2 gap-6">
+                      <div>
+                        <p className="font-serif text-3xl font-light text-primary" data-testid="text-satisfaction">100%</p>
+                        <p className="text-xs text-muted-foreground mt-1">Kundenzufriedenheit</p>
+                      </div>
+                      <div>
+                        <p className="font-serif text-3xl font-light text-primary" data-testid="text-sessions">3&ndash;4</p>
+                        <p className="text-xs text-muted-foreground mt-1">Sitzungen empfohlen</p>
+                      </div>
                     </div>
-                  </div>
-                </div>
+                  </CardContent>
+                </Card>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FINAL CTA */}
-      <section className="py-16 md:py-24 bg-section-accent" data-testid="section-cta-final">
-        <div className="container mx-auto px-4">
+      {/* ===== FINAL CTA ===== */}
+      <section className="relative py-24 md:py-32 overflow-hidden" data-testid="section-cta-final">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroImg})` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
+        </div>
+        <div className="relative z-10 container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="font-serif text-3xl md:text-4xl font-light mb-6">
-              Bereit für ein frischeres Hautbild?
+            <h2 className="font-serif text-4xl md:text-5xl font-light text-white mb-6 leading-tight" data-testid="text-cta-h2">
+              Bereit f&uuml;r ein frischeres Hautbild?
             </h2>
-            <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-6"></div>
-            <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto leading-relaxed">
-              Vereinbaren Sie jetzt Ihren persönlichen Beratungstermin und erfahren Sie, wie Red Touch Pro&reg; Ihre Haut sichtbar verjüngen kann.
+            <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-8"></div>
+            <p className="text-white/70 text-lg mb-12 max-w-xl mx-auto leading-relaxed">
+              Vereinbaren Sie jetzt Ihren pers&ouml;nlichen Beratungstermin und erfahren Sie, wie Red Touch Pro Ihre Haut sichtbar verj&uuml;ngen kann.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-[#25D366] text-white border-[#25BA5A] px-8" asChild data-testid="button-laser-cta-bottom">
+              <Button size="lg" className="bg-[#25D366] text-white border-[#25D366] rounded-none text-sm uppercase tracking-widest px-10" asChild data-testid="button-laser-cta-bottom">
                 <a href="https://wa.me/491709287722?text=Hallo,%20ich%20interessiere%20mich%20für%20eine%20Laserbehandlung%20mit%20Red%20Touch%20Pro%20und%20hätte%20gerne%20eine%20individuelle%20Beratung." target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-5 h-5 mr-2" />
-                  Individuelle Beratung buchen
+                  Beratung vereinbaren
                 </a>
               </Button>
-              <Button variant="outline" size="lg" className="px-8" asChild data-testid="button-laser-cta-services">
-                <a href="/leistungen" className="flex items-center gap-2">
-                  <span>Alle Behandlungen ansehen</span>
+              <Button variant="outline" size="lg" className="rounded-none text-sm uppercase tracking-widest px-10 text-white border-white/30 backdrop-blur-sm" asChild data-testid="button-laser-cta-services">
+                <a href="/gesichtsbehandlungen" className="flex items-center gap-2">
+                  <span>Alle Behandlungen</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </Button>
@@ -594,11 +619,11 @@ export default function LaserBehandlungen() {
         </div>
       </section>
 
-      {/* DISCLAIMER */}
+      {/* ===== DISCLAIMER ===== */}
       <section className="py-8 bg-background border-t border-border/30" data-testid="section-disclaimer">
         <div className="container mx-auto px-4">
-          <p className="text-xs text-muted-foreground text-center max-w-3xl mx-auto leading-relaxed">
-            Diese Behandlung dient der kosmetischen Verbesserung des Hautbildes und ersetzt keine medizinische Beratung. Es handelt sich um kein Heilversprechen. Ergebnisse können individuell variieren.
+          <p className="text-xs text-muted-foreground text-center max-w-3xl mx-auto leading-relaxed" data-testid="text-disclaimer">
+            Diese Behandlung dient der kosmetischen Verbesserung des Hautbildes und ersetzt keine medizinische Beratung. Es handelt sich um kein Heilversprechen. Ergebnisse k&ouml;nnen individuell variieren.
           </p>
         </div>
       </section>
