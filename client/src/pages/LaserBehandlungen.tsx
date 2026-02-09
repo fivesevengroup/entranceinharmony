@@ -189,7 +189,7 @@ export default function LaserBehandlungen() {
         <WaveDivider position="bottom" color="hsl(var(--background))" />
       </section>
 
-      {/* ===== INTRO / PROBLEM ===== */}
+      {/* ===== SECTION 1: INTRO / PROBLEM ===== */}
       <section className="py-20 md:py-28 bg-background" data-testid="section-problem">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center fade-up">
@@ -207,10 +207,9 @@ export default function LaserBehandlungen() {
             </p>
           </div>
         </div>
-        <WaveDivider position="bottom" color="hsl(var(--section-accent))" />
       </section>
 
-      {/* ===== TECHNOLOGY ===== */}
+      {/* ===== SECTION 2: TECHNOLOGY + PARTNERS ===== */}
       <section id="technologie" className="py-20 md:py-28 bg-section-accent" data-testid="section-technology">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
@@ -241,15 +240,27 @@ export default function LaserBehandlungen() {
                 </div>
               </div>
             </div>
+
+            <div className="mt-20 pt-16 border-t border-border/20">
+              <div className="flex flex-wrap items-center justify-center gap-12 md:gap-20">
+                <p className="text-muted-foreground text-sm tracking-[0.15em] uppercase">Technologiepartner</p>
+                <div data-testid="partner-deka">
+                  <img src={dekaLogo} alt="DEKA Lasertechnologie" className="h-10 md:h-12 w-auto object-contain opacity-70" />
+                </div>
+                <div data-testid="partner-redtouch">
+                  <img src={redtouchLogo} alt="Red Touch Pro" className="h-10 md:h-12 w-auto object-contain opacity-70" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ===== TARGET GROUP ===== */}
+      {/* ===== SECTION 3: TARGET GROUP + TREATMENT AREAS ===== */}
       <section className="py-20 md:py-28 bg-background" data-testid="section-target">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="grid md:grid-cols-2 gap-16 items-center mb-24">
               <div className="order-2 md:order-1 fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
                 <div className="elegant-glow">
                   <div className="relative rounded-3xl overflow-hidden shadow-2xl">
@@ -275,66 +286,63 @@ export default function LaserBehandlungen() {
                 </ul>
               </div>
             </div>
+
+            <div className="fade-up" data-testid="section-areas">
+              <div className="text-center mb-12">
+                <p className="text-primary text-sm font-medium tracking-[0.2em] uppercase mb-4">Behandlungsareale</p>
+                <h3 className="font-serif text-3xl md:text-4xl font-light mb-6" data-testid="text-areas-h2">
+                  Einsatzm&ouml;glichkeiten
+                </h3>
+                <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full"></div>
+              </div>
+              <div className="grid md:grid-cols-3 gap-6">
+                <Card data-testid="card-area-face">
+                  <CardContent className="p-8">
+                    <h4 className="font-serif text-2xl font-light mb-6">Gesicht & Hals</h4>
+                    <ul className="space-y-3">
+                      {faceNeckBenefits.map((item, i) => (
+                        <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
+                          <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+                <Card data-testid="card-area-decollete">
+                  <CardContent className="p-8">
+                    <h4 className="font-serif text-2xl font-light mb-6">Dekollet&eacute;</h4>
+                    <ul className="space-y-3">
+                      {decolleteBenefits.map((item, i) => (
+                        <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
+                          <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+                <Card data-testid="card-area-body">
+                  <CardContent className="p-8">
+                    <h4 className="font-serif text-2xl font-light mb-6">K&ouml;rper</h4>
+                    <ul className="space-y-3">
+                      {bodyBenefits.map((item, i) => (
+                        <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
+                          <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ===== TREATMENT AREAS ===== */}
-      <section className="py-20 md:py-28 bg-section-accent" data-testid="section-areas">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16 fade-up">
-            <p className="text-primary text-sm font-medium tracking-[0.2em] uppercase mb-4">Behandlungsareale</p>
-            <h2 className="font-serif text-4xl md:text-5xl font-light mb-6" data-testid="text-areas-h2">
-              Einsatzm&ouml;glichkeiten
-            </h2>
-            <div className="h-0.5 w-32 mx-auto gold-shimmer rounded-full"></div>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <Card data-testid="card-area-face">
-              <CardContent className="p-8">
-                <h3 className="font-serif text-2xl font-light mb-6">Gesicht & Hals</h3>
-                <ul className="space-y-3">
-                  {faceNeckBenefits.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
-                      <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-            <Card data-testid="card-area-decollete">
-              <CardContent className="p-8">
-                <h3 className="font-serif text-2xl font-light mb-6">Dekollet&eacute;</h3>
-                <ul className="space-y-3">
-                  {decolleteBenefits.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
-                      <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-            <Card data-testid="card-area-body">
-              <CardContent className="p-8">
-                <h3 className="font-serif text-2xl font-light mb-6">K&ouml;rper</h3>
-                <ul className="space-y-3">
-                  {bodyBenefits.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
-                      <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== PROCESS ===== */}
-      <section className="py-20 md:py-28 bg-background" data-testid="section-process">
+      {/* ===== SECTION 4: PROCESS ===== */}
+      <section className="py-20 md:py-28 bg-section-accent" data-testid="section-process">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 fade-up">
             <p className="text-primary text-sm font-medium tracking-[0.2em] uppercase mb-4">Ablauf</p>
@@ -359,11 +367,11 @@ export default function LaserBehandlungen() {
         </div>
       </section>
 
-      {/* ===== RESULTS ===== */}
-      <section className="py-20 md:py-28 bg-section-accent" data-testid="section-results">
+      {/* ===== SECTION 5: RESULTS + PRICING ===== */}
+      <section className="py-20 md:py-28 bg-background" data-testid="section-results">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="grid md:grid-cols-2 gap-16 items-center mb-24">
               <div className="fade-up">
                 <p className="text-primary text-sm font-medium tracking-[0.2em] uppercase mb-4">Ergebnisse</p>
                 <h2 className="font-serif text-4xl md:text-5xl font-light mb-6 leading-tight" data-testid="text-results-h2">
@@ -378,7 +386,7 @@ export default function LaserBehandlungen() {
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {["Medical Peelings", "Skinbooster", "Infusionen", "RF-Microneedling"].map((item) => (
-                    <Badge key={item} variant="secondary" className="px-4 py-2 text-sm">{item}</Badge>
+                    <Badge key={item} variant="secondary" className="text-sm">{item}</Badge>
                   ))}
                 </div>
               </div>
@@ -390,166 +398,130 @@ export default function LaserBehandlungen() {
                 </div>
               </div>
             </div>
+
+            <div className="fade-up" data-testid="section-pricing">
+              <div className="text-center mb-12">
+                <p className="text-primary text-sm font-medium tracking-[0.2em] uppercase mb-4">Preise</p>
+                <h3 className="font-serif text-3xl md:text-4xl font-light mb-6" data-testid="text-pricing-h2">
+                  Preis&uuml;bersicht
+                </h3>
+                <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-6"></div>
+                <p className="text-muted-foreground max-w-xl mx-auto text-sm">
+                  W&auml;hlen Sie die passende Behandlung f&uuml;r Ihren Wunschbereich
+                </p>
+              </div>
+              <div className="max-w-3xl mx-auto">
+                <Card>
+                  <CardContent className="p-0">
+                    {laserTreatments.map((treatment, i) => (
+                      <div
+                        key={treatment.id}
+                        className={`flex items-center justify-between gap-4 flex-wrap px-6 md:px-8 py-5 ${i < laserTreatments.length - 1 ? 'border-b border-border/50' : ''} ${treatment.highlight ? 'bg-primary/5' : ''}`}
+                        data-testid={`row-laser-${treatment.id}`}
+                      >
+                        <div className="flex items-center gap-4 flex-wrap">
+                          <h4 className="font-serif text-lg font-light" data-testid={`text-laser-title-${treatment.id}`}>{treatment.title}</h4>
+                          {treatment.highlight && (
+                            <Badge variant="secondary" className="text-xs" data-testid={`badge-highlight-${treatment.id}`}>Beliebt</Badge>
+                          )}
+                        </div>
+                        <div className="flex items-center gap-4 flex-wrap">
+                          <span className="font-serif text-xl text-primary font-medium" data-testid={`text-laser-price-${treatment.id}`}>{treatment.price}</span>
+                          <Button size="sm" className="rounded-none text-xs uppercase tracking-widest" asChild data-testid={`button-laser-book-${treatment.id}`}>
+                            <a href={`https://wa.me/491709287722?text=Hallo,%20ich%20möchte%20gerne%20einen%20Termin%20für%20eine%20Laserbehandlung%20(${encodeURIComponent(treatment.title)})%20buchen.`} target="_blank" rel="noopener noreferrer">
+                              Termin buchen
+                            </a>
+                          </Button>
+                        </div>
+                      </div>
+                    ))}
+                  </CardContent>
+                </Card>
+                <p className="text-xs text-muted-foreground text-center mt-6">
+                  Alle Preise inkl. individueller Beratung. Kleinunternehmer gem. &sect;19 UStG &ndash; keine MwSt. ausgewiesen.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ===== PRICING ===== */}
-      <section className="py-20 md:py-28 bg-background" data-testid="section-pricing">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16 fade-up">
-            <p className="text-primary text-sm font-medium tracking-[0.2em] uppercase mb-4">Preise</p>
-            <h2 className="font-serif text-4xl md:text-5xl font-light mb-6" data-testid="text-pricing-h2">
-              Preis&uuml;bersicht
-            </h2>
-            <div className="h-0.5 w-32 mx-auto gold-shimmer rounded-full mb-8"></div>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              W&auml;hlen Sie die passende Behandlung f&uuml;r Ihren Wunschbereich
-            </p>
-          </div>
-          <div className="max-w-3xl mx-auto">
-            <Card>
-              <CardContent className="p-0">
-                {laserTreatments.map((treatment, i) => (
-                  <div
-                    key={treatment.id}
-                    className={`flex items-center justify-between gap-4 flex-wrap px-6 md:px-8 py-5 ${i < laserTreatments.length - 1 ? 'border-b border-border/50' : ''} ${treatment.highlight ? 'bg-primary/5' : ''}`}
-                    data-testid={`row-laser-${treatment.id}`}
-                  >
-                    <div className="flex items-center gap-4 flex-wrap">
-                      <h3 className="font-serif text-lg font-light" data-testid={`text-laser-title-${treatment.id}`}>{treatment.title}</h3>
-                      {treatment.highlight && (
-                        <Badge variant="secondary" className="text-xs" data-testid={`badge-highlight-${treatment.id}`}>Beliebt</Badge>
-                      )}
-                    </div>
-                    <div className="flex items-center gap-4 flex-wrap">
-                      <span className="font-serif text-xl text-primary font-medium" data-testid={`text-laser-price-${treatment.id}`}>{treatment.price}</span>
-                      <Button size="sm" className="rounded-none text-xs uppercase tracking-widest" asChild data-testid={`button-laser-book-${treatment.id}`}>
-                        <a href={`https://wa.me/491709287722?text=Hallo,%20ich%20möchte%20gerne%20einen%20Termin%20für%20eine%20Laserbehandlung%20(${encodeURIComponent(treatment.title)})%20buchen.`} target="_blank" rel="noopener noreferrer">
-                          Termin buchen
-                        </a>
-                      </Button>
-                    </div>
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
-            <p className="text-xs text-muted-foreground text-center mt-6">
-              Alle Preise inkl. individueller Beratung. Kleinunternehmer gem. &sect;19 UStG &ndash; keine MwSt. ausgewiesen.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== REVIEWS ===== */}
+      {/* ===== SECTION 6: REVIEWS + TRUST ===== */}
       <section className="py-20 md:py-28 bg-section-accent" data-testid="section-reviews">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-6 fade-up">
-            <p className="text-primary text-sm font-medium tracking-[0.2em] uppercase mb-4">Erfahrungen</p>
-            <h2 className="font-serif text-4xl md:text-5xl font-light mb-6" data-testid="text-reviews-h2">
-              Das sagen unsere Kundinnen
-            </h2>
-            <div className="h-0.5 w-32 mx-auto gold-shimmer rounded-full"></div>
-          </div>
-          <div className="flex items-center justify-center gap-2 flex-wrap mb-12 fade-up">
-            <div className="flex items-center gap-1 flex-wrap">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-6 h-6 text-amber-400 fill-amber-400" />
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-6 fade-up">
+              <p className="text-primary text-sm font-medium tracking-[0.2em] uppercase mb-4">Erfahrungen</p>
+              <h2 className="font-serif text-4xl md:text-5xl font-light mb-6" data-testid="text-reviews-h2">
+                Das sagen unsere Kundinnen
+              </h2>
+              <div className="h-0.5 w-32 mx-auto gold-shimmer rounded-full"></div>
+            </div>
+            <div className="flex items-center justify-center gap-2 flex-wrap mb-12 fade-up">
+              <div className="flex items-center gap-1 flex-wrap">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="w-6 h-6 text-amber-400 fill-amber-400" />
+                ))}
+              </div>
+              <span className="font-serif text-2xl font-medium ml-2" data-testid="text-reviews-avg">5.0</span>
+              <span className="text-muted-foreground text-sm ml-1">({reviews.length} Bewertungen)</span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
+              {reviews.map((review, i) => (
+                <Card key={i} className="fade-up" style={{ animationDelay: `${i * 0.1}s`, opacity: 0 }} data-testid={`card-review-${i}`}>
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-3 flex-wrap mb-4">
+                      <div className="w-10 h-10 rounded-full bg-primary/15 flex items-center justify-center shrink-0">
+                        <span className="font-medium text-sm text-primary">{review.name.split(" ").map(n => n[0]).join("")}</span>
+                      </div>
+                      <div>
+                        <p className="font-medium text-sm leading-tight" data-testid={`text-review-name-${i}`}>{review.name}</p>
+                        <p className="text-xs text-muted-foreground">{review.location}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-1 flex-wrap mb-1">
+                      {Array.from({ length: review.rating }).map((_, j) => (
+                        <Star key={j} className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+                      ))}
+                    </div>
+                    <p className="text-xs text-muted-foreground mb-3">{review.date}</p>
+                    <p className="text-sm text-foreground/80 leading-relaxed" data-testid={`text-review-text-${i}`}>
+                      &bdquo;{review.text}&ldquo;
+                    </p>
+                  </CardContent>
+                </Card>
               ))}
             </div>
-            <span className="font-serif text-2xl font-medium ml-2" data-testid="text-reviews-avg">5.0</span>
-            <span className="text-muted-foreground text-sm ml-1">({reviews.length} Bewertungen)</span>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
-            {reviews.map((review, i) => (
-              <Card key={i} className="fade-up" style={{ animationDelay: `${i * 0.1}s`, opacity: 0 }} data-testid={`card-review-${i}`}>
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-3 flex-wrap mb-4">
-                    <div className="w-10 h-10 rounded-full bg-primary/15 flex items-center justify-center shrink-0">
-                      <span className="font-medium text-sm text-primary">{review.name.split(" ").map(n => n[0]).join("")}</span>
-                    </div>
-                    <div>
-                      <p className="font-medium text-sm leading-tight" data-testid={`text-review-name-${i}`}>{review.name}</p>
-                      <p className="text-xs text-muted-foreground">{review.location}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-1 flex-wrap mb-1">
-                    {Array.from({ length: review.rating }).map((_, j) => (
-                      <Star key={j} className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
-                    ))}
-                  </div>
-                  <p className="text-xs text-muted-foreground mb-3">{review.date}</p>
-                  <p className="text-sm text-foreground/80 leading-relaxed" data-testid={`text-review-text-${i}`}>
-                    &bdquo;{review.text}&ldquo;
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* ===== FAQ ===== */}
-      <section className="py-20 md:py-28 bg-background" data-testid="section-faq">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16 fade-up">
-            <p className="text-primary text-sm font-medium tracking-[0.2em] uppercase mb-4">FAQ</p>
-            <h2 className="font-serif text-4xl md:text-5xl font-light mb-6" data-testid="text-faq-h2">
-              H&auml;ufig gestellte Fragen
-            </h2>
-            <div className="h-0.5 w-32 mx-auto gold-shimmer rounded-full"></div>
-          </div>
-          <div className="max-w-3xl mx-auto space-y-2">
-            {faqs.map((faq, i) => (
-              <div key={i} className="border-b border-border/40" data-testid={`faq-item-${i}`}>
-                <button
-                  className="w-full flex items-center justify-between gap-4 py-6 text-left hover-elevate transition-all"
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  data-testid={`button-faq-${i}`}
-                >
-                  <span className="font-serif text-lg font-light pr-4">{faq.q}</span>
-                  <ChevronDown className={`w-5 h-5 shrink-0 text-muted-foreground transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} />
-                </button>
-                <div
-                  className="overflow-hidden transition-all duration-300"
-                  style={{ maxHeight: openFaq === i ? "500px" : "0", opacity: openFaq === i ? 1 : 0 }}
-                >
-                  <div className="pb-6">
-                    <p className="text-muted-foreground leading-relaxed" data-testid={`text-faq-answer-${i}`}>{faq.a}</p>
-                  </div>
+            <div className="fade-up" data-testid="section-trust">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
+                <div className="text-center">
+                  <p className="font-serif text-3xl md:text-4xl font-light text-primary mb-1" data-testid="text-rating">5.0</p>
+                  <p className="text-xs text-muted-foreground">Kundenbewertung</p>
+                </div>
+                <div className="text-center">
+                  <p className="font-serif text-3xl md:text-4xl font-light text-primary mb-1" data-testid="text-satisfaction">100%</p>
+                  <p className="text-xs text-muted-foreground">Zufriedenheit</p>
+                </div>
+                <div className="text-center">
+                  <p className="font-serif text-3xl md:text-4xl font-light text-primary mb-1" data-testid="text-sessions">3&ndash;4</p>
+                  <p className="text-xs text-muted-foreground">Sitzungen empfohlen</p>
+                </div>
+                <div className="text-center">
+                  <p className="font-serif text-3xl md:text-4xl font-light text-primary mb-1">DEKA</p>
+                  <p className="text-xs text-muted-foreground">Zertifiziert</p>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== PARTNERS ===== */}
-      <section className="py-16 md:py-20 bg-section-accent" data-testid="section-partners">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <p className="text-muted-foreground text-sm tracking-[0.2em] uppercase mb-2">Unsere Technologiepartner</p>
-          </div>
-          <div className="flex flex-wrap items-center justify-center gap-16 md:gap-24 max-w-3xl mx-auto">
-            <div className="text-center" data-testid="partner-deka">
-              <div className="bg-white rounded-md p-6 shadow-sm border border-border/20">
-                <img src={dekaLogo} alt="DEKA Lasertechnologie" className="h-14 md:h-16 w-auto object-contain mx-auto opacity-80" />
-              </div>
-            </div>
-            <div className="text-center" data-testid="partner-redtouch">
-              <div className="bg-white rounded-md p-6 shadow-sm border border-border/20">
-                <img src={redtouchLogo} alt="Red Touch Pro" className="h-14 md:h-16 w-auto object-contain mx-auto opacity-80" />
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ===== TRUST ===== */}
-      <section className="py-20 md:py-28 bg-background" data-testid="section-trust">
+      {/* ===== SECTION 7: WHY US + FAQ ===== */}
+      <section className="py-20 md:py-28 bg-background" data-testid="section-faq">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-16 items-start mb-24">
               <div className="fade-up">
                 <p className="text-primary text-sm font-medium tracking-[0.2em] uppercase mb-4">Vertrauen</p>
                 <h2 className="font-serif text-4xl md:text-5xl font-light mb-6 leading-tight" data-testid="text-trust-h2">
@@ -567,36 +539,42 @@ export default function LaserBehandlungen() {
                   ))}
                 </ul>
               </div>
-              <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
-                <Card>
-                  <CardContent className="p-10 text-center">
-                    <div className="flex items-center justify-center gap-1 flex-wrap mb-6">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <Star key={i} className="w-5 h-5 text-primary fill-primary" />
-                      ))}
-                    </div>
-                    <p className="font-serif text-5xl font-light text-primary mb-2" data-testid="text-rating">5.0</p>
-                    <p className="text-sm text-muted-foreground mb-8">Durchschnittliche Kundenbewertung</p>
-                    <div className="h-px w-20 mx-auto bg-border mb-8"></div>
-                    <div className="grid grid-cols-2 gap-6">
-                      <div>
-                        <p className="font-serif text-3xl font-light text-primary" data-testid="text-satisfaction">100%</p>
-                        <p className="text-xs text-muted-foreground mt-1">Kundenzufriedenheit</p>
+
+              <div className="fade-up" style={{ animationDelay: "0.15s", opacity: 0 }}>
+                <p className="text-primary text-sm font-medium tracking-[0.2em] uppercase mb-4">FAQ</p>
+                <h2 className="font-serif text-4xl md:text-5xl font-light mb-6 leading-tight" data-testid="text-faq-h2">
+                  H&auml;ufig gestellte Fragen
+                </h2>
+                <div className="h-0.5 w-24 mb-6 gold-shimmer rounded-full"></div>
+                <div className="space-y-0">
+                  {faqs.map((faq, i) => (
+                    <div key={i} className="border-b border-border/40" data-testid={`faq-item-${i}`}>
+                      <button
+                        className="w-full flex items-center justify-between gap-4 py-5 text-left hover-elevate transition-all"
+                        onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                        data-testid={`button-faq-${i}`}
+                      >
+                        <span className="font-medium text-sm pr-4">{faq.q}</span>
+                        <ChevronDown className={`w-4 h-4 shrink-0 text-muted-foreground transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} />
+                      </button>
+                      <div
+                        className="overflow-hidden transition-all duration-300"
+                        style={{ maxHeight: openFaq === i ? "500px" : "0", opacity: openFaq === i ? 1 : 0 }}
+                      >
+                        <div className="pb-5">
+                          <p className="text-sm text-muted-foreground leading-relaxed" data-testid={`text-faq-answer-${i}`}>{faq.a}</p>
+                        </div>
                       </div>
-                      <div>
-                        <p className="font-serif text-3xl font-light text-primary" data-testid="text-sessions">3&ndash;4</p>
-                        <p className="text-xs text-muted-foreground mt-1">Sitzungen empfohlen</p>
-                      </div>
                     </div>
-                  </CardContent>
-                </Card>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ===== FINAL CTA ===== */}
+      {/* ===== SECTION 8: FINAL CTA ===== */}
       <section className="relative py-24 md:py-32 overflow-hidden" data-testid="section-cta-final">
         <div
           className="absolute inset-0 bg-cover bg-center"
