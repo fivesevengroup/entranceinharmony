@@ -194,8 +194,8 @@ export default function Home() {
                   {marqueeSlides.map((slide, index) => (
                     <div
                       key={index}
-                      className="h-full shrink-0"
-                      style={{ width: "60vw", marginRight: "2rem" }}
+                      className="h-[75%] shrink-0 self-center"
+                      style={{ width: "50vw", marginRight: "2rem" }}
                     >
                       <img
                         src={slide.src}
