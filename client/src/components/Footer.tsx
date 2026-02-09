@@ -106,7 +106,12 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link href="/leistungen" className="text-muted-foreground hover:text-foreground transition-colors duration-200" data-testid="footer-link-leistungen">
-                    Behandlungen
+                    Gesichtsbehandlungen
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/laserbehandlungen" className="text-muted-foreground hover:text-foreground transition-colors duration-200" data-testid="footer-link-laser">
+                    Laserbehandlungen
                   </Link>
                 </li>
                 <li>
