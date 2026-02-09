@@ -116,7 +116,7 @@ export default function Header({ transparent = false }: HeaderProps) {
                 <div className="flex items-center gap-2 max-w-5xl w-full justify-between px-8">
                   {/* Linke Items */}
                   <div className="flex items-center gap-2">
-                    {navLinks.slice(0, 2).map((link, index) => (
+                    {navLinks.slice(0, 3).map((link, index) => (
                       <Link
                         key={link.href}
                         href={link.href}
@@ -150,7 +150,7 @@ export default function Header({ transparent = false }: HeaderProps) {
 
                   {/* Rechte Items */}
                   <div className="flex items-center gap-2">
-                    {navLinks.slice(2).map((link, index) => {
+                    {navLinks.slice(3).map((link, index) => {
                       return (
                         <Link
                           key={link.href}
