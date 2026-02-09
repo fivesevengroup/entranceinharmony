@@ -124,11 +124,6 @@ export default function Footer() {
                     Kontakt
                   </Link>
                 </li>
-                <li>
-                  <Link href="/ueber-mich" className="text-muted-foreground hover:text-foreground transition-colors duration-200" data-testid="footer-link-ueber-mich">
-                    Über mich
-                  </Link>
-                </li>
               </ul>
             </div>
 
