@@ -6,8 +6,8 @@ import VoucherModal from "@/components/VoucherModal";
 import { Mail, Gift, Heart, Sparkles } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import WaveDivider from "@/components/WaveDivider";
-import voucherImage from "@assets/generated_images/Elegant_gift_voucher_card_151c453a.png";
-import heroImage from "@assets/stock_images/elegant_gold_gift_bo_9cd64d90.jpg";
+import voucherImage from "@assets/generated_images/geschenkgutschein-kosmetik-beauty-gutschein.png";
+import heroImage from "@assets/stock_images/geschenkgutschein-gold-box-beauty.jpg";
 
 export default function Voucher() {
   const [modalOpen, setModalOpen] = useState(false);

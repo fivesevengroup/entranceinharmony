@@ -7,8 +7,8 @@ import { Badge } from "@/components/ui/badge";
 import { Phone, Mail, MapPin, Clock, Award, Heart, Sparkles, User } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import WaveDivider from "@/components/WaveDivider";
-import aboutImage from "@assets/elena-about.png";
-import heroImage from "@assets/elena-portrait.jpg";
+import aboutImage from "@assets/kosmetikerin-elena-ueber-mich-portrait.png";
+import heroImage from "@assets/kosmetikerin-elena-portrait-kontakt.jpg";
 
 export default function Contact() {
   return (

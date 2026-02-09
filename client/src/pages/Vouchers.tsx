@@ -22,8 +22,8 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose } from "@/components/ui/dialog";
 import WaveDivider from "@/components/WaveDivider";
-import voucherImage from "@assets/generated_images/Voucher_with_EH_monogram_logo_a4abc98d.png";
-import heroImage from "@assets/voucher_hero_image.png";
+import voucherImage from "@assets/generated_images/gutschein-gesichtsbehandlung-geschenk-beauty.png";
+import heroImage from "@assets/gutschein-kaufen-hero-geschenk-beauty.png";
 
 const voucherFormSchema = z.object({
   purchaseType: z.enum(["custom", "service"]),

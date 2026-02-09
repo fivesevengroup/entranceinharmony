@@ -5,12 +5,12 @@ import WaveDivider from "@/components/WaveDivider";
 import { Button } from "@/components/ui/button";
 import { useRef, useCallback, useState, useEffect } from "react";
 import { Check, ArrowRight } from "lucide-react";
-import aboutImage from "@assets/Design ohne Titel(4)_1760188585511.jpg";
-import massageImage from "@assets/Design-ohne-Titel-7_1760197347929.png";
-import laserImage1 from "@assets/generated_images/Red_Touch_laser_with_goggles_86dab14d.png";
-import laserImage2 from "@assets/generated_images/Red_Touch_laser_treatment_4f8328f9.png";
-import laserImage3 from "@assets/generated_images/Red_laser_therapy_bf6d9b43.png";
-import skinResultImage from "@assets/generated_images/Before_after_skin_treatment_60b501b9.png";
+import aboutImage from "@assets/ueber-mich-kosmetikerin-elena-beauty.jpg";
+import massageImage from "@assets/gesichtsbehandlung-massage-entspannung.png";
+import laserImage1 from "@assets/generated_images/laserbehandlung-hautverjuengung-anti-aging-redtouch.png";
+import laserImage2 from "@assets/generated_images/laserbehandlung-hautstraffung-faltenreduktion.png";
+import laserImage3 from "@assets/generated_images/lasertherapie-rosacea-roetungen-hautbild.png";
+import skinResultImage from "@assets/generated_images/vorher-nachher-hautverbesserung-ergebnis.png";
 
 const slides = [
   { src: laserImage1, alt: "Red Touch Pro Behandlung" },

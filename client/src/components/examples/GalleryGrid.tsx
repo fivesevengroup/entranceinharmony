@@ -1,5 +1,5 @@
 import GalleryGrid from '../GalleryGrid'
-import beforeAfterImage from '@assets/generated_images/Before_after_skin_treatment_60b501b9.png'
+import beforeAfterImage from '@assets/generated_images/vorher-nachher-hautverbesserung-ergebnis.png'
 
 export default function GalleryGridExample() {
   const sampleImages = [

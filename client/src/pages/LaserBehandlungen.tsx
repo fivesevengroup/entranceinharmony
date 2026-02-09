@@ -6,16 +6,16 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useEffect, useState } from "react";
 import { Check, MessageCircle, ChevronDown, Star, ArrowRight, Sparkles, Shield, Clock, Zap, Waves, ScanLine, Thermometer, Monitor, Snowflake, Activity } from "lucide-react";
-import heroImg from "@assets/laser_hero_header.png";
-import resultImg from "@assets/laser_result_beauty.png";
-import treatmentImg from "@assets/grafik_1770659141702.png";
-import smoothImg from "@assets/stock_images/laser_smooth_skin.jpg";
-import laserFaceImg from "@assets/laser_face_treatment.png";
-import laserDecolletteImg from "@assets/laser_decollete_treatment.png";
-import laserBodyImg from "@assets/laser_body_treatment.png";
-import beautyProfileImg from "@assets/stock_images/beauty_profile_golden.jpg";
+import heroImg from "@assets/laserbehandlung-hero-hautverjuengung-redtouch.png";
+import resultImg from "@assets/laser-ergebnis-schoene-haut-anti-aging.png";
+import treatmentImg from "@assets/laserbehandlung-behandlung-hautverjuengung.png";
+import smoothImg from "@assets/stock_images/laserbehandlung-glatte-haut-hautstraffung.jpg";
+import laserFaceImg from "@assets/laserbehandlung-gesicht-rosacea-pigmentflecken.png";
+import laserDecolletteImg from "@assets/laserbehandlung-dekollete-hautstraffung.png";
+import laserBodyImg from "@assets/laserbehandlung-koerper-narben-akne.png";
+import beautyProfileImg from "@assets/stock_images/beauty-profil-hautverjuengung-golden.jpg";
 import dekaLogo from "@assets/deka-logo.svg";
-import redtouchLogo from "@assets/grafik_1770659116331.png";
+import redtouchLogo from "@assets/redtouch-pro-logo-laser-technologie.png";
 
 const laserTreatments = [
   { id: "gesicht", title: "Gesicht", price: "250\u20AC" },

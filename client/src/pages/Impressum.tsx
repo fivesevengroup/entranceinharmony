@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Scale, Shield } from "lucide-react";
 import WaveDivider from "@/components/WaveDivider";
-import heroImage from "@assets/stock_images/professional_legal_d_a8468a57.jpg";
+import heroImage from "@assets/stock_images/impressum-datenschutz-agb-rechtliches.jpg";
 
 export default function Impressum() {
   return (

@@ -7,15 +7,15 @@ import { useState } from "react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Sparkles, Star, Heart, LifeBuoy, MessageCircle, Award, Crown } from "lucide-react";
 import WaveDivider from "@/components/WaveDivider";
-import deepCleansingImage from "@assets/generated_images/Deep_cleansing_facial_treatment_8a24d580.png";
-import basicTreatmentImage from "@assets/generated_images/Basic_facial_treatment_630e122c.png";
-import carboxyImage from "@assets/generated_images/Carboxy_therapy_facial_979c25d2.png";
-import bbGlowImage from "@assets/Design ohne Titel(5)_1760190236232.png";
-import microneedlingImage from "@assets/generated_images/Microneedling_facial_treatment_0da7c603.png";
-import btoxImage from "@assets/generated_images/B-Tox_peel_treatment_ba217e96.png";
-import peelingImage from "@assets/generated_images/Revitalizing_peel_treatment_2f08d057.png";
-import laserImage from "@assets/generated_images/Red_Touch_laser_with_goggles_86dab14d.png";
-import heroImage from "@assets/Unbenannt_1760190547528.png";
+import deepCleansingImage from "@assets/generated_images/gesichtsbehandlung-tiefenreinigung-akne-pickel.png";
+import basicTreatmentImage from "@assets/generated_images/gesichtsbehandlung-basis-hautpflege-hautbild.png";
+import carboxyImage from "@assets/generated_images/carboxy-therapie-hautstraffung-hautverjuengung.png";
+import bbGlowImage from "@assets/bb-glow-behandlung-strahlende-haut-vorher-nachher.png";
+import microneedlingImage from "@assets/generated_images/microneedling-narben-hautstraffung-kollagen.png";
+import btoxImage from "@assets/generated_images/btox-peeling-faltenreduktion-anti-aging.png";
+import peelingImage from "@assets/generated_images/peeling-hauterneuerung-pigmentflecken-hautbild.png";
+import laserImage from "@assets/generated_images/laserbehandlung-hautverjuengung-anti-aging-redtouch.png";
+import heroImage from "@assets/gesichtsbehandlungen-hero-beauty-kosmetik.png";
 
 interface Treatment {
   id: string;

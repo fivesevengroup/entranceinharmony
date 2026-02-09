@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Download, CheckCircle, Shield } from "lucide-react";
 import WaveDivider from "@/components/WaveDivider";
-import facialImage from "@assets/generated_images/Facial_treatment_close-up_d5c55f42.png";
-import heroImage from "@assets/stock_images/luxury_spa_products__6c63556f.jpg";
+import facialImage from "@assets/generated_images/gesichtsbehandlung-nahaufnahme-hautpflege-glow.png";
+import heroImage from "@assets/stock_images/luxus-kosmetik-produkte-hautpflege.jpg";
 
 export default function PriceList() {
   const facialPrices = [

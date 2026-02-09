@@ -1,8 +1,8 @@
 import { Link } from "wouter";
 import { SiWhatsapp, SiInstagram } from "react-icons/si";
 import { Phone } from "lucide-react";
-import logoImage from "@assets/Design ohne Titel_1759860744691.png";
-import redTouchLogo from "@assets/grafik_1770477786405.png";
+import logoImage from "@assets/logo-entrance-in-harmony-footer.png";
+import redTouchLogo from "@assets/redtouch-pro-logo-laserbehandlung.png";
 
 export default function Footer() {
   return (

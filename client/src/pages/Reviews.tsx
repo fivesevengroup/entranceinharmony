@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Users, Star, ThumbsUp } from "lucide-react";
 import WaveDivider from "@/components/WaveDivider";
-import massageImage from "@assets/generated_images/Massage_therapy_session_569ccb02.png";
-import heroImage from "@assets/stock_images/happy_woman_smiling__d4fdfc14.jpg";
+import massageImage from "@assets/generated_images/massage-entspannung-gesichtspflege-wellness.png";
+import heroImage from "@assets/stock_images/zufriedene-kundin-gesichtsbehandlung-ergebnis.jpg";
 
 export default function Reviews() {
   const allTestimonials = [

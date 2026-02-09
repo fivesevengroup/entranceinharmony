@@ -6,10 +6,10 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Camera, Eye, Award } from "lucide-react";
 import WaveDivider from "@/components/WaveDivider";
-import beforeAfterImage from "@assets/generated_images/Before_after_skin_treatment_60b501b9.png";
-import facialImage from "@assets/generated_images/Facial_treatment_close-up_d5c55f42.png";
-import massageImage from "@assets/generated_images/Massage_therapy_session_569ccb02.png";
-import heroImage from "@assets/stock_images/beauty_salon_interio_7ac79c3d.jpg";
+import beforeAfterImage from "@assets/generated_images/vorher-nachher-hautverbesserung-ergebnis.png";
+import facialImage from "@assets/generated_images/gesichtsbehandlung-nahaufnahme-hautpflege-glow.png";
+import massageImage from "@assets/generated_images/massage-entspannung-gesichtspflege-wellness.png";
+import heroImage from "@assets/stock_images/kosmetikstudio-innenraum-beauty-salon-burbach.jpg";
 
 export default function Gallery() {
   const galleryImages = [
