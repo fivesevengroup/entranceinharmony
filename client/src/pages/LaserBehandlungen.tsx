@@ -360,7 +360,7 @@ export default function LaserBehandlungen() {
                     <span className="text-white/80 text-xs tracking-[0.2em] uppercase">F&uuml;r Sie</span>
                   </div>
                   <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-white mb-6 leading-tight" data-testid="text-target-h2">
-                    F&uuml;r wen ist die Behandlung <span className="text-gold-gradient">geeignet?</span>
+                    Wof&uuml;r ist die Red Touch Pro<sup className="text-lg">&reg;</sup> Laserbehandlung <span className="text-gold-gradient">geeignet?</span>
                   </h2>
                   <div className="h-0.5 w-24 mb-10 gold-shimmer rounded-full"></div>
                   <div className="space-y-4">
