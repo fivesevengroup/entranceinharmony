@@ -41,7 +41,8 @@ Comprehensive SEO is implemented via a reusable `SEOHead` component (`client/src
 - **Sitemap & Robots**: `client/public/sitemap.xml` and `client/public/robots.txt`
 - **Local SEO**: geo.region, geo.placename, geo.position, ICBM tags in index.html
 - **Legal pages**: Marked as `noindex` and excluded from sitemap
-- **Keywords**: German-language, optimized for Burbach/Siegen/NRW area beauty salon searches
+- **Keywords**: German-language, optimized for großzügiges Einzugsgebiet rund um Burbach: Siegerland (Siegen, Kreuztal, Netphen, Freudenberg, Hilchenbach, Neunkirchen, Wilnsdorf), Lahn-Dill-Kreis (Haiger, Dillenburg, Herborn, Wetzlar, Eschenburg), Westerwald (Betzdorf, Herdorf, Kirchen, Daaden, Rennerod, Hachenburg, Bad Marienberg, Westerburg), Sauerland/Olpe (Olpe, Attendorn, Lennestadt), Wittgenstein (Bad Laasphe, Bad Berleburg, Erndtebrück)
+- **areaServed (Schema.org)**: 30 Städte/Gemeinden im Umkreis von ca. 40-50km um Burbach
 
 ### Legal Compliance
 

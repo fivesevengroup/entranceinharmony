@@ -163,8 +163,8 @@ export default function LaserBehandlungen() {
   return (
     <div className="min-h-screen bg-background" data-testid="page-laser">
       <SEOHead
-        title="Red Touch Pro Laser – Moderne Hautverjüngung ohne OP | Entrance in Harmony"
-        description="Sanfte Laser-Hautverjüngung mit Red Touch Pro in Burbach. Sichtbare Straffung, verfeinerte Hautstruktur und mehr Glow – ohne OP und mit minimaler Ausfallzeit. Jetzt Beratung vereinbaren."
+        title="Red Touch Pro Laser Siegerland – Hautverjüngung ohne OP in Burbach | Entrance in Harmony"
+        description="Sanfte Laser-Hautverjüngung mit Red Touch Pro in Burbach bei Siegen. Sichtbare Straffung & mehr Glow – ohne OP. Für Kunden aus dem Siegerland, Lahn-Dill-Kreis, Westerwald & Olpe. Jetzt Beratung vereinbaren."
         path="/laserbehandlungen"
         structuredData={breadcrumbSchema([
           { name: "Startseite", url: "/" },

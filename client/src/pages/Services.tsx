@@ -171,8 +171,8 @@ export default function Services() {
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
-        title="Gesichtsbehandlungen Burbach – Tiefenreinigung, BB Glow, Microneedling | Entrance in Harmony"
-        description="Professionelle Gesichtsbehandlungen in Burbach: Tiefenreinigung, Carboxy Therapie, BB Glow, Microneedling, B-Tox Peel & Peelings. Ab 80€. Jetzt Termin buchen."
+        title="Gesichtsbehandlungen Siegerland – Tiefenreinigung, BB Glow, Microneedling | Entrance in Harmony Burbach"
+        description="Professionelle Gesichtsbehandlungen in Burbach bei Siegen: Tiefenreinigung, Carboxy Therapie, BB Glow, Microneedling & Peelings. Auch für Kunden aus Haiger, Dillenburg, Kreuztal, Netphen & Westerwald. Ab 80€."
         path="/gesichtsbehandlungen"
         structuredData={breadcrumbSchema([
           { name: "Startseite", url: "/" },

@@ -16,8 +16,8 @@ export default function Contact() {
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
-        title="Kontakt & Über mich – Elena Hartstein | Entrance in Harmony Burbach"
-        description="Lernen Sie Elena Hartstein kennen. Kontaktieren Sie Entrance in Harmony in Burbach für Terminvereinbarungen, Beratung und Fragen zu Gesichts- und Laserbehandlungen."
+        title="Kontakt & Über mich – Elena Hartstein | Kosmetikstudio Burbach im Siegerland"
+        description="Lernen Sie Elena Hartstein kennen. Kontaktieren Sie Entrance in Harmony in Burbach für Termine & Beratung. Gut erreichbar aus Siegen, Haiger, Dillenburg, Kreuztal, Betzdorf & dem Westerwald."
         path="/kontakt"
         structuredData={breadcrumbSchema([
           { name: "Startseite", url: "/" },

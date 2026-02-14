@@ -201,8 +201,8 @@ export default function Vouchers() {
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
-        title="Geschenkgutschein kaufen – Beauty Gutschein | Entrance in Harmony"
-        description="Schenken Sie Entspannung und Schönheit. Geschenkgutscheine für Gesichtsbehandlungen und Laserbehandlungen in Burbach. Online kaufen mit sicherer Bezahlung."
+        title="Geschenkgutschein kaufen – Beauty Gutschein Siegerland | Entrance in Harmony Burbach"
+        description="Schenken Sie Entspannung und Schönheit. Geschenkgutscheine für Gesichtsbehandlungen und Laserbehandlungen – einlösbar in Burbach bei Siegen. Online kaufen, deutschlandweit verschicken."
         path="/gutscheine"
         structuredData={breadcrumbSchema([
           { name: "Startseite", url: "/" },
