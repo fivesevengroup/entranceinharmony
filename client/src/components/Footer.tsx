@@ -1,8 +1,8 @@
 import { Link } from "wouter";
 import { SiWhatsapp, SiInstagram } from "react-icons/si";
 import { Phone } from "lucide-react";
-import logoImage from "@assets/logo-entrance-in-harmony-footer.png";
-import redTouchLogo from "@assets/redtouch-pro-logo-laserbehandlung.png";
+import logoImage from "@assets/optimized/logo-entrance-in-harmony-footer.webp";
+import redTouchLogo from "@assets/optimized/redtouch-pro-logo-laserbehandlung.webp";
 
 export default function Footer() {
   return (
@@ -39,6 +39,8 @@ export default function Footer() {
                 alt="Entrance in Harmony Kosmetikstudio Gesichtsbehandlung Laserbehandlung Burbach" 
                 className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
                 style={{ filter: 'brightness(0)' }}
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -162,6 +164,8 @@ export default function Footer() {
                 src="https://deka-beauty.de/wp-content/uploads/2024/11/deka_web2024_mainlogo.svg"
                 alt="DEKA Lasertechnologie Medizinische Laser"
                 className="h-6 w-auto opacity-60"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="h-6 w-px bg-border/40"></div>
@@ -170,6 +174,8 @@ export default function Footer() {
               alt="Red Touch Pro Laserbehandlung Hautverjüngung"
               className="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity duration-200"
               data-testid="footer-logo-redtouch"
+              loading="lazy"
+              decoding="async"
             />
           </div>
 
@@ -195,7 +201,7 @@ export default function Footer() {
           <div className="mt-6 flex items-center justify-center gap-1.5">
             <span className="text-[10px] text-muted-foreground/50">powered by</span>
             <a href="https://57group.eu" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 opacity-50 hover:opacity-80 transition-opacity duration-200" data-testid="footer-link-57group">
-              <img src="/assets/57group-icon.png" alt="57 Group" className="h-4 w-auto" />
+              <img src="/assets/57group-icon.png" alt="57 Group" className="h-4 w-auto" loading="lazy" decoding="async" />
               <span className="text-[10px] text-foreground font-medium tracking-[0.15em] uppercase">57Group</span>
             </a>
           </div>

@@ -24,8 +24,8 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose } from "@/components/ui/dialog";
 import WaveDivider from "@/components/WaveDivider";
-import voucherImage from "@assets/generated_images/gutschein-gesichtsbehandlung-geschenk-beauty.png";
-import heroImage from "@assets/gutschein-kaufen-hero-geschenk-beauty.png";
+import voucherImage from "@assets/optimized/generated_images/gutschein-gesichtsbehandlung-geschenk-beauty.webp";
+import heroImage from "@assets/optimized/gutschein-kaufen-hero-geschenk-beauty.webp";
 
 const voucherFormSchema = z.object({
   purchaseType: z.enum(["custom", "service"]),
@@ -409,6 +409,8 @@ export default function Vouchers() {
                       src={voucherImage} 
                       alt="Geschenkgutschein Gesichtsbehandlung Kosmetik Beauty Burbach" 
                       className="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <Badge variant="secondary" className="mb-4 bg-primary/20 text-primary border-primary/30">
@@ -956,6 +958,8 @@ export default function Vouchers() {
                               src="https://raw.githubusercontent.com/slaterjohn/payment-logos/master/Rounded%20Corners/PNG/medium/visa@2x.png" 
                               alt="Visa" 
                               className="h-8"
+                              loading="lazy"
+                              decoding="async"
                             />
                           </div>
                           <div className="h-10 flex items-center">
@@ -963,6 +967,8 @@ export default function Vouchers() {
                               src="https://raw.githubusercontent.com/slaterjohn/payment-logos/master/Rounded%20Corners/PNG/medium/mastercard@2x.png" 
                               alt="Mastercard" 
                               className="h-8"
+                              loading="lazy"
+                              decoding="async"
                             />
                           </div>
                           <div className="h-10 flex items-center">
@@ -970,6 +976,8 @@ export default function Vouchers() {
                               src="https://raw.githubusercontent.com/slaterjohn/payment-logos/master/Rounded%20Corners/PNG/medium/paypal@2x.png" 
                               alt="PayPal" 
                               className="h-8"
+                              loading="lazy"
+                              decoding="async"
                             />
                           </div>
                           <div className="h-10 flex items-center">
@@ -977,6 +985,8 @@ export default function Vouchers() {
                               src="https://raw.githubusercontent.com/slaterjohn/payment-logos/master/Rounded%20Corners/PNG/medium/direct-debit@2x.png" 
                               alt="SEPA" 
                               className="h-8"
+                              loading="lazy"
+                              decoding="async"
                             />
                           </div>
                           <div className="h-10 flex items-center">
@@ -984,6 +994,8 @@ export default function Vouchers() {
                               src="https://raw.githubusercontent.com/slaterjohn/payment-logos/master/Rounded%20Corners/PNG/medium/klarna-1@2x.png" 
                               alt="Klarna" 
                               className="h-8"
+                              loading="lazy"
+                              decoding="async"
                             />
                           </div>
                           <div className="h-10 flex items-center px-3 py-2 bg-white dark:bg-white/95 rounded border">

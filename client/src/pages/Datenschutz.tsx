@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ShieldCheck } from "lucide-react";
 import WaveDivider from "@/components/WaveDivider";
-import heroImage from "@assets/stock_images/impressum-datenschutz-agb-rechtliches.jpg";
+import heroImage from "@assets/optimized/stock_images/impressum-datenschutz-agb-rechtliches.webp";
 
 export default function Datenschutz() {
   return (

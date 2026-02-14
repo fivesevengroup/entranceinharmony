@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { RotateCcw, AlertCircle } from "lucide-react";
 import WaveDivider from "@/components/WaveDivider";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import heroImage from "@assets/stock_images/impressum-datenschutz-agb-rechtliches.jpg";
+import heroImage from "@assets/optimized/stock_images/impressum-datenschutz-agb-rechtliches.webp";
 
 export default function Widerruf() {
   return (

@@ -7,12 +7,12 @@ import SEOHead, { localBusinessSchema, breadcrumbSchema } from "@/components/SEO
 import { Button } from "@/components/ui/button";
 import { useRef, useCallback, useState, useEffect } from "react";
 import { Check, ArrowRight } from "lucide-react";
-import aboutImage from "@assets/ueber-mich-kosmetikerin-elena-beauty.jpg";
-import massageImage from "@assets/gesichtsbehandlung-massage-entspannung.png";
-import laserImage1 from "@assets/generated_images/laserbehandlung-hautverjuengung-anti-aging-redtouch.png";
-import laserImage2 from "@assets/generated_images/laserbehandlung-hautstraffung-faltenreduktion.png";
-import laserImage3 from "@assets/generated_images/lasertherapie-rosacea-roetungen-hautbild.png";
-import skinResultImage from "@assets/generated_images/vorher-nachher-hautverbesserung-ergebnis.png";
+import aboutImage from "@assets/optimized/ueber-mich-kosmetikerin-elena-beauty.webp";
+import massageImage from "@assets/optimized/gesichtsbehandlung-massage-entspannung.webp";
+import laserImage1 from "@assets/optimized/generated_images/laserbehandlung-hautverjuengung-anti-aging-redtouch.webp";
+import laserImage2 from "@assets/optimized/generated_images/laserbehandlung-hautstraffung-faltenreduktion.webp";
+import laserImage3 from "@assets/optimized/generated_images/lasertherapie-rosacea-roetungen-hautbild.webp";
+import skinResultImage from "@assets/optimized/generated_images/vorher-nachher-hautverbesserung-ergebnis.webp";
 
 const slides = [
   { src: laserImage1, alt: "Red Touch Pro Laserbehandlung Hautverjüngung Anti-Aging Burbach" },
@@ -213,6 +213,8 @@ export default function Home() {
                         alt={slide.alt}
                         className="w-full h-full object-cover pointer-events-none select-none"
                         draggable={false}
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
                   ))}
@@ -248,6 +250,8 @@ export default function Home() {
                     src={massageImage}
                     alt="Kosmetikstudio Entrance in Harmony Gesichtsbehandlung Burbach"
                     className="w-full aspect-[4/3] object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>

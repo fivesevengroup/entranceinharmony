@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import WaveDivider from "@/components/WaveDivider";
 import { Gem, ArrowRight } from "lucide-react";
-import heroImage from "@assets/hero-kosmetikstudio-entrance-in-harmony.png";
+import heroImage from "@assets/optimized/hero-kosmetikstudio-entrance-in-harmony.webp";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect, useState } from "react";
 

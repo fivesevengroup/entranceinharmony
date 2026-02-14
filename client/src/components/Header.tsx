@@ -3,7 +3,7 @@ import { Menu, Phone, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { useState, useEffect } from "react";
-import logoImage from "@assets/logo-entrance-in-harmony-kosmetik.png";
+import logoImage from "@assets/optimized/logo-entrance-in-harmony-kosmetik.webp";
 
 interface HeaderProps {
   transparent?: boolean;

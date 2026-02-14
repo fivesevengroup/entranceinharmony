@@ -9,15 +9,15 @@ import { useState } from "react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Sparkles, Star, Heart, LifeBuoy, MessageCircle, Award, Crown } from "lucide-react";
 import WaveDivider from "@/components/WaveDivider";
-import deepCleansingImage from "@assets/generated_images/gesichtsbehandlung-tiefenreinigung-akne-pickel.png";
-import basicTreatmentImage from "@assets/generated_images/gesichtsbehandlung-basis-hautpflege-hautbild.png";
-import carboxyImage from "@assets/generated_images/carboxy-therapie-hautstraffung-hautverjuengung.png";
-import bbGlowImage from "@assets/bb-glow-behandlung-strahlende-haut-vorher-nachher.png";
-import microneedlingImage from "@assets/generated_images/microneedling-narben-hautstraffung-kollagen.png";
-import btoxImage from "@assets/generated_images/btox-peeling-faltenreduktion-anti-aging.png";
-import peelingImage from "@assets/generated_images/peeling-hauterneuerung-pigmentflecken-hautbild.png";
-import laserImage from "@assets/generated_images/laserbehandlung-hautverjuengung-anti-aging-redtouch.png";
-import heroImage from "@assets/gesichtsbehandlungen-hero-beauty-kosmetik.png";
+import deepCleansingImage from "@assets/optimized/generated_images/gesichtsbehandlung-tiefenreinigung-akne-pickel.webp";
+import basicTreatmentImage from "@assets/optimized/generated_images/gesichtsbehandlung-basis-hautpflege-hautbild.webp";
+import carboxyImage from "@assets/optimized/generated_images/carboxy-therapie-hautstraffung-hautverjuengung.webp";
+import bbGlowImage from "@assets/optimized/bb-glow-behandlung-strahlende-haut-vorher-nachher.webp";
+import microneedlingImage from "@assets/optimized/generated_images/microneedling-narben-hautstraffung-kollagen.webp";
+import btoxImage from "@assets/optimized/generated_images/btox-peeling-faltenreduktion-anti-aging.webp";
+import peelingImage from "@assets/optimized/generated_images/peeling-hauterneuerung-pigmentflecken-hautbild.webp";
+import laserImage from "@assets/optimized/generated_images/laserbehandlung-hautverjuengung-anti-aging-redtouch.webp";
+import heroImage from "@assets/optimized/gesichtsbehandlungen-hero-beauty-kosmetik.webp";
 
 interface Treatment {
   id: string;
@@ -279,6 +279,8 @@ export default function Services() {
                     src={treatment.image}
                     alt={treatment.title}
                     className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
                   />
                   {treatment.id === "laser" && (
                     <div className="absolute top-4 left-4 z-10">
@@ -440,6 +442,8 @@ export default function Services() {
                     src={selectedTreatment.image}
                     alt={selectedTreatment.title}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
 

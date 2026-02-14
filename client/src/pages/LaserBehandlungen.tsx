@@ -7,16 +7,16 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useEffect, useState } from "react";
 import { Check, MessageCircle, ChevronDown, Star, ArrowRight, Sparkles, Shield, Clock, Zap, Waves, ScanLine, Thermometer, Monitor, Snowflake, Activity } from "lucide-react";
-import heroImg from "@assets/laserbehandlung-hero-hautverjuengung-redtouch.png";
-import resultImg from "@assets/laser-ergebnis-schoene-haut-anti-aging.png";
-import treatmentImg from "@assets/laserbehandlung-behandlung-hautverjuengung.png";
-import smoothImg from "@assets/stock_images/laserbehandlung-glatte-haut-hautstraffung.jpg";
-import laserFaceImg from "@assets/laserbehandlung-gesicht-rosacea-pigmentflecken.png";
-import laserDecolletteImg from "@assets/laserbehandlung-dekollete-hautstraffung.png";
-import laserBodyImg from "@assets/laserbehandlung-koerper-narben-akne.png";
-import beautyProfileImg from "@assets/stock_images/beauty-profil-hautverjuengung-golden.jpg";
+import heroImg from "@assets/optimized/laserbehandlung-hero-hautverjuengung-redtouch.webp";
+import resultImg from "@assets/optimized/laser-ergebnis-schoene-haut-anti-aging.webp";
+import treatmentImg from "@assets/optimized/laserbehandlung-behandlung-hautverjuengung.webp";
+import smoothImg from "@assets/optimized/stock_images/laserbehandlung-glatte-haut-hautstraffung.webp";
+import laserFaceImg from "@assets/optimized/laserbehandlung-gesicht-rosacea-pigmentflecken.webp";
+import laserDecolletteImg from "@assets/optimized/laserbehandlung-dekollete-hautstraffung.webp";
+import laserBodyImg from "@assets/optimized/laserbehandlung-koerper-narben-akne.webp";
+import beautyProfileImg from "@assets/optimized/stock_images/beauty-profil-hautverjuengung-golden.webp";
 import dekaLogo from "@assets/deka-logo.svg";
-import redtouchLogo from "@assets/redtouch-pro-logo-laser-technologie.png";
+import redtouchLogo from "@assets/optimized/redtouch-pro-logo-laser-technologie.webp";
 
 const laserTreatments = [
   { id: "gesicht", title: "Gesicht", price: "250\u20AC" },
@@ -287,6 +287,8 @@ export default function LaserBehandlungen() {
                       alt="Red Touch Pro Lasergerät Hautverjüngung Anti-Aging Hautstraffung"
                       className="w-auto object-contain relative z-10"
                       style={{ maxHeight: '450px', filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.5))' }}
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-8" style={{ background: 'radial-gradient(ellipse, rgba(202, 169, 80, 0.15) 0%, transparent 70%)', filter: 'blur(10px)' }} />
                   </div>
@@ -314,10 +316,10 @@ export default function LaserBehandlungen() {
             <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
               <p className="text-muted-foreground text-xs tracking-[0.2em] uppercase">Technologiepartner</p>
               <div data-testid="partner-deka" className="opacity-70 transition-opacity duration-300">
-                <img src={dekaLogo} alt="DEKA Lasertechnologie Medizinische Lasergeräte Hautverjüngung" className="h-10 md:h-12 w-auto object-contain" />
+                <img src={dekaLogo} alt="DEKA Lasertechnologie Medizinische Lasergeräte Hautverjüngung" className="h-10 md:h-12 w-auto object-contain" loading="lazy" decoding="async" />
               </div>
               <div data-testid="partner-redtouch" className="opacity-70 transition-opacity duration-300">
-                <img src={redtouchLogo} alt="Red Touch Pro Laser Hautstraffung Faltenreduktion" className="h-10 md:h-12 w-auto object-contain" />
+                <img src={redtouchLogo} alt="Red Touch Pro Laser Hautstraffung Faltenreduktion" className="h-10 md:h-12 w-auto object-contain" loading="lazy" decoding="async" />
               </div>
             </div>
           </div>
@@ -405,6 +407,8 @@ export default function LaserBehandlungen() {
                       src={area.image}
                       alt={`Laserbehandlung ${area.title} Hautverjüngung Hautstraffung Burbach`}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 30%, rgba(15,10,8,0.85) 70%, rgba(15,10,8,0.95) 100%)' }} />
@@ -478,7 +482,7 @@ export default function LaserBehandlungen() {
             <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
               <div className="fade-up">
                 <div className="relative rounded-md overflow-hidden">
-                  <img src={resultImg} alt="Strahlende Haut nach Red Touch Pro Laserbehandlung Hautverjüngung Ergebnis" className="w-full aspect-[4/5] object-cover" />
+                  <img src={resultImg} alt="Strahlende Haut nach Red Touch Pro Laserbehandlung Hautverjüngung Ergebnis" className="w-full aspect-[4/5] object-cover" loading="lazy" decoding="async" />
                   <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 50%, rgba(15,10,8,0.8) 100%)' }} />
                   <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
                     <div className="grid grid-cols-3 gap-4 text-center">

@@ -6,8 +6,8 @@ import VoucherModal from "@/components/VoucherModal";
 import { Mail, Gift, Heart, Sparkles } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import WaveDivider from "@/components/WaveDivider";
-import voucherImage from "@assets/generated_images/geschenkgutschein-kosmetik-beauty-gutschein.png";
-import heroImage from "@assets/stock_images/geschenkgutschein-gold-box-beauty.jpg";
+import voucherImage from "@assets/optimized/generated_images/geschenkgutschein-kosmetik-beauty-gutschein.webp";
+import heroImage from "@assets/optimized/stock_images/geschenkgutschein-gold-box-beauty.webp";
 
 export default function Voucher() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -78,6 +78,8 @@ export default function Voucher() {
               src={voucherImage}
               alt="Beauty Gutschein Gesichtsbehandlung Kosmetik Geschenk Burbach"
               className="w-full rounded-lg shadow-lg"
+              loading="lazy"
+              decoding="async"
             />
           </div>
 

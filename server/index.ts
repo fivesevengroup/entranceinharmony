@@ -58,6 +58,25 @@ app.use((req, res, next) => {
     throw err;
   });
 
+  // Cache static assets aggressively in production (Vite adds content hashes)
+  app.use((req, res, next) => {
+    if (req.path.startsWith("/assets/")) {
+      res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
+    } else if (
+      req.path.endsWith(".webp") ||
+      req.path.endsWith(".png") ||
+      req.path.endsWith(".jpg") ||
+      req.path.endsWith(".svg") ||
+      req.path.endsWith(".woff2") ||
+      req.path.endsWith(".woff") ||
+      req.path.endsWith(".css") ||
+      req.path.endsWith(".js")
+    ) {
+      res.setHeader("Cache-Control", "public, max-age=86400");
+    }
+    next();
+  });
+
   // importantly only setup vite in development and after
   // setting up all the other routes so the catch-all route
   // doesn't interfere with the other routes

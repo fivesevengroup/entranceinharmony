@@ -1,5 +1,5 @@
 import GalleryGrid from '../GalleryGrid'
-import beforeAfterImage from '@assets/generated_images/vorher-nachher-hautverbesserung-ergebnis.png'
+import beforeAfterImage from '@assets/optimized/generated_images/vorher-nachher-hautverbesserung-ergebnis.webp'
 
 export default function GalleryGridExample() {
   const sampleImages = [

@@ -28,6 +28,8 @@ export default function GalleryGrid({ images }: GalleryGridProps) {
               src={image.src}
               alt={image.alt}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         ))}
@@ -40,6 +42,8 @@ export default function GalleryGrid({ images }: GalleryGridProps) {
               src={selectedImage.src}
               alt={selectedImage.alt}
               className="w-full h-auto rounded-lg"
+              loading="lazy"
+              decoding="async"
             />
           )}
         </DialogContent>

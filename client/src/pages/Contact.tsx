@@ -9,8 +9,8 @@ import { Badge } from "@/components/ui/badge";
 import { Phone, Mail, MapPin, Clock, Award, Heart, Sparkles, User } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import WaveDivider from "@/components/WaveDivider";
-import aboutImage from "@assets/kosmetikerin-elena-ueber-mich-portrait.png";
-import heroImage from "@assets/kosmetikerin-elena-portrait-kontakt.jpg";
+import aboutImage from "@assets/optimized/kosmetikerin-elena-ueber-mich-portrait.webp";
+import heroImage from "@assets/optimized/kosmetikerin-elena-portrait-kontakt.webp";
 
 export default function Contact() {
   return (
@@ -143,6 +143,8 @@ export default function Contact() {
                     style={{
                       filter: 'drop-shadow(0 20px 60px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 40px rgba(212, 175, 55, 0.15))'
                     }}
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-r from-transparent to-card/80 pointer-events-none"></div>
                 </div>
