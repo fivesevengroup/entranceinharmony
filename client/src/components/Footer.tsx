@@ -196,6 +196,16 @@ export default function Footer() {
               <Link href="/widerruf" className="hover:text-foreground transition-colors duration-200" data-testid="footer-link-widerruf">
                 Widerruf
               </Link>
+              <button
+                onClick={() => {
+                  localStorage.removeItem("cookie-consent");
+                  window.location.reload();
+                }}
+                className="hover:text-foreground transition-colors duration-200"
+                data-testid="footer-button-cookies"
+              >
+                Cookies
+              </button>
             </div>
           </div>
           <div className="mt-6 flex items-center justify-center gap-1.5">
