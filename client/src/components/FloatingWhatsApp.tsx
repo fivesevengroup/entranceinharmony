@@ -1,8 +1,37 @@
 import { SiWhatsapp, SiInstagram } from "react-icons/si";
+import { useState, useEffect, useRef } from "react";
 
 export default function FloatingWhatsApp() {
+  const [hideButtons, setHideButtons] = useState(false);
+
+  useEffect(() => {
+    const checkFooter = () => {
+      const footer = document.querySelector("footer");
+      if (!footer) return;
+      const footerRect = footer.getBoundingClientRect();
+      setHideButtons(footerRect.top < window.innerHeight);
+    };
+
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          checkFooter();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    checkFooter();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+    <div
+      className={`fixed bottom-6 right-6 z-50 flex flex-col gap-3 transition-opacity duration-300 ${hideButtons ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+    >
       <a
         href="https://wa.me/491709287722"
         target="_blank"
