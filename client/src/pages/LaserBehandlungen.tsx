@@ -175,7 +175,7 @@ export default function LaserBehandlungen() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* ===== HERO ===== */}
-      <section className="relative overflow-hidden" style={{ minHeight: '105vh' }} data-testid="section-laser-hero">
+      <section className="relative overflow-hidden" style={{ minHeight: 'calc(100svh + 80px)' }} data-testid="section-laser-hero">
         <div
           className="absolute inset-0 bg-cover bg-center scale-105"
           style={{ backgroundImage: `url(${heroImg})` }}

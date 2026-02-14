@@ -27,7 +27,7 @@ export default function Contact() {
       <Header />
 
       {/* Hero Section with Background */}
-      <section className="relative overflow-hidden" style={{ minHeight: '105vh' }}>
+      <section className="relative overflow-hidden" style={{ minHeight: 'calc(100svh + 80px)' }}>
         <div 
           className="absolute inset-0 bg-cover scale-105"
           style={{ 
