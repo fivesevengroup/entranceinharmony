@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
+import SEOHead, { breadcrumbSchema } from "@/components/SEOHead";
 import ContactForm from "@/components/ContactForm";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -14,6 +15,15 @@ import heroImage from "@assets/kosmetikerin-elena-portrait-kontakt.jpg";
 export default function Contact() {
   return (
     <div className="min-h-screen flex flex-col">
+      <SEOHead
+        title="Kontakt & Über mich – Elena Hartstein | Entrance in Harmony Burbach"
+        description="Lernen Sie Elena Hartstein kennen. Kontaktieren Sie Entrance in Harmony in Burbach für Terminvereinbarungen, Beratung und Fragen zu Gesichts- und Laserbehandlungen."
+        path="/kontakt"
+        structuredData={breadcrumbSchema([
+          { name: "Startseite", url: "/" },
+          { name: "Kontakt & Über mich", url: "/kontakt" }
+        ])}
+      />
       <Header />
 
       {/* Hero Section with Background */}

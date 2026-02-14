@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import SEOHead, { breadcrumbSchema } from "@/components/SEOHead";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ShieldCheck } from "lucide-react";
@@ -10,6 +11,16 @@ import heroImage from "@assets/stock_images/impressum-datenschutz-agb-rechtliche
 export default function Datenschutz() {
   return (
     <div className="min-h-screen flex flex-col">
+      <SEOHead
+        title="Datenschutzerklärung | Entrance in Harmony – DSGVO-konform"
+        description="Datenschutzerklärung von Entrance in Harmony. Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO."
+        path="/datenschutz"
+        noindex={true}
+        structuredData={breadcrumbSchema([
+          { name: "Startseite", url: "/" },
+          { name: "Datenschutz", url: "/datenschutz" }
+        ])}
+      />
       <Header />
 
       {/* Hero Section */}

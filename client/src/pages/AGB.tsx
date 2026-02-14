@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import SEOHead, { breadcrumbSchema } from "@/components/SEOHead";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { FileText, ShieldCheck } from "lucide-react";
@@ -10,6 +11,16 @@ import heroImage from "@assets/stock_images/impressum-datenschutz-agb-rechtliche
 export default function AGB() {
   return (
     <div className="min-h-screen flex flex-col">
+      <SEOHead
+        title="AGB – Allgemeine Geschäftsbedingungen | Entrance in Harmony"
+        description="Allgemeine Geschäftsbedingungen für Behandlungen, Gutscheine und Produkte von Entrance in Harmony in Burbach."
+        path="/agb"
+        noindex={true}
+        structuredData={breadcrumbSchema([
+          { name: "Startseite", url: "/" },
+          { name: "AGB", url: "/agb" }
+        ])}
+      />
       <Header />
 
       {/* Hero Section */}

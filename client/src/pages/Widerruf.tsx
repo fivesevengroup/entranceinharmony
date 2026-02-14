@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import SEOHead, { breadcrumbSchema } from "@/components/SEOHead";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { RotateCcw, AlertCircle } from "lucide-react";
@@ -11,6 +12,16 @@ import heroImage from "@assets/stock_images/impressum-datenschutz-agb-rechtliche
 export default function Widerruf() {
   return (
     <div className="min-h-screen flex flex-col">
+      <SEOHead
+        title="Widerrufsbelehrung | Entrance in Harmony"
+        description="Widerrufsbelehrung für Gutscheinkäufe und Fernabsatzverträge von Entrance in Harmony, Burbach."
+        path="/widerruf"
+        noindex={true}
+        structuredData={breadcrumbSchema([
+          { name: "Startseite", url: "/" },
+          { name: "Widerruf", url: "/widerruf" }
+        ])}
+      />
       <Header />
 
       {/* Hero Section */}

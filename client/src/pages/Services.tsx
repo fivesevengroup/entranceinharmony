@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
+import SEOHead, { breadcrumbSchema } from "@/components/SEOHead";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -169,6 +170,15 @@ export default function Services() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEOHead
+        title="Gesichtsbehandlungen Burbach – Tiefenreinigung, BB Glow, Microneedling | Entrance in Harmony"
+        description="Professionelle Gesichtsbehandlungen in Burbach: Tiefenreinigung, Carboxy Therapie, BB Glow, Microneedling, B-Tox Peel & Peelings. Ab 80€. Jetzt Termin buchen."
+        path="/gesichtsbehandlungen"
+        structuredData={breadcrumbSchema([
+          { name: "Startseite", url: "/" },
+          { name: "Gesichtsbehandlungen", url: "/gesichtsbehandlungen" }
+        ])}
+      />
       <Header />
 
       {/* Hero Section with Background */}

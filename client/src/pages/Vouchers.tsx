@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEOHead, { breadcrumbSchema } from "@/components/SEOHead";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -199,6 +200,15 @@ export default function Vouchers() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEOHead
+        title="Geschenkgutschein kaufen – Beauty Gutschein | Entrance in Harmony"
+        description="Schenken Sie Entspannung und Schönheit. Geschenkgutscheine für Gesichtsbehandlungen und Laserbehandlungen in Burbach. Online kaufen mit sicherer Bezahlung."
+        path="/gutscheine"
+        structuredData={breadcrumbSchema([
+          { name: "Startseite", url: "/" },
+          { name: "Gutscheine", url: "/gutscheine" }
+        ])}
+      />
       <Header />
 
       {/* Hero Section with Background */}

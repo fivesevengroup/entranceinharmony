@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import SEOHead, { breadcrumbSchema } from "@/components/SEOHead";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Scale, Shield } from "lucide-react";
@@ -10,6 +11,16 @@ import heroImage from "@assets/stock_images/impressum-datenschutz-agb-rechtliche
 export default function Impressum() {
   return (
     <div className="min-h-screen flex flex-col">
+      <SEOHead
+        title="Impressum | Entrance in Harmony – Kosmetikstudio Burbach"
+        description="Impressum von Entrance in Harmony. Angaben gemäß § 5 TMG. Elena Hartstein, Höhfeld 5, 57299 Burbach."
+        path="/impressum"
+        noindex={true}
+        structuredData={breadcrumbSchema([
+          { name: "Startseite", url: "/" },
+          { name: "Impressum", url: "/impressum" }
+        ])}
+      />
       <Header />
 
       {/* Hero Section */}

@@ -31,6 +31,18 @@ While a User schema exists with a password field, authentication and authorizati
 
 The application features a sophisticated visual design with a mauve and gold color scheme. Typography combines Cormorant Garamond for headings and Inter for body text. The homepage hero section includes a dramatic two-phase "Gold Dust Entrance" animation for the slogan "ENTRANCE IN HARMONY," utilizing Framer Motion for particle effects and text reveals, along with continuous sparkle and halo glow animations. The design is fully responsive.
 
+### SEO Optimization
+
+Comprehensive SEO is implemented via a reusable `SEOHead` component (`client/src/components/SEOHead.tsx`):
+- **Per-page meta tags**: Every page has a unique title, meta description, canonical URL, and robots directive
+- **Open Graph**: Full og:title, og:description, og:image, og:url, og:type, og:locale for social sharing (WhatsApp, Facebook)
+- **Twitter Cards**: summary_large_image with title, description, image
+- **Schema.org Structured Data**: LocalBusiness schema on homepage (with services, address, geo coords, areaServed), BreadcrumbList on all pages, FAQPage on LaserBehandlungen
+- **Sitemap & Robots**: `client/public/sitemap.xml` and `client/public/robots.txt`
+- **Local SEO**: geo.region, geo.placename, geo.position, ICBM tags in index.html
+- **Legal pages**: Marked as `noindex` and excluded from sitemap
+- **Keywords**: German-language, optimized for Burbach/Siegen/NRW area beauty salon searches
+
 ### Legal Compliance
 
 The application includes comprehensive legal pages (Impressum, Datenschutz, AGB, Widerruf) covering vouchers, treatments, and product sales. These pages are updated to comply with German legal requirements, including data protection regulations (DSGVO), terms and conditions for treatment bookings and product sales, and specific provisions for hygiene products and early service performance. A mandatory checkbox for AGB acceptance is integrated into the voucher purchase form.

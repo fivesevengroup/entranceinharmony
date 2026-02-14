@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import WaveDivider from "@/components/WaveDivider";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
+import SEOHead, { localBusinessSchema, breadcrumbSchema } from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { useRef, useCallback, useState, useEffect } from "react";
 import { Check, ArrowRight } from "lucide-react";
@@ -103,6 +104,12 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEOHead
+        title="Entrance in Harmony – Kosmetikstudio Burbach | Gesichtsbehandlungen & Laser"
+        description="Professionelles Kosmetikstudio in Burbach bei Siegen. Gesichtsbehandlungen, Red Touch Pro Laserbehandlungen, BB Glow, Microneedling & mehr. Jetzt Termin vereinbaren."
+        path="/"
+        structuredData={localBusinessSchema}
+      />
       <Header transparent={true} />
       <Hero />
       

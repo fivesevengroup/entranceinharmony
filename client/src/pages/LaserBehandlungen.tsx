@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WaveDivider from "@/components/WaveDivider";
+import SEOHead, { breadcrumbSchema } from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -124,25 +125,6 @@ export default function LaserBehandlungen() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   useEffect(() => {
-    document.title = "Red Touch Pro Laser \u2013 Moderne Hautverjüngung ohne OP | Entrance in Harmony";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute("content", "Sanfte Laser-Hautverjüngung mit Red Touch Pro in Burbach. Sichtbare Straffung, verfeinerte Hautstruktur und mehr Glow \u2013 ohne OP und mit minimaler Ausfallzeit. Jetzt Beratung vereinbaren.");
-    }
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (!ogTitle) {
-      const meta = document.createElement("meta");
-      meta.setAttribute("property", "og:title");
-      meta.setAttribute("content", "Red Touch Pro Laser \u2013 Moderne Hautverjüngung ohne OP");
-      document.head.appendChild(meta);
-    }
-    const ogDesc = document.querySelector('meta[property="og:description"]');
-    if (!ogDesc) {
-      const meta = document.createElement("meta");
-      meta.setAttribute("property", "og:description");
-      meta.setAttribute("content", "Sanfte Laser-Hautverjüngung mit Red Touch Pro. Sichtbare Straffung, verfeinerte Hautstruktur und mehr Glow.");
-      document.head.appendChild(meta);
-    }
     const slideObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -165,15 +147,6 @@ export default function LaserBehandlungen() {
 
     return () => {
       slideObserver.disconnect();
-      document.title = "Entrance in Harmony - Beauty & Aesthetics";
-      const metaD = document.querySelector('meta[name="description"]');
-      if (metaD) {
-        metaD.setAttribute("content", "Entrance in Harmony - Beauty & Aesthetics in Harmonie mit Elena Hartstein. Professionelle Gesichts- und K\u00F6rperbehandlungen f\u00FCr Ihre Sch\u00F6nheit und Wohlbefinden.");
-      }
-      const ogT = document.querySelector('meta[property="og:title"]');
-      if (ogT) ogT.remove();
-      const ogD = document.querySelector('meta[property="og:description"]');
-      if (ogD) ogD.remove();
     };
   }, []);
 
@@ -189,6 +162,15 @@ export default function LaserBehandlungen() {
 
   return (
     <div className="min-h-screen bg-background" data-testid="page-laser">
+      <SEOHead
+        title="Red Touch Pro Laser – Moderne Hautverjüngung ohne OP | Entrance in Harmony"
+        description="Sanfte Laser-Hautverjüngung mit Red Touch Pro in Burbach. Sichtbare Straffung, verfeinerte Hautstruktur und mehr Glow – ohne OP und mit minimaler Ausfallzeit. Jetzt Beratung vereinbaren."
+        path="/laserbehandlungen"
+        structuredData={breadcrumbSchema([
+          { name: "Startseite", url: "/" },
+          { name: "Laserbehandlungen", url: "/laserbehandlungen" }
+        ])}
+      />
       <Header transparent />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
