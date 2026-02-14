@@ -4,7 +4,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
-import CookieBanner from "@/components/CookieBanner";
+import { CookieConsentProvider } from "@/components/CookieBanner";
 import ScrollToTop from "@/components/ScrollToTop";
 import Home from "@/pages/Home";
 import Services from "@/pages/Services";
@@ -40,9 +40,10 @@ function App() {
       <TooltipProvider>
         <ScrollToTop />
         <Toaster />
-        <FloatingWhatsApp />
-        <CookieBanner />
-        <Router />
+        <CookieConsentProvider>
+          <FloatingWhatsApp />
+          <Router />
+        </CookieConsentProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );

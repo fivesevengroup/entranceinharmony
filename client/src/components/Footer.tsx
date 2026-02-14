@@ -1,10 +1,12 @@
 import { Link } from "wouter";
 import { SiWhatsapp, SiInstagram } from "react-icons/si";
 import { Phone } from "lucide-react";
+import { useCookieConsent } from "@/components/CookieBanner";
 import logoImage from "@assets/optimized/logo-entrance-in-harmony-footer.webp";
 import redTouchLogo from "@assets/optimized/redtouch-pro-logo-laserbehandlung.webp";
 
 export default function Footer() {
+  const { openSettings } = useCookieConsent();
   return (
     <footer className="relative bg-section-accent mt-32 md:mt-40">
       {/* Halbrund-Portal - Kompakter Halbkreis-Bogen */}
@@ -197,10 +199,7 @@ export default function Footer() {
                 Widerruf
               </Link>
               <button
-                onClick={() => {
-                  localStorage.removeItem("cookie-consent");
-                  window.location.reload();
-                }}
+                onClick={openSettings}
                 className="hover:text-foreground transition-colors duration-200"
                 data-testid="footer-button-cookies"
               >
