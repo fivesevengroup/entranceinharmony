@@ -24,7 +24,7 @@ export default function Datenschutz() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen overflow-hidden">
+      <section className="relative overflow-hidden" style={{ minHeight: '105vh' }}>
         <div 
           className="absolute inset-0 bg-cover bg-center scale-105"
           style={{ backgroundImage: `url(${heroImage})` }}
@@ -35,7 +35,7 @@ export default function Datenschutz() {
 
         <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/40 to-transparent pointer-events-none"></div>
 
-        <div className="relative z-10 container mx-auto px-4 text-center pt-44 pb-20">
+        <div className="relative z-10 container mx-auto px-4 text-center pt-44 pb-32">
           <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
             <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full glassmorphism mb-6 border border-white/30">
               <ShieldCheck className="w-4 h-4 text-primary" />

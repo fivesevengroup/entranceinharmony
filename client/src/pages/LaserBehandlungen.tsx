@@ -175,7 +175,7 @@ export default function LaserBehandlungen() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* ===== HERO ===== */}
-      <section className="relative min-h-screen overflow-hidden" data-testid="section-laser-hero">
+      <section className="relative overflow-hidden" style={{ minHeight: '105vh' }} data-testid="section-laser-hero">
         <div
           className="absolute inset-0 bg-cover bg-center scale-105"
           style={{ backgroundImage: `url(${heroImg})` }}
@@ -185,7 +185,7 @@ export default function LaserBehandlungen() {
         </div>
         <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/40 to-transparent pointer-events-none" />
 
-        <div className="relative z-10 container mx-auto px-4 text-center pt-44 pb-20">
+        <div className="relative z-10 container mx-auto px-4 text-center pt-44 pb-32">
           <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
             <p className="text-primary font-medium text-sm tracking-[0.3em] uppercase mb-8" data-testid="text-hero-tag">
               DEKA Lasertechnologie
