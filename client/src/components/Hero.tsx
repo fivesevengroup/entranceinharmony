@@ -36,7 +36,7 @@ export default function Hero() {
   }, [entranceControls, harmonyControls]);
 
   return (
-    <section className="relative min-h-screen overflow-hidden">
+    <section className="relative overflow-hidden" style={{ minHeight: '105vh' }}>
       <div 
         className="absolute inset-0 bg-cover bg-center scale-105"
         style={{ backgroundImage: `url(${heroImage})` }}
@@ -47,7 +47,7 @@ export default function Hero() {
 
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/40 to-transparent pointer-events-none"></div>
 
-      <div className="relative z-10 container mx-auto px-4 text-center flex flex-col items-center justify-center min-h-screen pb-24 pt-20">
+      <div className="relative z-10 container mx-auto px-4 text-center pt-44 pb-32">
         <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
           <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full glassmorphism mb-8 border-2 border-white/30 gold-glow">
             <Gem className="w-5 h-5 text-primary" />
