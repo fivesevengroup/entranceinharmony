@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollReveal from "@/components/ScrollReveal";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { RotateCcw, AlertCircle } from "lucide-react";
@@ -58,6 +59,7 @@ export default function Widerruf() {
               </AlertDescription>
             </Alert>
 
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-6">
                 <div>
@@ -106,6 +108,9 @@ export default function Widerruf() {
               </CardContent>
             </Card>
 
+            </ScrollReveal>
+
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-6">
                 <div>
@@ -120,6 +125,9 @@ export default function Widerruf() {
               </CardContent>
             </Card>
 
+            </ScrollReveal>
+
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-6">
                 <div>
@@ -190,6 +198,9 @@ export default function Widerruf() {
               </CardContent>
             </Card>
 
+            </ScrollReveal>
+
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-6">
                 <div>
@@ -218,6 +229,9 @@ export default function Widerruf() {
               </CardContent>
             </Card>
 
+            </ScrollReveal>
+
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-6">
                 <div>
@@ -277,6 +291,9 @@ export default function Widerruf() {
               </CardContent>
             </Card>
 
+            </ScrollReveal>
+
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-6">
                 <div>
@@ -297,6 +314,7 @@ export default function Widerruf() {
                 </div>
               </CardContent>
             </Card>
+            </ScrollReveal>
 
             <p className="text-sm text-muted-foreground mt-6 text-center">
               Stand: {new Date().toLocaleDateString('de-DE', { year: 'numeric', month: 'long' })}

@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import WaveDivider from "@/components/WaveDivider";
+import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { useRef, useCallback, useState, useEffect } from "react";
 import { Check, ArrowRight } from "lucide-react";
@@ -108,13 +109,13 @@ export default function Home() {
       <section className="py-20 md:py-28 bg-background relative">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="fade-up">
+            <ScrollReveal>
               <h2 className="font-serif text-4xl md:text-5xl font-light mb-10 leading-relaxed">
                 Willkommen in Ihrer exklusiven Auszeit
               </h2>
               <div className="h-0.5 w-32 mx-auto mb-12 gold-shimmer rounded-full"></div>
-            </div>
-            <div className="fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
+            </ScrollReveal>
+            <ScrollReveal delay={0.2}>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                 Entfliehen Sie dem Alltag und g&ouml;nnen Sie sich einen Moment nur f&uuml;r sich. Stress, Hektik und Umwelteinfl&uuml;sse hinterlassen Spuren, doch mit individuell abgestimmten Behandlungen bringe ich Ihre nat&uuml;rliche Sch&ouml;nheit wieder zum Strahlen.
               </p>
@@ -124,7 +125,7 @@ export default function Home() {
               <p className="text-xl text-primary font-medium leading-relaxed">
                 Lassen Sie sich verw&ouml;hnen, Sie haben es verdient.
               </p>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
         <WaveDivider position="bottom" color="hsl(var(--section-accent))" />
@@ -132,15 +133,17 @@ export default function Home() {
 
       <section className="relative bg-section-accent overflow-hidden" data-testid="section-redtouch">
         <div className="relative">
-          <div className="text-center pt-12 pb-6 px-8 relative z-10">
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-foreground leading-[1.1] mb-3" data-testid="text-redtouch-headline">
-              Sichtbar straffere,{" "}
-              <span className="text-primary">glattere Haut.</span>
-            </h2>
-            <p className="text-muted-foreground/60 text-lg md:text-xl font-light tracking-wide">
-              Red Touch Pro<sup className="text-xs">&reg;</sup>
-            </p>
-          </div>
+          <ScrollReveal>
+            <div className="text-center pt-12 pb-6 px-8 relative z-10">
+              <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-foreground leading-[1.1] mb-3" data-testid="text-redtouch-headline">
+                Sichtbar straffere,{" "}
+                <span className="text-primary">glattere Haut.</span>
+              </h2>
+              <p className="text-muted-foreground/60 text-lg md:text-xl font-light tracking-wide">
+                Red Touch Pro<sup className="text-xs">&reg;</sup>
+              </p>
+            </div>
+          </ScrollReveal>
 
           <div className="relative min-h-[50vh]">
 
@@ -151,25 +154,29 @@ export default function Home() {
                   Wo m&uuml;de, erschlaffte Haut war, entsteht ein frischer, ebenm&auml;&szlig;iger Teint. Durch sanfte Aktivierung Ihrer nat&uuml;rlichen Kollagenbildung gewinnt Ihre Haut sp&uuml;rbar an Festigkeit &ndash; ganz ohne Ausfallzeit.
                 </p>
 
-                <ul className="space-y-4 mb-10 text-left max-w-sm mx-auto lg:mx-0 lg:max-w-none">
+                <StaggerContainer className="space-y-4 mb-10 text-left max-w-sm mx-auto lg:mx-0 lg:max-w-none">
                   {benefits.map((benefit, i) => (
-                    <li key={i} className="flex items-start gap-3 group">
-                      <span className="mt-1 shrink-0 w-5 h-5 rounded-full border border-primary/40 flex items-center justify-center bg-primary/10">
-                        <Check className="w-3 h-3 text-primary" />
-                      </span>
-                      <span className="text-black text-sm md:text-base">{benefit}</span>
-                    </li>
+                    <StaggerItem key={i}>
+                      <li className="flex items-start gap-3 group">
+                        <span className="mt-1 shrink-0 w-5 h-5 rounded-full border border-primary/40 flex items-center justify-center bg-primary/10">
+                          <Check className="w-3 h-3 text-primary" />
+                        </span>
+                        <span className="text-black text-sm md:text-base">{benefit}</span>
+                      </li>
+                    </StaggerItem>
                   ))}
-                </ul>
+                </StaggerContainer>
 
-                <div className="flex items-center justify-center lg:justify-start">
-                  <Button variant="ghost" asChild data-testid="button-redtouch-more" className="group rounded-none text-xs uppercase tracking-widest px-5 py-2.5 bg-black/70 text-white border border-white/20 hover:bg-black/80 hover:border-white/30">
-                    <a href="/laserbehandlungen" className="flex items-center justify-center gap-2">
-                      <span>Mehr erfahren</span>
-                      <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                    </a>
-                  </Button>
-                </div>
+                <ScrollReveal delay={0.3}>
+                  <div className="flex items-center justify-center lg:justify-start">
+                    <Button variant="ghost" asChild data-testid="button-redtouch-more" className="group rounded-none text-xs uppercase tracking-widest px-5 py-2.5 bg-black/70 text-white border border-white/20 hover:bg-black/80 hover:border-white/30">
+                      <a href="/laserbehandlungen" className="flex items-center justify-center gap-2">
+                        <span>Mehr erfahren</span>
+                        <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                      </a>
+                    </Button>
+                  </div>
+                </ScrollReveal>
               </div>
             </div>
 
@@ -212,7 +219,7 @@ export default function Home() {
       <section className="py-20 md:py-32 bg-background relative">
         <div className="container mx-auto px-4 relative">
           <div className="grid md:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
-            <div className="order-2 md:order-1 fade-up">
+            <ScrollReveal className="order-2 md:order-1">
               <h2 className="font-serif text-4xl md:text-5xl font-light mb-6">
                 Besuchen Sie mein Studio
               </h2>
@@ -226,8 +233,8 @@ export default function Home() {
               <Button asChild data-testid="button-studio" size="lg">
                 <a href="/kontakt">Termin vereinbaren</a>
               </Button>
-            </div>
-            <div className="order-1 md:order-2 fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
+            </ScrollReveal>
+            <ScrollReveal delay={0.2} className="order-1 md:order-2">
               <div className="elegant-glow">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                   <img
@@ -237,7 +244,7 @@ export default function Home() {
                   />
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>

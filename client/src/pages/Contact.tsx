@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import ContactForm from "@/components/ContactForm";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -94,15 +95,17 @@ export default function Contact() {
       {/* White Transition Section */}
       <section className="py-12 md:py-16 bg-background relative">
         <div className="container mx-auto px-4">
-          <div className="text-center">
-            <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
-              Persönlich & Professionell
-            </h2>
-            <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-4"></div>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Lernen Sie Ihre Beauty-Expertin kennen und vereinbaren Sie einen Termin
-            </p>
-          </div>
+          <ScrollReveal>
+            <div className="text-center">
+              <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
+                Persönlich & Professionell
+              </h2>
+              <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-4"></div>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                Lernen Sie Ihre Beauty-Expertin kennen und vereinbaren Sie einen Termin
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -110,14 +113,17 @@ export default function Contact() {
       <section className="py-20 md:py-32 bg-section-accent relative">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12 fade-up">
-              <h2 className="font-serif text-4xl md:text-5xl font-light mb-6">
-                Über mich
-              </h2>
-              <div className="h-0.5 w-32 mx-auto gold-shimmer rounded-full"></div>
-            </div>
+            <ScrollReveal>
+              <div className="text-center mb-12">
+                <h2 className="font-serif text-4xl md:text-5xl font-light mb-6">
+                  Über mich
+                </h2>
+                <div className="h-0.5 w-32 mx-auto gold-shimmer rounded-full"></div>
+              </div>
+            </ScrollReveal>
             
-            <div className="bg-card/80 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border border-border fade-up" style={{ animationDelay: "0.2s", opacity: 0 }}>
+            <ScrollReveal delay={0.2}>
+            <div className="bg-card/80 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border border-border">
               <div className="grid md:grid-cols-2 gap-0">
                 <div className="relative h-[450px] md:h-auto overflow-visible p-4 pb-0 flex items-end justify-center">
                   <img
@@ -148,6 +154,7 @@ export default function Contact() {
                 </div>
               </div>
             </div>
+            </ScrollReveal>
           </div>
         </div>
         <WaveDivider position="bottom" color="hsl(var(--background))" />
@@ -156,15 +163,18 @@ export default function Contact() {
       <section className="py-20 md:py-28 bg-background relative">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16 fade-up">
-              <h2 className="font-serif text-4xl md:text-5xl font-light mb-6">
-                So erreichen Sie mich
-              </h2>
-              <div className="h-0.5 w-32 mx-auto gold-shimmer rounded-full" />
-            </div>
+            <ScrollReveal>
+              <div className="text-center mb-16">
+                <h2 className="font-serif text-4xl md:text-5xl font-light mb-6">
+                  So erreichen Sie mich
+                </h2>
+                <div className="h-0.5 w-32 mx-auto gold-shimmer rounded-full" />
+              </div>
+            </ScrollReveal>
 
             <div className="grid lg:grid-cols-2 gap-12">
               {/* Linke Spalte: Kontaktinformationen */}
+              <ScrollReveal animation="fadeUp">
               <div className="space-y-8">
                 <Card className="border border-border backdrop-blur-sm bg-card/90">
                   <CardContent className="pt-8 pb-8">
@@ -253,8 +263,10 @@ export default function Contact() {
                   </CardContent>
                 </Card>
               </div>
+              </ScrollReveal>
 
               {/* Rechte Spalte: Kontaktformular */}
+              <ScrollReveal animation="fadeUp" delay={0.15}>
               <div id="kontakt">
                 <Card className="border border-border backdrop-blur-sm bg-card/90 h-full">
                   <CardContent className="pt-8">
@@ -270,6 +282,7 @@ export default function Contact() {
                   </CardContent>
                 </Card>
               </div>
+              </ScrollReveal>
             </div>
           </div>
         </div>

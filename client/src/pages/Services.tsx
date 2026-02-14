@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -239,25 +240,27 @@ export default function Services() {
       {/* White Transition Section */}
       <section className="py-12 md:py-16 bg-background relative">
         <div className="container mx-auto px-4">
-          <div className="text-center">
-            <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
-              Professionelle Beauty-Behandlungen
-            </h2>
-            <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-4"></div>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Entdecken Sie unsere vielfältigen Behandlungen für strahlende Haut und pures Wohlbefinden
-            </p>
-          </div>
+          <ScrollReveal>
+            <div className="text-center">
+              <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
+                Professionelle Beauty-Behandlungen
+              </h2>
+              <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-4"></div>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                Entdecken Sie unsere vielfältigen Behandlungen für strahlende Haut und pures Wohlbefinden
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
       <section className="py-16 md:py-20 bg-section-accent relative">
         <div className="container mx-auto px-4">
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
+          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
             {treatments.map((treatment) => (
+              <StaggerItem key={treatment.id}>
               <Card 
-                key={treatment.id} 
                 className="overflow-hidden hover-elevate transition-all"
                 data-testid={`card-treatment-${treatment.id}`}
               >
@@ -310,9 +313,11 @@ export default function Services() {
                   </div>
                 </CardContent>
               </Card>
+              </StaggerItem>
             ))}
 
             {/* Spezielle Beratungs-Kachel */}
+            <StaggerItem>
             <Card 
               className="overflow-hidden relative border-2 border-primary/30 hover-elevate transition-all"
               data-testid="card-consultation"
@@ -374,32 +379,35 @@ export default function Services() {
                 </div>
               </CardContent>
             </Card>
-          </div>
+            </StaggerItem>
+          </StaggerContainer>
         </div>
         <WaveDivider position="bottom" color="hsl(var(--background))" />
       </section>
 
       <section className="py-16 md:py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center bg-muted/50 py-12 px-6 rounded-lg max-w-3xl mx-auto">
-            <h2 className="font-serif text-3xl font-light mb-4">
-              Sie wünschen einen Termin?
-            </h2>
-            <p className="text-lg text-muted-foreground mb-6 max-w-xl mx-auto leading-relaxed">
-              Genießen Sie unsere vielfältigen Behandlungsmöglichkeiten und buchen Sie jetzt 
-              Ihren persönlichen Termin für eine professionelle Behandlung.
-            </p>
-            <Button
-              size="lg"
-              className="bg-[#25D366] hover:bg-[#20BA5A] text-white border-[#25BA5A]"
-              asChild
-              data-testid="button-termin-vereinbaren"
-            >
-              <a href="https://wa.me/491709287722" target="_blank" rel="noopener noreferrer">
-                Jetzt Termin vereinbaren
-              </a>
-            </Button>
-          </div>
+          <ScrollReveal animation="fadeUp">
+            <div className="text-center bg-muted/50 py-12 px-6 rounded-lg max-w-3xl mx-auto">
+              <h2 className="font-serif text-3xl font-light mb-4">
+                Sie wünschen einen Termin?
+              </h2>
+              <p className="text-lg text-muted-foreground mb-6 max-w-xl mx-auto leading-relaxed">
+                Genießen Sie unsere vielfältigen Behandlungsmöglichkeiten und buchen Sie jetzt 
+                Ihren persönlichen Termin für eine professionelle Behandlung.
+              </p>
+              <Button
+                size="lg"
+                className="bg-[#25D366] hover:bg-[#20BA5A] text-white border-[#25BA5A]"
+                asChild
+                data-testid="button-termin-vereinbaren"
+              >
+                <a href="https://wa.me/491709287722" target="_blank" rel="noopener noreferrer">
+                  Jetzt Termin vereinbaren
+                </a>
+              </Button>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 

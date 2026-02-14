@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollReveal from "@/components/ScrollReveal";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { FileText, ShieldCheck } from "lucide-react";
@@ -48,6 +49,7 @@ export default function AGB() {
       <section className="py-16 md:py-20 bg-background flex-1">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-6">
                 <div>
@@ -66,7 +68,9 @@ export default function AGB() {
                 </div>
               </CardContent>
             </Card>
+            </ScrollReveal>
 
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-6">
                 <div>
@@ -101,6 +105,9 @@ export default function AGB() {
               </CardContent>
             </Card>
 
+            </ScrollReveal>
+
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-6">
                 <div>
@@ -166,6 +173,9 @@ export default function AGB() {
               </CardContent>
             </Card>
 
+            </ScrollReveal>
+
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-6">
                 <div>
@@ -205,6 +215,9 @@ export default function AGB() {
               </CardContent>
             </Card>
 
+            </ScrollReveal>
+
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-6">
                 <div>
@@ -234,6 +247,9 @@ export default function AGB() {
               </CardContent>
             </Card>
 
+            </ScrollReveal>
+
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-6">
                 <div>
@@ -276,6 +292,9 @@ export default function AGB() {
               </CardContent>
             </Card>
 
+            </ScrollReveal>
+
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-6">
                 <div>
@@ -299,6 +318,9 @@ export default function AGB() {
               </CardContent>
             </Card>
 
+            </ScrollReveal>
+
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-6">
                 <div>
@@ -330,6 +352,9 @@ export default function AGB() {
               </CardContent>
             </Card>
 
+            </ScrollReveal>
+
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-6">
                 <div>
@@ -356,6 +381,9 @@ export default function AGB() {
               </CardContent>
             </Card>
 
+            </ScrollReveal>
+
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-6">
                 <div>
@@ -373,6 +401,9 @@ export default function AGB() {
               </CardContent>
             </Card>
 
+            </ScrollReveal>
+
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-6">
                 <div>
@@ -395,6 +426,7 @@ export default function AGB() {
                 </div>
               </CardContent>
             </Card>
+            </ScrollReveal>
 
             <p className="text-sm text-muted-foreground mt-6 text-center">
               Stand: {new Date().toLocaleDateString('de-DE', { year: 'numeric', month: 'long' })}

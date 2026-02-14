@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollReveal from "@/components/ScrollReveal";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Scale, Shield } from "lucide-react";
@@ -48,6 +49,7 @@ export default function Impressum() {
       <section className="py-16 md:py-20 bg-background flex-1">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-6">
                 <div>
@@ -117,7 +119,9 @@ export default function Impressum() {
                 </div>
               </CardContent>
             </Card>
+            </ScrollReveal>
 
+            <ScrollReveal delay={0.1}>
             <Card>
               <CardContent className="pt-6">
                 <h2 className="font-medium text-lg mb-3">Haftungsausschluss</h2>
@@ -173,6 +177,7 @@ export default function Impressum() {
                 </div>
               </CardContent>
             </Card>
+            </ScrollReveal>
 
             <p className="text-sm text-muted-foreground mt-6 text-center">
               Quelle: Erstellt mit Unterstützung von eRecht24

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
@@ -277,15 +278,18 @@ export default function Vouchers() {
       <section className="py-16 md:py-20 bg-background relative">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
-                So einfach geht's
-              </h2>
-              <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full"></div>
-            </div>
+            <ScrollReveal>
+              <div className="text-center mb-12">
+                <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
+                  So einfach geht's
+                </h2>
+                <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full"></div>
+              </div>
+            </ScrollReveal>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {/* Step 1 */}
+              <StaggerItem>
               <div className="text-center">
                 <div className="flex justify-center mb-4">
                   <div className="relative">
@@ -303,7 +307,9 @@ export default function Vouchers() {
                 </p>
               </div>
 
+              </StaggerItem>
               {/* Step 2 */}
+              <StaggerItem>
               <div className="text-center">
                 <div className="flex justify-center mb-4">
                   <div className="relative">
@@ -321,7 +327,9 @@ export default function Vouchers() {
                 </p>
               </div>
 
+              </StaggerItem>
               {/* Step 3 */}
+              <StaggerItem>
               <div className="text-center">
                 <div className="flex justify-center mb-4">
                   <div className="relative">
@@ -339,7 +347,9 @@ export default function Vouchers() {
                 </p>
               </div>
 
+              </StaggerItem>
               {/* Step 4 */}
+              <StaggerItem>
               <div className="text-center">
                 <div className="flex justify-center mb-4">
                   <div className="relative">
@@ -356,7 +366,8 @@ export default function Vouchers() {
                   Digital sofort oder per Post in 2-3 Tagen
                 </p>
               </div>
-            </div>
+              </StaggerItem>
+            </StaggerContainer>
           </div>
         </div>
       </section>
@@ -365,20 +376,23 @@ export default function Vouchers() {
       <section className="py-16 md:py-24 bg-section-accent relative">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="font-serif text-3xl md:text-5xl font-light mb-4">
-                Warum unsere Geschenkgutscheine?
-              </h2>
-              <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-4"></div>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                Schenken Sie nicht nur eine Behandlung, sondern ein unvergessliches Wohlfühl-Erlebnis
-              </p>
-            </div>
+            <ScrollReveal>
+              <div className="text-center mb-12">
+                <h2 className="font-serif text-3xl md:text-5xl font-light mb-4">
+                  Warum unsere Geschenkgutscheine?
+                </h2>
+                <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-4"></div>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                  Schenken Sie nicht nur eine Behandlung, sondern ein unvergessliches Wohlfühl-Erlebnis
+                </p>
+              </div>
+            </ScrollReveal>
 
             {/* Bento Grid Layout */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-fr">
+            <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-fr">
               {/* Feature Card - Spans 2 columns on desktop */}
-              <Card className="md:col-span-2 md:row-span-2 border border-primary/30 hover-elevate bg-gradient-to-br from-primary/5 to-background overflow-hidden">
+              <StaggerItem className="md:col-span-2 md:row-span-2">
+              <Card className="border border-primary/30 hover-elevate bg-gradient-to-br from-primary/5 to-background overflow-hidden h-full">
                 <CardContent className="p-8 h-full flex flex-col justify-center items-center text-center">
                   <div className="w-full aspect-video mb-6 rounded-lg overflow-hidden">
                     <img 
@@ -398,9 +412,11 @@ export default function Vouchers() {
                   </p>
                 </CardContent>
               </Card>
+              </StaggerItem>
 
               {/* Benefit Cards */}
-              <Card className="border border-border hover-elevate">
+              <StaggerItem>
+              <Card className="border border-border hover-elevate h-full">
                 <CardContent className="p-6 h-full flex flex-col justify-center">
                   <div className="mb-4 flex justify-center">
                     <div className="p-4 bg-primary/10 rounded-full">
@@ -413,8 +429,10 @@ export default function Vouchers() {
                   </p>
                 </CardContent>
               </Card>
+              </StaggerItem>
 
-              <Card className="border border-border hover-elevate">
+              <StaggerItem>
+              <Card className="border border-border hover-elevate h-full">
                 <CardContent className="p-6 h-full flex flex-col justify-center">
                   <div className="mb-4 flex justify-center">
                     <div className="p-4 bg-primary/10 rounded-full">
@@ -427,8 +445,10 @@ export default function Vouchers() {
                   </p>
                 </CardContent>
               </Card>
+              </StaggerItem>
 
-              <Card className="border border-border hover-elevate">
+              <StaggerItem>
+              <Card className="border border-border hover-elevate h-full">
                 <CardContent className="p-6 h-full flex flex-col justify-center">
                   <div className="mb-4 flex justify-center">
                     <div className="p-4 bg-primary/10 rounded-full">
@@ -441,8 +461,10 @@ export default function Vouchers() {
                   </p>
                 </CardContent>
               </Card>
+              </StaggerItem>
 
-              <Card className="border border-border hover-elevate">
+              <StaggerItem>
+              <Card className="border border-border hover-elevate h-full">
                 <CardContent className="p-6 h-full flex flex-col justify-center">
                   <div className="mb-4 flex justify-center">
                     <div className="p-4 bg-primary/10 rounded-full">
@@ -455,7 +477,8 @@ export default function Vouchers() {
                   </p>
                 </CardContent>
               </Card>
-            </div>
+              </StaggerItem>
+            </StaggerContainer>
           </div>
         </div>
         <WaveDivider position="bottom" color="hsl(var(--background))" />
@@ -465,15 +488,17 @@ export default function Vouchers() {
       <section className="py-16 md:py-24 bg-background overflow-hidden relative">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="font-serif text-3xl md:text-5xl font-light mb-4">
-                Perfekt für jeden Anlass
-              </h2>
-              <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-4"></div>
-              <p className="text-muted-foreground">
-                Scrollen Sie für weitere Anlässe →
-              </p>
-            </div>
+            <ScrollReveal>
+              <div className="text-center mb-12">
+                <h2 className="font-serif text-3xl md:text-5xl font-light mb-4">
+                  Perfekt für jeden Anlass
+                </h2>
+                <div className="h-0.5 w-24 mx-auto gold-shimmer rounded-full mb-4"></div>
+                <p className="text-muted-foreground">
+                  Scrollen Sie für weitere Anlässe →
+                </p>
+              </div>
+            </ScrollReveal>
 
             {/* Horizontal Scroll Container */}
             <div className="relative">

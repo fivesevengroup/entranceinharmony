@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollReveal from "@/components/ScrollReveal";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ShieldCheck } from "lucide-react";
@@ -56,6 +57,7 @@ export default function Datenschutz() {
           <div className="max-w-3xl mx-auto">
             
             {/* Section 1: Allgemeine Hinweise */}
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-4">
                 <h2 className="font-medium text-lg mb-3">1. Allgemeine Hinweise</h2>
@@ -67,7 +69,10 @@ export default function Datenschutz() {
               </CardContent>
             </Card>
 
+            </ScrollReveal>
+
             {/* Section 2: Verantwortliche Stelle */}
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-4">
                 <h2 className="font-medium text-lg mb-3">2. Verantwortliche Stelle</h2>
@@ -89,7 +94,10 @@ export default function Datenschutz() {
               </CardContent>
             </Card>
 
+            </ScrollReveal>
+
             {/* Section 3: Hosting über Render (EU - Frankfurt) */}
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-4">
                 <h2 className="font-medium text-lg mb-3">3. Hosting über Render (EU - Frankfurt)</h2>
@@ -104,7 +112,10 @@ export default function Datenschutz() {
               </CardContent>
             </Card>
 
+            </ScrollReveal>
+
             {/* Section 4: Kontaktformular und E-Mail */}
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-4">
                 <h2 className="font-medium text-lg mb-3">4. Kontaktformular und E-Mail</h2>
@@ -119,7 +130,10 @@ export default function Datenschutz() {
               </CardContent>
             </Card>
 
+            </ScrollReveal>
+
             {/* Section 5: Bestellungen und Buchungen */}
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-4">
                 <h2 className="font-medium text-lg mb-3">5. Bestellungen und Buchungen</h2>
@@ -137,7 +151,10 @@ export default function Datenschutz() {
               </CardContent>
             </Card>
 
+            </ScrollReveal>
+
             {/* Section 6: Zahlungsdienstleister Stripe */}
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-4">
                 <h2 className="font-medium text-lg mb-3">6. Zahlungsdienstleister Stripe</h2>
@@ -164,7 +181,10 @@ export default function Datenschutz() {
               </CardContent>
             </Card>
 
+            </ScrollReveal>
+
             {/* Section 7: Cookies */}
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-4">
                 <h2 className="font-medium text-lg mb-3">7. Cookies</h2>
@@ -182,7 +202,10 @@ export default function Datenschutz() {
               </CardContent>
             </Card>
 
+            </ScrollReveal>
+
             {/* Section 8: WhatsApp und Instagram */}
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-4">
                 <h2 className="font-medium text-lg mb-3">8. WhatsApp und Instagram</h2>
@@ -197,7 +220,10 @@ export default function Datenschutz() {
               </CardContent>
             </Card>
 
+            </ScrollReveal>
+
             {/* Section 9: Speicherdauer */}
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-4">
                 <h2 className="font-medium text-lg mb-3">9. Speicherdauer</h2>
@@ -209,7 +235,10 @@ export default function Datenschutz() {
               </CardContent>
             </Card>
 
+            </ScrollReveal>
+
             {/* Section 10: Ihre Rechte */}
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-4">
                 <h2 className="font-medium text-lg mb-3">10. Ihre Rechte</h2>
@@ -228,7 +257,10 @@ export default function Datenschutz() {
               </CardContent>
             </Card>
 
+            </ScrollReveal>
+
             {/* Section 11: Datensicherheit */}
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-4">
                 <h2 className="font-medium text-lg mb-3">11. Datensicherheit</h2>
@@ -240,7 +272,10 @@ export default function Datenschutz() {
               </CardContent>
             </Card>
 
+            </ScrollReveal>
+
             {/* Section 12: Änderungen dieser Erklärung */}
+            <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-4">
                 <h2 className="font-medium text-lg mb-3">12. Änderungen dieser Erklärung</h2>
@@ -251,6 +286,7 @@ export default function Datenschutz() {
                 </div>
               </CardContent>
             </Card>
+            </ScrollReveal>
 
           </div>
         </div>
