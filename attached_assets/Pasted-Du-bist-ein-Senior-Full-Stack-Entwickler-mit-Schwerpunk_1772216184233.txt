@@ -1,0 +1,54 @@
+Du bist ein Senior Full Stack Entwickler mit Schwerpunkt SEO für JavaScript Websites.
+
+Ausgangslage
+Ich habe eine Single Page Application, die aktuell nur <div id="root"></div> im initialen HTML liefert und den Content erst per JavaScript rendert. Das ist schlecht für SEO, weil Google beim ersten Crawl kaum Inhalt sieht.
+
+Ziel
+Baue eine Lösung, die für Suchmaschinen sofort fertiges HTML ausliefert.
+Priorität 1: Server Side Rendering oder Pre Rendering für Startseite und alle wichtigen Landingpages.
+Priorität 2: Saubere Meta Tags pro Route inklusive title, description, canonical, hreflang, og und twitter.
+Priorität 3: Strukturierte Daten pro Seite (Organization, LocalBusiness, Service).
+Priorität 4: Performance (schneller LCP, schlankes HTML, komprimierte Assets).
+
+Technischer Rahmen
+Projekt ist mit Vite + React gebaut (falls du ein anderes Setup erkennst, passe die Lösung entsprechend an).
+Ich deploye über Replit. Lösung muss in Replit laufen und buildbar sein.
+
+Aufgabe
+1) Analysiere das bestehende Projekt.
+2) Entscheide die beste SEO sichere Variante:
+   a) SSR mit Next.js (Migration) oder
+   b) SSR mit Vite SSR (Express) oder
+   c) Pre Rendering mit Vite SSG oder
+   d) Hybrid: Pre Rendering für Marketing Seiten plus SPA für App Bereiche
+Wähle die Option, die mit minimalem Aufwand die beste SEO Wirkung hat.
+
+3) Implementiere die gewählte Lösung komplett:
+   - Router Unterstützung für mehrere Seiten
+   - Rendering liefert HTML mit echtem Content ohne JS
+   - Die SPA bleibt weiterhin interaktiv nach dem Laden (Hydration)
+   - Fallback für Clients ohne JS
+   - Sitemap.xml und robots.txt generieren
+   - 404 Handling
+   - Kompression und Cache Header
+
+4) Pro Seite müssen Meta Daten serverseitig gesetzt werden:
+   - title
+   - meta description
+   - canonical
+   - hreflang (de en ro ru x default)
+   - og title og description og image
+   - twitter card
+   - JSON LD Schema Daten
+
+5) Gib mir am Ende:
+   - Welche Dateien du geändert hast
+   - Den kompletten Code für neue Dateien
+   - Exakte Commands zum Build und Start in Replit
+   - Kurze Checkliste wie ich danach in Google Search Console teste, ob gerendertes HTML vorhanden ist
+
+Wichtig
+Keine keyword stuffing Texte.
+Keine versteckten Texte oder unsichtbaren Inhalte.
+Alles muss DSGVO konform sein.
+Alle SEO Inhalte müssen für Nutzer sichtbar sein.
