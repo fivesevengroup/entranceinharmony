@@ -15,7 +15,19 @@ import Datenschutz from "@/pages/Datenschutz";
 import AGB from "@/pages/AGB";
 import Widerruf from "@/pages/Widerruf";
 import LaserBehandlungen from "@/pages/LaserBehandlungen";
+import SkinProblemPage from "@/pages/SkinProblemPage";
 import NotFound from "@/pages/not-found";
+
+const skinProblemSlugs = [
+  "akne-behandlung-siegen",
+  "akne-narben-behandlung",
+  "hautanalyse-burbach",
+  "kollagen-aufbau-gesicht",
+  "faltenbehandlung-siegerland",
+  "pigmentflecken-entfernen",
+  "rosazea-behandlung",
+  "grossporige-haut-behandlung",
+];
 
 function Router() {
   return (
@@ -29,6 +41,11 @@ function Router() {
       <Route path="/datenschutz" component={Datenschutz} />
       <Route path="/agb" component={AGB} />
       <Route path="/widerruf" component={Widerruf} />
+      {skinProblemSlugs.map(slug => (
+        <Route key={slug} path={`/${slug}`}>
+          {() => <SkinProblemPage slug={slug} />}
+        </Route>
+      ))}
       <Route component={NotFound} />
     </Switch>
   );

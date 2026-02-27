@@ -34,7 +34,7 @@ The application features a sophisticated visual design with a mauve and gold col
 ### SEO Optimization
 
 Comprehensive SEO is implemented via a reusable `SEOHead` component (`client/src/components/SEOHead.tsx`) for client-side meta tags, plus a build-time SEO pre-rendering system (`server/seo-prerender.ts` + `server/seo-prerender-runner.ts`) for crawler-visible content:
-- **Build-Time Pre-Rendering**: `seo-prerender-runner.ts` runs after `vite build` and generates 9 pre-rendered HTML files (root `index.html` overwritten + 8 subdirectories). No runtime middleware injection.
+- **Build-Time Pre-Rendering**: `seo-prerender-runner.ts` runs after `vite build` and generates 17 pre-rendered HTML files (root `index.html` overwritten + 16 subdirectories). No runtime middleware injection.
 - **Per-page meta tags**: Unique title (≤60 chars), meta description (≤155 chars with CTA), canonical URL, robots directive
 - **Open Graph**: og:title, og:description, og:image, og:url, og:type, og:locale for social sharing
 - **Twitter Cards**: summary_large_image
@@ -44,12 +44,14 @@ Comprehensive SEO is implemented via a reusable `SEOHead` component (`client/src
   - Laserbehandlungen: `Service` schema + `FAQPage` (4 FAQs) + `BreadcrumbList`
   - Gutscheine: `Product` schema with `AggregateOffer` + `FAQPage` (2 FAQs) + `BreadcrumbList`
   - Kontakt: `Person` schema + `BreadcrumbList`
+  - 8 Skin Problem Landing Pages: `Service` schema + `FAQPage` (4 FAQs each) + `BreadcrumbList` — Akne, Akne-Narben, Hautanalyse, Kollagen, Falten, Pigmentflecken, Rosazea, Große Poren
   - Legal pages: `BreadcrumbList` only, `noindex`
 - **Sitemap & Robots**: `client/public/sitemap.xml` and `client/public/robots.txt`
 - **Local SEO**: geo.region, geo.placename, geo.position, ICBM tags; city clusters with PLZ distributed across pages (Siegerland+Lahn-Dill on Gesichtsbehandlungen, Westerwald+Sauerland+Wittgenstein on Laserbehandlungen, all clusters on Kontakt)
 - **Internal Linking Strategy**: Hub-and-spoke – Homepage→all service pages; service pages cross-link each other + Gutscheine + Kontakt; varied anchor texts
 - **areaServed (Schema.org)**: 31 cities with PLZ as Place schema with PostalAddress (postalCode, addressLocality, addressCountry)
-- **Featured Snippet Optimization**: `<details>`/`<summary>` FAQ sections on Gesichtsbehandlungen (4), Laserbehandlungen (4), Gutscheine (2) with corresponding FAQPage JSON-LD
+- **Featured Snippet Optimization**: `<details>`/`<summary>` FAQ sections on Gesichtsbehandlungen (4), Laserbehandlungen (4), Gutscheine (2), and 8 skin problem pages (4 each) with corresponding FAQPage JSON-LD
+- **Skin Problem Landing Pages** (`client/src/pages/SkinProblemPage.tsx`): Data-driven component handling 8 dermatological problem landing pages (akne-behandlung-siegen, akne-narben-behandlung, hautanalyse-burbach, kollagen-aufbau-gesicht, faltenbehandlung-siegerland, pigmentflecken-entfernen, rosazea-behandlung, grossporige-haut-behandlung); each with causes, symptoms, solutions, 4 FAQs, local text with PLZ, CTA, and cross-links to related treatments
 - **City Clusters with PLZ**: Siegerland (Burbach 57299, Wahlbach 57299, Siegen 57072, Kreuztal 57223, Netphen 57250, Neunkirchen 57290, Wilnsdorf 57234, Freudenberg 57258, Hilchenbach 57271), Lahn-Dill-Kreis (Haiger 35708, Dillenburg 35683, Herborn 35745, Eschenburg 35713, Wetzlar 35578, Dietzhölztal 35716), Westerwald (Betzdorf 57518, Herdorf 57562, Kirchen 57548, Daaden 57567, Hachenburg 57627, Bad Marienberg 56470, Rennerod 56477, Westerburg 56457), Sauerland (Olpe 57462, Attendorn 57439, Lennestadt 57368), Wittgenstein (Bad Laasphe 57334, Bad Berleburg 57319, Erndtebrück 57339)
 
 ### Legal Compliance

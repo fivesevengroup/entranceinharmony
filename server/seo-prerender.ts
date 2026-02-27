@@ -535,6 +535,279 @@ export const ROUTES: Record<string, RouteConfig> = {
       <h1 style="font-size:2.2rem;font-weight:300;margin-bottom:1rem">Widerruf und Rückgabe</h1>
       <p style="font-family:Inter,sans-serif;font-size:0.95rem;color:#5a4a54">Informationen zu Ihrem Widerrufsrecht bei Gutscheinen, Produkten und Behandlungen von Entrance in Harmony.</p>
     `)
+  },
+
+  "/akne-behandlung-siegen": {
+    title: "Akne Behandlung Siegen & Burbach | Entrance in Harmony",
+    description: "Professionelle Akne Behandlung in Burbach bei Siegen. Tiefenreinigung, Microneedling & Hautanalyse. Sichtbare Verbesserung. Jetzt beraten lassen!",
+    ogImage: OG_IMAGE,
+    structuredData: [
+      breadcrumb([{ name: "Startseite", url: "/" }, { name: "Gesichtsbehandlungen", url: "/gesichtsbehandlungen" }, { name: "Akne Behandlung", url: "/akne-behandlung-siegen" }]),
+      serviceSchema("Akne Behandlung in Burbach bei Siegen", "Professionelle kosmetische Behandlung bei Akne, unreiner Haut und Spätakne mit Tiefenreinigung, Microneedling und individueller Hautanalyse.", "85", "/akne-behandlung-siegen", ["Siegen", "Burbach", "Neunkirchen", "Kreuztal", "Haiger", "Dillenburg", "Netphen"]),
+      faqSchema([
+        { q: "Was hilft wirklich gegen Akne?", a: "Neben angepasster Heimpflege ist eine professionelle Tiefenreinigung oft der erste wichtige Schritt. Die Kombination aus gründlicher Ausreinigung, individueller Hautanalyse und abgestimmter Pflegeempfehlung kann sichtbare Verbesserungen bewirken. Bei schwerer Akne empfehlen wir ergänzend eine dermatologische Beratung." },
+        { q: "Wie läuft eine Akne-Behandlung in Burbach ab?", a: "Wir beginnen mit einer ausführlichen Hautanalyse und Bestandsaufnahme. Darauf aufbauend wählen wir die geeignete Behandlung – von Tiefenreinigung über Carboxy Therapie bis Microneedling. Jeder Behandlungsplan wird individuell auf Ihren Hauttyp abgestimmt." },
+        { q: "Ist eine kosmetische Akne-Behandlung schmerzhaft?", a: "Die meisten Behandlungen sind gut verträglich. Bei der Ausreinigung kann es leicht unangenehm sein, aber nie schmerzhaft. Beim Microneedling wird vorab eine betäubende Creme aufgetragen. Die Haut kann danach kurzzeitig gerötet sein." },
+        { q: "Wie viele Sitzungen brauche ich bei Akne?", a: "Erste Verbesserungen zeigen sich häufig schon nach der ersten Tiefenreinigung. Für nachhaltige Ergebnisse empfehlen wir je nach Hautbild eine Serie von drei bis sechs Behandlungen im Abstand von vier bis sechs Wochen." }
+      ])
+    ],
+    preRenderHtml: wrapPage(`
+      <h1 style="font-size:2.2rem;font-weight:300;margin-bottom:1rem">Akne Behandlung in Burbach bei Siegen</h1>
+      <p style="font-size:1.1rem;color:#5a4a54;margin-bottom:1.5rem">Akne betrifft nicht nur Jugendliche – auch Erwachsene leiden häufig unter unreiner Haut und entzündlichen Hautveränderungen. In unserem Kosmetikstudio bieten wir individuelle Behandlungskonzepte, die auf Ihren Hauttyp abgestimmt sind.</p>
+      <h2 style="font-size:1.5rem;font-weight:400;margin:1.5rem 0 0.8rem">Ursachen und Auslöser</h2>
+      <ul style="padding-left:1.2rem;font-family:Inter,sans-serif;font-size:0.95rem"><li style="margin:0.4rem 0">Hormonelle Veränderungen und Überproduktion von Talg</li><li style="margin:0.4rem 0">Stress, Ernährung und ungeeignete Pflegeprodukte</li><li style="margin:0.4rem 0">Genetische Veranlagung und verstopfte Poren</li></ul>
+      <h2 style="font-size:1.5rem;font-weight:400;margin:1.5rem 0 0.8rem">Unsere Behandlungsansätze</h2>
+      <div style="font-family:Inter,sans-serif;font-size:0.95rem">
+        <p style="margin:0.5rem 0"><strong><a href="/gesichtsbehandlungen" style="color:#8B7082">Professionelle Tiefenreinigung</a></strong> – Ausreinigung, Peeling und beruhigende Pflege als Basis für ein klareres Hautbild.</p>
+        <p style="margin:0.5rem 0"><strong>Microneedling</strong> – Stimuliert die Hauterneuerung, verbessert Aknenarben und Pickelmale.</p>
+        <p style="margin:0.5rem 0"><strong>Carboxy Therapie</strong> – Fördert die Hautregeneration und Durchblutung.</p>
+        <p style="margin:0.5rem 0"><strong><a href="/hautanalyse-burbach" style="color:#8B7082">Individuelle Hautanalyse</a></strong> – Grundlage jeder Behandlung.</p>
+      </div>
+      <h2 style="font-size:1.5rem;font-weight:400;margin:2rem 0 0.8rem">Häufige Fragen</h2>
+      <div style="font-family:Inter,sans-serif;font-size:0.95rem">
+        <details style="margin:0.8rem 0;padding:0.5rem 0;border-bottom:1px solid #f0e8ed"><summary style="cursor:pointer;font-weight:600;color:#2a2025">Was hilft wirklich gegen Akne?</summary><p style="color:#5a4a54;margin:0.5rem 0 0">Neben angepasster Heimpflege ist eine professionelle Tiefenreinigung oft der erste wichtige Schritt. Die Kombination aus Ausreinigung, Hautanalyse und Pflegeempfehlung kann sichtbare Verbesserungen bewirken.</p></details>
+        <details style="margin:0.8rem 0;padding:0.5rem 0;border-bottom:1px solid #f0e8ed"><summary style="cursor:pointer;font-weight:600;color:#2a2025">Wie viele Sitzungen brauche ich?</summary><p style="color:#5a4a54;margin:0.5rem 0 0">Erste Verbesserungen nach der ersten Tiefenreinigung. Für nachhaltige Ergebnisse empfehlen wir drei bis sechs Behandlungen im Abstand von vier bis sechs Wochen.</p></details>
+      </div>
+      <p style="font-family:Inter,sans-serif;font-size:0.95rem;color:#5a4a54;margin-top:1.5rem">Gut erreichbar aus Siegen (57072), Kreuztal (57223), Netphen (57250), Neunkirchen (57290), Haiger (35708) und Dillenburg (35683). <a href="/kontakt" style="color:#8B7082">Jetzt Beratungstermin vereinbaren</a>.</p>
+      <p style="font-family:Inter,sans-serif;font-size:0.9rem;color:#5a4a54;margin-top:1rem">Weitere Themen: <a href="/akne-narben-behandlung" style="color:#8B7082">Akne-Narben behandeln</a> | <a href="/grossporige-haut-behandlung" style="color:#8B7082">Große Poren verfeinern</a> | <a href="/hautanalyse-burbach" style="color:#8B7082">Professionelle Hautanalyse</a></p>
+    `)
+  },
+
+  "/akne-narben-behandlung": {
+    title: "Akne-Narben behandeln – Microneedling & Laser Burbach",
+    description: "Akne-Narben sichtbar verbessern. Microneedling, Laser & Carboxy Therapie in Burbach bei Siegen. Individuelle Beratung. Jetzt Termin vereinbaren!",
+    ogImage: OG_IMAGE,
+    structuredData: [
+      breadcrumb([{ name: "Startseite", url: "/" }, { name: "Gesichtsbehandlungen", url: "/gesichtsbehandlungen" }, { name: "Akne-Narben", url: "/akne-narben-behandlung" }]),
+      serviceSchema("Akne-Narben Behandlung in Burbach", "Microneedling, Laser und Carboxy Therapie zur Verbesserung von Akne-Narben und Pickelmalen.", "90", "/akne-narben-behandlung", ["Siegen", "Burbach", "Haiger", "Betzdorf", "Herdorf", "Dillenburg"]),
+      faqSchema([
+        { q: "Was tun bei Akne-Narben im Gesicht?", a: "Microneedling und Laserbehandlungen gehören zu den wirksamsten kosmetischen Methoden. Durch kontrollierte Stimulation der Kollagenproduktion kann sich die Hautstruktur über mehrere Sitzungen sichtbar verbessern." },
+        { q: "Ist Microneedling gut bei Akne-Narben?", a: "Microneedling hat sich bei atrophen Akne-Narben sehr bewährt. Die feinen Mikroverletzungen regen die Bildung von neuem Kollagen an, was eingesunkene Narben nach und nach auffüllen kann." },
+        { q: "Wie viele Behandlungen braucht man bei Akne-Narben?", a: "In der Regel sind drei bis sechs Sitzungen im Abstand von vier bis sechs Wochen empfehlenswert. Erste Verbesserungen sind oft schon nach der zweiten Behandlung sichtbar." },
+        { q: "Können Akne-Narben vollständig verschwinden?", a: "Eine vollständige Beseitigung tiefer Narben ist kosmetisch nicht möglich. Allerdings lassen sich Tiefe, Farbe und Gesamterscheinung deutlich verbessern." }
+      ])
+    ],
+    preRenderHtml: wrapPage(`
+      <h1 style="font-size:2.2rem;font-weight:300;margin-bottom:1rem">Akne-Narben behandeln in Burbach</h1>
+      <p style="font-size:1.1rem;color:#5a4a54;margin-bottom:1.5rem">Akne-Narben und Pickelmale können das Hautbild noch lange nach einer aktiven Akne beeinträchtigen. Wir bieten moderne Behandlungsmethoden, die die Hautstruktur verbessern und Narben sichtbar reduzieren können.</p>
+      <h2 style="font-size:1.5rem;font-weight:400;margin:1.5rem 0 0.8rem">Behandlungsmethoden</h2>
+      <div style="font-family:Inter,sans-serif;font-size:0.95rem">
+        <p style="margin:0.5rem 0"><strong><a href="/gesichtsbehandlungen" style="color:#8B7082">Microneedling</a></strong> – Stimuliert die Kollagenproduktion, ideal bei eingesunkenen Narben.</p>
+        <p style="margin:0.5rem 0"><strong><a href="/laserbehandlungen" style="color:#8B7082">Red Touch Pro Laser</a></strong> – Stimuliert Kollagenneubildung in tieferen Hautschichten.</p>
+        <p style="margin:0.5rem 0"><strong>Carboxy Therapie</strong> – Fördert Durchblutung und Zellaktivierung.</p>
+        <p style="margin:0.5rem 0"><strong>Chemische Peelings</strong> – Hauterneuerung bei oberflächlichen Narben.</p>
+      </div>
+      <h2 style="font-size:1.5rem;font-weight:400;margin:2rem 0 0.8rem">Häufige Fragen</h2>
+      <div style="font-family:Inter,sans-serif;font-size:0.95rem">
+        <details style="margin:0.8rem 0;padding:0.5rem 0;border-bottom:1px solid #f0e8ed"><summary style="cursor:pointer;font-weight:600;color:#2a2025">Ist Microneedling gut bei Akne-Narben?</summary><p style="color:#5a4a54;margin:0.5rem 0 0">Ja, Microneedling regt die Kollagenbildung an und kann eingesunkene Narben auffüllen. Gut verträglich und ohne Ausfallzeit.</p></details>
+        <details style="margin:0.8rem 0;padding:0.5rem 0;border-bottom:1px solid #f0e8ed"><summary style="cursor:pointer;font-weight:600;color:#2a2025">Wie viele Behandlungen bei Akne-Narben?</summary><p style="color:#5a4a54;margin:0.5rem 0 0">Drei bis sechs Sitzungen im Abstand von vier bis sechs Wochen. Erste Verbesserungen oft schon nach der zweiten Behandlung.</p></details>
+      </div>
+      <p style="font-family:Inter,sans-serif;font-size:0.95rem;color:#5a4a54;margin-top:1.5rem">Erreichbar aus Siegen (57072), Haiger (35708), Betzdorf (57518), Herdorf (57562), Dillenburg (35683). <a href="/kontakt" style="color:#8B7082">Beratungstermin vereinbaren</a>.</p>
+      <p style="font-family:Inter,sans-serif;font-size:0.9rem;color:#5a4a54;margin-top:1rem">Verwandte Themen: <a href="/akne-behandlung-siegen" style="color:#8B7082">Akne Behandlung</a> | <a href="/kollagen-aufbau-gesicht" style="color:#8B7082">Kollagen aufbauen</a> | <a href="/hautanalyse-burbach" style="color:#8B7082">Hautanalyse</a></p>
+    `)
+  },
+
+  "/hautanalyse-burbach": {
+    title: "Hautanalyse Burbach – Individuelle Hauttyp-Bestimmung",
+    description: "Professionelle Hautanalyse in Burbach bei Siegen. Individuelle Hauttyp-Bestimmung als Basis für Ihren Behandlungsplan. Jetzt Termin vereinbaren!",
+    ogImage: OG_IMAGE,
+    structuredData: [
+      breadcrumb([{ name: "Startseite", url: "/" }, { name: "Gesichtsbehandlungen", url: "/gesichtsbehandlungen" }, { name: "Hautanalyse", url: "/hautanalyse-burbach" }]),
+      serviceSchema("Professionelle Hautanalyse in Burbach", "Individuelle Hauttyp-Bestimmung und Zustandsanalyse als Grundlage für gezielte Behandlung und Pflege.", "0", "/hautanalyse-burbach", ["Siegen", "Burbach", "Kreuztal", "Netphen", "Haiger", "Dillenburg", "Betzdorf"]),
+      faqSchema([
+        { q: "Wie läuft eine professionelle Hautanalyse ab?", a: "Die Analyse beginnt mit einem Gespräch über Ihre Hautgeschichte und aktuelle Pflege. Anschließend beurteilen wir Ihren Hauttyp und -zustand systematisch und entwickeln einen individuellen Behandlungs- und Pflegeplan." },
+        { q: "Was kostet eine Hautanalyse in Burbach?", a: "Die individuelle Hautanalyse ist Teil jeder Erstbehandlung bei Entrance in Harmony. Wir nehmen uns Zeit, Ihren Hauttyp zu bestimmen und die passende Behandlung zu empfehlen – transparent und ohne versteckte Kosten." },
+        { q: "Wie oft sollte man eine Hautanalyse machen?", a: "Wir empfehlen eine Hautanalyse bei der Erstbehandlung und danach alle sechs bis zwölf Monate, da sich der Hautzustand mit Jahreszeiten und Alter verändert." },
+        { q: "Für wen ist eine Hautanalyse geeignet?", a: "Für jeden, der seine Haut besser verstehen möchte – ob Teenagerhaut mit Unreinheiten, reife Haut mit Anti-Aging-Wünschen oder empfindliche Haut mit Reaktionsneigung." }
+      ])
+    ],
+    preRenderHtml: wrapPage(`
+      <h1 style="font-size:2.2rem;font-weight:300;margin-bottom:1rem">Professionelle Hautanalyse in Burbach</h1>
+      <p style="font-size:1.1rem;color:#5a4a54;margin-bottom:1.5rem">Jede Haut ist einzigartig. Bevor wir eine Behandlung empfehlen, analysieren wir Ihren Hauttyp gründlich und erstellen einen individuellen Pflegeplan – die Basis für sichtbare, nachhaltige Ergebnisse.</p>
+      <h2 style="font-size:1.5rem;font-weight:400;margin:1.5rem 0 0.8rem">Der Ablauf Ihrer Hautanalyse</h2>
+      <div style="font-family:Inter,sans-serif;font-size:0.95rem">
+        <p style="margin:0.5rem 0"><strong>1. Hauttyp-Bestimmung</strong> – Trocken, fettig, Mischhaut oder empfindlich?</p>
+        <p style="margin:0.5rem 0"><strong>2. Zustandsanalyse</strong> – Unreinheiten, Rötungen, Pigmentierungen, Hautalterung</p>
+        <p style="margin:0.5rem 0"><strong>3. Pflege-Check</strong> – Bewertung Ihrer aktuellen Routine</p>
+        <p style="margin:0.5rem 0"><strong>4. Individueller Plan</strong> – Behandlungsempfehlung und Heimpflege</p>
+      </div>
+      <h2 style="font-size:1.5rem;font-weight:400;margin:2rem 0 0.8rem">Häufige Fragen</h2>
+      <div style="font-family:Inter,sans-serif;font-size:0.95rem">
+        <details style="margin:0.8rem 0;padding:0.5rem 0;border-bottom:1px solid #f0e8ed"><summary style="cursor:pointer;font-weight:600;color:#2a2025">Wie läuft eine professionelle Hautanalyse ab?</summary><p style="color:#5a4a54;margin:0.5rem 0 0">Persönliches Gespräch, systematische Hautbeurteilung, individueller Behandlungs- und Pflegeplan. Dauer circa 15 bis 20 Minuten.</p></details>
+        <details style="margin:0.8rem 0;padding:0.5rem 0;border-bottom:1px solid #f0e8ed"><summary style="cursor:pointer;font-weight:600;color:#2a2025">Was kostet eine Hautanalyse?</summary><p style="color:#5a4a54;margin:0.5rem 0 0">Die Hautanalyse ist Teil jeder Erstbehandlung – transparent und ohne versteckte Kosten.</p></details>
+      </div>
+      <p style="font-family:Inter,sans-serif;font-size:0.95rem;color:#5a4a54;margin-top:1.5rem">Erreichbar aus Siegen (57072), Kreuztal (57223), Netphen (57250), Haiger (35708), Dillenburg (35683), Betzdorf (57518). <a href="/kontakt" style="color:#8B7082">Beratungstermin vereinbaren</a>.</p>
+      <p style="font-family:Inter,sans-serif;font-size:0.9rem;color:#5a4a54;margin-top:1rem">Passende Behandlungen: <a href="/gesichtsbehandlungen" style="color:#8B7082">Gesichtsbehandlungen</a> | <a href="/akne-behandlung-siegen" style="color:#8B7082">Akne Behandlung</a> | <a href="/rosazea-behandlung" style="color:#8B7082">Rosazea Behandlung</a></p>
+    `)
+  },
+
+  "/kollagen-aufbau-gesicht": {
+    title: "Kollagen aufbauen im Gesicht – Behandlung in Burbach",
+    description: "Kollagen im Gesicht natürlich aufbauen. Microneedling & Red Touch Pro Laser in Burbach bei Siegen. Straffere Haut ohne OP. Jetzt beraten lassen!",
+    ogImage: OG_IMAGE,
+    structuredData: [
+      breadcrumb([{ name: "Startseite", url: "/" }, { name: "Laserbehandlungen", url: "/laserbehandlungen" }, { name: "Kollagen aufbauen", url: "/kollagen-aufbau-gesicht" }]),
+      serviceSchema("Kollagenstimulation in Burbach", "Gezielte Kollagenstimulation mit Microneedling und Red Touch Pro Laser für straffere, jugendlichere Haut.", "90", "/kollagen-aufbau-gesicht", ["Siegen", "Burbach", "Kreuztal", "Haiger", "Dillenburg", "Herborn", "Betzdorf"]),
+      faqSchema([
+        { q: "Wie kann man Kollagen im Gesicht aufbauen?", a: "Microneedling und Laserbehandlungen stimulieren die körpereigene Kollagenproduktion gezielt. Der Red Touch Pro Laser erreicht tiefere Hautschichten und regt die Neokollagenese effektiv an." },
+        { q: "Was hilft gegen Falten ohne OP?", a: "Red Touch Pro Laser und Microneedling können feine Linien und Falten sichtbar reduzieren, indem sie die natürliche Kollagen- und Elastinproduktion anregen. Sanft und ohne Ausfallzeit." },
+        { q: "Ab welchem Alter ist Kollagenaufbau sinnvoll?", a: "Präventiver Kollagenaufbau kann ab Mitte bis Ende 20 sinnvoll sein. Für intensive Behandlungen gibt es kein zu spät – auch reifere Haut profitiert deutlich von Kollagenstimulation." },
+        { q: "Wie viele Behandlungen für Kollagenaufbau?", a: "Drei bis fünf Sitzungen im Abstand von vier bis sechs Wochen. Sichtbare Straffung oft schon nach der ersten Sitzung spürbar." }
+      ])
+    ],
+    preRenderHtml: wrapPage(`
+      <h1 style="font-size:2.2rem;font-weight:300;margin-bottom:1rem">Kollagen aufbauen im Gesicht</h1>
+      <p style="font-size:1.1rem;color:#5a4a54;margin-bottom:1.5rem">Ab dem 25. Lebensjahr nimmt die Kollagenproduktion ab. In unserem Studio in Burbach setzen wir auf nicht-invasive Methoden, die die natürliche Kollagenneubildung anregen – für festere, strahlendere Haut ohne Operation.</p>
+      <h2 style="font-size:1.5rem;font-weight:400;margin:1.5rem 0 0.8rem">Unsere Methoden</h2>
+      <div style="font-family:Inter,sans-serif;font-size:0.95rem">
+        <p style="margin:0.5rem 0"><strong><a href="/laserbehandlungen" style="color:#8B7082">Red Touch Pro Laser</a></strong> – 675-nm-Wellenlänge für Neokollagenese in der Tiefe. Ab 250 €.</p>
+        <p style="margin:0.5rem 0"><strong><a href="/gesichtsbehandlungen" style="color:#8B7082">Microneedling</a></strong> – Aktiviert natürliche Kollagen- und Elastinproduktion. Ab 90 €.</p>
+        <p style="margin:0.5rem 0"><strong>Carboxy Therapie</strong> – Fördert Durchblutung und Zellaktivierung.</p>
+        <p style="margin:0.5rem 0"><strong>BB Glow + Microneedling</strong> – Kollagenstimulation mit ebenmäßigerem Teint.</p>
+      </div>
+      <h2 style="font-size:1.5rem;font-weight:400;margin:2rem 0 0.8rem">Häufige Fragen</h2>
+      <div style="font-family:Inter,sans-serif;font-size:0.95rem">
+        <details style="margin:0.8rem 0;padding:0.5rem 0;border-bottom:1px solid #f0e8ed"><summary style="cursor:pointer;font-weight:600;color:#2a2025">Wie kann man Kollagen im Gesicht aufbauen?</summary><p style="color:#5a4a54;margin:0.5rem 0 0">Microneedling und Laserbehandlungen stimulieren die körpereigene Kollagenproduktion. Der Red Touch Pro erreicht tiefere Hautschichten als topische Produkte.</p></details>
+        <details style="margin:0.8rem 0;padding:0.5rem 0;border-bottom:1px solid #f0e8ed"><summary style="cursor:pointer;font-weight:600;color:#2a2025">Ab welchem Alter ist Kollagenaufbau sinnvoll?</summary><p style="color:#5a4a54;margin:0.5rem 0 0">Prävention ab Mitte 20. Für intensive Behandlungen gibt es kein zu spät – auch reifere Haut profitiert deutlich.</p></details>
+      </div>
+      <p style="font-family:Inter,sans-serif;font-size:0.95rem;color:#5a4a54;margin-top:1.5rem">Erreichbar aus Siegen (57072), Kreuztal (57223), Haiger (35708), Dillenburg (35683), Herborn (35745), Betzdorf (57518). <a href="/kontakt" style="color:#8B7082">Beratungstermin vereinbaren</a>.</p>
+      <p style="font-family:Inter,sans-serif;font-size:0.9rem;color:#5a4a54;margin-top:1rem">Verwandte Themen: <a href="/faltenbehandlung-siegerland" style="color:#8B7082">Faltenbehandlung</a> | <a href="/akne-narben-behandlung" style="color:#8B7082">Akne-Narben</a> | <a href="/laserbehandlungen" style="color:#8B7082">Laserbehandlungen</a></p>
+    `)
+  },
+
+  "/faltenbehandlung-siegerland": {
+    title: "Faltenbehandlung Siegerland – Anti-Aging ohne OP",
+    description: "Falten reduzieren ohne OP in Burbach bei Siegen. Red Touch Pro Laser, Microneedling & Kollagenstimulation. Sichtbare Straffung. Jetzt Beratung vereinbaren!",
+    ogImage: OG_IMAGE,
+    structuredData: [
+      breadcrumb([{ name: "Startseite", url: "/" }, { name: "Laserbehandlungen", url: "/laserbehandlungen" }, { name: "Faltenbehandlung", url: "/faltenbehandlung-siegerland" }]),
+      serviceSchema("Faltenbehandlung im Siegerland", "Nicht-invasive Faltenreduktion mit Red Touch Pro Laser und Microneedling in Burbach bei Siegen.", "90", "/faltenbehandlung-siegerland", ["Siegen", "Burbach", "Kreuztal", "Netphen", "Haiger", "Bad Marienberg", "Hachenburg"]),
+      faqSchema([
+        { q: "Was hilft gegen Falten ohne OP?", a: "Red Touch Pro Laser und Microneedling gehören zu den wirksamsten nicht-invasiven Methoden. Sie stimulieren die körpereigene Kollagenproduktion und können feine Linien und tiefere Falten sichtbar verbessern." },
+        { q: "Wie effektiv ist Laserbehandlung gegen Falten?", a: "Der Red Touch Pro zeigt in der Regel bereits nach der ersten Sitzung sichtbare Verbesserungen. Die vollständige Wirkung entfaltet sich über Wochen durch Kollagenneubildung." },
+        { q: "Ab welchem Alter Anti-Aging beginnen?", a: "Prävention kann ab Ende 20 sinnvoll sein. Für intensivere Behandlungen gibt es kein oberes Alterslimit – auch reife Haut profitiert von Kollagenstimulation." },
+        { q: "Welche Faltenbehandlung ist für mich geeignet?", a: "Das hängt von Hauttyp, Faltenarten und Wünschen ab. In einem Beratungsgespräch empfehlen wir die optimale Kombination. Oft bringt Laser plus Microneedling die besten Ergebnisse." }
+      ])
+    ],
+    preRenderHtml: wrapPage(`
+      <h1 style="font-size:2.2rem;font-weight:300;margin-bottom:1rem">Faltenbehandlung im Siegerland – Anti-Aging ohne OP</h1>
+      <p style="font-size:1.1rem;color:#5a4a54;margin-bottom:1.5rem">In unserem Kosmetikstudio in Burbach bieten wir sanfte Anti-Aging-Behandlungen, die Falten reduzieren und die Haut sichtbar verjüngen – ohne Operation und ohne Ausfallzeit.</p>
+      <h2 style="font-size:1.5rem;font-weight:400;margin:1.5rem 0 0.8rem">Unsere Anti-Aging-Behandlungen</h2>
+      <div style="font-family:Inter,sans-serif;font-size:0.95rem">
+        <p style="margin:0.5rem 0"><strong><a href="/laserbehandlungen" style="color:#8B7082">Red Touch Pro Laser</a></strong> – Kollagenneubildung in der Tiefe, sichtbare Straffung. Ab 250 €.</p>
+        <p style="margin:0.5rem 0"><strong><a href="/gesichtsbehandlungen" style="color:#8B7082">Microneedling</a></strong> – Natürliche Hauterneuerung bei feinen Linien. Ab 90 €.</p>
+        <p style="margin:0.5rem 0"><strong>B-Tox-Peel</strong> – Botulinum-ähnlicher Glättungseffekt ohne Injektion.</p>
+      </div>
+      <h2 style="font-size:1.5rem;font-weight:400;margin:2rem 0 0.8rem">Häufige Fragen</h2>
+      <div style="font-family:Inter,sans-serif;font-size:0.95rem">
+        <details style="margin:0.8rem 0;padding:0.5rem 0;border-bottom:1px solid #f0e8ed"><summary style="cursor:pointer;font-weight:600;color:#2a2025">Was hilft gegen Falten ohne OP?</summary><p style="color:#5a4a54;margin:0.5rem 0 0">Red Touch Pro Laser und Microneedling stimulieren die Kollagenproduktion und reduzieren Falten sichtbar – sanft und ohne Ausfallzeit.</p></details>
+        <details style="margin:0.8rem 0;padding:0.5rem 0;border-bottom:1px solid #f0e8ed"><summary style="cursor:pointer;font-weight:600;color:#2a2025">Wie effektiv ist Laser gegen Falten?</summary><p style="color:#5a4a54;margin:0.5rem 0 0">Sichtbare Verbesserungen bereits nach der ersten Sitzung. Die volle Wirkung über Wochen durch Kollagenneubildung.</p></details>
+      </div>
+      <p style="font-family:Inter,sans-serif;font-size:0.95rem;color:#5a4a54;margin-top:1.5rem">Erreichbar aus Siegen (57072), Kreuztal (57223), Netphen (57250), Haiger (35708), Bad Marienberg (56470), Hachenburg (57627). <a href="/kontakt" style="color:#8B7082">Beratungstermin vereinbaren</a>.</p>
+      <p style="font-family:Inter,sans-serif;font-size:0.9rem;color:#5a4a54;margin-top:1rem">Verwandte Themen: <a href="/kollagen-aufbau-gesicht" style="color:#8B7082">Kollagen aufbauen</a> | <a href="/pigmentflecken-entfernen" style="color:#8B7082">Pigmentflecken entfernen</a> | <a href="/laserbehandlungen" style="color:#8B7082">Alle Laserbehandlungen</a></p>
+    `)
+  },
+
+  "/pigmentflecken-entfernen": {
+    title: "Pigmentflecken entfernen – Laser & Peeling Burbach",
+    description: "Pigmentflecken in Burbach bei Siegen behandeln. Laser, Peeling & gezielte Pflege für einen ebenmäßigen Teint. Jetzt Termin vereinbaren!",
+    ogImage: OG_IMAGE,
+    structuredData: [
+      breadcrumb([{ name: "Startseite", url: "/" }, { name: "Laserbehandlungen", url: "/laserbehandlungen" }, { name: "Pigmentflecken", url: "/pigmentflecken-entfernen" }]),
+      serviceSchema("Pigmentflecken Behandlung in Burbach", "Laser und Peeling zur Behandlung von Pigmentflecken, Altersflecken und ungleichmäßiger Pigmentierung.", "85", "/pigmentflecken-entfernen", ["Siegen", "Burbach", "Dillenburg", "Haiger", "Herborn", "Betzdorf", "Herdorf"]),
+      faqSchema([
+        { q: "Welche Behandlung hilft bei Pigmentflecken?", a: "Laserbehandlungen und chemische Peelings gehören zu den wirksamsten Methoden. Der Red Touch Pro Laser kann Hyperpigmentierungen sichtbar verbessern. Ergänzend ist konsequenter Sonnenschutz entscheidend." },
+        { q: "Können Pigmentflecken vollständig entfernt werden?", a: "Viele oberflächliche Flecken lassen sich deutlich aufhellen. Hormonell bedingte Pigmentierungen können hartnäckiger sein und erfordern eine langfristige Behandlungsstrategie." },
+        { q: "Ist Laserbehandlung bei Pigmentflecken sicher?", a: "Der Red Touch Pro arbeitet mit kontrollierter Wellenlänge und Hautkühlung. Sanft und gut verträglich. Vor jeder Behandlung klären wir die Eignung ab." },
+        { q: "Wie kann ich neuen Pigmentflecken vorbeugen?", a: "Täglicher Sonnenschutz mit hohem LSF ist die wichtigste Maßnahme. Ergänzend empfehlen wir antioxidative Pflege und regelmäßige professionelle Behandlungen." }
+      ])
+    ],
+    preRenderHtml: wrapPage(`
+      <h1 style="font-size:2.2rem;font-weight:300;margin-bottom:1rem">Pigmentflecken behandeln in Burbach</h1>
+      <p style="font-size:1.1rem;color:#5a4a54;margin-bottom:1.5rem">Pigmentflecken, Altersflecken und ungleichmäßige Pigmentierung können das Hautbild unruhig erscheinen lassen. Wir bieten gezielte Behandlungen für einen ebenmäßigeren Teint.</p>
+      <h2 style="font-size:1.5rem;font-weight:400;margin:1.5rem 0 0.8rem">Behandlungsmethoden</h2>
+      <div style="font-family:Inter,sans-serif;font-size:0.95rem">
+        <p style="margin:0.5rem 0"><strong><a href="/laserbehandlungen" style="color:#8B7082">Red Touch Pro Laser</a></strong> – Hauterneuerung und Verbesserung des Hauttons.</p>
+        <p style="margin:0.5rem 0"><strong>Chemische Peelings</strong> – Abtragen oberflächlicher Pigmentierungen.</p>
+        <p style="margin:0.5rem 0"><strong><a href="/gesichtsbehandlungen" style="color:#8B7082">BB Glow</a></strong> – Kaschiert Pigmentunregelmäßigkeiten mit natürlichem Glow.</p>
+        <p style="margin:0.5rem 0"><strong>Sonnenschutz-Beratung</strong> – Die wichtigste Maßnahme zur Vorbeugung.</p>
+      </div>
+      <h2 style="font-size:1.5rem;font-weight:400;margin:2rem 0 0.8rem">Häufige Fragen</h2>
+      <div style="font-family:Inter,sans-serif;font-size:0.95rem">
+        <details style="margin:0.8rem 0;padding:0.5rem 0;border-bottom:1px solid #f0e8ed"><summary style="cursor:pointer;font-weight:600;color:#2a2025">Welche Behandlung hilft bei Pigmentflecken?</summary><p style="color:#5a4a54;margin:0.5rem 0 0">Laser und Peelings sind die wirksamsten Methoden. Der Red Touch Pro kann Pigmentierungen sichtbar verbessern. Ergänzend ist Sonnenschutz entscheidend.</p></details>
+        <details style="margin:0.8rem 0;padding:0.5rem 0;border-bottom:1px solid #f0e8ed"><summary style="cursor:pointer;font-weight:600;color:#2a2025">Ist Laserbehandlung bei Pigmentflecken sicher?</summary><p style="color:#5a4a54;margin:0.5rem 0 0">Ja, der Red Touch Pro arbeitet mit kontrollierter Wellenlänge und Hautkühlung. Sanft und gut verträglich.</p></details>
+      </div>
+      <p style="font-family:Inter,sans-serif;font-size:0.95rem;color:#5a4a54;margin-top:1.5rem">Erreichbar aus Dillenburg (35683), Haiger (35708), Herborn (35745), Siegen (57072), Betzdorf (57518), Herdorf (57562). <a href="/kontakt" style="color:#8B7082">Beratungstermin vereinbaren</a>.</p>
+      <p style="font-family:Inter,sans-serif;font-size:0.9rem;color:#5a4a54;margin-top:1rem">Verwandte Themen: <a href="/faltenbehandlung-siegerland" style="color:#8B7082">Faltenbehandlung</a> | <a href="/rosazea-behandlung" style="color:#8B7082">Rosazea Behandlung</a> | <a href="/laserbehandlungen" style="color:#8B7082">Alle Laserbehandlungen</a></p>
+    `)
+  },
+
+  "/rosazea-behandlung": {
+    title: "Rosazea Behandlung Siegerland – Rötungen lindern",
+    description: "Rosazea und Couperose in Burbach bei Siegen behandeln. Laser, beruhigende Pflege & Beratung. Rötungen sichtbar mildern. Jetzt Termin buchen!",
+    ogImage: OG_IMAGE,
+    structuredData: [
+      breadcrumb([{ name: "Startseite", url: "/" }, { name: "Laserbehandlungen", url: "/laserbehandlungen" }, { name: "Rosazea", url: "/rosazea-behandlung" }]),
+      serviceSchema("Rosazea Behandlung in Burbach", "Kosmetische Behandlung bei Rosazea und Couperose mit Laser, beruhigender Pflege und individueller Beratung.", "85", "/rosazea-behandlung", ["Siegen", "Burbach", "Kreuztal", "Netphen", "Haiger", "Betzdorf", "Bad Marienberg"]),
+      faqSchema([
+        { q: "Was hilft bei Rosazea im Gesicht?", a: "Neben reizarmer Pflege können professionelle Behandlungen wie der Red Touch Pro Laser Rötungen sichtbar mildern. Beruhigende Gesichtsbehandlungen stärken die Hautbarriere. Wichtig ist auch, persönliche Trigger zu kennen." },
+        { q: "Kann Rosazea durch Kosmetik verschlimmert werden?", a: "Ja, aggressive Produkte, grobe Peelings und Duftstoffe können Rosazea verschlimmern. Fachkundige Beratung zu geeigneten Produkten ist deshalb wichtig." },
+        { q: "Ist Laserbehandlung bei Rosazea geeignet?", a: "Der Red Touch Pro Laser kann bei Rosazea sehr hilfreich sein, besonders zur Reduktion erweiterter Äderchen und anhaltender Rötungen. Die integrierte Hautkühlung macht die Behandlung besonders schonend." },
+        { q: "Kann Rosazea geheilt werden?", a: "Rosazea ist chronisch und nicht vollständig heilbar. Die Symptome lassen sich jedoch mit richtiger Pflege, Behandlungen und Trigger-Management deutlich verbessern." }
+      ])
+    ],
+    preRenderHtml: wrapPage(`
+      <h1 style="font-size:2.2rem;font-weight:300;margin-bottom:1rem">Rosazea Behandlung in Burbach bei Siegen</h1>
+      <p style="font-size:1.1rem;color:#5a4a54;margin-bottom:1.5rem">Rosazea und Couperose können Betroffene stark belasten. Wir bieten einfühlsame, auf Rosazea-Haut abgestimmte Behandlungen, die Rötungen mildern und die Hautbarriere stärken.</p>
+      <h2 style="font-size:1.5rem;font-weight:400;margin:1.5rem 0 0.8rem">Unsere Behandlungsansätze</h2>
+      <div style="font-family:Inter,sans-serif;font-size:0.95rem">
+        <p style="margin:0.5rem 0"><strong><a href="/laserbehandlungen" style="color:#8B7082">Red Touch Pro Laser</a></strong> – Reduziert Äderchen und Rötungen gezielt.</p>
+        <p style="margin:0.5rem 0"><strong><a href="/gesichtsbehandlungen" style="color:#8B7082">Beruhigende Gesichtsbehandlung</a></strong> – Entzündungshemmend, hautbarrierstärkend.</p>
+        <p style="margin:0.5rem 0"><strong>Individuelle Pflegeberatung</strong> – Die richtigen Produkte für empfindliche Haut.</p>
+        <p style="margin:0.5rem 0"><strong>Trigger-Management</strong> – Persönliche Auslöser erkennen und meiden.</p>
+      </div>
+      <h2 style="font-size:1.5rem;font-weight:400;margin:2rem 0 0.8rem">Häufige Fragen</h2>
+      <div style="font-family:Inter,sans-serif;font-size:0.95rem">
+        <details style="margin:0.8rem 0;padding:0.5rem 0;border-bottom:1px solid #f0e8ed"><summary style="cursor:pointer;font-weight:600;color:#2a2025">Was hilft bei Rosazea im Gesicht?</summary><p style="color:#5a4a54;margin:0.5rem 0 0">Reizarme Pflege plus professionelle Behandlungen wie Laser und beruhigende Facials. Trigger kennen und meiden ist entscheidend.</p></details>
+        <details style="margin:0.8rem 0;padding:0.5rem 0;border-bottom:1px solid #f0e8ed"><summary style="cursor:pointer;font-weight:600;color:#2a2025">Ist Laser bei Rosazea geeignet?</summary><p style="color:#5a4a54;margin:0.5rem 0 0">Ja, der Red Touch Pro kann Äderchen und Rötungen gezielt reduzieren. Die integrierte Kühlung macht die Behandlung besonders schonend.</p></details>
+      </div>
+      <p style="font-family:Inter,sans-serif;font-size:0.95rem;color:#5a4a54;margin-top:1.5rem">Erreichbar aus Siegen (57072), Kreuztal (57223), Netphen (57250), Haiger (35708), Betzdorf (57518), Bad Marienberg (56470). <a href="/kontakt" style="color:#8B7082">Beratungstermin vereinbaren</a>.</p>
+      <p style="font-family:Inter,sans-serif;font-size:0.9rem;color:#5a4a54;margin-top:1rem">Verwandte Themen: <a href="/hautanalyse-burbach" style="color:#8B7082">Hautanalyse</a> | <a href="/pigmentflecken-entfernen" style="color:#8B7082">Pigmentflecken entfernen</a> | <a href="/gesichtsbehandlungen" style="color:#8B7082">Gesichtsbehandlungen</a></p>
+    `)
+  },
+
+  "/grossporige-haut-behandlung": {
+    title: "Große Poren verfeinern – Behandlung in Burbach",
+    description: "Große Poren sichtbar verfeinern in Burbach bei Siegen. Tiefenreinigung, Microneedling & Laser für feineres Hautbild. Jetzt Termin vereinbaren!",
+    ogImage: OG_IMAGE,
+    structuredData: [
+      breadcrumb([{ name: "Startseite", url: "/" }, { name: "Gesichtsbehandlungen", url: "/gesichtsbehandlungen" }, { name: "Große Poren", url: "/grossporige-haut-behandlung" }]),
+      serviceSchema("Porenverfeinerung in Burbach", "Professionelle Behandlung bei vergrößerten Poren mit Tiefenreinigung, Microneedling und Laser.", "80", "/grossporige-haut-behandlung", ["Siegen", "Burbach", "Kreuztal", "Netphen", "Haiger", "Dillenburg", "Betzdorf"]),
+      faqSchema([
+        { q: "Welche Behandlung hilft gegen große Poren?", a: "Kombination aus Tiefenreinigung und Kollagenstimulation durch Microneedling oder Laser zeigt die besten Ergebnisse. Die Reinigung befreit die Poren, die Stimulation strafft das Gewebe." },
+        { q: "Können große Poren dauerhaft verkleinert werden?", a: "Die Porengröße ist genetisch mitbestimmt. Allerdings lässt sich das Erscheinungsbild durch regelmäßige professionelle Behandlung und Pflege deutlich verfeinern." },
+        { q: "Wie oft bei großen Poren zum Kosmetiker?", a: "Anfangs alle vier Wochen. Nach der Intensivphase genügt oft ein Termin alle sechs bis acht Wochen. Die richtige Heimpflege dazwischen ist entscheidend." },
+        { q: "Welche Pflege hilft bei großen Poren?", a: "Milde Reinigung, enzymatisches Peeling und leichte Feuchtigkeit ohne schwere Öle. Niacinamid reguliert die Talgproduktion. Wir beraten Sie individuell." }
+      ])
+    ],
+    preRenderHtml: wrapPage(`
+      <h1 style="font-size:2.2rem;font-weight:300;margin-bottom:1rem">Große Poren verfeinern in Burbach</h1>
+      <p style="font-size:1.1rem;color:#5a4a54;margin-bottom:1.5rem">Vergrößerte Poren können das Hautbild unruhig wirken lassen. Wir bieten gezielte Behandlungen, die die Porengröße sichtbar verfeinern und die Hautstruktur verbessern.</p>
+      <h2 style="font-size:1.5rem;font-weight:400;margin:1.5rem 0 0.8rem">Behandlungen für feinere Poren</h2>
+      <div style="font-family:Inter,sans-serif;font-size:0.95rem">
+        <p style="margin:0.5rem 0"><strong><a href="/gesichtsbehandlungen" style="color:#8B7082">Professionelle Tiefenreinigung</a></strong> – Verstopfte Poren befreien, Grundlage schaffen.</p>
+        <p style="margin:0.5rem 0"><strong>Microneedling</strong> – Kollagenproduktion rund um die Poren stimulieren.</p>
+        <p style="margin:0.5rem 0"><strong><a href="/laserbehandlungen" style="color:#8B7082">Red Touch Pro Laser</a></strong> – Kollagengerüst in der Tiefe straffen.</p>
+        <p style="margin:0.5rem 0"><strong>Regelmäßige Facials</strong> – Alle vier bis sechs Wochen, langfristig.</p>
+      </div>
+      <h2 style="font-size:1.5rem;font-weight:400;margin:2rem 0 0.8rem">Häufige Fragen</h2>
+      <div style="font-family:Inter,sans-serif;font-size:0.95rem">
+        <details style="margin:0.8rem 0;padding:0.5rem 0;border-bottom:1px solid #f0e8ed"><summary style="cursor:pointer;font-weight:600;color:#2a2025">Welche Behandlung hilft gegen große Poren?</summary><p style="color:#5a4a54;margin:0.5rem 0 0">Kombination aus Tiefenreinigung und Kollagenstimulation durch Microneedling oder Laser – befreit die Poren und strafft das Gewebe.</p></details>
+        <details style="margin:0.8rem 0;padding:0.5rem 0;border-bottom:1px solid #f0e8ed"><summary style="cursor:pointer;font-weight:600;color:#2a2025">Können große Poren dauerhaft kleiner werden?</summary><p style="color:#5a4a54;margin:0.5rem 0 0">Die Porengröße ist genetisch beeinflusst, aber das Erscheinungsbild lässt sich mit Behandlung und Pflege deutlich verfeinern.</p></details>
+      </div>
+      <p style="font-family:Inter,sans-serif;font-size:0.95rem;color:#5a4a54;margin-top:1.5rem">Erreichbar aus Siegen (57072), Kreuztal (57223), Netphen (57250), Haiger (35708), Dillenburg (35683), Betzdorf (57518). <a href="/kontakt" style="color:#8B7082">Termin vereinbaren</a>.</p>
+      <p style="font-family:Inter,sans-serif;font-size:0.9rem;color:#5a4a54;margin-top:1rem">Verwandte Themen: <a href="/akne-behandlung-siegen" style="color:#8B7082">Akne Behandlung</a> | <a href="/hautanalyse-burbach" style="color:#8B7082">Hautanalyse</a> | <a href="/gesichtsbehandlungen" style="color:#8B7082">Gesichtsbehandlungen</a></p>
+    `)
   }
 };
 
