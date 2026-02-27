@@ -77,10 +77,10 @@ app.use((req, res, next) => {
     next();
   });
 
-  if (app.get("env") === "development") {
-    await setupVite(app, server);
-  } else {
+  if (process.env.NODE_ENV === "production") {
     serveStatic(app);
+  } else {
+    await setupVite(app, server);
   }
 
   // ALWAYS serve the app on the port specified in the environment variable PORT
