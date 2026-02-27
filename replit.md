@@ -33,17 +33,24 @@ The application features a sophisticated visual design with a mauve and gold col
 
 ### SEO Optimization
 
-Comprehensive SEO is implemented via a reusable `SEOHead` component (`client/src/components/SEOHead.tsx`) for client-side meta tags, plus a server-side SEO pre-rendering system (`server/seo-prerender.ts`) for crawler-visible content:
-- **Server-Side Pre-Rendering**: `seoPreRenderMiddleware` injects real HTML content (nav, H1, service listings, internal links, footer with inline styles) into `<div id="root">` for all 9 routes in production. `generateStaticFiles()` creates pre-rendered `index.html` files in subdirectories (e.g., `dist/public/gesichtsbehandlungen/index.html`) at server startup. The root `index.html` is preserved as the clean SPA fallback; the middleware handles `/` at runtime.
-- **Per-page meta tags**: Every page has a unique title, meta description, canonical URL, and robots directive (injected server-side in production)
-- **Open Graph**: Full og:title, og:description, og:image, og:url, og:type, og:locale for social sharing (WhatsApp, Facebook)
-- **Twitter Cards**: summary_large_image with title, description, image
-- **Schema.org Structured Data**: LocalBusiness schema on homepage (with services, address, geo coords, areaServed), BreadcrumbList on all pages, FAQPage on LaserBehandlungen, Service schemas on treatment pages, Product schema on vouchers page
-- **Sitemap & Robots**: `client/public/sitemap.xml` (with lastmod and hreflang) and `client/public/robots.txt`
-- **Local SEO**: geo.region, geo.placename, geo.position, ICBM tags injected server-side
-- **Legal pages**: Marked as `noindex` and excluded from sitemap
-- **Keywords**: German-language, optimized for Einzugsgebiet rund um Burbach: Siegerland (Siegen, Kreuztal, Netphen, Freudenberg, Hilchenbach, Neunkirchen, Wilnsdorf), Lahn-Dill-Kreis (Haiger, Dillenburg, Herborn, Wetzlar, Eschenburg), Westerwald (Betzdorf, Herdorf, Kirchen, Daaden, Rennerod, Hachenburg, Bad Marienberg, Westerburg), Sauerland/Olpe (Olpe, Attendorn, Lennestadt), Wittgenstein (Bad Laasphe, Bad Berleburg, Erndtebrück)
-- **areaServed (Schema.org)**: 30 Stadte/Gemeinden im Umkreis von ca. 40-50km um Burbach
+Comprehensive SEO is implemented via a reusable `SEOHead` component (`client/src/components/SEOHead.tsx`) for client-side meta tags, plus a build-time SEO pre-rendering system (`server/seo-prerender.ts` + `server/seo-prerender-runner.ts`) for crawler-visible content:
+- **Build-Time Pre-Rendering**: `seo-prerender-runner.ts` runs after `vite build` and generates 9 pre-rendered HTML files (root `index.html` overwritten + 8 subdirectories). No runtime middleware injection.
+- **Per-page meta tags**: Unique title (≤60 chars), meta description (≤155 chars with CTA), canonical URL, robots directive
+- **Open Graph**: og:title, og:description, og:image, og:url, og:type, og:locale for social sharing
+- **Twitter Cards**: summary_large_image
+- **Schema.org Structured Data**: 
+  - Homepage: `BeautySalon` schema with `OfferCatalog`, `areaServed` (31 cities with PLZ as Place+PostalAddress), `BreadcrumbList`
+  - Gesichtsbehandlungen: `Service` schema + `FAQPage` (4 FAQs) + `BreadcrumbList`
+  - Laserbehandlungen: `Service` schema + `FAQPage` (4 FAQs) + `BreadcrumbList`
+  - Gutscheine: `Product` schema with `AggregateOffer` + `FAQPage` (2 FAQs) + `BreadcrumbList`
+  - Kontakt: `Person` schema + `BreadcrumbList`
+  - Legal pages: `BreadcrumbList` only, `noindex`
+- **Sitemap & Robots**: `client/public/sitemap.xml` and `client/public/robots.txt`
+- **Local SEO**: geo.region, geo.placename, geo.position, ICBM tags; city clusters with PLZ distributed across pages (Siegerland+Lahn-Dill on Gesichtsbehandlungen, Westerwald+Sauerland+Wittgenstein on Laserbehandlungen, all clusters on Kontakt)
+- **Internal Linking Strategy**: Hub-and-spoke – Homepage→all service pages; service pages cross-link each other + Gutscheine + Kontakt; varied anchor texts
+- **areaServed (Schema.org)**: 31 cities with PLZ as Place schema with PostalAddress (postalCode, addressLocality, addressCountry)
+- **Featured Snippet Optimization**: `<details>`/`<summary>` FAQ sections on Gesichtsbehandlungen (4), Laserbehandlungen (4), Gutscheine (2) with corresponding FAQPage JSON-LD
+- **City Clusters with PLZ**: Siegerland (Burbach 57299, Wahlbach 57299, Siegen 57072, Kreuztal 57223, Netphen 57250, Neunkirchen 57290, Wilnsdorf 57234, Freudenberg 57258, Hilchenbach 57271), Lahn-Dill-Kreis (Haiger 35708, Dillenburg 35683, Herborn 35745, Eschenburg 35713, Wetzlar 35578, Dietzhölztal 35716), Westerwald (Betzdorf 57518, Herdorf 57562, Kirchen 57548, Daaden 57567, Hachenburg 57627, Bad Marienberg 56470, Rennerod 56477, Westerburg 56457), Sauerland (Olpe 57462, Attendorn 57439, Lennestadt 57368), Wittgenstein (Bad Laasphe 57334, Bad Berleburg 57319, Erndtebrück 57339)
 
 ### Legal Compliance
 
