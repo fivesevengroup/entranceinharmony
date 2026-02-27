@@ -5,13 +5,13 @@ import type { Request, Response, NextFunction } from "express";
 const BASE_URL = "https://www.entranceinharmony.de";
 const OG_IMAGE = `${BASE_URL}/og-image.png`;
 
-interface RouteConfig {
+export interface RouteConfig {
   title: string;
   description: string;
   ogImage?: string;
   noindex?: boolean;
   structuredData?: object | object[];
-  noscriptContent?: string;
+  preRenderHtml: string;
 }
 
 const AREA_SERVED = [
@@ -114,24 +114,34 @@ function breadcrumb(items: { name: string; url: string }[]) {
   };
 }
 
-const ROUTES: Record<string, RouteConfig> = {
+const SSR_NAV = `<nav style="display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center;padding:1.2rem 1rem;border-bottom:1px solid #e8e0e5;font-family:Inter,sans-serif;font-size:0.95rem"><a href="/" style="color:#5a4a54;text-decoration:none">Startseite</a><a href="/gesichtsbehandlungen" style="color:#5a4a54;text-decoration:none">Gesichtsbehandlungen</a><a href="/laserbehandlungen" style="color:#5a4a54;text-decoration:none">Laserbehandlungen</a><a href="/gutscheine" style="color:#5a4a54;text-decoration:none">Gutscheine</a><a href="/kontakt" style="color:#5a4a54;text-decoration:none">Kontakt</a></nav>`;
+
+const SSR_FOOTER = `<footer style="border-top:1px solid #e8e0e5;padding:2rem 1rem;text-align:center;font-family:Inter,sans-serif;font-size:0.85rem;color:#6b5b65;margin-top:2rem"><p>Entrance in Harmony – Elena Hartstein | Höhfeld 5, 57299 Burbach | Tel: <a href="tel:+491709287722" style="color:#8B7082">+49 170 928 7722</a> | <a href="mailto:info@entranceinharmony.de" style="color:#8B7082">info@entranceinharmony.de</a></p><nav style="margin-top:0.8rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap"><a href="/impressum" style="color:#8B7082;text-decoration:none;font-size:0.8rem">Impressum</a><a href="/datenschutz" style="color:#8B7082;text-decoration:none;font-size:0.8rem">Datenschutz</a><a href="/agb" style="color:#8B7082;text-decoration:none;font-size:0.8rem">AGB</a><a href="/widerruf" style="color:#8B7082;text-decoration:none;font-size:0.8rem">Widerruf</a></nav></footer>`;
+
+function wrapPage(main: string): string {
+  return `<div id="ssr-shell" style="font-family:'Cormorant Garamond',Georgia,serif;color:#2a2025;max-width:100%;min-height:100vh;display:flex;flex-direction:column">${SSR_NAV}<main style="flex:1;max-width:860px;margin:0 auto;padding:2rem 1.5rem;line-height:1.75">${main}</main>${SSR_FOOTER}</div>`;
+}
+
+export const ROUTES: Record<string, RouteConfig> = {
   "/": {
     title: "Entrance in Harmony – Kosmetikstudio Burbach | Gesichtsbehandlungen & Laser im Siegerland",
     description: "Professionelles Kosmetikstudio in Burbach – Ihr Beauty-Studio im Siegerland. Gesichtsbehandlungen, Red Touch Pro Laserbehandlungen, BB Glow & Microneedling. Für Kunden aus Siegen, Haiger, Dillenburg, Kreuztal, Betzdorf & Umgebung.",
     ogImage: OG_IMAGE,
     structuredData: [localBusinessSchema],
-    noscriptContent: `
-      <h1>Entrance in Harmony – Kosmetikstudio Burbach im Siegerland</h1>
-      <p>Professionelles Kosmetikstudio in Burbach (NRW), spezialisiert auf Gesichtsbehandlungen, Red Touch Pro Laserbehandlungen, BB Glow und Microneedling. Inhaberin Elena Hartstein bietet individuelle Beauty-Treatments für Kunden aus Siegen, Haiger, Dillenburg, Kreuztal, Betzdorf und dem Westerwald.</p>
-      <h2>Unsere Behandlungen</h2>
-      <ul>
-        <li>Gesichtsbehandlungen (Tiefenreinigung, BB Glow, Microneedling) – ab 80 €</li>
-        <li>Red Touch Pro Laserbehandlung – ab 250 €</li>
-        <li>Carboxy Therapie, Peelings und Pflegebehandlungen</li>
-        <li>Geschenkgutscheine online kaufen</li>
+    preRenderHtml: wrapPage(`
+      <h1 style="font-size:2.2rem;font-weight:300;margin-bottom:1rem;color:#2a2025">Entrance in Harmony – Ihr Kosmetikstudio in Burbach</h1>
+      <p style="font-size:1.1rem;color:#5a4a54;margin-bottom:1.5rem">Professionelles Kosmetikstudio im Siegerland. Inhaberin Elena Hartstein bietet individuelle Gesichtsbehandlungen, Red Touch Pro Laserbehandlungen, BB Glow und Microneedling für Kunden aus Siegen, Haiger, Dillenburg, Kreuztal, Betzdorf und dem Westerwald.</p>
+      <h2 style="font-size:1.5rem;font-weight:400;margin:1.5rem 0 0.8rem">Unsere Behandlungen</h2>
+      <ul style="padding-left:1.2rem;font-family:Inter,sans-serif;font-size:0.95rem">
+        <li style="margin:0.5rem 0"><a href="/gesichtsbehandlungen" style="color:#8B7082;text-decoration:none"><strong>Gesichtsbehandlungen</strong></a> – Tiefenreinigung, BB Glow, Microneedling, Carboxy Therapie – ab 80 €</li>
+        <li style="margin:0.5rem 0"><a href="/laserbehandlungen" style="color:#8B7082;text-decoration:none"><strong>Red Touch Pro Laserbehandlung</strong></a> – Hautverjüngung ohne OP mit DEKA Lasertechnologie – ab 250 €</li>
+        <li style="margin:0.5rem 0">Vitalisierende Peelings und Pflegebehandlungen</li>
+        <li style="margin:0.5rem 0"><a href="/gutscheine" style="color:#8B7082;text-decoration:none"><strong>Geschenkgutscheine</strong></a> – Online kaufen, deutschlandweit verschicken</li>
       </ul>
-      <p><strong>Adresse:</strong> Höhfeld 5, 57299 Burbach | <strong>Tel:</strong> +49 170 928 7722 | <strong>E-Mail:</strong> info@entranceinharmony.de</p>
-    `
+      <h2 style="font-size:1.5rem;font-weight:400;margin:2rem 0 0.8rem">Warum Entrance in Harmony?</h2>
+      <p style="font-family:Inter,sans-serif;font-size:0.95rem;color:#5a4a54">Sichtbare Ergebnisse bereits nach der ersten Sitzung. Sanfte Behandlungen ohne Ausfallzeit. Natürliche Kollagenstimulation. Individuelle Beratung und Hautanalyse. Modernste Technologie in entspannter Atmosphäre.</p>
+      <p style="font-family:Inter,sans-serif;font-size:0.95rem;color:#5a4a54;margin-top:1rem">Gut erreichbar aus dem gesamten Siegerland, Lahn-Dill-Kreis, Westerwald und Sauerland. <a href="/kontakt" style="color:#8B7082">Jetzt Termin vereinbaren</a>.</p>
+    `)
   },
   "/gesichtsbehandlungen": {
     title: "Gesichtsbehandlungen Siegerland – Tiefenreinigung, BB Glow, Microneedling | Entrance in Harmony Burbach",
@@ -164,20 +174,38 @@ const ROUTES: Record<string, RouteConfig> = {
         ]
       }
     ],
-    noscriptContent: `
-      <h1>Gesichtsbehandlungen im Siegerland – Burbach bei Siegen</h1>
-      <p>Erleben Sie professionelle Gesichtsbehandlungen in unserem Kosmetikstudio in Burbach. Wir bieten ein umfassendes Spektrum an Beauty-Treatments für ein gesundes und strahlendes Hautbild.</p>
-      <h2>Unsere Gesichtsbehandlungen im Überblick</h2>
-      <ul>
-        <li><strong>Basis-Pflegebehandlung</strong> – Klassische Gesichtspflege. Ab 80 €</li>
-        <li><strong>Tiefenreinigung</strong> – Professionelle Reinigung mit Hautanalyse. Ab 85 €</li>
-        <li><strong>BB Glow</strong> – Semi-permanente Foundation für strahlende Haut. Ab 85 €</li>
-        <li><strong>Microneedling</strong> – Kollagenstimulation für Narben und Falten. Ab 90 €</li>
-        <li><strong>Carboxy Therapie</strong> – CO₂-Behandlung für Hautstraffung. Ab 90 €</li>
-        <li><strong>Red Touch Pro Laser</strong> – Hautverjüngung mit Lasertechnologie. Ab 250 €</li>
-      </ul>
-      <p>Gut erreichbar aus Siegen, Haiger, Dillenburg, Kreuztal, Netphen, Betzdorf und dem Westerwald.</p>
-    `
+    preRenderHtml: wrapPage(`
+      <h1 style="font-size:2.2rem;font-weight:300;margin-bottom:1rem">Gesichtsbehandlungen im Siegerland</h1>
+      <p style="font-size:1.1rem;color:#5a4a54;margin-bottom:1.5rem">Erleben Sie professionelle Gesichtsbehandlungen in unserem Kosmetikstudio in Burbach bei Siegen. Wir bieten ein umfassendes Spektrum an Beauty-Treatments für ein gesundes, strahlendes Hautbild.</p>
+      <h2 style="font-size:1.5rem;font-weight:400;margin:1.5rem 0 0.8rem">Unsere Behandlungen</h2>
+      <div style="font-family:Inter,sans-serif;font-size:0.95rem">
+        <div style="padding:1rem 0;border-bottom:1px solid #f0e8ed">
+          <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:0.3rem"><a href="/laserbehandlungen" style="color:#2a2025;text-decoration:none">Red Touch Pro Laser</a></h3>
+          <p style="color:#5a4a54;margin:0">Hautverjüngung, Straffung, Kollagenstimulation mit DEKA Lasertechnologie. <strong>Ab 250 €</strong></p>
+        </div>
+        <div style="padding:1rem 0;border-bottom:1px solid #f0e8ed">
+          <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:0.3rem">Tiefenreinigung</h3>
+          <p style="color:#5a4a54;margin:0">Professionelle Reinigung mit Hautanalyse und individueller Pflege. <strong>Ab 85 €</strong></p>
+        </div>
+        <div style="padding:1rem 0;border-bottom:1px solid #f0e8ed">
+          <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:0.3rem">BB Glow Skin</h3>
+          <p style="color:#5a4a54;margin:0">Semi-permanente Foundation für einen natürlich strahlenden Teint. <strong>Ab 85 €</strong></p>
+        </div>
+        <div style="padding:1rem 0;border-bottom:1px solid #f0e8ed">
+          <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:0.3rem">Microneedling</h3>
+          <p style="color:#5a4a54;margin:0">Kollagenstimulation für Narben, Falten und Hautstraffung. <strong>Ab 90 €</strong></p>
+        </div>
+        <div style="padding:1rem 0;border-bottom:1px solid #f0e8ed">
+          <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:0.3rem">Carboxy Therapie</h3>
+          <p style="color:#5a4a54;margin:0">CO₂-Behandlung zur Hautstraffung und Durchblutungsförderung. <strong>Ab 90 €</strong></p>
+        </div>
+        <div style="padding:1rem 0;border-bottom:1px solid #f0e8ed">
+          <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:0.3rem">Basis-Pflegebehandlung</h3>
+          <p style="color:#5a4a54;margin:0">Klassische Gesichtspflege mit Reinigung und Pflege. <strong>Ab 80 €</strong></p>
+        </div>
+      </div>
+      <p style="font-family:Inter,sans-serif;font-size:0.95rem;color:#5a4a54;margin-top:1.5rem">Gut erreichbar aus Siegen, Haiger, Dillenburg, Kreuztal, Netphen, Betzdorf und dem Westerwald. <a href="/kontakt" style="color:#8B7082">Termin vereinbaren</a></p>
+    `)
   },
   "/laserbehandlungen": {
     title: "Red Touch Pro Laser Siegerland – Hautverjüngung ohne OP in Burbach | Entrance in Harmony",
@@ -216,7 +244,7 @@ const ROUTES: Record<string, RouteConfig> = {
             "name": "Was ist Red Touch Pro?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Red Touch Pro ist ein professionelles Lasersystem von DEKA zur nicht-invasiven Hautverjüngung. Die 675-nm-Wellenlänge stimuliert die natürliche Kollagenproduktion tief in der Haut und verbessert Falten, Hautstraffung, Narben und Dehnungsstreifen."
+              "text": "Red Touch Pro ist ein professionelles Lasersystem von DEKA zur nicht-invasiven Hautverjüngung. Die 675-nm-Wellenlänge stimuliert die natürliche Kollagenproduktion tief in der Haut."
             }
           },
           {
@@ -224,7 +252,7 @@ const ROUTES: Record<string, RouteConfig> = {
             "name": "Ist die Laserbehandlung schmerzfrei?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Ja, die Red Touch Pro Behandlung wird von den meisten Kunden als sehr angenehm empfunden. Dank der integrierten Hautkühlung ist die Behandlung sanft und ohne Ausfallzeit."
+              "text": "Ja, dank der integrierten Hautkühlung ist die Behandlung sanft und angenehm. Es gibt keine Ausfallzeit."
             }
           },
           {
@@ -232,7 +260,7 @@ const ROUTES: Record<string, RouteConfig> = {
             "name": "Wie viele Sitzungen sind notwendig?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Sichtbare Ergebnisse sind bereits nach der ersten Sitzung spürbar. Für optimale Ergebnisse empfehlen wir eine individuelle Behandlungsserie, die im persönlichen Beratungsgespräch festgelegt wird."
+              "text": "Sichtbare Ergebnisse sind bereits nach der ersten Sitzung spürbar. Die optimale Behandlungsserie wird individuell im Beratungsgespräch festgelegt."
             }
           },
           {
@@ -240,33 +268,40 @@ const ROUTES: Record<string, RouteConfig> = {
             "name": "Für wen ist die Laserbehandlung geeignet?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Die Red Touch Pro Laserbehandlung ist für alle Hauttypen geeignet und kann am Gesicht, Hals, Dekolleté, an den Händen und am Körper eingesetzt werden. Eine individuelle Beratung durch Elena Hartstein klärt, ob die Behandlung für Sie geeignet ist."
+              "text": "Die Red Touch Pro Laserbehandlung ist für alle Hauttypen geeignet und kann am Gesicht, Hals, Dekolleté, an den Händen und am Körper eingesetzt werden."
             }
           }
         ]
       }
     ],
-    noscriptContent: `
-      <h1>Red Touch Pro Laserbehandlung im Siegerland – Hautverjüngung ohne OP</h1>
-      <p>Die Red Touch Pro Laserbehandlung in unserem Kosmetikstudio in Burbach bei Siegen ist eine sanfte, nicht-invasive Methode zur Hautverjüngung ohne Operation und ohne Ausfallzeit.</p>
-      <h2>Was kann der Red Touch Pro Laser?</h2>
-      <ul>
-        <li>Hautverjüngung und Straffung</li>
-        <li>Faltenreduktion und Anti-Aging</li>
-        <li>Behandlung von Rosacea und Rötungen</li>
-        <li>Narbenverbesserung (Aknenarben, Dehnungsstreifen)</li>
-        <li>Porenverfeinerung</li>
-        <li>Pigmentflecken reduzieren</li>
+    preRenderHtml: wrapPage(`
+      <h1 style="font-size:2.2rem;font-weight:300;margin-bottom:1rem">Red Touch Pro Laserbehandlung – Hautverjüngung ohne OP</h1>
+      <p style="font-size:1.1rem;color:#5a4a54;margin-bottom:1.5rem">Die Red Touch Pro Laserbehandlung in unserem Kosmetikstudio in Burbach bei Siegen ist eine sanfte, nicht-invasive Methode zur Hautverjüngung ohne Operation und ohne Ausfallzeit. Modernste DEKA Lasertechnologie mit 675-nm-Wellenlänge.</p>
+      <h2 style="font-size:1.5rem;font-weight:400;margin:1.5rem 0 0.8rem">Was kann der Red Touch Pro Laser?</h2>
+      <ul style="padding-left:1.2rem;font-family:Inter,sans-serif;font-size:0.95rem">
+        <li style="margin:0.5rem 0">Hautverjüngung und Straffung</li>
+        <li style="margin:0.5rem 0">Faltenreduktion und Anti-Aging</li>
+        <li style="margin:0.5rem 0">Behandlung von Rosacea und Rötungen</li>
+        <li style="margin:0.5rem 0">Narbenverbesserung (Aknenarben, Dehnungsstreifen)</li>
+        <li style="margin:0.5rem 0">Porenverfeinerung und Pigmentflecken reduzieren</li>
+        <li style="margin:0.5rem 0">Kollagenstimulation für Gesicht, Hals, Dekolleté und Hände</li>
       </ul>
-      <h2>Preise</h2>
-      <ul>
-        <li>Gesicht: 250 €</li>
-        <li>Gesicht + Hals: 300 €</li>
-        <li>Gesicht + Hals + Dekolleté: 350 €</li>
-        <li>Hände (Handrücken): 90 €</li>
-      </ul>
-      <p>Gut erreichbar aus Siegen, Haiger, Dillenburg, Kreuztal und dem gesamten Siegerland.</p>
-    `
+      <h2 style="font-size:1.5rem;font-weight:400;margin:2rem 0 0.8rem">Preise</h2>
+      <div style="font-family:Inter,sans-serif;font-size:0.95rem">
+        <p style="margin:0.4rem 0"><strong>Gesicht:</strong> 250 €</p>
+        <p style="margin:0.4rem 0"><strong>Gesicht + Hals:</strong> 300 €</p>
+        <p style="margin:0.4rem 0"><strong>Gesicht + Hals + Dekolleté:</strong> 350 €</p>
+        <p style="margin:0.4rem 0"><strong>Hände (Handrücken):</strong> 90 €</p>
+        <p style="margin:0.4rem 0"><strong>Hände + Arme bis zum Ellbogen:</strong> 350 €</p>
+        <p style="margin:0.4rem 0"><strong>Oberarme (Ellbogen bis Schulter):</strong> 350 €</p>
+      </div>
+      <h2 style="font-size:1.5rem;font-weight:400;margin:2rem 0 0.8rem">Häufige Fragen</h2>
+      <div style="font-family:Inter,sans-serif;font-size:0.95rem">
+        <p style="margin:0.8rem 0"><strong>Ist die Behandlung schmerzfrei?</strong><br>Ja, dank integrierter Hautkühlung ist die Behandlung sanft und angenehm – ohne Ausfallzeit.</p>
+        <p style="margin:0.8rem 0"><strong>Wie viele Sitzungen brauche ich?</strong><br>Sichtbare Ergebnisse bereits nach der ersten Sitzung. Die optimale Serie wird individuell festgelegt.</p>
+      </div>
+      <p style="font-family:Inter,sans-serif;font-size:0.95rem;color:#5a4a54;margin-top:1.5rem">Gut erreichbar aus Siegen, Haiger, Dillenburg, Kreuztal und dem gesamten Siegerland. <a href="/kontakt" style="color:#8B7082">Beratungstermin vereinbaren</a></p>
+    `)
   },
   "/kontakt": {
     title: "Kontakt & Über mich – Elena Hartstein | Kosmetikstudio Burbach im Siegerland",
@@ -291,17 +326,23 @@ const ROUTES: Record<string, RouteConfig> = {
         "email": "info@entranceinharmony.de"
       }
     ],
-    noscriptContent: `
-      <h1>Kontakt & Über mich – Elena Hartstein</h1>
-      <p>Mein Name ist Elena Hartstein und ich bin Inhaberin und Kosmetikerin bei Entrance in Harmony in Burbach im Siegerland. Mit Leidenschaft und Fachkompetenz biete ich individuelle Beauty-Treatments für ein strahlendes Hautbild.</p>
-      <h2>Kontaktdaten</h2>
-      <ul>
-        <li><strong>Adresse:</strong> Höhfeld 5, 57299 Burbach</li>
-        <li><strong>Telefon und WhatsApp:</strong> +49 170 928 7722</li>
-        <li><strong>E-Mail:</strong> info@entranceinharmony.de</li>
+    preRenderHtml: wrapPage(`
+      <h1 style="font-size:2.2rem;font-weight:300;margin-bottom:1rem">Kontakt & Über mich – Elena Hartstein</h1>
+      <p style="font-size:1.1rem;color:#5a4a54;margin-bottom:1.5rem">Mein Name ist Elena Hartstein und ich bin Inhaberin und Kosmetikerin bei Entrance in Harmony in Burbach im Siegerland. Mit Leidenschaft und Fachkompetenz biete ich individuelle Beauty-Treatments für ein strahlendes Hautbild.</p>
+      <h2 style="font-size:1.5rem;font-weight:400;margin:1.5rem 0 0.8rem">Kontaktdaten</h2>
+      <div style="font-family:Inter,sans-serif;font-size:0.95rem">
+        <p style="margin:0.5rem 0"><strong>Adresse:</strong> Höhfeld 5, 57299 Burbach</p>
+        <p style="margin:0.5rem 0"><strong>Telefon & WhatsApp:</strong> <a href="tel:+491709287722" style="color:#8B7082">+49 170 928 7722</a></p>
+        <p style="margin:0.5rem 0"><strong>E-Mail:</strong> <a href="mailto:info@entranceinharmony.de" style="color:#8B7082">info@entranceinharmony.de</a></p>
+      </div>
+      <p style="font-family:Inter,sans-serif;font-size:0.95rem;color:#5a4a54;margin-top:1rem">Terminvereinbarung am besten per WhatsApp oder E-Mail. Gut erreichbar aus Siegen, Haiger, Dillenburg, Kreuztal, Betzdorf und dem Westerwald.</p>
+      <h2 style="font-size:1.5rem;font-weight:400;margin:2rem 0 0.8rem">Unsere Leistungen</h2>
+      <ul style="padding-left:1.2rem;font-family:Inter,sans-serif;font-size:0.95rem">
+        <li style="margin:0.4rem 0"><a href="/gesichtsbehandlungen" style="color:#8B7082">Gesichtsbehandlungen</a> – Tiefenreinigung, BB Glow, Microneedling</li>
+        <li style="margin:0.4rem 0"><a href="/laserbehandlungen" style="color:#8B7082">Red Touch Pro Laserbehandlung</a> – Hautverjüngung ohne OP</li>
+        <li style="margin:0.4rem 0"><a href="/gutscheine" style="color:#8B7082">Geschenkgutscheine</a> – Online kaufen</li>
       </ul>
-      <p>Terminvereinbarung am besten per WhatsApp oder E-Mail. Gut erreichbar aus Siegen, Haiger, Dillenburg, Kreuztal, Betzdorf und dem Westerwald.</p>
-    `
+    `)
   },
   "/gutscheine": {
     title: "Geschenkgutschein kaufen – Beauty Gutschein Siegerland | Entrance in Harmony Burbach",
@@ -316,7 +357,7 @@ const ROUTES: Record<string, RouteConfig> = {
         "@context": "https://schema.org",
         "@type": "Product",
         "name": "Beauty-Geschenkgutschein",
-        "description": "Geschenkgutschein für Gesichtsbehandlungen und Laserbehandlungen bei Entrance in Harmony in Burbach im Siegerland. 1 Jahr gültig, personalisierbar, online kaufen.",
+        "description": "Geschenkgutschein für Gesichtsbehandlungen und Laserbehandlungen bei Entrance in Harmony in Burbach im Siegerland.",
         "brand": { "@type": "Brand", "name": "Entrance in Harmony" },
         "offers": {
           "@type": "AggregateOffer",
@@ -328,51 +369,75 @@ const ROUTES: Record<string, RouteConfig> = {
         }
       }
     ],
-    noscriptContent: `
-      <h1>Beauty-Geschenkgutschein kaufen – Siegerland</h1>
-      <p>Schenken Sie Ihren Liebsten unvergessliche Beauty-Momente. Unsere Geschenkgutscheine sind das perfekte Geschenk für Geburtstag, Muttertag, Hochzeit oder einfach so.</p>
-      <h2>Ihre Vorteile</h2>
-      <ul>
-        <li>Für alle Gesichtsbehandlungen und Laserbehandlungen einlösbar</li>
-        <li>Wunschbetrag ab 30 € frei wählbar</li>
-        <li>1 Jahr gültig</li>
-        <li>Persönliche Widmung möglich</li>
-        <li>Digital per E-Mail oder per Post als hochwertiger Ausdruck erhältlich</li>
+    preRenderHtml: wrapPage(`
+      <h1 style="font-size:2.2rem;font-weight:300;margin-bottom:1rem">Beauty-Geschenkgutschein kaufen</h1>
+      <p style="font-size:1.1rem;color:#5a4a54;margin-bottom:1.5rem">Schenken Sie Ihren Liebsten unvergessliche Beauty-Momente. Unsere Geschenkgutscheine sind das perfekte Geschenk für Geburtstag, Muttertag, Hochzeit oder einfach so.</p>
+      <h2 style="font-size:1.5rem;font-weight:400;margin:1.5rem 0 0.8rem">Ihre Vorteile</h2>
+      <ul style="padding-left:1.2rem;font-family:Inter,sans-serif;font-size:0.95rem">
+        <li style="margin:0.5rem 0">Für alle <a href="/gesichtsbehandlungen" style="color:#8B7082">Gesichtsbehandlungen</a> und <a href="/laserbehandlungen" style="color:#8B7082">Laserbehandlungen</a> einlösbar</li>
+        <li style="margin:0.5rem 0">Wunschbetrag ab 30 € frei wählbar</li>
+        <li style="margin:0.5rem 0">1 Jahr gültig</li>
+        <li style="margin:0.5rem 0">Persönliche Widmung möglich</li>
+        <li style="margin:0.5rem 0">Digital per E-Mail oder per Post als hochwertiger Ausdruck</li>
       </ul>
-      <p>Sicherer Online-Kauf mit Kreditkarte oder Lastschrift. Einlösbar bei Entrance in Harmony, Höhfeld 5, 57299 Burbach.</p>
-    `
+      <h2 style="font-size:1.5rem;font-weight:400;margin:2rem 0 0.8rem">So funktioniert es</h2>
+      <ol style="padding-left:1.2rem;font-family:Inter,sans-serif;font-size:0.95rem">
+        <li style="margin:0.5rem 0">Betrag wählen oder Behandlung aussuchen</li>
+        <li style="margin:0.5rem 0">Persönliche Widmung eingeben</li>
+        <li style="margin:0.5rem 0">Sicher online bezahlen</li>
+        <li style="margin:0.5rem 0">Gutschein per E-Mail oder Post erhalten</li>
+      </ol>
+      <p style="font-family:Inter,sans-serif;font-size:0.95rem;color:#5a4a54;margin-top:1.5rem">Einlösbar bei Entrance in Harmony, Höhfeld 5, 57299 Burbach. <a href="/kontakt" style="color:#8B7082">Fragen? Kontaktieren Sie uns</a>.</p>
+    `)
   },
   "/impressum": {
     title: "Impressum | Entrance in Harmony – Kosmetikstudio Burbach",
     description: "Impressum von Entrance in Harmony. Angaben gemäß § 5 TMG. Elena Hartstein, Höhfeld 5, 57299 Burbach.",
     noindex: true,
     structuredData: [breadcrumb([{ name: "Startseite", url: "/" }, { name: "Impressum", url: "/impressum" }])],
-    noscriptContent: `<h1>Impressum</h1><p>Elena Hartstein – Entrance in Harmony, Höhfeld 5, 57299 Burbach.</p>`
+    preRenderHtml: wrapPage(`
+      <h1 style="font-size:2.2rem;font-weight:300;margin-bottom:1rem">Impressum</h1>
+      <div style="font-family:Inter,sans-serif;font-size:0.95rem">
+        <h2 style="font-size:1.2rem;font-weight:600;margin:1rem 0 0.5rem">Angaben gemäß § 5 TMG</h2>
+        <p>Elena Hartstein<br>Entrance in Harmony<br>Höhfeld 5<br>57299 Burbach</p>
+        <h2 style="font-size:1.2rem;font-weight:600;margin:1.5rem 0 0.5rem">Kontakt</h2>
+        <p>Telefon: <a href="tel:+491709287722" style="color:#8B7082">+49 170 928 7722</a><br>E-Mail: <a href="mailto:info@entranceinharmony.de" style="color:#8B7082">info@entranceinharmony.de</a></p>
+      </div>
+    `)
   },
   "/datenschutz": {
     title: "Datenschutzerklärung | Entrance in Harmony – DSGVO-konform",
     description: "Datenschutzerklärung von Entrance in Harmony. Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO.",
     noindex: true,
     structuredData: [breadcrumb([{ name: "Startseite", url: "/" }, { name: "Datenschutz", url: "/datenschutz" }])],
-    noscriptContent: `<h1>Datenschutzerklärung</h1><p>Informationen zur Verarbeitung Ihrer personenbezogenen Daten gemäß DSGVO.</p>`
+    preRenderHtml: wrapPage(`
+      <h1 style="font-size:2.2rem;font-weight:300;margin-bottom:1rem">Datenschutzerklärung</h1>
+      <p style="font-family:Inter,sans-serif;font-size:0.95rem;color:#5a4a54">Informationen zur Verarbeitung Ihrer personenbezogenen Daten gemäß DSGVO. Verantwortlich: Elena Hartstein, Entrance in Harmony, Höhfeld 5, 57299 Burbach.</p>
+    `)
   },
   "/agb": {
     title: "AGB – Allgemeine Geschäftsbedingungen | Entrance in Harmony",
     description: "Allgemeine Geschäftsbedingungen für Behandlungen, Gutscheine und Produkte von Entrance in Harmony in Burbach.",
     noindex: true,
     structuredData: [breadcrumb([{ name: "Startseite", url: "/" }, { name: "AGB", url: "/agb" }])],
-    noscriptContent: `<h1>Allgemeine Geschäftsbedingungen</h1><p>AGB für Behandlungen, Gutscheine und Produkte von Entrance in Harmony.</p>`
+    preRenderHtml: wrapPage(`
+      <h1 style="font-size:2.2rem;font-weight:300;margin-bottom:1rem">Allgemeine Geschäftsbedingungen</h1>
+      <p style="font-family:Inter,sans-serif;font-size:0.95rem;color:#5a4a54">AGB für Behandlungen, Gutscheine und Produkte von Entrance in Harmony. Elena Hartstein, Höhfeld 5, 57299 Burbach.</p>
+    `)
   },
   "/widerruf": {
     title: "Widerruf & Rückgabe | Entrance in Harmony – Kosmetikstudio Burbach",
     description: "Widerrufsinformationen für Gutscheine, Produkte und Behandlungen von Entrance in Harmony gemäß gesetzlichen Anforderungen.",
     noindex: true,
     structuredData: [breadcrumb([{ name: "Startseite", url: "/" }, { name: "Widerruf", url: "/widerruf" }])],
-    noscriptContent: `<h1>Widerruf & Rückgabe</h1><p>Informationen zu Ihrem Widerrufsrecht bei Gutscheinen, Produkten und Behandlungen.</p>`
+    preRenderHtml: wrapPage(`
+      <h1 style="font-size:2.2rem;font-weight:300;margin-bottom:1rem">Widerruf & Rückgabe</h1>
+      <p style="font-family:Inter,sans-serif;font-size:0.95rem;color:#5a4a54">Informationen zu Ihrem Widerrufsrecht bei Gutscheinen, Produkten und Behandlungen von Entrance in Harmony.</p>
+    `)
   }
 };
 
-function stripExistingSeoTags(html: string): string {
+export function stripExistingSeoTags(html: string): string {
   return html
     .replace(/<title>[\s\S]*?<\/title>/i, "")
     .replace(/<meta\s+name="description"[^>]*\/?>/gi, "")
@@ -388,7 +453,11 @@ function stripExistingSeoTags(html: string): string {
     .replace(/<script\s+type="application\/ld\+json"[\s\S]*?<\/script>/gi, "");
 }
 
-function buildSeoHead(config: RouteConfig, routePath: string): string {
+function escapeAttr(str: string): string {
+  return str.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+export function buildSeoHead(config: RouteConfig, routePath: string): string {
   const canonicalPath = routePath === "/" ? "" : routePath;
   const canonical = `${BASE_URL}${canonicalPath}`;
   const image = config.ogImage ?? OG_IMAGE;
@@ -432,26 +501,52 @@ function buildSeoHead(config: RouteConfig, routePath: string): string {
   ${jsonLdTags}`;
 }
 
-function escapeAttr(str: string): string {
-  return str.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-}
-
-function buildNoscript(content: string): string {
-  return `<noscript><style>#noscript-content{max-width:800px;margin:2rem auto;font-family:Georgia,serif;padding:1rem 2rem;line-height:1.7;color:#222}#noscript-content h1{font-size:1.8rem;margin-bottom:1rem;color:#1a1a1a}#noscript-content h2{font-size:1.3rem;margin:1.2rem 0 0.5rem;color:#333}#noscript-content ul{padding-left:1.5rem}#noscript-content li{margin:0.4rem 0}#noscript-content p{margin:0.8rem 0}#noscript-notice{background:#f5f0f5;border-left:4px solid #8B7082;padding:0.6rem 1rem;border-radius:0 4px 4px 0;font-size:0.9rem;margin-bottom:1.5rem}</style><div id="noscript-content"><p id="noscript-notice">Diese Website ist interaktiv. Bitte aktivieren Sie JavaScript in Ihrem Browser für das vollständige Erlebnis.</p>${content}</div></noscript>`;
-}
-
-function injectSEO(html: string, config: RouteConfig, routePath: string): string {
+export function injectSEO(html: string, config: RouteConfig, routePath: string): string {
   let result = stripExistingSeoTags(html);
   const seoHead = buildSeoHead(config, routePath);
   result = result.replace("</head>", `${seoHead}\n</head>`);
-  if (config.noscriptContent) {
-    const noscript = buildNoscript(config.noscriptContent);
-    result = result.replace('<div id="root"></div>', `<div id="root"></div>\n  ${noscript}`);
-  }
+  result = result.replace(
+    '<div id="root"></div>',
+    `<div id="root">${config.preRenderHtml}</div>`
+  );
   return result;
 }
 
 let cachedTemplate: string | null = null;
+
+export function generateStaticFiles() {
+  if (process.env.NODE_ENV !== "production") return;
+
+  try {
+    const distPath = path.resolve(import.meta.dirname, "public");
+    const templatePath = path.resolve(distPath, "index.html");
+
+    if (!fs.existsSync(templatePath)) return;
+
+    const template = fs.readFileSync(templatePath, "utf-8");
+    cachedTemplate = template;
+
+    const routes = Object.entries(ROUTES);
+    let count = 0;
+
+    for (const [routePath, config] of routes) {
+      if (routePath === "/") {
+        count++;
+        continue;
+      }
+      const html = injectSEO(template, config, routePath);
+      const slug = routePath.slice(1);
+      const dir = path.resolve(distPath, slug);
+      fs.mkdirSync(dir, { recursive: true });
+      fs.writeFileSync(path.resolve(dir, "index.html"), html, "utf-8");
+      count++;
+    }
+
+    console.log(`Pre-rendered ${count} HTML pages with SEO content`);
+  } catch (err) {
+    console.error("Pre-rendering failed:", err);
+  }
+}
 
 export function seoPreRenderMiddleware(req: Request, res: Response, next: NextFunction) {
   if (process.env.NODE_ENV !== "production") return next();

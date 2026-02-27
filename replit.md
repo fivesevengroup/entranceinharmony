@@ -33,16 +33,17 @@ The application features a sophisticated visual design with a mauve and gold col
 
 ### SEO Optimization
 
-Comprehensive SEO is implemented via a reusable `SEOHead` component (`client/src/components/SEOHead.tsx`):
-- **Per-page meta tags**: Every page has a unique title, meta description, canonical URL, and robots directive
+Comprehensive SEO is implemented via a reusable `SEOHead` component (`client/src/components/SEOHead.tsx`) for client-side meta tags, plus a server-side SEO pre-rendering system (`server/seo-prerender.ts`) for crawler-visible content:
+- **Server-Side Pre-Rendering**: `seoPreRenderMiddleware` injects real HTML content (nav, H1, service listings, internal links, footer with inline styles) into `<div id="root">` for all 9 routes in production. `generateStaticFiles()` creates pre-rendered `index.html` files in subdirectories (e.g., `dist/public/gesichtsbehandlungen/index.html`) at server startup. The root `index.html` is preserved as the clean SPA fallback; the middleware handles `/` at runtime.
+- **Per-page meta tags**: Every page has a unique title, meta description, canonical URL, and robots directive (injected server-side in production)
 - **Open Graph**: Full og:title, og:description, og:image, og:url, og:type, og:locale for social sharing (WhatsApp, Facebook)
 - **Twitter Cards**: summary_large_image with title, description, image
-- **Schema.org Structured Data**: LocalBusiness schema on homepage (with services, address, geo coords, areaServed), BreadcrumbList on all pages, FAQPage on LaserBehandlungen
-- **Sitemap & Robots**: `client/public/sitemap.xml` and `client/public/robots.txt`
-- **Local SEO**: geo.region, geo.placename, geo.position, ICBM tags in index.html
+- **Schema.org Structured Data**: LocalBusiness schema on homepage (with services, address, geo coords, areaServed), BreadcrumbList on all pages, FAQPage on LaserBehandlungen, Service schemas on treatment pages, Product schema on vouchers page
+- **Sitemap & Robots**: `client/public/sitemap.xml` (with lastmod and hreflang) and `client/public/robots.txt`
+- **Local SEO**: geo.region, geo.placename, geo.position, ICBM tags injected server-side
 - **Legal pages**: Marked as `noindex` and excluded from sitemap
-- **Keywords**: German-language, optimized for großzügiges Einzugsgebiet rund um Burbach: Siegerland (Siegen, Kreuztal, Netphen, Freudenberg, Hilchenbach, Neunkirchen, Wilnsdorf), Lahn-Dill-Kreis (Haiger, Dillenburg, Herborn, Wetzlar, Eschenburg), Westerwald (Betzdorf, Herdorf, Kirchen, Daaden, Rennerod, Hachenburg, Bad Marienberg, Westerburg), Sauerland/Olpe (Olpe, Attendorn, Lennestadt), Wittgenstein (Bad Laasphe, Bad Berleburg, Erndtebrück)
-- **areaServed (Schema.org)**: 30 Städte/Gemeinden im Umkreis von ca. 40-50km um Burbach
+- **Keywords**: German-language, optimized for Einzugsgebiet rund um Burbach: Siegerland (Siegen, Kreuztal, Netphen, Freudenberg, Hilchenbach, Neunkirchen, Wilnsdorf), Lahn-Dill-Kreis (Haiger, Dillenburg, Herborn, Wetzlar, Eschenburg), Westerwald (Betzdorf, Herdorf, Kirchen, Daaden, Rennerod, Hachenburg, Bad Marienberg, Westerburg), Sauerland/Olpe (Olpe, Attendorn, Lennestadt), Wittgenstein (Bad Laasphe, Bad Berleburg, Erndtebrück)
+- **areaServed (Schema.org)**: 30 Stadte/Gemeinden im Umkreis von ca. 40-50km um Burbach
 
 ### Legal Compliance
 
