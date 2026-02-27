@@ -2,6 +2,7 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import { initializeStripeProducts } from "./stripe-init";
+import { seoPreRenderMiddleware } from "./seo-prerender";
 
 const app = express();
 app.disable("x-powered-by");
@@ -76,6 +77,10 @@ app.use((req, res, next) => {
     }
     next();
   });
+
+  // SEO pre-rendering: inject server-side meta tags, JSON-LD, and noscript
+  // content for all known page routes before static serving (production only)
+  app.use(seoPreRenderMiddleware);
 
   // importantly only setup vite in development and after
   // setting up all the other routes so the catch-all route

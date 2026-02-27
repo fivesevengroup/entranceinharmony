@@ -1,28 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.entranceinharmony.de/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.entranceinharmony.de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.entranceinharmony.de/"/>
   </url>
   <url>
     <loc>https://www.entranceinharmony.de/gesichtsbehandlungen</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.entranceinharmony.de/gesichtsbehandlungen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.entranceinharmony.de/gesichtsbehandlungen"/>
   </url>
   <url>
     <loc>https://www.entranceinharmony.de/laserbehandlungen</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.entranceinharmony.de/laserbehandlungen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.entranceinharmony.de/laserbehandlungen"/>
   </url>
   <url>
     <loc>https://www.entranceinharmony.de/kontakt</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.entranceinharmony.de/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.entranceinharmony.de/kontakt"/>
   </url>
   <url>
     <loc>https://www.entranceinharmony.de/gutscheine</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.entranceinharmony.de/gutscheine"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.entranceinharmony.de/gutscheine"/>
   </url>
 </urlset>
