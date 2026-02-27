@@ -24,6 +24,8 @@ function run() {
     const html = injectSEO(template, config, routePath);
 
     if (routePath === "/") {
+      fs.writeFileSync(templatePath, html, "utf-8");
+      console.log(`  / -> dist/public/index.html (overwritten)`);
       count++;
       continue;
     }

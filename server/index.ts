@@ -2,7 +2,6 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import { initializeStripeProducts } from "./stripe-init";
-import { seoPreRenderMiddleware } from "./seo-prerender";
 
 const app = express();
 app.disable("x-powered-by");
@@ -77,8 +76,6 @@ app.use((req, res, next) => {
     }
     next();
   });
-
-  app.use(seoPreRenderMiddleware);
 
   if (app.get("env") === "development") {
     await setupVite(app, server);
