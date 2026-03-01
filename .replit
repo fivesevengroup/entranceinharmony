@@ -8,7 +8,7 @@ packages = ["imagemagick"]
 
 [deployment]
 deploymentTarget = "autoscale"
-build = ["npm", "run", "build"]
+build = ["bash", "-c", "npm run build && esbuild server/seo-prerender-runner.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/seo-prerender-runner.mjs && node dist/seo-prerender-runner.mjs"]
 run = ["npm", "run", "start"]
 
 [[ports]]
