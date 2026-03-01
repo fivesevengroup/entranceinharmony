@@ -23,7 +23,6 @@ export default function Datenschutz() {
       />
       <Header />
 
-      {/* Hero Section */}
       <section className="relative overflow-hidden" style={{ minHeight: 'calc(100svh + 80px)' }}>
         <div 
           className="absolute inset-0 bg-cover bg-center scale-105"
@@ -55,7 +54,7 @@ export default function Datenschutz() {
           
           <div className="mt-6 fade-up" style={{ animationDelay: "1s", opacity: 0 }}>
             <Badge variant="outline" className="bg-white/10 text-white border-white/30 backdrop-blur-sm">
-              Stand: 26.10.2025
+              Stand: 01.03.2026
             </Badge>
           </div>
         </div>
@@ -67,22 +66,22 @@ export default function Datenschutz() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             
-            {/* Section 1: Allgemeine Hinweise */}
             <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-4">
                 <h2 className="font-medium text-lg mb-3">1. Allgemeine Hinweise</h2>
-                <div className="text-muted-foreground">
+                <div className="text-muted-foreground space-y-3">
                   <p>
-                    Diese Datenschutzerklärung informiert Sie über die Art, den Umfang und Zweck der Verarbeitung personenbezogener Daten beim Besuch unserer Website. Personenbezogene Daten sind alle Informationen, mit denen Sie persönlich identifiziert werden können.
+                    Diese Datenschutzerklärung informiert Sie über die Art, den Umfang und Zweck der Verarbeitung personenbezogener Daten beim Besuch unserer Website <strong>www.entranceinharmony.de</strong>. Personenbezogene Daten sind alle Informationen, mit denen Sie persönlich identifiziert werden können.
+                  </p>
+                  <p>
+                    Verantwortlich für die Datenverarbeitung auf dieser Website ist die unter Abschnitt 2 genannte Stelle. Die Nutzung unserer Website ist grundsätzlich ohne Angabe personenbezogener Daten möglich.
                   </p>
                 </div>
               </CardContent>
             </Card>
-
             </ScrollReveal>
 
-            {/* Section 2: Verantwortliche Stelle */}
             <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-4">
@@ -104,35 +103,100 @@ export default function Datenschutz() {
                 </div>
               </CardContent>
             </Card>
-
             </ScrollReveal>
 
-            {/* Section 3: Hosting über Render (EU - Frankfurt) */}
             <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-4">
-                <h2 className="font-medium text-lg mb-3">3. Hosting über Render (EU - Frankfurt)</h2>
+                <h2 className="font-medium text-lg mb-3">3. Hosting und Infrastruktur</h2>
                 <div className="text-muted-foreground space-y-3">
                   <p>
-                    Unsere Website wird bei Render Services Inc. (Render.com) auf Servern in der Europäischen Union (Frankfurt, Deutschland) gehostet. Dabei werden IP-Adressen und technische Informationen verarbeitet.
+                    Unsere Website wird über die Plattform <strong>Replit, Inc.</strong> (350 Bush Street, Suite 800, San Francisco, CA 94104, USA) gehostet und bereitgestellt. Beim Aufruf unserer Website werden automatisch Informationen (sogenannte Server-Logfiles) erhoben, die Ihr Browser automatisch übermittelt. Dazu gehören:
+                  </p>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li>IP-Adresse des anfragenden Rechners</li>
+                    <li>Datum und Uhrzeit des Zugriffs</li>
+                    <li>Name und URL der abgerufenen Datei</li>
+                    <li>Referrer URL (Seite, von der aus der Zugriff erfolgte)</li>
+                    <li>Verwendeter Browser und Betriebssystem</li>
+                  </ul>
+                  <p>
+                    Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der sicheren und effizienten Bereitstellung der Website).
                   </p>
                   <p>
-                    Die Datenverarbeitung erfolgt ausschließlich in der EU. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse). Mit Render besteht ein Auftragsverarbeitungsvertrag (Data Processing Agreement) gemäß Art. 28 DSGVO. Zusätzliche Schutzmaßnahmen wie SSL/TLS-Verschlüsselung und Zugriffsbeschränkungen sind implementiert.
+                    <strong>Auftragsverarbeitung (DPA):</strong> Mit Replit besteht ein Auftragsverarbeitungsvertrag (Data Processing Agreement) gemäß Art. 28 DSGVO. Dieser stellt sicher, dass Replit personenbezogene Daten nur nach unserer Weisung und unter Einhaltung der DSGVO verarbeitet.
+                  </p>
+                  <p>
+                    Da Replit seinen Sitz in den USA hat, kann eine Datenübermittlung in die USA stattfinden. Die Übermittlung erfolgt auf Grundlage von Standardvertragsklauseln (SCC) gemäß Art. 46 Abs. 2 lit. c DSGVO sowie unter Berücksichtigung des EU-US Data Privacy Frameworks. Zusätzlich sind technische Schutzmaßnahmen wie SSL/TLS-Verschlüsselung implementiert.
+                  </p>
+                  <p>
+                    Weitere Informationen zum Datenschutz bei Replit:{" "}
+                    <a 
+                      href="https://replit.com/site/privacy" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                      data-testid="link-replit-privacy"
+                    >
+                      https://replit.com/site/privacy
+                    </a>
                   </p>
                 </div>
               </CardContent>
             </Card>
-
             </ScrollReveal>
 
-            {/* Section 4: Kontaktformular und E-Mail */}
             <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-4">
-                <h2 className="font-medium text-lg mb-3">4. Kontaktformular und E-Mail</h2>
+                <h2 className="font-medium text-lg mb-3">4. Google Fonts</h2>
                 <div className="text-muted-foreground space-y-3">
                   <p>
-                    Wenn Sie uns per Kontaktformular oder E-Mail kontaktieren, speichern und verarbeiten wir Ihre Angaben (z. B. Name, E-Mail, Nachricht) zur Bearbeitung Ihrer Anfrage. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse).
+                    Diese Website nutzt zur einheitlichen Darstellung von Schriftarten sogenannte Google Fonts, bereitgestellt von der Google Ireland Ltd., Gordon House, Barrow Street, Dublin 4, Irland. Beim Aufruf unserer Website lädt Ihr Browser die benötigten Schriftarten direkt von Google-Servern. Dabei wird Ihre IP-Adresse an Google übermittelt.
+                  </p>
+                  <p>
+                    Es werden die Schriftarten <em>Cormorant Garamond</em>, <em>Inter</em> und <em>Alex Brush</em> verwendet.
+                  </p>
+                  <p>
+                    Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer einheitlichen und ansprechenden Darstellung unserer Website). Google kann Daten in die USA übermitteln. Die Übermittlung erfolgt auf Grundlage des EU-US Data Privacy Frameworks sowie Standardvertragsklauseln (SCC).
+                  </p>
+                  <p>
+                    Weitere Informationen:{" "}
+                    <a 
+                      href="https://policies.google.com/privacy" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                      data-testid="link-google-privacy"
+                    >
+                      https://policies.google.com/privacy
+                    </a>
+                    {" "}und{" "}
+                    <a 
+                      href="https://developers.google.com/fonts/faq/privacy" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                      data-testid="link-google-fonts-faq"
+                    >
+                      https://developers.google.com/fonts/faq/privacy
+                    </a>
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+            </ScrollReveal>
+
+            <ScrollReveal>
+            <Card className="mb-6">
+              <CardContent className="pt-6 space-y-4">
+                <h2 className="font-medium text-lg mb-3">5. Kontaktaufnahme (E-Mail und WhatsApp)</h2>
+                <div className="text-muted-foreground space-y-3">
+                  <p>
+                    Wenn Sie uns per E-Mail oder WhatsApp kontaktieren, speichern und verarbeiten wir Ihre Angaben (z. B. Name, Telefonnummer, E-Mail-Adresse, Nachrichteninhalt) zur Bearbeitung Ihrer Anfrage.
+                  </p>
+                  <p>
+                    Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung Ihrer Anfrage).
                   </p>
                   <p>
                     Ihre Daten werden gelöscht, sobald der Zweck der Speicherung entfällt, es sei denn, gesetzliche Aufbewahrungspflichten bestehen.
@@ -140,44 +204,41 @@ export default function Datenschutz() {
                 </div>
               </CardContent>
             </Card>
-
             </ScrollReveal>
 
-            {/* Section 5: Bestellungen und Buchungen */}
             <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-4">
-                <h2 className="font-medium text-lg mb-3">5. Bestellungen und Buchungen</h2>
+                <h2 className="font-medium text-lg mb-3">6. Bestellungen und Buchungen</h2>
                 <div className="text-muted-foreground space-y-3">
                   <p>
-                    Für Gutscheinbestellungen, Produktkäufe oder Behandlungen verarbeiten wir Name, Kontakt-, Zahlungs- und ggf. Gesundheitsdaten (z. B. Allergien).
+                    Für Gutscheinbestellungen, Produktkäufe oder Behandlungsbuchungen verarbeiten wir Name, Kontaktdaten, Zahlungsdaten und ggf. gesundheitsbezogene Angaben (z. B. Allergien, Hautbild).
                   </p>
                   <p>
-                    Rechtsgrundlagen: Art. 6 Abs. 1 lit. b DSGVO (Vertrag), Art. 9 Abs. 2 lit. h DSGVO (Gesundheitsdaten).
+                    Rechtsgrundlagen: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung), Art. 9 Abs. 2 lit. h DSGVO (Verarbeitung von Gesundheitsdaten im Rahmen der Gesundheitsversorgung).
                   </p>
                   <p>
-                    Daten werden für 10 Jahre gemäß handels- und steuerrechtlicher Vorgaben gespeichert.
+                    Buchungs- und Bestelldaten werden gemäß handels- und steuerrechtlichen Aufbewahrungspflichten für bis zu 10 Jahre gespeichert (§ 147 AO, § 257 HGB).
                   </p>
                 </div>
               </CardContent>
             </Card>
-
             </ScrollReveal>
 
-            {/* Section 6: Zahlungsdienstleister Stripe */}
             <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-4">
-                <h2 className="font-medium text-lg mb-3">6. Zahlungsdienstleister Stripe</h2>
+                <h2 className="font-medium text-lg mb-3">7. Zahlungsdienstleister</h2>
                 <div className="text-muted-foreground space-y-3">
+                  <p className="font-medium text-foreground">a) Stripe</p>
                   <p>
-                    Zahlungen werden über Stripe Payments Europe Ltd., Dublin, Irland abgewickelt. Dabei werden personenbezogene Zahlungsdaten (z. B. Name, Kartendaten, Transaktionsnummer) verarbeitet.
+                    Für Kartenzahlungen und weitere elektronische Zahlungsmethoden nutzen wir Stripe Payments Europe Ltd., 1 Grand Canal Street Lower, Grand Canal Dock, Dublin 2, Irland. Bei der Zahlung werden personenbezogene Daten (z. B. Name, Kartennummer, Transaktionsbetrag) direkt an Stripe übermittelt und dort verarbeitet.
                   </p>
                   <p>
-                    Stripe kann Daten in die USA übermitteln. Grundlage ist die Teilnahme am EU-US Data Privacy Framework sowie SCC gemäß Art. 46 DSGVO.
+                    Stripe kann Daten in die USA übermitteln. Grundlage ist die Teilnahme am EU-US Data Privacy Framework sowie Standardvertragsklauseln (SCC) gemäß Art. 46 Abs. 2 lit. c DSGVO. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung).
                   </p>
                   <p>
-                    Weitere Infos:{" "}
+                    Weitere Informationen:{" "}
                     <a 
                       href="https://stripe.com/de/privacy" 
                       target="_blank" 
@@ -188,111 +249,160 @@ export default function Datenschutz() {
                       https://stripe.com/de/privacy
                     </a>
                   </p>
+                  <p className="font-medium text-foreground mt-4">b) PayPal</p>
+                  <p>
+                    Alternativ bieten wir die Zahlung über PayPal (Europe) S.à r.l. et Cie, S.C.A., 22-24 Boulevard Royal, L-2449 Luxembourg an. Bei der Nutzung von PayPal werden Ihre Zahlungsdaten (z. B. Name, E-Mail-Adresse, Zahlungsbetrag) an PayPal übermittelt.
+                  </p>
+                  <p>
+                    PayPal kann Daten in die USA übermitteln. Grundlage ist die Teilnahme am EU-US Data Privacy Framework sowie Standardvertragsklauseln (SCC). Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung).
+                  </p>
+                  <p>
+                    Weitere Informationen:{" "}
+                    <a 
+                      href="https://www.paypal.com/de/webapps/mpp/ua/privacy-full" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                      data-testid="link-paypal-privacy"
+                    >
+                      https://www.paypal.com/de/webapps/mpp/ua/privacy-full
+                    </a>
+                  </p>
                 </div>
               </CardContent>
             </Card>
-
             </ScrollReveal>
 
-            {/* Section 7: Cookies */}
             <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-4">
-                <h2 className="font-medium text-lg mb-3">7. Cookies</h2>
+                <h2 className="font-medium text-lg mb-3">8. Cookies</h2>
                 <div className="text-muted-foreground space-y-3">
                   <p>
-                    Diese Website verwendet nur technisch notwendige Cookies zur Gewährleistung der Funktionalität.
+                    Diese Website verwendet Cookies. Cookies sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden und bestimmte Informationen enthalten.
+                  </p>
+                  <p className="font-medium text-foreground">Technisch notwendige Cookies</p>
+                  <p>
+                    Wir verwenden technisch notwendige Cookies, die für den Betrieb der Website unerlässlich sind (z. B. Speicherung Ihrer Cookie-Einstellungen, Warenkorb-Funktionalität). Diese Cookies werden auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO gesetzt. Eine Einwilligung ist hierfür nicht erforderlich.
+                  </p>
+                  <p className="font-medium text-foreground">Optionale Cookies</p>
+                  <p>
+                    Darüber hinaus können optionale Cookies für Analyse- oder Marketingzwecke eingesetzt werden. Diese werden nur mit Ihrer ausdrücklichen Einwilligung gesetzt (Art. 6 Abs. 1 lit. a DSGVO). Sie können Ihre Einwilligung jederzeit über unseren Cookie-Banner widerrufen oder anpassen.
                   </p>
                   <p>
-                    Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.
-                  </p>
-                  <p>
-                    Es findet kein Tracking oder Analyse statt. Eine Einwilligung ist daher nicht erforderlich.
+                    Derzeit setzen wir <strong>keine</strong> Analyse- oder Tracking-Cookies ein. Es findet kein Tracking durch Dritte statt.
                   </p>
                 </div>
               </CardContent>
             </Card>
-
             </ScrollReveal>
 
-            {/* Section 8: WhatsApp und Instagram */}
             <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-4">
-                <h2 className="font-medium text-lg mb-3">8. WhatsApp und Instagram</h2>
+                <h2 className="font-medium text-lg mb-3">9. Externe Links (WhatsApp und Instagram)</h2>
                 <div className="text-muted-foreground space-y-3">
                   <p>
-                    Bei Klick auf Links zu WhatsApp oder Instagram werden Sie zu diesen externen Diensten weitergeleitet. Dabei können personenbezogene Daten (z. B. Ihre Telefonnummer, IP-Adresse) verarbeitet werden.
+                    Unsere Website enthält Links zu WhatsApp und Instagram. Beim Anklicken dieser Links werden Sie zu den Plattformen von Meta Platforms Ireland Ltd., Merrion Road, Dublin 4, D04 X2K5, Irland weitergeleitet. Ab diesem Zeitpunkt gilt die Datenschutzerklärung des jeweiligen Anbieters.
                   </p>
                   <p>
-                    Verantwortlich: Meta Platforms Ireland Ltd., Dublin, Irland. Meta kann Daten in die USA übermitteln (DPF/SCC).
+                    Dabei können personenbezogene Daten (z. B. Ihre Telefonnummer bei WhatsApp, IP-Adresse, Geräte-Informationen) an Meta übermittelt werden. Meta kann diese Daten in die USA übermitteln (Grundlage: EU-US Data Privacy Framework, SCC).
+                  </p>
+                  <p>
+                    Wir binden keine Social-Media-Plugins oder iframes ein. Es erfolgt keine Datenübertragung an Meta, solange Sie nicht aktiv auf einen Link klicken.
                   </p>
                 </div>
               </CardContent>
             </Card>
-
             </ScrollReveal>
 
-            {/* Section 9: Speicherdauer */}
             <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-4">
-                <h2 className="font-medium text-lg mb-3">9. Speicherdauer</h2>
-                <div className="text-muted-foreground">
-                  <p>
-                    Personenbezogene Daten werden nur solange gespeichert, wie es für die jeweiligen Verarbeitungszwecke erforderlich ist. Im Falle gesetzlicher Aufbewahrungspflichten erfolgt die Löschung nach deren Ablauf.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            </ScrollReveal>
-
-            {/* Section 10: Ihre Rechte */}
-            <ScrollReveal>
-            <Card className="mb-6">
-              <CardContent className="pt-6 space-y-4">
-                <h2 className="font-medium text-lg mb-3">10. Ihre Rechte</h2>
+                <h2 className="font-medium text-lg mb-3">10. Speicherdauer</h2>
                 <div className="text-muted-foreground space-y-3">
-                  <p>Sie haben folgende Rechte:</p>
+                  <p>
+                    Personenbezogene Daten werden nur solange gespeichert, wie es für den jeweiligen Verarbeitungszweck erforderlich ist:
+                  </p>
                   <ul className="list-disc pl-5 space-y-1">
-                    <li>Auskunft (Art. 15 DSGVO)</li>
-                    <li>Berichtigung (Art. 16 DSGVO)</li>
-                    <li>Löschung (Art. 17 DSGVO)</li>
-                    <li>Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
-                    <li>Datenübertragbarkeit (Art. 20 DSGVO)</li>
-                    <li>Widerspruch (Art. 21 DSGVO)</li>
-                    <li>Beschwerde bei einer Aufsichtsbehörde (Art. 77 DSGVO)</li>
+                    <li>Kontaktanfragen: Löschung nach Abschluss der Bearbeitung, sofern keine gesetzlichen Aufbewahrungspflichten bestehen</li>
+                    <li>Bestelldaten und Rechnungen: 10 Jahre (steuer- und handelsrechtliche Aufbewahrungspflicht)</li>
+                    <li>Server-Logfiles: Maximal 30 Tage</li>
+                    <li>Cookie-Einstellungen: Bis zum Widerruf oder Löschung durch den Nutzer</li>
                   </ul>
                 </div>
               </CardContent>
             </Card>
-
             </ScrollReveal>
 
-            {/* Section 11: Datensicherheit */}
             <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-4">
-                <h2 className="font-medium text-lg mb-3">11. Datensicherheit</h2>
-                <div className="text-muted-foreground">
+                <h2 className="font-medium text-lg mb-3">11. Ihre Rechte nach der DSGVO</h2>
+                <div className="text-muted-foreground space-y-3">
+                  <p>Sie haben gegenüber uns folgende Rechte hinsichtlich der Sie betreffenden personenbezogenen Daten:</p>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li><strong>Auskunftsrecht</strong> (Art. 15 DSGVO) – Sie können Auskunft über Ihre bei uns gespeicherten Daten verlangen.</li>
+                    <li><strong>Berichtigungsrecht</strong> (Art. 16 DSGVO) – Sie können die Korrektur unrichtiger Daten verlangen.</li>
+                    <li><strong>Löschungsrecht</strong> (Art. 17 DSGVO) – Sie können die Löschung Ihrer Daten verlangen, sofern keine gesetzliche Aufbewahrungspflicht besteht.</li>
+                    <li><strong>Einschränkung der Verarbeitung</strong> (Art. 18 DSGVO) – Sie können eine Einschränkung der Datenverarbeitung verlangen.</li>
+                    <li><strong>Datenübertragbarkeit</strong> (Art. 20 DSGVO) – Sie können Ihre Daten in einem maschinenlesbaren Format erhalten.</li>
+                    <li><strong>Widerspruchsrecht</strong> (Art. 21 DSGVO) – Sie können der Verarbeitung Ihrer Daten widersprechen.</li>
+                    <li><strong>Widerruf der Einwilligung</strong> (Art. 7 Abs. 3 DSGVO) – Eine erteilte Einwilligung können Sie jederzeit für die Zukunft widerrufen.</li>
+                  </ul>
                   <p>
-                    Diese Website nutzt SSL- bzw. TLS-Verschlüsselung zur sicheren Übertragung Ihrer Daten. Eine verschlüsselte Verbindung erkennen Sie an der Adresszeile des Browsers („https://" und Schloss-Symbol).
+                    Zur Ausübung Ihrer Rechte wenden Sie sich bitte an:{" "}
+                    <a href="mailto:info@entranceinharmony.de" className="text-primary hover:underline" data-testid="link-email-rights">info@entranceinharmony.de</a>
+                  </p>
+                  <p>
+                    Darüber hinaus haben Sie das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren (Art. 77 DSGVO). Die für uns zuständige Aufsichtsbehörde ist:
+                  </p>
+                  <div className="pl-4 border-l-2 border-muted">
+                    <p>Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen</p>
+                    <p>Postfach 20 04 44, 40102 Düsseldorf</p>
+                    <p>
+                      <a 
+                        href="https://www.ldi.nrw.de" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline"
+                        data-testid="link-ldi-nrw"
+                      >
+                        www.ldi.nrw.de
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            </ScrollReveal>
+
+            <ScrollReveal>
+            <Card className="mb-6">
+              <CardContent className="pt-6 space-y-4">
+                <h2 className="font-medium text-lg mb-3">12. Datensicherheit</h2>
+                <div className="text-muted-foreground space-y-3">
+                  <p>
+                    Diese Website nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung zur sicheren Übertragung Ihrer Daten. Eine verschlüsselte Verbindung erkennen Sie an der Adresszeile des Browsers („https://") und dem Schloss-Symbol.
+                  </p>
+                  <p>
+                    Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.
                   </p>
                 </div>
               </CardContent>
             </Card>
-
             </ScrollReveal>
 
-            {/* Section 12: Änderungen dieser Erklärung */}
             <ScrollReveal>
             <Card className="mb-6">
               <CardContent className="pt-6 space-y-4">
-                <h2 className="font-medium text-lg mb-3">12. Änderungen dieser Erklärung</h2>
-                <div className="text-muted-foreground">
+                <h2 className="font-medium text-lg mb-3">13. Änderungen dieser Datenschutzerklärung</h2>
+                <div className="text-muted-foreground space-y-3">
                   <p>
-                    Wir behalten uns vor, diese Datenschutzerklärung bei Änderungen unserer Leistungen oder rechtlichen Vorgaben anzupassen. Es gilt jeweils die zum Zeitpunkt Ihres Besuchs abrufbare Version.
+                    Wir behalten uns vor, diese Datenschutzerklärung bei Änderungen unserer Leistungen, technischen Gegebenheiten oder rechtlichen Vorgaben anzupassen. Es gilt jeweils die zum Zeitpunkt Ihres Besuchs auf dieser Seite abrufbare Version.
+                  </p>
+                  <p>
+                    Letzte Aktualisierung: 01. März 2026
                   </p>
                 </div>
               </CardContent>

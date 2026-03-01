@@ -511,7 +511,13 @@ export const ROUTES: Record<string, RouteConfig> = {
     structuredData: [breadcrumb([{ name: "Startseite", url: "/" }, { name: "Datenschutz", url: "/datenschutz" }])],
     preRenderHtml: wrapPage(`
       <h1 style="font-size:2.2rem;font-weight:300;margin-bottom:1rem">Datenschutzerklärung</h1>
-      <p style="font-family:Inter,sans-serif;font-size:0.95rem;color:#5a4a54">Informationen zur Verarbeitung Ihrer personenbezogenen Daten gemäß DSGVO. Verantwortlich: Elena Hartstein, Entrance in Harmony, Höhfeld 5, 57299 Burbach.</p>
+      <p style="font-family:Inter,sans-serif;font-size:0.95rem;color:#5a4a54">Informationen zur Verarbeitung Ihrer personenbezogenen Daten gemäß DSGVO. Verantwortlich: Elena Hartstein, Entrance in Harmony, Höhfeld 5, 57299 Burbach. Stand: 01. März 2026.</p>
+      <h2 style="font-size:1.3rem;font-weight:400;margin:1.5rem 0 0.5rem">Hosting und Infrastruktur</h2>
+      <p style="font-family:Inter,sans-serif;font-size:0.9rem;color:#5a4a54">Hosting über Replit, Inc. (USA). Auftragsverarbeitungsvertrag (DPA) gemäß Art. 28 DSGVO abgeschlossen. Datenübermittlung auf Basis von SCC und EU-US Data Privacy Framework.</p>
+      <h2 style="font-size:1.3rem;font-weight:400;margin:1.5rem 0 0.5rem">Google Fonts</h2>
+      <p style="font-family:Inter,sans-serif;font-size:0.9rem;color:#5a4a54">Externe Einbindung von Google Fonts (Cormorant Garamond, Inter, Alex Brush). Dabei wird Ihre IP-Adresse an Google übermittelt.</p>
+      <h2 style="font-size:1.3rem;font-weight:400;margin:1.5rem 0 0.5rem">Zahlungsdienstleister</h2>
+      <p style="font-family:Inter,sans-serif;font-size:0.9rem;color:#5a4a54">Stripe Payments Europe Ltd. (Dublin, Irland) und PayPal (Europe) S.à r.l. et Cie (Luxemburg). Datenübermittlung in die USA auf Basis von DPF/SCC.</p>
     `)
   },
 
