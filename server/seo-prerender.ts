@@ -214,7 +214,7 @@ const gutscheineFAQs = [
 export const ROUTES: Record<string, RouteConfig> = {
   "/": {
     title: "Kosmetikstudio Burbach bei Siegen | Entrance in Harmony",
-    description: "Kosmetikstudio in Burbach bei Siegen. Gesichtsbehandlungen, Laser-Hautverjüngung & BB Glow – sichtbare Ergebnisse ab der 1. Sitzung. Jetzt Termin buchen!",
+    description: "Professionelles Kosmetikstudio in Burbach. Akne Behandlung, Laser, Microneedling und Faltenreduktion für Burbach und Umgebung. Jetzt beraten lassen.",
     ogImage: OG_IMAGE,
     structuredData: [localBusinessSchema, breadcrumb([{ name: "Startseite", url: "/" }])],
     preRenderHtml: wrapPage(`

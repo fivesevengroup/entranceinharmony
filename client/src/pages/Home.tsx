@@ -106,7 +106,7 @@ export default function Home() {
     <div className="min-h-screen flex flex-col">
       <SEOHead
         title="Entrance in Harmony – Kosmetikstudio Burbach | Gesichtsbehandlungen & Laser im Siegerland"
-        description="Professionelles Kosmetikstudio in Burbach – Ihr Beauty-Studio im Siegerland. Gesichtsbehandlungen, Red Touch Pro Laserbehandlungen, BB Glow & Microneedling. Für Kunden aus Siegen, Haiger, Dillenburg, Kreuztal, Betzdorf & Umgebung."
+        description="Professionelles Kosmetikstudio in Burbach. Akne Behandlung, Laser, Microneedling und Faltenreduktion für Burbach und Umgebung. Jetzt beraten lassen."
         path="/"
         structuredData={localBusinessSchema}
       />
